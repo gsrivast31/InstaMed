@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="IMActivity" representedClassName="IMActivity" parentEntity="IMEvent" syncable="YES">
+        <attribute name="minutes" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="IMBaseObject" representedClassName="IMBaseObject" isAbstract="YES" syncable="YES">
+        <attribute name="createdTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedTimeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="IMDisease" representedClassName="IMDisease" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IMUser" inverseName="diseases" inverseEntity="IMUser" syncable="YES"/>
+    </entity>
+    <entity name="IMEvent" representedClassName="IMEvent" isAbstract="YES" parentEntity="IMBaseObject" syncable="YES">
+        <attribute name="externalGUID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="externalSource" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filterType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sectionIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IMTag" inverseName="events" inverseEntity="IMTag" syncable="YES"/>
+    </entity>
+    <entity name="IMImage" representedClassName="IMImage" syncable="YES">
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="report" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IMReport" inverseName="images" inverseEntity="IMReport" syncable="YES"/>
+    </entity>
+    <entity name="IMMeal" representedClassName="IMMeal" parentEntity="IMEvent" syncable="YES">
+        <attribute name="grams" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="IMMedicine" representedClassName="IMMedicine" parentEntity="IMEvent" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="IMNote" representedClassName="IMNote" parentEntity="IMEvent" syncable="YES"/>
+    <entity name="IMReading" representedClassName="IMReading" parentEntity="IMEvent" syncable="YES">
+        <attribute name="mgValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mmoValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="IMReminder" representedClassName="IMReminder" parentEntity="IMBaseObject" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="days" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trigger" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="IMReminderRule" representedClassName="IMReminderRule" parentEntity="IMBaseObject" syncable="YES">
+        <attribute name="intervalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="intervalType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="predicate" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="IMReport" representedClassName="IMReport" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="doctorName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IMImage" inverseName="report" inverseEntity="IMImage" syncable="YES"/>
+    </entity>
+    <entity name="IMTag" representedClassName="IMTag" parentEntity="IMBaseObject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameLC" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IMEvent" inverseName="tags" inverseEntity="IMEvent" syncable="YES"/>
+    </entity>
+    <entity name="IMUser" representedClassName="IMUser" syncable="YES">
+        <attribute name="bloodgroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dob" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePhoto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="relationship" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trackingDiabetes" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="trackingHyperTension" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="diseases" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="IMDisease" inverseName="user" inverseEntity="IMDisease" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="IMActivity" positionX="108" positionY="81" width="128" height="58"/>
+        <element name="IMBaseObject" positionX="90" positionY="63" width="128" height="88"/>
+        <element name="IMDisease" positionX="207" positionY="-27" width="128" height="73"/>
+        <element name="IMEvent" positionX="99" positionY="72" width="128" height="208"/>
+        <element name="IMMeal" positionX="117" positionY="144" width="128" height="73"/>
+        <element name="IMMedicine" positionX="126" positionY="153" width="128" height="73"/>
+        <element name="IMNote" positionX="72" positionY="99" width="128" height="45"/>
+        <element name="IMReading" positionX="81" positionY="108" width="128" height="73"/>
+        <element name="IMReminder" positionX="90" positionY="117" width="128" height="193"/>
+        <element name="IMReminderRule" positionX="99" positionY="144" width="128" height="103"/>
+        <element name="IMReport" positionX="72" positionY="117" width="128" height="118"/>
+        <element name="IMTag" positionX="108" positionY="153" width="128" height="88"/>
+        <element name="IMUser" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="IMImage" positionX="81" positionY="126" width="128" height="73"/>
+    </elements>
+</model>

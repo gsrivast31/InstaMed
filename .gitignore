@@ -1,0 +1,5 @@
+*.pbxuser
+project.xcworkspace
+xcuserdata
+*.xccheckout
+Pods
