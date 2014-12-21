@@ -11,6 +11,9 @@
 @interface IMDayRecordTableViewCell : UITableViewCell
 
 + (CGFloat)heightForEntry;
-- (void)configureCellForEntry:(NSManagedObject*)object hasTop:(BOOL)top hasBottom:(BOOL)bottom withDate:(NSDate*)date withAlpha:(CGFloat)alpha;
+- (void)configureCellForEntry:(NSManagedObject*)object hasTop:(BOOL)top hasBottom:(BOOL)bottom withDate:(NSDate*)date withAlpha:(CGFloat)alpha withMetadata:(NSDictionary*)metadata withImage:(UIImage*)image;
+
+// Helpers
++ (CGFloat)additionalHeightWithMetaData:(NSDictionary *)data width:(CGFloat)width;
 
 @end

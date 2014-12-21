@@ -23,6 +23,7 @@
 #import "IMEntryMedicineInputViewController.h"
 #import "IMEntryReadingInputViewController.h"
 #import "IMEntryNoteInputViewController.h"
+#import "IMMediaController.h"
 
 @interface IMDayRecordTableViewController () <NSFetchedResultsControllerDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 {
@@ -356,27 +357,23 @@
             hasTop = hasBottom = NO;
         }
     
+        CGFloat alpha = 1.0f;
         if (dimCellContents) {
-            [cell configureCellForEntry:object hasTop:hasTop hasBottom:hasBottom withDate:date withAlpha:0.35f];
-        } else {
-            [cell configureCellForEntry:object hasTop:hasTop hasBottom:hasBottom withDate:date withAlpha:1.0f];
+            alpha = 0.35f;
         }
         
-        /*NSDictionary *metadata = [self metaDataForTableView:aTableView cellAtIndexPath:indexPath];
-        [cell setMetaData:metadata];
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:kShowInlineImages] && metadata[@"photoPath"])
-        {
+        NSDictionary *metadata = [self metaDataForTableView:tableView cellAtIndexPath:indexPath];
+
+        if([[NSUserDefaults standardUserDefaults] boolForKey:kShowInlineImages] && metadata[@"photoPath"]) {
             [[IMMediaController sharedInstance] imageWithFilenameAsync:metadata[@"photoPath"] success:^(UIImage *image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [cell setPhotoImage:image];
+                    [cell configureCellForEntry:object hasTop:hasTop hasBottom:hasBottom withDate:date withAlpha:alpha withMetadata:metadata withImage:image];
+
                 });
             } failure:nil];
-        }
-        else
-        {
-            [cell setPhotoImage:nil];
-        }*/
+        } else {
+            [cell configureCellForEntry:object hasTop:hasTop hasBottom:hasBottom withDate:date withAlpha:alpha withMetadata:metadata withImage:nil];
+        }        
     }
     /*else if([[aCell class] isEqual:[IMTimelineHeaderViewCell class]])
     {
@@ -441,7 +438,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [IMDayRecordTableViewCell heightForEntry];
+    CGFloat baseHeight = 60.0f;
+    CGFloat height = baseHeight + [IMDayRecordTableViewCell additionalHeightWithMetaData:[self metaDataForTableView:tableView cellAtIndexPath:indexPath] width:self.tableView.bounds.size.width];
+    return height;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
