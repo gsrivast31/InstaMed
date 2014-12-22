@@ -38,29 +38,20 @@
 
 - (id)init {
     self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        __weak typeof(self) weakSelf = self;
-        
-        self.title = NSLocalizedString(@"Journal", @"The title for the applications index screen - which is a physical journal");
-        
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMMM yyyy"];
-        
-        // Notifications
-        settingsChangeNotifier = [[NSNotificationCenter defaultCenter] addObserverForName:kSettingsChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf reloadViewData:note];
-        }];
-        
-        // Menu items
-        UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconAdd"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(addEvent:)];
-        [self.navigationItem setRightBarButtonItem:addBarButtonItem animated:NO];
-        
-        UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconListMenu"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(showSideMenu:)];
-        [self.navigationItem setLeftBarButtonItem:menuBarButtonItem animated:NO];
-        
-    }
     return self;
+}
+
+- (void)awakeFromNib {
+    __weak typeof(self) weakSelf = self;
+
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM yyyy"];
+    
+    // Notifications
+    settingsChangeNotifier = [[NSNotificationCenter defaultCenter] addObserverForName:kSettingsChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf reloadViewData:note];
+    }];
 }
 
 - (void)dealloc {
@@ -70,21 +61,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    __weak typeof(self) weakSelf = self;
-    
     self.title = NSLocalizedString(@"Journal", @"The title for the applications index screen - which is a physical journal");
-    
-    dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMMM yyyy"];
-    
-    // Notifications
-    settingsChangeNotifier = [[NSNotificationCenter defaultCenter] addObserverForName:kSettingsChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf reloadViewData:note];
-    }];
     
     // Menu items
     UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconAdd"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(addEvent:)];
+
     [self.navigationItem setRightBarButtonItem:addBarButtonItem animated:NO];
     
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconListMenu"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(showSideMenu:)];
@@ -224,6 +205,10 @@
 }
 
 #pragma mark - UI
+- (void)changeProfile:(id)sender {
+    
+}
+
 - (void)addEvent:(id)sender{
     UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     IMEntryListTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"entryListTableViewController"];
