@@ -45,23 +45,6 @@
 
 @implementation IMDayRecordTableViewCell
 
-+ (CGFloat)heightForEntry {
-/*    const CGFloat topMargin = 35.0f;
-    const CGFloat bottomMargin = 80.0f;
-    const CGFloat minHeight = 60.0f;
-    
-    if () {
-        <#statements#>
-    }
-    UIFont *font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
-    
-    CGRect boundingBox = [entry.body boundingRectWithSize:CGSizeMake(202, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName: font} context:nil];
-    
-    return MAX(minHeight, CGRectGetHeight(boundingBox) + topMargin + bottomMargin);
- */
-    return 60.0f;
-}
-
 - (void)configureCellForEntry:(NSManagedObject*)object hasTop:(BOOL)top hasBottom:(BOOL)bottom withDate:(NSDate*)date withAlpha:(CGFloat)alpha withMetadata:(NSDictionary*)metadata withImage:(UIImage*)image {
     
     NSNumberFormatter *valueFormatter = [IMHelper standardNumberFormatter];
@@ -130,18 +113,8 @@
     
     self.recordTimeLabel.text = formattedTimestamp;
 
-    CGFloat topAlpha = 0.5f;
-    CGFloat bottomAlpha = 0.5f;
-
-    if (top == NO) {
-        topAlpha = 0.0f;
-    }
-    if (bottom == NO) {
-        bottomAlpha = 0.0f;
-    }
-    
-    self.topLineView.alpha = topAlpha;
-    self.bottomLineView.alpha = bottomAlpha;
+    self.topLineView.hidden = !top;
+    self.bottomLineView.hidden = !bottom;
     
     [self setPhotoImage:image];
     [self setMetaData:metadata];
@@ -171,19 +144,19 @@
             } else {
                 self.textViewBottomConstraint.constant = 190;//20 + kInlinePhotoHeight;
             }
-            self.noteTextView.alpha = 1.0f;
+            self.noteTextView.hidden = NO;
         } else {
-            self.noteTextView.alpha = 0.0f;
+            self.noteTextView.hidden = YES;
         }
     }
     else
-        self.noteTextView.alpha = 0.0f;
+        self.noteTextView.hidden = YES;
     
 }
 
 - (void)setPhotoImage:(UIImage *)image {
     if(!image) {
-        self.photoImageView.alpha = 0.0f;
+        self.photoImageView.hidden = YES;
         return;
     }
     
@@ -193,6 +166,7 @@
         self.photoImageView.layer.cornerRadius = 4;
     }
     self.photoImageView.image = image;
+    self.photoImageView.hidden = NO;
 }
 
 #pragma mark - Helpers

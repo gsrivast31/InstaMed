@@ -55,8 +55,7 @@
         
         self.relationship.text = self.entry.relationship;
         
-        if (self.entry.profilePhoto)
-            self.profilePhoto.imageView.image = [UIImage imageWithData:self.entry.profilePhoto];
+        self.pickedImage = [UIImage imageWithData:self.entry.profilePhoto];
         
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.entry.dob];
         self.pickedDate = date;
@@ -68,8 +67,10 @@
     } else {
         self.trackDiabetes = self.trackHyperTension = false;
         self.title = @"Add User";
+        self.pickedImage = nil;
     }
-        
+    
+    self.profilePhoto.layer.masksToBounds = YES;
     self.profilePhoto.layer.cornerRadius = CGRectGetWidth(self.profilePhoto.frame) / 2.0f;
     
     UIDatePicker* datePicker = [[UIDatePicker alloc] init];
@@ -101,7 +102,11 @@
     _pickedImage = pickedImage;
     
     if (pickedImage == nil) {
-        [self.profilePhoto setImage:[UIImage imageNamed:@"icn_male"] forState:UIControlStateNormal];
+        if (self.gender.selectedSegmentIndex == 1) {
+            [self.profilePhoto setImage:[UIImage imageNamed:@"icn_female"] forState:UIControlStateNormal];
+        } else {
+            [self.profilePhoto setImage:[UIImage imageNamed:@"icn_male"] forState:UIControlStateNormal];
+        }
     } else {
         [self.profilePhoto setImage:pickedImage forState:UIControlStateNormal];
     }
@@ -161,9 +166,9 @@
     entry.email = self.email.text;
     
     if (self.gender.selectedSegmentIndex == 1) {
-        entry.gender = IMUserMale;
-    } else if (self.gender.selectedSegmentIndex == 2) {
         entry.gender = IMUserFemale;
+    } else if (self.gender.selectedSegmentIndex == 2) {
+        entry.gender = IMUserOther;
     } else {
         entry.gender = IMUserMale;
     }

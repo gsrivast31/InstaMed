@@ -19,7 +19,7 @@
 
 - (void) configureCellForEntry:(IMUser *)entry {
     
-    if (entry.relationship) {
+    if (entry.relationship && ![entry.relationship isEqualToString:@""]) {
         self.username.text = entry.relationship;
     } else {
         self.username.text = entry.name;
@@ -29,12 +29,13 @@
         self.profilePhoto.image = [UIImage imageWithData:entry.profilePhoto];
     } else {
         if (entry.gender == IMUserFemale) {
-            self.profilePhoto.image = [UIImage imageNamed:@"icn_male"];
+            self.profilePhoto.image = [UIImage imageNamed:@"icn_female"];
         } else {
             self.profilePhoto.image = [UIImage imageNamed:@"icn_male"];
         }
     }
     
+    self.profilePhoto.layer.masksToBounds = YES;
     self.profilePhoto.layer.cornerRadius = CGRectGetWidth(self.profilePhoto.frame) / 2.0f;
 }
 

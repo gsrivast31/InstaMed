@@ -10,6 +10,6 @@
 
 @interface IMJournalTableViewCell : UITableViewCell
 
-- (void)configureCell:(NSDictionary*)stats;
+- (void)configureCellForMonth:(NSString*)month withStats:(NSDictionary*)stats;
 
 @end

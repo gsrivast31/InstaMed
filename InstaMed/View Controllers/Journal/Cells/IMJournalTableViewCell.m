@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avgBloodGlucoseImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *totalGramsImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *totalMinutesImageView;
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @end
 
@@ -125,7 +126,7 @@
 
 }
 
-- (void)configureCell:(NSDictionary*)stats {
+- (void)configureCellForMonth:(NSString*)month withStats:(NSDictionary*)stats {
     /*self.glucoseDeviationView.backgroundColor = [UIColor clearColor];
     self.avgBloodGlucoseView.backgroundColor = [UIColor clearColor];
     self.lowestGlucoseView.backgroundColor = [UIColor clearColor];
@@ -155,7 +156,8 @@
     [self setActivityValue:totalMinutes];
     [self setLowGlucoseValue:[NSNumber numberWithDouble:lowGlucose] withFormatter:glucoseFormatter];
     [self setHighGlucoseValue:[NSNumber numberWithDouble:highGlucose] withFormatter:glucoseFormatter];
-    //cell.monthLabel.text = key;
+    
+    self.monthLabel.text = month;
 }
 
 @end

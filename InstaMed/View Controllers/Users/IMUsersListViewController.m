@@ -23,10 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addUser)];
-    
-    [self.fetchedResultsController performFetch:nil];
-    
     if(!self.navigationItem.leftBarButtonItem) {
         UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [backButton setImage:[[UIImage imageNamed:@"NavBarIconBack.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -38,6 +34,8 @@
         UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         [self.navigationItem setLeftBarButtonItem:backBarButtonItem];
     }
+    
+    [self.fetchedResultsController performFetch:nil];
 }
 
 - (void)dismissSelf:(id)sender {
@@ -46,11 +44,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)addUser {
-    
-//    [self showViewController:  sender:<#(id)#>
 }
 
 #pragma mark - Table view data source

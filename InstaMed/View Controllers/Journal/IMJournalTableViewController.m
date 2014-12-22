@@ -278,7 +278,7 @@
         NSString *key = [[readings allKeys] objectAtIndex:indexPath.row];
         NSDictionary *stats = [readings objectForKey:key];
         
-        [cell configureCell:stats];
+        [cell configureCellForMonth:key withStats:stats];
         
         return cell;
     } else {
@@ -312,7 +312,7 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row%2 == 0) {
-        return 480.0f;
+        return 500.0f;
     }
     return 20.0f;
 }
