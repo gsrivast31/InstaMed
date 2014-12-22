@@ -36,6 +36,12 @@
     }
     
     [self.fetchedResultsController performFetch:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kCurrentProfileChangedNotification object:nil];
+}
+
+- (void)reloadData {
+    [self.tableView reloadData];
 }
 
 - (void)dismissSelf:(id)sender {
@@ -44,6 +50,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCurrentProfileChangedNotification object:nil];
 }
 
 #pragma mark - Table view data source
@@ -74,7 +84,12 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][indexPath.section];
+    if ([sectionInfo numberOfObjects] > 1) {
+        return UITableViewCellEditingStyleDelete;
+    } else {
+        return UITableViewCellEditingStyleNone;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

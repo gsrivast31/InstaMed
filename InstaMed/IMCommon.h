@@ -77,10 +77,10 @@ NS_ENUM(int16_t, IMEventType) {
 static NSString * const kErrorDomain = @"com.memoir.instamed";
 
 // Notifications
-static NSString * const kRemindersUpdatedNotification = @"com.uglyapps.reminders.updated";
-static NSString * const kSettingsChangedNotification = @"com.uglyapps.settings.change";
-static NSString * const kDropboxLinkNotification = @"com.uglyapps.dropbox.linked";
-
+static NSString * const kRemindersUpdatedNotification = @"com.memoir.reminders.updated";
+static NSString * const kSettingsChangedNotification = @"com.memoir.settings.change";
+static NSString * const kDropboxLinkNotification = @"com.memoir.dropbox.linked";
+static NSString * const kCurrentProfileChangedNotification = @"com.memoir.currentprofile.change";
 // NSUserDefault keys
 static NSString * const kHasRunBeforeKey = @"kHasRunBefore";
 static NSString * const kUseSmartInputKey = @"kUseSmartInputKey";
@@ -100,5 +100,7 @@ static NSString * const kBGTrackingUnitKey = @"kBGTrackingUnit";
 static NSString * const kTargetBGKey = @"kTargetBGKey";
 static NSString * const kCarbohydrateRatioKey = @"kCarbohydrateRatioKey";
 static NSString * const kCorrectiveFactorKey = @"kCorrectiveFactorKey";
+
+static NSString * const kCurrentProfileKey = @"kCurrentProfileKey";
 
 #endif

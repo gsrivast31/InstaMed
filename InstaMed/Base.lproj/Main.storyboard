@@ -45,13 +45,20 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9c3-28-A3G">
-                                            <rect key="frame" x="88" y="20" width="471" height="21"/>
+                                            <rect key="frame" x="88" y="20" width="412" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaa-2C-lTv">
+                                            <rect key="frame" x="510" y="15" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchTapped:" destination="INt-JD-P9y" eventType="touchUpInside" id="s7i-O4-1aQ"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="eaa-2C-lTv" secondAttribute="centerY" id="0xv-Lg-Mhw"/>
                                         <constraint firstItem="aV9-VM-H4E" firstAttribute="leading" secondItem="gbd-fl-XXb" secondAttribute="leadingMargin" constant="20" id="4Gy-Fk-bIK"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="aV9-VM-H4E" secondAttribute="bottom" constant="2" id="EZo-wI-rQY"/>
                                         <constraint firstAttribute="centerX" secondItem="9c3-28-A3G" secondAttribute="centerX" id="MEg-FM-DKz"/>
@@ -59,6 +66,8 @@
                                         <constraint firstItem="aV9-VM-H4E" firstAttribute="top" secondItem="gbd-fl-XXb" secondAttribute="topMargin" constant="2" id="QBx-Cn-Nal"/>
                                         <constraint firstItem="9c3-28-A3G" firstAttribute="leading" secondItem="aV9-VM-H4E" secondAttribute="trailing" constant="20" id="YTa-B4-dRv"/>
                                         <constraint firstAttribute="centerY" secondItem="9c3-28-A3G" secondAttribute="centerY" id="a4X-dM-Fah"/>
+                                        <constraint firstItem="eaa-2C-lTv" firstAttribute="leading" secondItem="9c3-28-A3G" secondAttribute="trailing" constant="10" id="dLi-ia-8T6"/>
+                                        <constraint firstItem="eaa-2C-lTv" firstAttribute="trailing" secondItem="gbd-fl-XXb" secondAttribute="trailingMargin" id="feL-30-nXy"/>
                                         <constraint firstItem="9c3-28-A3G" firstAttribute="centerX" secondItem="aV9-VM-H4E" secondAttribute="centerX" id="nKv-L9-MkE"/>
                                         <constraint firstAttribute="centerY" secondItem="aV9-VM-H4E" secondAttribute="centerY" id="xBf-lK-tPm"/>
                                         <constraint firstAttribute="centerX" secondItem="aV9-VM-H4E" secondAttribute="centerX" id="y9q-BM-wZY"/>
@@ -69,6 +78,7 @@
                                             <exclude reference="QBx-Cn-Nal"/>
                                             <exclude reference="y9q-BM-wZY"/>
                                             <exclude reference="MEg-FM-DKz"/>
+                                            <exclude reference="O2u-5o-566"/>
                                             <exclude reference="nKv-L9-MkE"/>
                                         </mask>
                                     </variation>
@@ -76,6 +86,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="profilePhoto" destination="aV9-VM-H4E" id="dRl-0d-4cm"/>
+                                    <outlet property="selectSwitch" destination="eaa-2C-lTv" id="RgI-zS-z7n"/>
                                     <outlet property="username" destination="9c3-28-A3G" id="sIZ-nt-bUp"/>
                                     <segue destination="SR8-lI-0g2" kind="presentation" identifier="edit" id="Fnj-w2-9jS"/>
                                 </connections>
@@ -1120,7 +1131,7 @@
                                             <constraint firstAttribute="height" constant="80" id="3Ht-RM-fbU"/>
                                             <constraint firstAttribute="width" constant="80" id="tmU-DJ-C8n"/>
                                         </constraints>
-                                        <state key="normal" image="641676B5-8851-4929-A194-09405E83CEDC">
+                                        <state key="normal" image="EC1FBCA3-722F-4949-83B1-BC11F1B684F5">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1528,7 +1539,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="641676B5-8851-4929-A194-09405E83CEDC" width="40" height="40">
+        <image name="AddEntryModalActivityIcon" width="26" height="42"/>
+        <image name="AddEntryModalMealIcon" width="26" height="42"/>
+        <image name="EC1FBCA3-722F-4949-83B1-BC11F1B684F5" width="40" height="40">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -1705,8 +1718,6 @@ J0YnVSdZJ2AnaCd1J3onfCd+J4MniyeOJ5MnmyeeJ7Ansye4AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAA
 AAAAAAAAJ7o
 </mutableData>
         </image>
-        <image name="AddEntryModalActivityIcon" width="26" height="42"/>
-        <image name="AddEntryModalMealIcon" width="26" height="42"/>
         <image name="JournalIconBloodHigh" width="15" height="15"/>
         <image name="JournalIconBloodLow" width="15" height="15"/>
         <image name="JournalIconChevron" width="13" height="20"/>

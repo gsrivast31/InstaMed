@@ -190,9 +190,9 @@
     self.entry.email = self.email.text;
     
     if (self.gender.selectedSegmentIndex == 1) {
-        self.entry.gender = IMUserMale;
-    } else if (self.gender.selectedSegmentIndex == 2) {
         self.entry.gender = IMUserFemale;
+    } else if (self.gender.selectedSegmentIndex == 2) {
+        self.entry.gender = IMUserOther;
     } else {
         self.entry.gender = IMUserMale;
     }

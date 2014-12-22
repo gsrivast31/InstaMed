@@ -167,8 +167,48 @@
                                                               kFilterSearchResultsKey: @YES,
                                                               kAutomaticallyGeotagEvents: @YES }];
     
+    [self setDefaultProfile];
+}
+
+- (void)setDefaultProfile {
+/*    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
+    if(moc)
+    {
+        [moc performBlockAndWait:^{
+            
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMUser" inManagedObjectContext:moc];
+            [request setEntity:entity];
+            [request setResultType:NSManagedObjectResultType];
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"relationship == Self", ];
+            [request setPredicate:predicate];
+            
+            // Execute the fetch.
+            NSError *error = nil;
+            NSMutableArray *results = [NSMutableArray array];
+            NSArray *objects = [moc executeFetchRequest:request error:&error];
+            if (objects != nil && [objects count] > 0)
+            {
+                for(NSDictionary *object in objects)
+                {
+                    if([object valueForKey:@"value"])
+                    {
+                        [results addObject:[object valueForKey:@"value"]];
+                    }
+                }
+            }
+            
+            if([results count])
+            {
+                NSArray *sorted = [NSArray arrayWithArray:results];
+                returnArray = [sorted sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+            }
+        }];
+    }*/
     
 }
+
 - (void)setupStyling
 {
     NSDictionary *attributes = nil;
