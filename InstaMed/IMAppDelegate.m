@@ -16,6 +16,7 @@
 #import "IMHelper.h"
 #import "IMAppDelegate.h"
 #import "IMJournalViewController.h"
+#import "IMJournalTableViewController.h"
 #import "IMSideMenuViewController.h"
 
 #import "IMReminderController.h"
@@ -80,7 +81,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.tintColor = kDefaultTintColor;
     
-    IMJournalViewController *journalViewController = [[IMJournalViewController alloc] init];
+    //IMJournalViewController *journalViewController = [[IMJournalViewController alloc] init];
+    
+    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    IMJournalTableViewController *journalViewController = [storyBoard instantiateViewControllerWithIdentifier:@"journalTableViewController"];
+    
     IMNavigationController *navigationController = [[IMNavigationController alloc] initWithRootViewController:journalViewController];
     
     REFrostedViewController *viewController = [[REFrostedViewController alloc] initWithContentViewController:navigationController menuViewController:[[IMSideMenuViewController alloc] init]];
