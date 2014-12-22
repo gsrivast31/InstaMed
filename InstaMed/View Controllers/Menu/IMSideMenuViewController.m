@@ -14,7 +14,6 @@
 #import "IMSettingsViewController.h"
 #import "IMRemindersViewController.h"
 #import "IMJournalViewController.h"
-#import "IMTimelineViewController.h"
 #import "IMExportViewController.h"
 #import "IMTagsViewController.h"
 #import "IMUsersListViewController.h"

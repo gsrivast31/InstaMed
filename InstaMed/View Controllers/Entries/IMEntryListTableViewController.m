@@ -7,13 +7,6 @@
 //
 
 #import "IMEntryListTableViewController.h"
-#import "IMInputBaseViewController.h"
-#import "IMMealInputViewController.h"
-#import "IMActivityInputViewController.h"
-#import "IMBGInputViewController.h"
-#import "IMNoteInputViewController.h"
-#import "IMMedicineInputViewController.h"
-
 #import "IMEntryActivityInputViewController.h"
 #import "IMEntryMedicineInputViewController.h"
 #import "IMEntryMealInputViewController.h"

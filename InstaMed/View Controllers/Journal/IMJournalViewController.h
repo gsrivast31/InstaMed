@@ -10,9 +10,8 @@
 #import "OrderedDictionary.h"
 
 #import "IMBaseViewController.h"
-#import "IMAddEntryModalView.h"
 
-@interface IMJournalViewController : IMBaseTableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, IMTooltipViewControllerDelegate, IMAddEntryModalDelegate>
+@interface IMJournalViewController : IMBaseTableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, IMTooltipViewControllerDelegate >
 
 // Logic
 - (OrderedDictionary *)fetchReadingData;

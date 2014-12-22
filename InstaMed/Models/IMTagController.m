@@ -88,7 +88,7 @@
 }
 - (NSArray *)fetchAllTags
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     NSMutableArray *tags = [NSMutableArray array];
     if(moc)
     {
@@ -116,7 +116,7 @@
 }
 - (NSArray *)fetchExistingTagsWithStrings:(NSArray *)strings
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -140,7 +140,7 @@
 }
 - (void)assignTags:(NSArray *)tags toEvent:(IMEvent *)event
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         // Remove any existing tags from this event

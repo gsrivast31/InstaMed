@@ -22,7 +22,6 @@
 #import "IMReminderController.h"
 #import "IMLocationController.h"
 #import "IMEventController.h"
-#import "IMSyncController.h"
 
 @interface IMAppDelegate ()
 
@@ -73,7 +72,7 @@
     [self setupStyling];
     
     // Wake up singletons
-    [IMCoreDataController sharedInstance];
+    [IMCoreDataStack defaultStack];
     [IMReminderController sharedInstance];
     [self setBackupController:[[IMBackupController alloc] init]];
     
@@ -110,7 +109,6 @@
             [strongSelf setupDropbox];
             
             // Call various singletons
-            [IMSyncController sharedInstance];
             [IMLocationController sharedInstance];
         });
     });
@@ -126,7 +124,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [[IMCoreDataController sharedInstance] saveContext];
+    [[IMCoreDataStack defaultStack] saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -193,13 +191,9 @@
                                                               kMaxHealthyBGKey: @7,
                                                               
                                                               kUseSmartInputKey: @YES,
-                                                              kUseSoundsKey: @YES,
-                                                              kShowInlineImages: @YES,
+                                                                kShowInlineImages: @YES,
                                                               kFilterSearchResultsKey: @YES,
-                                                              kAutomaticallyGeotagEvents: @YES,
-                                                              
-                                                              kAutomaticBackupFrequencyKey: @(BackupOnceADay)
-                                                              }];
+                                                              kAutomaticallyGeotagEvents: @YES }];
     
     
 }

@@ -89,7 +89,7 @@
 {
     [self.view endEditing:YES];
     
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         if(message && [message length] && location && locationName)

@@ -132,7 +132,7 @@
     if((type == kReminderTypeDate && message && [message length] && date) ||
        (type == kReminderTypeRepeating && message && [message length] && date && days))
     {
-        NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+        NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
         if(moc)
         {
             NSDate *notificationDate = [[IMReminderController sharedInstance] generateNotificationDateWithDate:date];

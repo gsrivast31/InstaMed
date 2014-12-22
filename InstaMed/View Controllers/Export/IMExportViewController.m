@@ -350,7 +350,7 @@
 #pragma mark - Logic
 - (OrderedDictionary *)fetchEvents
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     
     if(moc)
     {
@@ -427,7 +427,7 @@
 {
     __block NSData *returnData = nil;
     
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] newPrivateContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] newPrivateContext];
     if(moc)
     {
         [moc performBlockAndWait:^{
@@ -523,7 +523,7 @@
 {
     __block NSData *returnData = nil;
     
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] newPrivateContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] newPrivateContext];
     if(moc)
     {
         [moc performBlockAndWait:^{

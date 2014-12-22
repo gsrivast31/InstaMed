@@ -7,7 +7,6 @@
 //
 
 #import "IMEventNotesTextView.h"
-#import "IMInputBaseViewController.h"
 
 @implementation IMEventNotesTextView
 

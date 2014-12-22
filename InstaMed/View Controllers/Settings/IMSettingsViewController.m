@@ -14,20 +14,13 @@
 #import "IMSettingsGlucoseViewController.h"
 #import "IMSettingsTimelineViewController.h"
 #import "IMSettingsDropboxViewController.h"
-#import "IMSettingsAnalytikViewController.h"
-#import "IMSettingsBackupViewController.h"
 #import "IMSettingsLicensesViewController.h"
-
-#import "IMCreditsTooltipView.h"
 
 #import "IMSettingsViewCell.h"
 #import "IMHelper.h"
 #import "IMReading.h"
 
 @interface IMSettingsViewController ()
-
-// UI
-- (void)toggleSounds:(UISwitch *)sender;
 
 @end
 
@@ -66,12 +59,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kSettingsChangedNotification object:nil];
 }
 
-#pragma mark - UI
-- (void)toggleSounds:(UISwitch *)sender
-{
-    [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:kUseSoundsKey];
-}
-
 #pragma mark - UITableViewDataSource methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView
 {
@@ -81,14 +68,14 @@
 {
     if(section == 0)
     {
-        return 4;
+        return 3;
     }
     else if(section == 2)
     {
-        return 4;
+        return 3;
     }
     
-    return 3;
+    return 1;
 }
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
 {
@@ -132,25 +119,15 @@
     {
         if(indexPath.row == 0)
         {
-            cell.textLabel.text = NSLocalizedString(@"Sounds", @"A settings switch to control application sounds");
-            
-            UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
-            [switchControl addTarget:self action:@selector(toggleSounds:) forControlEvents:UIControlEventTouchUpInside];
-            cell.accessoryView = switchControl;
-            
-            [switchControl setOn:[[NSUserDefaults standardUserDefaults] boolForKey:kUseSoundsKey]];
-        }
-        else if(indexPath.row == 1)
-        {
             cell.textLabel.text = NSLocalizedString(@"Timeline settings", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-        else if(indexPath.row == 2)
+        else if(indexPath.row == 1)
         {
             cell.textLabel.text = NSLocalizedString(@"Entry settings", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-        else if(indexPath.row == 3)
+        else if(indexPath.row == 2)
         {
             cell.textLabel.text = NSLocalizedString(@"Glucose settings", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -160,20 +137,8 @@
     {
         if(indexPath.row == 0)
         {
-            cell.imageView.image = [UIImage imageNamed:@"diabetikSmallIcon"];
-            cell.textLabel.text = NSLocalizedString(@"Backup settings", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        else if(indexPath.row == 1)
-        {
             cell.imageView.image = [UIImage imageNamed:@"dropboxSmallIcon"];
             cell.textLabel.text = NSLocalizedString(@"Dropbox settings", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        else if(indexPath.row == 2)
-        {
-            cell.imageView.image = [UIImage imageNamed:@"analytikSmallIcon"];
-            cell.textLabel.text = NSLocalizedString(@"Analytik settings", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
@@ -191,11 +156,6 @@
         }
         else if(indexPath.row == 2)
         {
-            cell.textLabel.text = NSLocalizedString(@"Credits", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        else if(indexPath.row == 3)
-        {
             cell.textLabel.text = NSLocalizedString(@"Licenses", @"An option to view third-party software licenses used throughout the application");
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
@@ -211,17 +171,17 @@
     
     if(indexPath.section == 0)
     {
-        if(indexPath.row == 1)
+        if(indexPath.row == 0)
         {
             IMSettingsTimelineViewController *vc = [[IMSettingsTimelineViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if(indexPath.row == 2)
+        if(indexPath.row == 1)
         {
             IMSettingsEntryViewController *vc = [[IMSettingsEntryViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        else if(indexPath.row == 3)
+        else if(indexPath.row == 2)
         {
             IMSettingsGlucoseViewController *vc = [[IMSettingsGlucoseViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
@@ -229,26 +189,9 @@
     }
     else if(indexPath.section == 1)
     {
-        /*
         if(indexPath.row == 0)
-        {
-            IMSettingsiCloudViewController *vc = [[IMSettingsiCloudViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        */
-        if(indexPath.row == 0)
-        {
-            IMSettingsBackupViewController *vc = [[IMSettingsBackupViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else if(indexPath.row == 1)
         {
             IMSettingsDropboxViewController *vc = [[IMSettingsDropboxViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else if(indexPath.row == 2)
-        {
-            IMSettingsAnalytikViewController *vc = [[IMSettingsAnalytikViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
@@ -264,7 +207,7 @@
                 [mailController setMailComposeDelegate:self];
                 [mailController setModalPresentationStyle:UIModalPresentationFormSheet];
                 [mailController setSubject:@"InstaMed Support"];
-                [mailController setToRecipients:@[@"support@diabetikapp.com"]];
+                [mailController setToRecipients:@[@"gaurav.sri87@gmail.com"]];
                 [mailController setMessageBody:[NSString stringWithFormat:@"%@\n\n", NSLocalizedString(@"I need help with InstaMed! Here's the problem:", @"A default message shown to users when contacting support for help")] isHTML:NO];
                 if(mailController)
                 {
@@ -286,16 +229,6 @@
             [UAAppReviewManager rateApp];
         }
         else if(indexPath.row == 2)
-        {
-            IMAppDelegate *appDelegate = (IMAppDelegate *)[[UIApplication sharedApplication] delegate];
-            UIViewController *targetVC = appDelegate.viewController;
-            
-            IMTooltipViewController *modalView = [[IMTooltipViewController alloc] initWithParentVC:targetVC andDelegate:nil];
-            IMCreditsTooltipView *introductionView = [[IMCreditsTooltipView alloc] initWithFrame:CGRectZero];
-            [modalView setContentView:introductionView];
-            [modalView present];
-        }
-        else if(indexPath.row == 3)
         {
             IMSettingsLicensesViewController *vc = [[IMSettingsLicensesViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];

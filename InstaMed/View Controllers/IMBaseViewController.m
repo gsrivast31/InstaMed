@@ -41,7 +41,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(coreDataDidChange:)
                                                      name:NSManagedObjectContextDidSaveNotification
-                                                   object:[[IMCoreDataController sharedInstance] managedObjectContext]];
+                                                   object:[[IMCoreDataStack defaultStack] managedObjectContext]];
         
         self.automaticallyAdjustsScrollViewInsets = YES;
     }

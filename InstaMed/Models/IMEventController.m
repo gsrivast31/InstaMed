@@ -42,7 +42,7 @@
                                      success:(void (^)(IMMedicine*))successBlock
                                      failure:(void (^)(void))failureBlock
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         [moc performBlock:^{
@@ -277,7 +277,7 @@
 - (NSArray *)fetchKey:(NSString *)key forEventsWithFilterType:(EventFilterType)filterType
 {
     __block NSArray *returnArray = nil;
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         [moc performBlockAndWait:^{

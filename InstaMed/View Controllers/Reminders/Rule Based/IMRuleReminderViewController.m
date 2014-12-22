@@ -129,7 +129,7 @@
             predicateFormat = [predicateFormat stringByAppendingFormat:@" && ANY tags.nameLC = '%@'", [triggerTag lowercaseString]];
         }
         
-        NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+        NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
         if(moc)
         {
             IMReminderRule *newReminderRule = [self reminderRule];

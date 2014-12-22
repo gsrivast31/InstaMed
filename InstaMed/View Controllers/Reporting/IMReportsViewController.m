@@ -185,7 +185,7 @@
 #pragma mark - Logic
 - (void)fetchReportData
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSDate *fetchFromDate = [fromDate dateAtStartOfDay];

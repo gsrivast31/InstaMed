@@ -98,7 +98,7 @@
 - (IMEvent *)saveEvent:(NSError **)error {
     [self.view endEditing:YES];
     
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc) {
         // Convert our input into the right units
         NSNumberFormatter *valueFormatter = [IMHelper glucoseNumberFormatter];

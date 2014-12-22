@@ -9,21 +9,11 @@
 #import "NSDate+Extension.h"
 
 #import "IMJournalViewController.h"
-#import "IMTimelineViewController.h"
 #import "IMJournalMonthViewCell.h"
 #import "IMIntroductionTooltipView.h"
-#import "IMAddEntryModalView.h"
 
-#import "IMBGInputViewController.h"
-#import "IMMealInputViewController.h"
-#import "IMMedicineInputViewController.h"
-#import "IMActivityInputViewController.h"
-#import "IMNoteInputViewController.h"
-#import "IMInputParentViewController.h"
-#import "IMEventInputViewController.h"
 #import "IMEntryListTableViewController.h"
-
-#import "IMEventViewController.h"
+#import "IMEventController.h"
 
 #import "IMEvent.h"
 #import "IMReading.h"
@@ -143,7 +133,7 @@
 #pragma mark - Logic
 - (OrderedDictionary *)fetchReadingData {
     OrderedDictionary *data = [OrderedDictionary dictionary];
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     NSArray *objects = @[];
     NSError *error = nil;
     if(moc) {
@@ -239,11 +229,9 @@
 }
 
 - (void)showRelativeTimeline:(IMShortcutButton *)sender {
-    IMTimelineViewController *vc = [[IMTimelineViewController alloc] initWithRelativeDays:sender.tag];
-    
-    //UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    //IMDayRecordTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"dayRecordTableViewController"];
-    //[vc setRelativeDays:sender.tag];
+    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    IMDayRecordTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"dayRecordTableViewController"];
+    [vc setRelativeDays:sender.tag];
     
     vc.title = [sender titleForState:UIControlStateNormal];
     [self.navigationController pushViewController:vc animated:YES];
@@ -353,27 +341,6 @@
 - (void)didDismissModalView:(IMTooltipViewController *)aModalController {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasSeenStarterTooltip];
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-#pragma mark - IMAddEntryModalDelegate methods
-- (void)addEntryModal:(id)modalView didSelectEntryOption:(NSInteger)buttonIndex {
-    [modalView dismiss];
-    
-    IMEventViewController *vc = [[IMEventViewController alloc] init];
-    IMNavigationController *nvc = [[IMNavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nvc animated:YES completion:nil];
-    
-    /*
-    if(buttonIndex < 5)
-    {
-        IMInputParentViewController *vc = [[IMInputParentViewController alloc] initWithEventType:buttonIndex];
-        if(vc)
-        {
-            IMNavigationController *nvc = [[IMNavigationController alloc] initWithRootViewController:vc];
-            [self presentViewController:nvc animated:YES completion:nil];
-        }
-    }
-    */
 }
 
 #pragma mark - Helpers

@@ -7,7 +7,6 @@
 //
 
 #import "IMEventInputTextField.h"
-#import "IMInputBaseViewController.h"
 
 @implementation IMEventInputTextField
 @end

@@ -84,7 +84,7 @@
 }
 - (NSArray *)fetchAllReminders
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -126,7 +126,7 @@
 }
 - (void)updateRemindersBasedOnCoreDataNotification:(NSNotification *)note
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSDictionary *userInfo = [note userInfo];
@@ -190,7 +190,7 @@
 }
 - (BOOL)deleteReminderWithID:(NSString *)reminderID error:(NSError **)error
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         IMReminder *reminder = [self fetchReminderWithID:reminderID];
@@ -231,7 +231,7 @@
 #pragma mark - Rules
 - (NSArray *)fetchAllReminderRules
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -256,7 +256,7 @@
 {
     if(reminderRule)
     {
-        NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+        NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
         if(moc)
         {
             [moc deleteObject:reminderRule];
@@ -421,7 +421,7 @@
 #pragma mark - Helpers
 - (IMReminder *)fetchReminderWithID:(NSString *)reminderID
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"IMReminder"];

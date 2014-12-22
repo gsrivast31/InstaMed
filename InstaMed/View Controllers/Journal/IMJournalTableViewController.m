@@ -10,7 +10,6 @@
 
 #import "IMEntryListTableViewController.h"
 #import "IMDayRecordTableViewController.h"
-#import "IMEventViewController.h"
 
 #import "IMIntroductionTooltipView.h"
 #import "IMJournalTableViewCell.h"
@@ -20,7 +19,7 @@
 #import "IMEventController.h"
 #import "IMCoreDataStack.h"
 
-@interface IMJournalTableViewController () <UIActionSheetDelegate, IMTooltipViewControllerDelegate, IMAddEntryModalDelegate>
+@interface IMJournalTableViewController () <UIActionSheetDelegate, IMTooltipViewControllerDelegate>
 {
     NSDictionary *readings;
     NSDateFormatter *dateFormatter;
@@ -325,27 +324,6 @@
 - (void)didDismissModalView:(IMTooltipViewController *)aModalController {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasSeenStarterTooltip];
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-#pragma mark - IMAddEntryModalDelegate methods
-- (void)addEntryModal:(id)modalView didSelectEntryOption:(NSInteger)buttonIndex {
-    [modalView dismiss];
-    
-    IMEventViewController *vc = [[IMEventViewController alloc] init];
-    IMNavigationController *nvc = [[IMNavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nvc animated:YES completion:nil];
-    
-    /*
-     if(buttonIndex < 5)
-     {
-     IMInputParentViewController *vc = [[IMInputParentViewController alloc] initWithEventType:buttonIndex];
-     if(vc)
-     {
-     IMNavigationController *nvc = [[IMNavigationController alloc] initWithRootViewController:vc];
-     [self presentViewController:nvc animated:YES completion:nil];
-     }
-     }
-     */
 }
 
 #pragma mark - Helpers

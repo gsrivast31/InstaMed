@@ -10,7 +10,7 @@
 
 #import "IMUI.h"
 #import "IMBaseObject.h"
-#import "IMCoreDataController.h"
+#import "IMCoreDataStack.h"
 #import "IMCredentials.h"
 
 #ifndef InstaMed_UACommon_h
@@ -74,32 +74,16 @@ NS_ENUM(int16_t, IMEventType) {
 };
 
 // Constants
-static NSString * const kErrorDomain = @"com.uglyapps.diabetik";
-
-// RunKeeper
-static NSString * const kRunKeeperAuthURL = @"https://runkeeper.com/apps/authorize";
-static NSString * const kRunKeeperTokenURL = @"https://runkeeper.com/apps/token";
-static NSString * const kRunKeeperServiceIdentifier = @"RunKeeper";
-
-// Analytik
-static NSString * const kAnalytikServiceIdentifier = @"Analytik";
-static NSString * const kAnalytikAPIURL = @"http://api.analytikhq.com/api/v1/";
-static NSString * const kAnalytikStagingAPIURL = @"http://api-staging.analytikhq.com/api/v1/";
-static NSString * const kAnalytikLastSyncTimestampKey = @"kAnalytikLastSyncTimestampKey";
-static NSString * const kAnalytikUseStagingServerKey = @"kAnalytikUseStagingServerKey";
+static NSString * const kErrorDomain = @"com.memoir.instamed";
 
 // Notifications
 static NSString * const kRemindersUpdatedNotification = @"com.uglyapps.reminders.updated";
 static NSString * const kSettingsChangedNotification = @"com.uglyapps.settings.change";
 static NSString * const kDropboxLinkNotification = @"com.uglyapps.dropbox.linked";
-static NSString * const kRunKeeperLinkNotification = @"com.uglyapps.runkeeper.linked";
-static NSString * const kRunKeeperLinkFailedNotification = @"com.uglyapps.runkeeper.link-failed";
-static NSString * const kRunKeeperDidSyncNotification = @"com.uglyapps.runkeeper.sync-complete";
 
 // NSUserDefault keys
 static NSString * const kHasRunBeforeKey = @"kHasRunBefore";
 static NSString * const kUseSmartInputKey = @"kUseSmartInputKey";
-static NSString * const kUseSoundsKey = @"kUseSoundsKey";
 static NSString * const kHasSeenStarterTooltip = @"kHasSeenStarterTooltip";
 static NSString * const kHasSeenReminderTooltip = @"kHasSeenReminderTooltip";
 static NSString * const kHasSeenExportTooltip = @"kHasSeenExportTooltip";
@@ -109,11 +93,6 @@ static NSString * const kFilterSearchResultsKey = @"kFilterSearchResultsKey";
 static NSString * const kReportsDefaultKey = @"kReportsDefaultKey";
 static NSString * const kShowInlineImages = @"kShowInlineImages";
 static NSString * const kAutomaticallyGeotagEvents = @"kAutomaticallyGeotagEvents";
-
-static NSString * const kAutomaticBackupEnabledKey = @"kAutomaticBackupEnabledKey";
-static NSString * const kWWANAutomaticBackupEnabledKey = @"kWWANAutomaticBackupEnabledKey";
-static NSString * const kAutomaticBackupFrequencyKey = @"kAutomaticBackupFrequencyKey";
-static NSString * const kLastBackupTimestamp = @"kLastBackupTimestamp";
 
 static NSString * const kMinHealthyBGKey = @"kMinHealthyBGKey";
 static NSString * const kMaxHealthyBGKey = @"kMaxHealthyBGKey";

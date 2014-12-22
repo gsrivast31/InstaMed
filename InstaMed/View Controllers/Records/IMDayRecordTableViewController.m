@@ -8,7 +8,6 @@
 
 #import "IMDayRecordTableViewController.h"
 #import "IMEntryListTableViewController.h"
-#import "IMEventViewController.h"
 #import "IMDayRecordTableViewCell.h"
 #import "IMCoreDataStack.h"
 #import "IMEvent.h"

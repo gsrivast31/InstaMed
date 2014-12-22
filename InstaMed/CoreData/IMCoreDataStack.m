@@ -99,5 +99,13 @@
     }
 }
 
+#pragma mark - Helpers
+- (NSManagedObjectContext *)newPrivateContext
+{
+    NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    context.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    
+    return context;
+}
 
 @end

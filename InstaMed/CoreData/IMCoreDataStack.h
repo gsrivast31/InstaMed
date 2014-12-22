@@ -19,4 +19,5 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+- (NSManagedObjectContext *)newPrivateContext;
 @end

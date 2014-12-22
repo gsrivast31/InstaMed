@@ -51,7 +51,7 @@
 #pragma mark - Accessors
 - (IMReminder *)reminder
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(!moc) return nil;
     if(!self.reminderOID) return nil;
     
@@ -78,7 +78,7 @@
 }
 - (IMReminderRule *)reminderRule
 {
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(!moc) return nil;
     if(!self.reminderRuleOID) return nil;
     

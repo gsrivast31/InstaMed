@@ -27,76 +27,47 @@
 @dynamic primitiveTimestamp;
 
 #pragma mark - Logic
-- (void)willSave
-{
+- (void)willSave {
     [super willSave];
-    
-    if([self isInserted] || [self isUpdated] || [self isDeleted])
-    {
-        BOOL shouldUpdateLastSyncTS = NO;
-        NSNumber *lastSyncTimestamp = [[NSUserDefaults standardUserDefaults] valueForKey:kAnalytikLastSyncTimestampKey];
-        if(lastSyncTimestamp)
-        {
-            if([lastSyncTimestamp integerValue] > [[self timestamp] timeIntervalSince1970])
-            {
-                shouldUpdateLastSyncTS = YES;
-            }
-        }
-        else
-        {
-            shouldUpdateLastSyncTS = YES;
-        }
-        
-        if(shouldUpdateLastSyncTS)
-        {
-            [[NSUserDefaults standardUserDefaults] setInteger:[[self timestamp] timeIntervalSince1970] forKey:kAnalytikLastSyncTimestampKey];
-        }
-    }
 }
-- (void)prepareForDeletion
-{
+
+- (void)prepareForDeletion {
     [super prepareForDeletion];
     
     // Remove any media
-    if(self.photoPath)
-    {
+    if(self.photoPath) {
         [[IMMediaController sharedInstance] deleteImageWithFilename:self.photoPath success:nil failure:nil];
         self.photoPath = nil;
     }
     
     // Remove any tags
-    for (IMTag *tag in self.tags)
-    {
-        if(tag.events.count <= 1)
-        {
+    for (IMTag *tag in self.tags) {
+        if(tag.events.count <= 1) {
             [self.managedObjectContext deleteObject:tag];
         }
     }
 }
 
 #pragma mark - Transient properties
-- (NSString *)sectionIdentifier
-{
+- (NSString *)sectionIdentifier {
     [self willAccessValueForKey:@"sectionIdentifier"];
     NSString *tmp = [self primitiveSectionIdentifier];
     [self didAccessValueForKey:@"sectionIdentifier"];
     
-    if (!tmp)
-    {
+    if (!tmp) {
         tmp = [NSString stringWithFormat:@"%f", [[self.timestamp dateWithoutTime] timeIntervalSince1970]];
         [self setPrimitiveSectionIdentifier:tmp];
     }
     
     return tmp;
 }
-- (NSString *)humanReadableName
-{
+
+- (NSString *)humanReadableName {
     return @"";
 }
 
 #pragma mark - Time stamp setter
-- (void)setTimestamp:(NSDate *)newDate
-{
+- (void)setTimestamp:(NSDate *)newDate {
     [self willChangeValueForKey:@"timestamp"];
     [self setPrimitiveTimestamp:newDate];
     [self didChangeValueForKey:@"timestamp"];
@@ -105,8 +76,7 @@
 }
 
 #pragma mark - Key path dependencies
-+ (NSSet *)keyPathsForValuesAffectingSectionIdentifier
-{
++ (NSSet *)keyPathsForValuesAffectingSectionIdentifier {
     return [NSSet setWithObject:@"timestamp"];
 }
 

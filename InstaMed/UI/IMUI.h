@@ -12,13 +12,11 @@
 // Misc
 #import "IMFont.h"
 #import "IMNavSubtitleHeaderView.h"
-#import "IMNavPaginationTitleView.h"
 #import "IMNavigationController.h"
 
 // Views
 #import "IMBaseViewController.h"
 #import "IMViewControllerMessageView.h"
-#import "IMAddEntryiPadView.h"
 #import "IMTooltipViewController.h"
 #import "IMTooltipView.h"
 #import "IMUIHintView.h"

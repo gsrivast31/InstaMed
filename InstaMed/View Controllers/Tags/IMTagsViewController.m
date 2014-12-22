@@ -7,7 +7,6 @@
 //
 
 #import "IMTagsViewController.h"
-#import "IMTimelineViewController.h"
 #import "IMDayRecordTableViewController.h"
 
 #import "IMTagController.h"
@@ -136,7 +135,7 @@
             event.notes = notes;
         }
         
-        NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+        NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
         if(moc)
         {
             [moc deleteObject:tag];
@@ -151,11 +150,10 @@
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 
     IMTag *tag = (IMTag *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    IMTimelineViewController *vc = [[IMTimelineViewController alloc] initWithTag:tag.nameLC];
     
-    //UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    //IMDayRecordTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"dayRecordTableViewController"];
-    //[vc setTag:tag.nameLC];
+    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    IMDayRecordTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"dayRecordTableViewController"];
+    [vc setTag:tag.nameLC];
     
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -168,7 +166,7 @@
         return _fetchedResultsController;
     }
     
-    NSManagedObjectContext *moc = [[IMCoreDataController sharedInstance] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc)
     {
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
