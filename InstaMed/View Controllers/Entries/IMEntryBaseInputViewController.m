@@ -334,14 +334,14 @@
 }
 
 - (void)updateKeyboardShortcutButtons {
-    BOOL showTagButton = NO;
+    BOOL showButtons = NO;
     if(self.activeControlIndexPath) {
         IMEventInputViewCell *cell = (IMEventInputViewCell *)[self.tableView cellForRowAtIndexPath:self.activeControlIndexPath];
         if([cell.control isKindOfClass:[IMEventNotesTextView class]]) {
-            showTagButton = YES;
+            showButtons = YES;
         }
     }
-    [self.keyboardShortcutAccessoryView setShowingTagButton:showTagButton];
+    [self.keyboardShortcutAccessoryView setShowingButtons:showButtons];
 }
 
 #pragma mark UIImagePickerControllerDelegate

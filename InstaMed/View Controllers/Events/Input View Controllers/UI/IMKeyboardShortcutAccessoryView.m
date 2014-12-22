@@ -13,15 +13,14 @@
 
 @implementation IMKeyboardShortcutAccessoryView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     frame = CGRectMake(0, 0, 320.0f, 42.0f);
     self = [super initWithFrame:frame inputViewStyle:UIInputViewStyleKeyboard];
     if (self) {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.clipsToBounds = YES;
         self.showingAutocompleteBar = YES;
-        self.showingTagButton = YES;
+        self.showingButtons = YES;
         
         CGFloat buttonX = 4.0f;
         CGFloat buttonWidth = 26.0f;
@@ -30,7 +29,6 @@
         self.tagButton = [[IMKeyboardShortcutButton alloc] initWithFrame:CGRectMake(buttonX, 0.0f, buttonWidth, 34.0f)];
         [self.tagButton setImage:[UIImage imageNamed:@"KeyboardShortcutTagIcon"] forState:UIControlStateNormal];
         [self.tagButton addTarget:self action:@selector(didPressButton:) forControlEvents:UIControlEventTouchUpInside];
-        self.tagButton.hidden = !self.showingTagButton;
         
         buttonX = buttonX + buttonWidth + interButtonSpacing;
         self.locationButton = [[IMKeyboardShortcutButton alloc] initWithFrame:CGRectMake(buttonX, 0.0f, buttonWidth, 34.0f)];
@@ -52,12 +50,15 @@
         [self.deleteButton setImage:[UIImage imageNamed:@"KeyboardShortcutDeleteIcon"] forState:UIControlStateNormal];
         [self.deleteButton addTarget:self action:@selector(didPressButton:) forControlEvents:UIControlEventTouchUpInside];
 
+        [self setButtonStates:self.showingButtons];
+        
         self.buttons = @[self.tagButton, self.locationButton, self.photoButton, self.reminderButton, self.deleteButton];
+        
     }
     return self;
 }
-- (void)layoutSubviews
-{
+
+- (void)layoutSubviews {
     [super layoutSubviews];
     
     CGFloat centerY = CGRectGetMidY(self.bounds);
@@ -82,63 +83,63 @@
     self.deleteButton.frame = CGRectMake(startX, centerY - self.deleteButton.bounds.size.height/2.0f, self.deleteButton.bounds.size.width, self.deleteButton.bounds.size.height);
 
     CGFloat x = 0.0f;
-    if(self.showingTagButton)
-    {
+    if(self.showingButtons) {
         x = CGRectGetMaxX(self.tagButton.frame);
     }
     self.autocompleteBar.frame = CGRectMake(x, 0.0f, self.bounds.size.width - x, self.bounds.size.height);
 }
 
 #pragma mark - Logic
-- (void)didPressButton:(IMKeyboardShortcutButton *)button
-{
-    if(self.delegate)
-    {
+- (void)didPressButton:(IMKeyboardShortcutButton *)button {
+    if(self.delegate) {
         [self.delegate keyboardShortcut:self didPressButton:button];
     }
 }
-- (void)showAutocompleteSuggestionsForInput:(NSString *)text
-{
-    if([self.autocompleteBar showSuggestionsForInput:text])
-    {
+
+- (void)showAutocompleteSuggestionsForInput:(NSString *)text {
+    if([self.autocompleteBar showSuggestionsForInput:text]) {
         [self setShowingAutocompleteBar:YES];
-    }
-    else
-    {
+    } else {
         [self setShowingAutocompleteBar:NO];
     }
 }
 
 #pragma mark - Getters/setters
-- (void)setShowingTagButton:(BOOL)state
-{
-    self.tagButton.hidden = !state;
-    _showingTagButton = state;
+-(void)setShowingButtons:(BOOL)state {
+    [self setButtonStates:state];
+    _showingButtons = state;
     
     [self setNeedsLayout];
 }
-- (void)setShowingAutocompleteBar:(BOOL)state
-{
+
+- (void)setShowingAutocompleteBar:(BOOL)state {
     self.autocompleteBar.hidden = !state;
     _showingAutocompleteBar = state;
+    
+    self.showingButtons = !state;
 }
-- (void)setButtons:(NSArray *)newButtons
-{
+
+- (void)setButtons:(NSArray *)newButtons {
     _buttons = newButtons;
-    for(UIButton *button in self.buttons)
-    {
-        if(![button superview])
-        {
+    for(UIButton *button in self.buttons) {
+        if(![button superview]) {
             [self addSubview:button];
         }
     }
     
     [self setNeedsLayout];
 }
-- (IMAutocompleteBar *)autocompleteBar
-{
-    if(!_autocompleteBar)
-    {
+
+- (void)setButtonStates:(BOOL)state {
+    self.tagButton.hidden = !state;
+    self.photoButton.hidden = !state;
+    self.locationButton.hidden = !state;
+    self.reminderButton.hidden = !state;
+    self.deleteButton.hidden = !state;
+}
+
+- (IMAutocompleteBar *)autocompleteBar {
+    if(!_autocompleteBar) {
         _autocompleteBar = [[IMAutocompleteBar alloc] initWithFrame:self.bounds];
         _autocompleteBar.delegate = self;
         _autocompleteBar.hidden = YES;
@@ -150,23 +151,20 @@
 }
 
 #pragma mark - IMAutocompleteBarDelegate methods
-- (NSArray *)suggestionsForAutocompleteBar:(IMAutocompleteBar *)theAutocompleteBar
-{
-    if(self.delegate)
-    {
+- (NSArray *)suggestionsForAutocompleteBar:(IMAutocompleteBar *)theAutocompleteBar {
+    if(self.delegate) {
         return [self.delegate suggestionsForAutocompleteBar:theAutocompleteBar];
     }
     
     return nil;
 }
-- (void)autocompleteBar:(IMAutocompleteBar *)autocompleteBar didSelectSuggestion:(NSString *)suggestion
-{
+
+- (void)autocompleteBar:(IMAutocompleteBar *)autocompleteBar didSelectSuggestion:(NSString *)suggestion {
     if(self.delegate) [self.delegate autocompleteBar:autocompleteBar didSelectSuggestion:suggestion];
 }
-- (void)addTagCaret
-{
-    if(self.delegate && [self.delegate respondsToSelector:@selector(addTagCaret)])
-    {
+
+- (void)addTagCaret {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(addTagCaret)]) {
         [self.delegate addTagCaret];
     }
 }

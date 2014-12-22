@@ -18,12 +18,11 @@
 @property (nonatomic, strong) NSArray *buttons;
 @property (nonatomic, strong) IMAutocompleteBar *autocompleteBar;
 @property (nonatomic, assign) BOOL showingAutocompleteBar;
-@property (nonatomic, assign) BOOL showingTagButton;
+@property (nonatomic, assign) BOOL showingButtons;
 @property (nonatomic, weak) id<IMKeyboardShortcutDelegate, IMAutocompleteBarDelegate> delegate;
 
 @property (nonatomic, strong) IMKeyboardShortcutButton *tagButton;
 @property (nonatomic, strong) IMKeyboardShortcutButton *photoButton;
-@property (nonatomic, strong) IMKeyboardShortcutButton *shareButton;
 @property (nonatomic, strong) IMKeyboardShortcutButton *locationButton;
 @property (nonatomic, strong) IMKeyboardShortcutButton *reminderButton;
 @property (nonatomic, strong) IMKeyboardShortcutButton *deleteButton;

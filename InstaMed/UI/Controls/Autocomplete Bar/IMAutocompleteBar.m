@@ -40,19 +40,15 @@
 }
 
 #pragma mark - Logic
-- (BOOL)showSuggestionsForInput:(NSString *)input
-{
+- (BOOL)showSuggestionsForInput:(NSString *)input {
     // Lazy-load from our datasource if necessary
-    if(self.shouldFetchSuggestions)
-    {
+    if(self.shouldFetchSuggestions) {
         [self fetchSuggestions];
     }
     
     // Remove previous suggestions
-    if([buttons count])
-    {
-        for(UIView *view in scrollView.subviews)
-        {
+    if([buttons count]) {
+        for(UIView *view in scrollView.subviews) {
             [view removeFromSuperview];
         }
         [buttons removeAllObjects];
@@ -68,7 +64,7 @@
         NSString *lowercaseInput = [input lowercaseString];
 
         // Generate new suggestions
-        CGFloat x = 0.0f;
+        CGFloat x = 4.0f;
         CGFloat margin = 5.0f;
         for(NSString *suggestion in self.suggestions)
         {
