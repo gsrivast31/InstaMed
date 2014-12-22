@@ -277,7 +277,7 @@
 - (NSArray *)fetchKey:(NSString *)key forEventsWithFilterType:(EventFilterType)filterType
 {
     __block NSArray *returnArray = nil;
-    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] newPrivateContext];
     if(moc)
     {
         [moc performBlockAndWait:^{

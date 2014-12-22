@@ -19,6 +19,7 @@
     UIImagePickerController *imagePickerController;
     NSString *notes;
     IMEventNotesTextView *dummyNotesTextView;
+    EventFilterType eventFilterType;
 }
 
 @property (nonatomic, strong) IMEvent *event;
@@ -33,8 +34,6 @@
 @property (nonatomic, strong) IMKeyboardShortcutAccessoryView *keyboardShortcutAccessoryView;
 
 @property (nonatomic, strong) NSIndexPath *activeControlIndexPath;
-@property (nonatomic, assign) BOOL datePickerVisible;
-@property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
 
 - (id)initWithEvent:(IMEvent *)theEvent;
 

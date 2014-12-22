@@ -68,7 +68,7 @@
         NSString *lowercaseInput = [input lowercaseString];
 
         // Generate new suggestions
-        CGFloat x = 4.0f;
+        CGFloat x = 0.0f;
         CGFloat margin = 5.0f;
         for(NSString *suggestion in self.suggestions)
         {

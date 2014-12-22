@@ -30,12 +30,14 @@
 #pragma mark - Setup
 - (id)init {
     self = [super init];
+    eventFilterType = NoteFilterType;
     return self;
 }
 
 - (id)initWithEvent:(IMEvent *)theEvent {
     self = [super initWithEvent:theEvent];
     if(self) {
+        eventFilterType = NoteFilterType;
         IMEvent *event = [self event];
         if(event) {
             title = event.name;
@@ -236,21 +238,6 @@
     IMEventInputViewCell *cell = (IMEventInputViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     if([cell respondsToSelector:@selector(control)]) {
         [cell.control becomeFirstResponder];
-    }
-    
-    if(indexPath.row == self.datePickerIndexPath.row) {
-        [self.tableView beginUpdates];
-        
-        if (self.datePickerVisible) {
-            [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.datePickerIndexPath.row+1 inSection:0]]
-                                  withRowAnimation:UITableViewRowAnimationFade];
-        } else {
-            [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.datePickerIndexPath.row+1 inSection:0]]
-                                  withRowAnimation:UITableViewRowAnimationFade];
-        }
-        
-        self.datePickerVisible = !self.datePickerVisible;
-        [self.tableView endUpdates];
     }
 }
 

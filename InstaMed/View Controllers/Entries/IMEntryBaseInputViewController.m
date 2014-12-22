@@ -426,7 +426,7 @@
 #pragma mark - IMAutocompleteBarDelegate methods
 - (NSArray *)suggestionsForAutocompleteBar:(IMAutocompleteBar *)theAutocompleteBar {
     if(self.activeControlIndexPath.row == 0) {
-        return [[IMEventController sharedInstance] fetchKey:@"name" forEventsWithFilterType:ActivityFilterType];
+        return [[IMEventController sharedInstance] fetchKey:@"name" forEventsWithFilterType:eventFilterType];
     } else {
         return [[IMTagController sharedInstance] fetchAllTags];
     }

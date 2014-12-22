@@ -60,6 +60,7 @@
 		F41268E21A46E343000E52E9 /* IMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268D21A46E343000E52E9 /* IMUser.m */; };
 		F41268E51A472C7E000E52E9 /* IMJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268E41A472C7E000E52E9 /* IMJournalTableViewController.m */; };
 		F41268E81A472CC6000E52E9 /* IMJournalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268E71A472CC6000E52E9 /* IMJournalTableViewCell.m */; };
+		F41268EB1A47FAFD000E52E9 /* IMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */; };
 		F41A76101A400043006F9547 /* IMReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A760F1A400043006F9547 /* IMReportTableViewCell.m */; };
 		F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76121A40005E006F9547 /* IMReportTableViewController.m */; };
 		F41A76191A403636006F9547 /* IMReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76181A403636006F9547 /* IMReportViewController.m */; };
@@ -293,6 +294,8 @@
 		F41268E41A472C7E000E52E9 /* IMJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMJournalTableViewController.m; sourceTree = "<group>"; };
 		F41268E61A472CC6000E52E9 /* IMJournalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMJournalTableViewCell.h; sourceTree = "<group>"; };
 		F41268E71A472CC6000E52E9 /* IMJournalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMJournalTableViewCell.m; sourceTree = "<group>"; };
+		F41268E91A47FAFD000E52E9 /* IMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRootViewController.h; sourceTree = "<group>"; };
+		F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRootViewController.m; sourceTree = "<group>"; };
 		F41A760E1A400043006F9547 /* IMReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportTableViewCell.h; path = Reports/IMReportTableViewCell.h; sourceTree = "<group>"; };
 		F41A760F1A400043006F9547 /* IMReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportTableViewCell.m; path = Reports/IMReportTableViewCell.m; sourceTree = "<group>"; };
 		F41A76111A40005E006F9547 /* IMReportTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportTableViewController.h; path = Reports/IMReportTableViewController.h; sourceTree = "<group>"; };
@@ -584,6 +587,8 @@
 				F4104AD21A3AF8B500EF8193 /* LaunchScreen.xib */,
 				F4104AC01A3AF8B400EF8193 /* Supporting Files */,
 				F4104AED1A3BF68000EF8193 /* InstaMed_Prefix.pch */,
+				F41268E91A47FAFD000E52E9 /* IMRootViewController.h */,
+				F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */,
 			);
 			path = InstaMed;
 			sourceTree = "<group>";
@@ -1617,6 +1622,7 @@
 				F41268561A440B58000E52E9 /* IMEntryListTableViewCell.m in Sources */,
 				F49A29631A3F0D1E006F9E34 /* IMEventMapViewController.m in Sources */,
 				F49A299B1A3F0D1E006F9E34 /* IMTagHighlightTextStorage.m in Sources */,
+				F41268EB1A47FAFD000E52E9 /* IMRootViewController.m in Sources */,
 				F49A29D61A3F0D82006F9E34 /* IMSlider.m in Sources */,
 				F49A2A581A3F16F4006F9E34 /* IMHelper.m in Sources */,
 				F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */,

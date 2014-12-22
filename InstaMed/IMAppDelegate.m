@@ -39,14 +39,6 @@
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Initialise HockeyApp if we have applicable credentials
-    if(
-       kHockeyAppBetaIdentifierKey && [kHockeyAppBetaIdentifierKey length] &&
-       kHockeyAppLiveIdentifierKey && [kHockeyAppLiveIdentifierKey length]
-       )
-    {
-    }
-    
     // Initialise the Google Analytics API
     [[GAI sharedInstance] trackerWithTrackingId:kGoogleAnalyticsTrackingID];
     
@@ -79,26 +71,6 @@
     // Setup our backup controller
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.tintColor = kDefaultTintColor;
-    
-    //IMJournalViewController *journalViewController = [[IMJournalViewController alloc] init];
-    
-    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    IMJournalTableViewController *journalViewController = [storyBoard instantiateViewControllerWithIdentifier:@"journalTableViewController"];
-    
-    IMNavigationController *navigationController = [[IMNavigationController alloc] initWithRootViewController:journalViewController];
-    
-    REFrostedViewController *viewController = [[REFrostedViewController alloc] initWithContentViewController:navigationController menuViewController:[[IMSideMenuViewController alloc] init]];
-    viewController.direction = REFrostedViewControllerDirectionLeft;
-    viewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
-    viewController.liveBlur = YES;
-    viewController.limitMenuViewSize = YES;
-    viewController.blurSaturationDeltaFactor = 3.0f;
-    viewController.blurRadius = 10.0f;
-    viewController.limitMenuViewSize = YES;
-    
-    CGFloat menuWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 340.0f : 280.0f;
-    viewController.menuViewSize = CGSizeMake(menuWidth, self.window.frame.size.height);
-    self.viewController = viewController;
     
     // Delay launch on non-essential classes
     __weak typeof(self) weakSelf = self;

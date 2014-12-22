@@ -12,16 +12,8 @@
 // Google Analytics
 static NSString * const kGoogleAnalyticsTrackingID = @"";
 
-// HockeyApp
-static NSString * const kHockeyAppLiveIdentifierKey = @"";
-static NSString * const kHockeyAppBetaIdentifierKey = @"";
-
 // Dropbox
 static NSString * const kDropboxAppKey = @"";
 static NSString * const kDropboxSecret = @"";
-
-// RunKeeper
-static NSString * const kRunKeeperClientKey = @"";
-static NSString * const kRunKeeperClientSecret = @"";
 
 #endif
