@@ -63,5 +63,9 @@
     }
     [self addBorder];
 }
+- (IBAction)exportReport:(id)sender {
+    NSDictionary* info = @{@"title":self.title.text,@"date":self.date.text,@"image":self.reportImage.image};
+    [[NSNotificationCenter defaultCenter] postNotificationName:kExportReportNotification object:nil userInfo:info];
+}
 
 @end

@@ -81,6 +81,8 @@ static NSString * const kRemindersUpdatedNotification = @"com.memoir.reminders.u
 static NSString * const kSettingsChangedNotification = @"com.memoir.settings.change";
 static NSString * const kDropboxLinkNotification = @"com.memoir.dropbox.linked";
 static NSString * const kCurrentProfileChangedNotification = @"com.memoir.currentprofile.change";
+static NSString * const kExportReportNotification = @"com.memoir.export.report";
+
 // NSUserDefault keys
 static NSString * const kHasRunBeforeKey = @"kHasRunBefore";
 static NSString * const kUseSmartInputKey = @"kUseSmartInputKey";

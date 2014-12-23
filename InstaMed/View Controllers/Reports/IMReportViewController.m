@@ -23,10 +23,34 @@
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
     [self.fetchedResultsController performFetch:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exportCard:) name:kExportReportNotification object:nil] ;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kExportReportNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)exportCard:(NSNotification*)notification {
+    NSDictionary* info = notification.userInfo;
+    NSString* title = [info valueForKey:@"title"];
+    NSString* date = [info valueForKey:@"date"];
+    UIImage* image = [info valueForKey:@"image"];
+    NSString* message = [NSString stringWithFormat:@"\n Report Name: %@\n"
+                         "\n Report Date: %@\n", title, date];
+    NSArray* objectsToShare = @[message, image];
+    NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
+                                    UIActivityTypePostToWeibo, UIActivityTypeAssignToContact,
+                                    UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
+                                    UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    controller.excludedActivityTypes = excludedActivities;
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source

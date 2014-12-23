@@ -831,6 +831,15 @@
                                             <color key="textColor" red="0.31334832699999998" green="0.31334832699999998" blue="0.31334832699999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4B-op-O5U">
+                                            <rect key="frame" x="131" y="127" width="17" height="23"/>
+                                            <state key="normal" image="ListMenuIconExport">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="exportReport:" destination="VY2-21-nWy" eventType="touchUpInside" id="Fr0-Rk-Cs2"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hTH-WW-Yda" firstAttribute="leading" secondItem="fMn-4P-V6w" secondAttribute="trailing" constant="8" id="0cj-KR-9dG"/>
@@ -840,10 +849,12 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="sMi-Pj-PhP" secondAttribute="trailing" constant="10" id="Qfg-nb-1ui"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="hTH-WW-Yda" secondAttribute="trailing" constant="10" id="QlI-Af-PH4"/>
                                         <constraint firstItem="sMi-Pj-PhP" firstAttribute="leading" secondItem="fMn-4P-V6w" secondAttribute="trailing" constant="8" id="Rx2-b7-Hlc"/>
+                                        <constraint firstItem="q4B-op-O5U" firstAttribute="bottom" secondItem="fMn-4P-V6w" secondAttribute="bottom" id="XDx-ss-mEb"/>
                                         <constraint firstAttribute="centerY" secondItem="fMn-4P-V6w" secondAttribute="centerY" id="dg5-9x-zB6"/>
                                         <constraint firstItem="sMi-Pj-PhP" firstAttribute="top" secondItem="hTH-WW-Yda" secondAttribute="bottom" constant="10" id="juT-Bj-TDY"/>
                                         <constraint firstItem="Gqb-uM-5d9" firstAttribute="top" secondItem="sMi-Pj-PhP" secondAttribute="bottom" constant="10" id="otx-tR-km2"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Gqb-uM-5d9" secondAttribute="trailing" constant="10" id="vTd-yB-q3H"/>
+                                        <constraint firstItem="q4B-op-O5U" firstAttribute="leading" secondItem="Gqb-uM-5d9" secondAttribute="leading" id="zua-KB-DU7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -888,7 +899,7 @@
                                 <rect key="frame" x="16" y="121" width="568" height="140"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Report Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="faW-wu-Fix">
-                                        <rect key="frame" x="119" y="15" width="439" height="30"/>
+                                        <rect key="frame" x="120" y="15" width="438" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="slu-tu-ZTy"/>
                                         </constraints>
@@ -896,7 +907,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of Consulting Doctor" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfT-0o-1l8">
-                                        <rect key="frame" x="119" y="55" width="439" height="30"/>
+                                        <rect key="frame" x="120" y="55" width="438" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="I8K-6u-UZA"/>
                                         </constraints>
@@ -904,7 +915,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Report Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZWM-8M-3nR">
-                                        <rect key="frame" x="119" y="95" width="439" height="30"/>
+                                        <rect key="frame" x="120" y="95" width="438" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="afE-os-6WO"/>
                                         </constraints>
@@ -912,20 +923,23 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jt3-3m-AtS">
-                                        <rect key="frame" x="5" y="60" width="104" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <rect key="frame" x="5" y="60" width="105" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="rKP-e1-U7T"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Report" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-pq-Dep">
-                                        <rect key="frame" x="5" y="100" width="104" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <rect key="frame" x="5" y="100" width="105" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtE-R8-mce">
-                                        <rect key="frame" x="5" y="20" width="104" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <rect key="frame" x="5" y="20" width="105" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1027,13 +1041,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add an image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-DB-o0g">
-                                                    <rect key="frame" x="13" y="80" width="134" height="41"/>
+                                                    <rect key="frame" x="13" y="100" width="134" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVS-V4-Z5R">
-                                                    <rect key="frame" x="66" y="40" width="29" height="30"/>
+                                                    <rect key="frame" x="66" y="65" width="29" height="30"/>
                                                     <state key="normal" image="plus-sign"/>
                                                 </button>
                                             </subviews>
@@ -1042,7 +1056,11 @@
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="kXn-DB-o0g" secondAttribute="centerX" id="7lS-fr-4zW"/>
                                             <constraint firstAttribute="centerX" secondItem="JVS-V4-Z5R" secondAttribute="centerX" id="8HJ-jK-liP"/>
+                                            <constraint firstAttribute="centerY" secondItem="kXn-DB-o0g" secondAttribute="centerY" constant="-20" id="HAo-Br-sLZ"/>
+                                            <constraint firstItem="kXn-DB-o0g" firstAttribute="leading" secondItem="2Js-71-G3G" secondAttribute="leadingMargin" constant="5" id="IA4-Da-qAr"/>
                                             <constraint firstItem="kXn-DB-o0g" firstAttribute="top" secondItem="JVS-V4-Z5R" secondAttribute="bottom" constant="10" id="Xq4-b6-eXs"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="kXn-DB-o0g" secondAttribute="trailing" constant="5" id="Xzb-vi-j9c"/>
+                                            <constraint firstAttribute="centerY" secondItem="JVS-V4-Z5R" secondAttribute="centerY" constant="20" id="aR4-Zs-dgx"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="kXn-DB-o0g" secondAttribute="trailing" constant="5" id="b2Y-Vf-LGp"/>
                                             <constraint firstItem="kXn-DB-o0g" firstAttribute="top" secondItem="JVS-V4-Z5R" secondAttribute="bottom" constant="15" id="ih1-le-1Iv"/>
                                             <constraint firstAttribute="centerX" secondItem="JVS-V4-Z5R" secondAttribute="centerX" id="lky-oJ-gSL"/>
@@ -1055,7 +1073,11 @@
                                             <mask key="constraints">
                                                 <exclude reference="8HJ-jK-liP"/>
                                                 <exclude reference="mRI-6I-5PN"/>
+                                                <exclude reference="Xq4-b6-eXs"/>
+                                                <exclude reference="b2Y-Vf-LGp"/>
                                                 <exclude reference="ih1-le-1Iv"/>
+                                                <exclude reference="mbq-cB-qNp"/>
+                                                <exclude reference="t53-dd-5Os"/>
                                             </mask>
                                         </variation>
                                     </collectionViewCell>
@@ -1277,7 +1299,7 @@
                                             <constraint firstAttribute="height" constant="80" id="3Ht-RM-fbU"/>
                                             <constraint firstAttribute="width" constant="80" id="tmU-DJ-C8n"/>
                                         </constraints>
-                                        <state key="normal" image="CD963B76-742F-44D5-8BE4-6E51EFAA4BD2">
+                                        <state key="normal" image="FB9C3BB8-A902-4879-AC88-94B5A5BFCDA5">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1687,7 +1709,7 @@
     <resources>
         <image name="AddEntryModalActivityIcon" width="26" height="42"/>
         <image name="AddEntryModalMealIcon" width="26" height="42"/>
-        <image name="CD963B76-742F-44D5-8BE4-6E51EFAA4BD2" width="40" height="40">
+        <image name="FB9C3BB8-A902-4879-AC88-94B5A5BFCDA5" width="40" height="40">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -1867,6 +1889,7 @@ AAAAAAAAJ7o
         <image name="JournalIconBloodHigh" width="15" height="15"/>
         <image name="JournalIconBloodLow" width="15" height="15"/>
         <image name="JournalIconChevron" width="13" height="20"/>
+        <image name="ListMenuIconExport" width="17" height="23"/>
         <image name="icn_male" width="40" height="40"/>
         <image name="plus-sign" width="29" height="30"/>
     </resources>
