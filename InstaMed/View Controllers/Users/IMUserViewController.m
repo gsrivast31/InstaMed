@@ -7,6 +7,7 @@
 //
 
 #import "IMUserViewController.h"
+#import "IMRootViewController.h"
 #import "IMCoreDataStack.h"
 #import "IMUser.h"
 #import "IMDisease.h"
@@ -34,6 +35,10 @@
 @end
 
 @implementation IMUserViewController
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

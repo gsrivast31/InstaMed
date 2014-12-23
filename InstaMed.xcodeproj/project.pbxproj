@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A24476876DA94410001238DE /* libPods-InstaMed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */; };
+		F4027A221A495C5C00E00E84 /* IMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4027A211A495C5C00E00E84 /* IMLoginViewController.m */; };
 		F4104AC31A3AF8B500EF8193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4104AC21A3AF8B500EF8193 /* main.m */; };
 		F4104AC61A3AF8B500EF8193 /* IMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4104AC51A3AF8B500EF8193 /* IMAppDelegate.m */; };
 		F4104ACF1A3AF8B500EF8193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4104ACD1A3AF8B500EF8193 /* Main.storyboard */; };
@@ -170,6 +171,8 @@
 		F49A2A531A3F0D9B006F9E34 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A4E1A3F0D9B006F9E34 /* UITextView+Extension.m */; };
 		F49A2A581A3F16F4006F9E34 /* IMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A571A3F16F4006F9E34 /* IMHelper.m */; };
 		F49A2A5A1A3F2499006F9E34 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */; };
+		F4FDC6351A49918500DA8B41 /* IMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FDC6341A49918500DA8B41 /* IMPageViewController.m */; };
+		F4FDC6381A49921600DA8B41 /* IMPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FDC6371A49921600DA8B41 /* IMPageContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +189,8 @@
 		3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaMed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B3341494593136D1072CB5 /* Pods-InstaMed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.debug.xcconfig"; sourceTree = "<group>"; };
 		B7DC54FB41B2417BB2AA62A7 /* Pods-InstaMed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.release.xcconfig"; sourceTree = "<group>"; };
+		F4027A201A495C5C00E00E84 /* IMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMLoginViewController.h; path = InstaMed/IMLoginViewController.h; sourceTree = SOURCE_ROOT; };
+		F4027A211A495C5C00E00E84 /* IMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMLoginViewController.m; path = InstaMed/IMLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		F4104ABD1A3AF8B400EF8193 /* InstaMed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaMed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4104AC11A3AF8B400EF8193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4104AC21A3AF8B500EF8193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -505,6 +510,10 @@
 		F49A2A561A3F16F4006F9E34 /* IMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHelper.h; sourceTree = "<group>"; };
 		F49A2A571A3F16F4006F9E34 /* IMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHelper.m; sourceTree = "<group>"; };
 		F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		F4FDC6331A49918500DA8B41 /* IMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPageViewController.h; sourceTree = "<group>"; };
+		F4FDC6341A49918500DA8B41 /* IMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPageViewController.m; sourceTree = "<group>"; };
+		F4FDC6361A49921600DA8B41 /* IMPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPageContentViewController.h; sourceTree = "<group>"; };
+		F4FDC6371A49921600DA8B41 /* IMPageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPageContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,8 +596,14 @@
 				F4104AD21A3AF8B500EF8193 /* LaunchScreen.xib */,
 				F4104AC01A3AF8B400EF8193 /* Supporting Files */,
 				F4104AED1A3BF68000EF8193 /* InstaMed_Prefix.pch */,
+				F4027A201A495C5C00E00E84 /* IMLoginViewController.h */,
+				F4027A211A495C5C00E00E84 /* IMLoginViewController.m */,
 				F41268E91A47FAFD000E52E9 /* IMRootViewController.h */,
 				F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */,
+				F4FDC6331A49918500DA8B41 /* IMPageViewController.h */,
+				F4FDC6341A49918500DA8B41 /* IMPageViewController.m */,
+				F4FDC6361A49921600DA8B41 /* IMPageContentViewController.h */,
+				F4FDC6371A49921600DA8B41 /* IMPageContentViewController.m */,
 			);
 			path = InstaMed;
 			sourceTree = "<group>";
@@ -1541,11 +1556,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49A29931A3F0D1E006F9E34 /* IMSettingsViewCell.m in Sources */,
+				F4FDC6381A49921600DA8B41 /* IMPageContentViewController.m in Sources */,
 				F49A29871A3F0D1E006F9E34 /* IMReportsViewController.m in Sources */,
 				F49A2A281A3F0D90006F9E34 /* IMEventController.m in Sources */,
 				F41268D61A46E343000E52E9 /* IMBaseObject.m in Sources */,
 				F49A29881A3F0D1E006F9E34 /* IMDateButton.m in Sources */,
 				F49A29DC1A3F0D82006F9E34 /* IMUIHintView.m in Sources */,
+				F4027A221A495C5C00E00E84 /* IMLoginViewController.m in Sources */,
 				F41268B01A46E266000E52E9 /* IMUsersListViewController.m in Sources */,
 				F49A296F1A3F0D1E006F9E34 /* IMJournalViewController.m in Sources */,
 				F49A29D91A3F0D82006F9E34 /* IMBadgeView.m in Sources */,
@@ -1574,6 +1591,7 @@
 				F49A297B1A3F0D1E006F9E34 /* IMRemindersViewController.m in Sources */,
 				F41268471A42D435000E52E9 /* IMDayRecordTableViewCell.m in Sources */,
 				F49A2A2A1A3F0D90006F9E34 /* IMMediaController.m in Sources */,
+				F4FDC6351A49918500DA8B41 /* IMPageViewController.m in Sources */,
 				F41268651A44A061000E52E9 /* IMEntryNoteInputViewController.m in Sources */,
 				F41268E81A472CC6000E52E9 /* IMJournalTableViewCell.m in Sources */,
 				F49A294F1A3F0D1E006F9E34 /* IMEventInputLabelViewCell.m in Sources */,

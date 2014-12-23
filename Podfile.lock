@@ -23,9 +23,9 @@ PODS:
   - Dropbox-Sync-API-SDK (2.0.3)
   - FXBlurView (1.5.6)
   - GoogleAnalytics-iOS-SDK (3.0.9)
-  - HockeySDK (3.5.7)
   - JBChartView (2.8.10)
   - MBProgressHUD (0.9)
+  - MSPageViewController (1.0.1)
   - Reachability (3.1.1)
   - REFrostedViewController (2.4.7)
   - SSKeychain (1.2.2)
@@ -37,9 +37,9 @@ DEPENDENCIES:
   - Dropbox-Sync-API-SDK (~> 2.0.3)
   - FXBlurView (~> 1.5.3)
   - GoogleAnalytics-iOS-SDK (~> 3.0.3)
-  - HockeySDK (~> 3.5.2)
   - JBChartView (~> 2.8.9)
   - MBProgressHUD (~> 0.8)
+  - MSPageViewController (~> 1.0.0)
   - Reachability (~> 3.1.1)
   - REFrostedViewController (~> 2.4.2)
   - SSKeychain (~> 1.2.1)
@@ -51,9 +51,9 @@ SPEC CHECKSUMS:
   Dropbox-Sync-API-SDK: 1befdcc7250e5956809620710d9e7a45af400dcd
   FXBlurView: 980bb3a2646234366be3de1bc087ddfc31ac77c5
   GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
-  HockeySDK: f0e874d1c6833163ee0c4e423606faf33ad04071
   JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  MSPageViewController: 14496f16df16db1129caabaffa136a51f11961d2
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   REFrostedViewController: 08870a24788191339608b80b2bd4fce549858f0d
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9

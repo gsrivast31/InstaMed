@@ -77,6 +77,7 @@
         <attribute name="dob" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePhoto" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -91,6 +92,7 @@
         <element name="IMBaseObject" positionX="90" positionY="63" width="128" height="88"/>
         <element name="IMDisease" positionX="207" positionY="-27" width="128" height="73"/>
         <element name="IMEvent" positionX="99" positionY="72" width="128" height="208"/>
+        <element name="IMImage" positionX="81" positionY="126" width="128" height="73"/>
         <element name="IMMeal" positionX="117" positionY="144" width="128" height="73"/>
         <element name="IMMedicine" positionX="126" positionY="153" width="128" height="73"/>
         <element name="IMNote" positionX="72" positionY="99" width="128" height="45"/>
@@ -99,7 +101,6 @@
         <element name="IMReminderRule" positionX="99" positionY="144" width="128" height="103"/>
         <element name="IMReport" positionX="72" positionY="117" width="128" height="118"/>
         <element name="IMTag" positionX="108" positionY="153" width="128" height="88"/>
-        <element name="IMUser" positionX="-63" positionY="-18" width="128" height="225"/>
-        <element name="IMImage" positionX="81" positionY="126" width="128" height="73"/>
+        <element name="IMUser" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>

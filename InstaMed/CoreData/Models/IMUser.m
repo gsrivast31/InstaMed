@@ -24,5 +24,21 @@
 @dynamic trackingDiabetes;
 @dynamic trackingHyperTension;
 @dynamic diseases;
+@dynamic guid;
+
+#pragma mark Setup
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    
+    self.guid = [self generateUniqueID];
+}
+
+#pragma mark - Helpers
+- (NSString *)generateUniqueID {
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *str = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    CFRelease(uuid);
+    return str;
+}
 
 @end

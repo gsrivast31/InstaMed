@@ -45,7 +45,7 @@
     
     self.menuViewSize = CGSizeMake(menuWidth, appDelegate.window.frame.size.height);
     appDelegate.viewController = self;
-    appDelegate.window.rootViewController = self;
+    //appDelegate.window.rootViewController = self;
 }
 
 @end

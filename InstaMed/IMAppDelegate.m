@@ -69,7 +69,7 @@
     [self setBackupController:[[IMBackupController alloc] init]];
     
     // Setup our backup controller
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.tintColor = kDefaultTintColor;
     
     // Delay launch on non-essential classes
@@ -85,7 +85,17 @@
         });
     });
     
-    [self.window setRootViewController:self.viewController];
+    UINavigationController* navController = (UINavigationController*)self.window.rootViewController;
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    NSString *currentProfile = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+    if (currentProfile && ![currentProfile isEqualToString:@""]) {
+        [navController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"rootController"] animated:NO];
+    } else {
+        [navController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"pageController"] animated:NO];
+    }
+    
+    [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
     
     // Let UAAppReviewManager know our application has launched
