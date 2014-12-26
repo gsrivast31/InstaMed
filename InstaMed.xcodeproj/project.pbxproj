@@ -21,7 +21,7 @@
 		F41268561A440B58000E52E9 /* IMEntryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268551A440B58000E52E9 /* IMEntryListTableViewCell.m */; };
 		F412685C1A443E55000E52E9 /* IMEntryActivityInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F412685B1A443E55000E52E9 /* IMEntryActivityInputViewController.m */; };
 		F412685F1A449F74000E52E9 /* IMEntryMealInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F412685E1A449F74000E52E9 /* IMEntryMealInputViewController.m */; };
-		F41268621A44A039000E52E9 /* IMEntryReadingInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268611A44A039000E52E9 /* IMEntryReadingInputViewController.m */; };
+		F41268621A44A039000E52E9 /* IMEntryBGReadingInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268611A44A039000E52E9 /* IMEntryBGReadingInputViewController.m */; };
 		F41268651A44A061000E52E9 /* IMEntryNoteInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268641A44A061000E52E9 /* IMEntryNoteInputViewController.m */; };
 		F41268681A44A08E000E52E9 /* IMEntryMedicineInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268671A44A08E000E52E9 /* IMEntryMedicineInputViewController.m */; };
 		F41268931A44AE41000E52E9 /* IMAnalyticsBaseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F412686C1A44AE41000E52E9 /* IMAnalyticsBaseChartViewController.m */; };
@@ -53,7 +53,7 @@
 		F41268DA1A46E343000E52E9 /* IMMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268C21A46E343000E52E9 /* IMMeal.m */; };
 		F41268DB1A46E343000E52E9 /* IMMedicine.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268C41A46E343000E52E9 /* IMMedicine.m */; };
 		F41268DC1A46E343000E52E9 /* IMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268C61A46E343000E52E9 /* IMNote.m */; };
-		F41268DD1A46E343000E52E9 /* IMReading.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268C81A46E343000E52E9 /* IMReading.m */; };
+		F41268DD1A46E343000E52E9 /* IMBGReading.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268C81A46E343000E52E9 /* IMBGReading.m */; };
 		F41268DE1A46E343000E52E9 /* IMReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268CA1A46E343000E52E9 /* IMReminder.m */; };
 		F41268DF1A46E343000E52E9 /* IMReminderRule.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268CC1A46E343000E52E9 /* IMReminderRule.m */; };
 		F41268E01A46E343000E52E9 /* IMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268CE1A46E343000E52E9 /* IMReport.m */; };
@@ -171,6 +171,16 @@
 		F49A2A531A3F0D9B006F9E34 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A4E1A3F0D9B006F9E34 /* UITextView+Extension.m */; };
 		F49A2A581A3F16F4006F9E34 /* IMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A571A3F16F4006F9E34 /* IMHelper.m */; };
 		F49A2A5A1A3F2499006F9E34 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */; };
+		F4F19B721A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B711A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m */; };
+		F4F19B751A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B741A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m */; };
+		F4F19B781A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B771A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m */; };
+		F4F19B7B1A4B0AFA003BAFC7 /* IMCholesterolReading.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B7A1A4B0AFA003BAFC7 /* IMCholesterolReading.m */; };
+		F4F19B7E1A4B0AFA003BAFC7 /* IMBPReading.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B7D1A4B0AFA003BAFC7 /* IMBPReading.m */; };
+		F4F19B811A4B0AFB003BAFC7 /* IMWeightReading.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B801A4B0AFB003BAFC7 /* IMWeightReading.m */; };
+		F4F19B841A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B831A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m */; };
+		F4F19B871A4C5CD1003BAFC7 /* IMSettingsBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B861A4C5CD1003BAFC7 /* IMSettingsBPViewController.m */; };
+		F4F19B8A1A4C60E3003BAFC7 /* IMSettingsWeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B891A4C60E3003BAFC7 /* IMSettingsWeightViewController.m */; };
+		F4F19B8D1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B8C1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m */; };
 		F4FDC6351A49918500DA8B41 /* IMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FDC6341A49918500DA8B41 /* IMPageViewController.m */; };
 		F4FDC6381A49921600DA8B41 /* IMPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FDC6371A49921600DA8B41 /* IMPageContentViewController.m */; };
 /* End PBXBuildFile section */
@@ -215,8 +225,8 @@
 		F412685B1A443E55000E52E9 /* IMEntryActivityInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryActivityInputViewController.m; path = Entries/IMEntryActivityInputViewController.m; sourceTree = "<group>"; };
 		F412685D1A449F74000E52E9 /* IMEntryMealInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryMealInputViewController.h; path = Entries/IMEntryMealInputViewController.h; sourceTree = "<group>"; };
 		F412685E1A449F74000E52E9 /* IMEntryMealInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryMealInputViewController.m; path = Entries/IMEntryMealInputViewController.m; sourceTree = "<group>"; };
-		F41268601A44A039000E52E9 /* IMEntryReadingInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryReadingInputViewController.h; path = Entries/IMEntryReadingInputViewController.h; sourceTree = "<group>"; };
-		F41268611A44A039000E52E9 /* IMEntryReadingInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryReadingInputViewController.m; path = Entries/IMEntryReadingInputViewController.m; sourceTree = "<group>"; };
+		F41268601A44A039000E52E9 /* IMEntryBGReadingInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryBGReadingInputViewController.h; path = Entries/IMEntryBGReadingInputViewController.h; sourceTree = "<group>"; };
+		F41268611A44A039000E52E9 /* IMEntryBGReadingInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryBGReadingInputViewController.m; path = Entries/IMEntryBGReadingInputViewController.m; sourceTree = "<group>"; };
 		F41268631A44A061000E52E9 /* IMEntryNoteInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryNoteInputViewController.h; path = Entries/IMEntryNoteInputViewController.h; sourceTree = "<group>"; };
 		F41268641A44A061000E52E9 /* IMEntryNoteInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryNoteInputViewController.m; path = Entries/IMEntryNoteInputViewController.m; sourceTree = "<group>"; };
 		F41268661A44A08E000E52E9 /* IMEntryMedicineInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryMedicineInputViewController.h; path = Entries/IMEntryMedicineInputViewController.h; sourceTree = "<group>"; };
@@ -283,8 +293,8 @@
 		F41268C41A46E343000E52E9 /* IMMedicine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMedicine.m; sourceTree = "<group>"; };
 		F41268C51A46E343000E52E9 /* IMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNote.h; sourceTree = "<group>"; };
 		F41268C61A46E343000E52E9 /* IMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNote.m; sourceTree = "<group>"; };
-		F41268C71A46E343000E52E9 /* IMReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMReading.h; sourceTree = "<group>"; };
-		F41268C81A46E343000E52E9 /* IMReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReading.m; sourceTree = "<group>"; };
+		F41268C71A46E343000E52E9 /* IMBGReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBGReading.h; sourceTree = "<group>"; };
+		F41268C81A46E343000E52E9 /* IMBGReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBGReading.m; sourceTree = "<group>"; };
 		F41268C91A46E343000E52E9 /* IMReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMReminder.h; sourceTree = "<group>"; };
 		F41268CA1A46E343000E52E9 /* IMReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReminder.m; sourceTree = "<group>"; };
 		F41268CB1A46E343000E52E9 /* IMReminderRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMReminderRule.h; sourceTree = "<group>"; };
@@ -510,6 +520,26 @@
 		F49A2A561A3F16F4006F9E34 /* IMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHelper.h; sourceTree = "<group>"; };
 		F49A2A571A3F16F4006F9E34 /* IMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHelper.m; sourceTree = "<group>"; };
 		F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		F4F19B701A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryBPReadingInputViewController.h; path = Entries/IMEntryBPReadingInputViewController.h; sourceTree = "<group>"; };
+		F4F19B711A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryBPReadingInputViewController.m; path = Entries/IMEntryBPReadingInputViewController.m; sourceTree = "<group>"; };
+		F4F19B731A4AFD82003BAFC7 /* IMEntryWeightInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryWeightInputViewController.h; path = Entries/IMEntryWeightInputViewController.h; sourceTree = "<group>"; };
+		F4F19B741A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryWeightInputViewController.m; path = Entries/IMEntryWeightInputViewController.m; sourceTree = "<group>"; };
+		F4F19B761A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryCholesterolInputViewController.h; path = Entries/IMEntryCholesterolInputViewController.h; sourceTree = "<group>"; };
+		F4F19B771A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryCholesterolInputViewController.m; path = Entries/IMEntryCholesterolInputViewController.m; sourceTree = "<group>"; };
+		F4F19B791A4B0AFA003BAFC7 /* IMCholesterolReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCholesterolReading.h; sourceTree = "<group>"; };
+		F4F19B7A1A4B0AFA003BAFC7 /* IMCholesterolReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCholesterolReading.m; sourceTree = "<group>"; };
+		F4F19B7C1A4B0AFA003BAFC7 /* IMBPReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBPReading.h; sourceTree = "<group>"; };
+		F4F19B7D1A4B0AFA003BAFC7 /* IMBPReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBPReading.m; sourceTree = "<group>"; };
+		F4F19B7F1A4B0AFB003BAFC7 /* IMWeightReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMWeightReading.h; sourceTree = "<group>"; };
+		F4F19B801A4B0AFB003BAFC7 /* IMWeightReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWeightReading.m; sourceTree = "<group>"; };
+		F4F19B821A4C4614003BAFC7 /* IMSettingsCholesterolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsCholesterolViewController.h; sourceTree = "<group>"; };
+		F4F19B831A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsCholesterolViewController.m; sourceTree = "<group>"; };
+		F4F19B851A4C5CD1003BAFC7 /* IMSettingsBPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsBPViewController.h; sourceTree = "<group>"; };
+		F4F19B861A4C5CD1003BAFC7 /* IMSettingsBPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsBPViewController.m; sourceTree = "<group>"; };
+		F4F19B881A4C60E3003BAFC7 /* IMSettingsWeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsWeightViewController.h; sourceTree = "<group>"; };
+		F4F19B891A4C60E3003BAFC7 /* IMSettingsWeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsWeightViewController.m; sourceTree = "<group>"; };
+		F4F19B8B1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+IMGradients.h"; sourceTree = "<group>"; };
+		F4F19B8C1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+IMGradients.m"; sourceTree = "<group>"; };
 		F4FDC6331A49918500DA8B41 /* IMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPageViewController.h; sourceTree = "<group>"; };
 		F4FDC6341A49918500DA8B41 /* IMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPageViewController.m; sourceTree = "<group>"; };
 		F4FDC6361A49921600DA8B41 /* IMPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPageContentViewController.h; sourceTree = "<group>"; };
@@ -676,14 +706,20 @@
 				F41268511A4409B6000E52E9 /* IMEntryListTableViewController.m */,
 				F412685D1A449F74000E52E9 /* IMEntryMealInputViewController.h */,
 				F412685E1A449F74000E52E9 /* IMEntryMealInputViewController.m */,
-				F41268601A44A039000E52E9 /* IMEntryReadingInputViewController.h */,
-				F41268611A44A039000E52E9 /* IMEntryReadingInputViewController.m */,
+				F41268601A44A039000E52E9 /* IMEntryBGReadingInputViewController.h */,
+				F41268611A44A039000E52E9 /* IMEntryBGReadingInputViewController.m */,
 				F41268631A44A061000E52E9 /* IMEntryNoteInputViewController.h */,
 				F41268641A44A061000E52E9 /* IMEntryNoteInputViewController.m */,
 				F41268661A44A08E000E52E9 /* IMEntryMedicineInputViewController.h */,
 				F41268671A44A08E000E52E9 /* IMEntryMedicineInputViewController.m */,
 				F41268A51A469ADE000E52E9 /* IMEntryBaseInputViewController.h */,
 				F41268A61A469ADE000E52E9 /* IMEntryBaseInputViewController.m */,
+				F4F19B701A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.h */,
+				F4F19B711A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m */,
+				F4F19B731A4AFD82003BAFC7 /* IMEntryWeightInputViewController.h */,
+				F4F19B741A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m */,
+				F4F19B761A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.h */,
+				F4F19B771A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m */,
 			);
 			name = Entries;
 			sourceTree = "<group>";
@@ -817,8 +853,8 @@
 				F41268C41A46E343000E52E9 /* IMMedicine.m */,
 				F41268C51A46E343000E52E9 /* IMNote.h */,
 				F41268C61A46E343000E52E9 /* IMNote.m */,
-				F41268C71A46E343000E52E9 /* IMReading.h */,
-				F41268C81A46E343000E52E9 /* IMReading.m */,
+				F41268C71A46E343000E52E9 /* IMBGReading.h */,
+				F41268C81A46E343000E52E9 /* IMBGReading.m */,
 				F41268C91A46E343000E52E9 /* IMReminder.h */,
 				F41268CA1A46E343000E52E9 /* IMReminder.m */,
 				F41268CB1A46E343000E52E9 /* IMReminderRule.h */,
@@ -829,6 +865,12 @@
 				F41268D01A46E343000E52E9 /* IMTag.m */,
 				F41268D11A46E343000E52E9 /* IMUser.h */,
 				F41268D21A46E343000E52E9 /* IMUser.m */,
+				F4F19B7F1A4B0AFB003BAFC7 /* IMWeightReading.h */,
+				F4F19B801A4B0AFB003BAFC7 /* IMWeightReading.m */,
+				F4F19B7C1A4B0AFA003BAFC7 /* IMBPReading.h */,
+				F4F19B7D1A4B0AFA003BAFC7 /* IMBPReading.m */,
+				F4F19B791A4B0AFA003BAFC7 /* IMCholesterolReading.h */,
+				F4F19B7A1A4B0AFA003BAFC7 /* IMCholesterolReading.m */,
 			);
 			name = Models;
 			path = CoreData/Models;
@@ -1127,6 +1169,10 @@
 			isa = PBXGroup;
 			children = (
 				F49A29131A3F0D1E006F9E34 /* Services */,
+				F4F19B851A4C5CD1003BAFC7 /* IMSettingsBPViewController.h */,
+				F4F19B861A4C5CD1003BAFC7 /* IMSettingsBPViewController.m */,
+				F4F19B821A4C4614003BAFC7 /* IMSettingsCholesterolViewController.h */,
+				F4F19B831A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m */,
 				F49A291A1A3F0D1E006F9E34 /* IMSettingsEntryViewController.h */,
 				F49A291B1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m */,
 				F49A291C1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.h */,
@@ -1137,6 +1183,8 @@
 				F49A29211A3F0D1E006F9E34 /* IMSettingsTimelineViewController.m */,
 				F49A29221A3F0D1E006F9E34 /* IMSettingsViewController.h */,
 				F49A29231A3F0D1E006F9E34 /* IMSettingsViewController.m */,
+				F4F19B881A4C60E3003BAFC7 /* IMSettingsWeightViewController.h */,
+				F4F19B891A4C60E3003BAFC7 /* IMSettingsWeightViewController.m */,
 				F49A29241A3F0D1E006F9E34 /* UI */,
 			);
 			path = Settings;
@@ -1406,6 +1454,8 @@
 				F49A2A4C1A3F0D9B006F9E34 /* UIImage+ImageEffects.m */,
 				F49A2A4D1A3F0D9B006F9E34 /* UITextView+Extension.h */,
 				F49A2A4E1A3F0D9B006F9E34 /* UITextView+Extension.m */,
+				F4F19B8B1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.h */,
+				F4F19B8C1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1563,13 +1613,14 @@
 				F49A29881A3F0D1E006F9E34 /* IMDateButton.m in Sources */,
 				F49A29DC1A3F0D82006F9E34 /* IMUIHintView.m in Sources */,
 				F4027A221A495C5C00E00E84 /* IMLoginViewController.m in Sources */,
+				F4F19B751A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m in Sources */,
 				F41268B01A46E266000E52E9 /* IMUsersListViewController.m in Sources */,
 				F49A296F1A3F0D1E006F9E34 /* IMJournalViewController.m in Sources */,
 				F49A29D91A3F0D82006F9E34 /* IMBadgeView.m in Sources */,
 				F41268D51A46E343000E52E9 /* IMActivity.m in Sources */,
 				F49A295F1A3F0D1E006F9E34 /* IMKeyboardShortcutButton.m in Sources */,
 				F49A298B1A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m in Sources */,
-				F41268DD1A46E343000E52E9 /* IMReading.m in Sources */,
+				F41268DD1A46E343000E52E9 /* IMBGReading.m in Sources */,
 				F49A29DD1A3F0D82006F9E34 /* IMViewControllerMessageView.m in Sources */,
 				F49A29911A3F0D1E006F9E34 /* IMSettingsViewController.m in Sources */,
 				F41268991A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m in Sources */,
@@ -1581,21 +1632,25 @@
 				F49A29841A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.m in Sources */,
 				F49A2A401A3F0D90006F9E34 /* TGRImageViewController.m in Sources */,
 				F49A29521A3F0D1E006F9E34 /* IMEventInputViewCell.m in Sources */,
+				F4F19B8D1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m in Sources */,
 				F49A29501A3F0D1E006F9E34 /* IMEventInputTextFieldViewCell.m in Sources */,
 				F49A29D31A3F0D81006F9E34 /* IMCategoryInputView.m in Sources */,
 				F412684B1A42D463000E52E9 /* IMDayRecordTableViewController.m in Sources */,
-				F41268621A44A039000E52E9 /* IMEntryReadingInputViewController.m in Sources */,
+				F41268621A44A039000E52E9 /* IMEntryBGReadingInputViewController.m in Sources */,
 				F49A29541A3F0D1E006F9E34 /* IMEventPhotoImageView.m in Sources */,
 				F49A296E1A3F0D1E006F9E34 /* IMJournalMonthViewCell.m in Sources */,
 				F49A29691A3F0D1E006F9E34 /* IMExportViewController.m in Sources */,
 				F49A297B1A3F0D1E006F9E34 /* IMRemindersViewController.m in Sources */,
 				F41268471A42D435000E52E9 /* IMDayRecordTableViewCell.m in Sources */,
 				F49A2A2A1A3F0D90006F9E34 /* IMMediaController.m in Sources */,
+				F4F19B781A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m in Sources */,
 				F4FDC6351A49918500DA8B41 /* IMPageViewController.m in Sources */,
 				F41268651A44A061000E52E9 /* IMEntryNoteInputViewController.m in Sources */,
 				F41268E81A472CC6000E52E9 /* IMJournalTableViewCell.m in Sources */,
 				F49A294F1A3F0D1E006F9E34 /* IMEventInputLabelViewCell.m in Sources */,
+				F4F19B841A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m in Sources */,
 				F49A2A431A3F0D90006F9E34 /* UIImage+AspectFit.m in Sources */,
+				F4F19B871A4C5CD1003BAFC7 /* IMSettingsBPViewController.m in Sources */,
 				F41268931A44AE41000E52E9 /* IMAnalyticsBaseChartViewController.m in Sources */,
 				F49A29751A3F0D1E006F9E34 /* IMLocationReminderMapViewController.m in Sources */,
 				F49A29D41A3F0D81006F9E34 /* IMCategorySelectorButton.m in Sources */,
@@ -1607,6 +1662,7 @@
 				F49A295E1A3F0D1E006F9E34 /* IMKeyboardShortcutAccessoryView.m in Sources */,
 				F41A762B1A413C3A006F9547 /* IMReportImageViewCell.m in Sources */,
 				F49A29941A3F0D1E006F9E34 /* IMTagTableViewCell.m in Sources */,
+				F4F19B721A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m in Sources */,
 				F49A298E1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m in Sources */,
 				F41268AF1A46E266000E52E9 /* IMUserCell.m in Sources */,
 				F49A2A2D1A3F0D90006F9E34 /* IMTagController.m in Sources */,
@@ -1625,6 +1681,7 @@
 				F49A29701A3F0D1E006F9E34 /* IMShortcutButton.m in Sources */,
 				F41A76191A403636006F9547 /* IMReportViewController.m in Sources */,
 				F41268DF1A46E343000E52E9 /* IMReminderRule.m in Sources */,
+				F4F19B811A4B0AFB003BAFC7 /* IMWeightReading.m in Sources */,
 				F41268981A44AE41000E52E9 /* IMAnalyticsBarChartFooterView.m in Sources */,
 				F49A29761A3F0D1E006F9E34 /* IMLocationReminderViewController.m in Sources */,
 				F49A297F1A3F0D1E006F9E34 /* IMCarbsChartViewController.m in Sources */,
@@ -1645,6 +1702,7 @@
 				F49A2A581A3F16F4006F9E34 /* IMHelper.m in Sources */,
 				F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */,
 				F41268A01A44AE41000E52E9 /* IMAnalyticsChartTooltipTipView.m in Sources */,
+				F4F19B8A1A4C60E3003BAFC7 /* IMSettingsWeightViewController.m in Sources */,
 				F41268971A44AE41000E52E9 /* IMAnalyticsChartTableCell.m in Sources */,
 				F49A29831A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.m in Sources */,
 				F49A297A1A3F0D1E006F9E34 /* IMReminderBaseViewController.m in Sources */,
@@ -1655,6 +1713,7 @@
 				F49A29731A3F0D1E006F9E34 /* IMLocationMapPin.m in Sources */,
 				F41268D31A46E343000E52E9 /* IMCoreDataStack.m in Sources */,
 				F4104AC61A3AF8B500EF8193 /* IMAppDelegate.m in Sources */,
+				F4F19B7B1A4B0AFA003BAFC7 /* IMCholesterolReading.m in Sources */,
 				F412689E1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.m in Sources */,
 				F41268D91A46E343000E52E9 /* IMImage.m in Sources */,
 				F41A76101A400043006F9547 /* IMReportTableViewCell.m in Sources */,
@@ -1693,6 +1752,7 @@
 				F49A29511A3F0D1E006F9E34 /* IMEventInputTextViewViewCell.m in Sources */,
 				F49A296A1A3F0D1E006F9E34 /* IMPDFDocument.m in Sources */,
 				F4104AC31A3AF8B500EF8193 /* main.m in Sources */,
+				F4F19B7E1A4B0AFA003BAFC7 /* IMBPReading.m in Sources */,
 				F49A297C1A3F0D1E006F9E34 /* IMChartCrosshairTooltip.m in Sources */,
 				F49A298F1A3F0D1E006F9E34 /* IMSettingsLicensesViewController.m in Sources */,
 				F49A29781A3F0D1E006F9E34 /* IMReminderRepeatViewController.m in Sources */,

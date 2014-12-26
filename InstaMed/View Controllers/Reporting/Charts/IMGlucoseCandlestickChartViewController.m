@@ -37,7 +37,7 @@
     
     for(IMEvent *event in theData)
     {
-        if([event isKindOfClass:[IMReading class]])
+        if([event isKindOfClass:[IMBGReading class]])
         {
             NSDate *timestamp = [event.timestamp dateAtStartOfDay];
             if([timestamp isEarlierThanDate:minDate]) minDate = timestamp;
@@ -64,9 +64,9 @@
     {
         if([dictionary[date] count] > 1)
         {
-            IMReading *lowReading = nil;
-            IMReading *highReading = nil;
-            for(IMReading *reading in dictionary[date])
+            IMBGReading *lowReading = nil;
+            IMBGReading *highReading = nil;
+            for(IMBGReading *reading in dictionary[date])
             {
                 if([reading.value doubleValue] < lowestReading) lowestReading = [reading.value doubleValue];
                 if(!highReading || [reading.mmoValue doubleValue] > [highReading.mmoValue doubleValue]) highReading = reading;
@@ -174,15 +174,15 @@
     
     NSString *dateKey = [chartData[@"data"] allKeys][dataIndex];
     NSDictionary *dayData = chartData[@"data"][dateKey];
-    NSDate *date = [[(IMReading *)dayData[@"open"] timestamp] dateAtStartOfDay];
+    NSDate *date = [[(IMBGReading *)dayData[@"open"] timestamp] dateAtStartOfDay];
     
     multiPoint.xValue = date;
     if(seriesIndex == 0)
     {
-        multiPoint.yValues[SChartCandlestickKeyOpen] = [(IMReading *)dayData[@"open"] value];
-        multiPoint.yValues[SChartCandlestickKeyClose] = [(IMReading *)dayData[@"close"] value];
-        multiPoint.yValues[SChartCandlestickKeyLow] = [(IMReading *)dayData[@"low"] value];
-        multiPoint.yValues[SChartCandlestickKeyHigh] = [(IMReading *)dayData[@"high"] value];
+        multiPoint.yValues[SChartCandlestickKeyOpen] = [(IMBGReading *)dayData[@"open"] value];
+        multiPoint.yValues[SChartCandlestickKeyClose] = [(IMBGReading *)dayData[@"close"] value];
+        multiPoint.yValues[SChartCandlestickKeyLow] = [(IMBGReading *)dayData[@"low"] value];
+        multiPoint.yValues[SChartCandlestickKeyHigh] = [(IMBGReading *)dayData[@"high"] value];
         
         return multiPoint;
     }

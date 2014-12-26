@@ -35,7 +35,7 @@
 
 @implementation IMJournalTableViewCell
 
-- (void)setDeviationValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
+- (void)setBGDeviationValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
     if([value doubleValue] > 0) {
         //deviationImageView.image = [UIImage imageNamed:@"JournalIconDeviation"];
         self.glucoseDeviationLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
@@ -137,20 +137,20 @@
     NSNumberFormatter *valueFormatter = [IMHelper standardNumberFormatter];
     NSNumberFormatter *glucoseFormatter = [IMHelper glucoseNumberFormatter];
     
-    NSInteger totalGrams = [[stats valueForKey:@"total_grams"] integerValue];
-    NSInteger totalReadings = [[stats valueForKey:@"total_readings"] integerValue];
-    NSInteger totalMinutes = [[stats objectForKey:@"total_minutes"] integerValue];
-    double readingsAvg = [[stats valueForKey:@"readings_avg"] doubleValue];
-    double readingsDeviation = [[stats valueForKey:@"readings_deviation"] doubleValue];
-    double lowGlucose = [[stats valueForKey:@"lowest_reading"] doubleValue];
-    double highGlucose = [[stats valueForKey:@"highest_reading"] doubleValue];
+    NSInteger totalGrams = [[stats valueForKey:kTotalGramsKey] integerValue];
+    NSInteger totalReadings = [[stats valueForKey:kBGReadingsTotalKey] integerValue];
+    NSInteger totalMinutes = [[stats objectForKey:kTotalMinutesKey] integerValue];
+    double readingsAvg = [[stats valueForKey:kBGReadingsAverageKey] doubleValue];
+    double readingsDeviation = [[stats valueForKey:kBGReadingsDeviationKey] doubleValue];
+    double lowGlucose = [[stats valueForKey:kBGReadingLowestKey] doubleValue];
+    double highGlucose = [[stats valueForKey:kBGReadingHighestKey] doubleValue];
     
     if(totalReadings) {
         [self setAverageGlucoseValue:[NSNumber numberWithDouble:readingsAvg] withFormatter:glucoseFormatter];
-        [self setDeviationValue:[NSNumber numberWithDouble:readingsDeviation] withFormatter:glucoseFormatter];
+        [self setBGDeviationValue:[NSNumber numberWithDouble:readingsDeviation] withFormatter:glucoseFormatter];
     } else {
         [self setAverageGlucoseValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
-        [self setDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
+        [self setBGDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
     }
     [self setMealValue:[NSNumber numberWithDouble:totalGrams] withFormatter:valueFormatter];
     [self setActivityValue:totalMinutes];

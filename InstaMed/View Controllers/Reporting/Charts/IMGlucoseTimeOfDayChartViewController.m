@@ -31,12 +31,12 @@
     NSMutableArray *formattedData = [NSMutableArray array];
     for(IMEvent *event in theData)
     {
-        if([event isKindOfClass:[IMReading class]])
+        if([event isKindOfClass:[IMBGReading class]])
         {
             if([event.timestamp isEarlierThanDate:minDate]) minDate = event.timestamp;
             if([event.timestamp isLaterThanDate:maxDate]) maxDate = event.timestamp;
             
-            IMReading *reading = (IMReading *)event;
+            IMBGReading *reading = (IMBGReading *)event;
             if(lowestReading > [reading.mmoValue doubleValue])
             {
                 lowestReading = [reading.mmoValue doubleValue];
@@ -50,7 +50,7 @@
     double x = 0;
     for(NSInteger i = formattedData.count-1; i >= 0; i--)
     {
-        IMReading *reading = (IMReading *)[formattedData objectAtIndex:i];
+        IMBGReading *reading = (IMBGReading *)[formattedData objectAtIndex:i];
         [trendline addPoint:CGPointMake(x, [[reading value] doubleValue])];
         x++;
     }
@@ -190,7 +190,7 @@
 {
     SChartMultiYDataPoint *multiPoint = [[SChartMultiYDataPoint alloc] init];
     
-    IMReading *reading = (IMReading *)[[chartData objectForKey:@"data"] objectAtIndex:dataIndex];
+    IMBGReading *reading = (IMBGReading *)[[chartData objectForKey:@"data"] objectAtIndex:dataIndex];
     multiPoint.xValue = [NSDate dateWithYear:nil month:nil day:nil hour:@([reading.timestamp hour]) minute:@([reading.timestamp minute]) seconds:@([reading.timestamp seconds])];
     
     if(seriesIndex == 0)

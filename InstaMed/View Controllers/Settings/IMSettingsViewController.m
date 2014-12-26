@@ -12,13 +12,16 @@
 #import "IMSettingsViewController.h"
 #import "IMSettingsEntryViewController.h"
 #import "IMSettingsGlucoseViewController.h"
+#import "IMSettingsCholesterolViewController.h"
+#import "IMSettingsBPViewController.h"
+#import "IMSettingsWeightViewController.h"
 #import "IMSettingsTimelineViewController.h"
 #import "IMSettingsDropboxViewController.h"
 #import "IMSettingsLicensesViewController.h"
 
 #import "IMSettingsViewCell.h"
 #import "IMHelper.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 
 @interface IMSettingsViewController ()
 
@@ -63,7 +66,7 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0) {
-        return 3;
+        return 6;
     } else if (section == 1) {
         return 1;
     } else if(section == 2) {
@@ -113,6 +116,15 @@
         } else if(indexPath.row == 2) {
             cell.textLabel.text = NSLocalizedString(@"Glucose settings", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        } else if(indexPath.row == 3) {
+            cell.textLabel.text = NSLocalizedString(@"Cholesterol settings", nil);
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        } else if(indexPath.row == 4) {
+            cell.textLabel.text = NSLocalizedString(@"Blood Pressure settings", nil);
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        } else if(indexPath.row == 5) {
+            cell.textLabel.text = NSLocalizedString(@"Weight settings", nil);
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     } else if(indexPath.section == 1) {
         if(indexPath.row == 0) {
@@ -149,6 +161,15 @@
             [self.navigationController pushViewController:vc animated:YES];
         } else if(indexPath.row == 2) {
             IMSettingsGlucoseViewController *vc = [[IMSettingsGlucoseViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if(indexPath.row == 3) {
+            IMSettingsCholesterolViewController *vc = [[IMSettingsCholesterolViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if(indexPath.row == 4) {
+            IMSettingsBPViewController *vc = [[IMSettingsBPViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if(indexPath.row == 5) {
+            IMSettingsWeightViewController *vc = [[IMSettingsWeightViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else if(indexPath.section == 1) {
@@ -189,7 +210,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        if(indexPath.row >= 0 && indexPath.row <= 2) {
+        if(indexPath.row >= 0 && indexPath.row <= 5) {
             return YES;
         } else {
             return NO;

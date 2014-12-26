@@ -20,7 +20,13 @@
     UIImage* image = nil;
     if (eventType == IMMedicineType) {
         image = [UIImage imageNamed:@"AddEntryMedicineBubble"];
-    } else if (eventType == IMReadingType) {
+    } else if (eventType == IMBGReadingType) {
+        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+    } else if (eventType == IMBPReadingType) {
+        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+    } else if (eventType == IMCholesterolType) {
+        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+    } else if (eventType == IMWeightType) {
         image = [UIImage imageNamed:@"AddEntryBloodBubble"];
     } else if (eventType == IMFoodType) {
         image = [UIImage imageNamed:@"AddEntryMealBubble"];

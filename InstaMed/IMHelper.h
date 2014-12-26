@@ -12,17 +12,21 @@
 
 // Formatters
 + (NSString *)formatMinutes:(double)minutes;
-+ (NSNumber *)formatBGReadingWithValue:(NSNumber *)value inUnit:(NSInteger)unit;
 + (NSDateFormatter *)shortTimeFormatter;
 + (NSDateFormatter *)hhmmTimeFormatter;
 + (NSNumberFormatter *)glucoseNumberFormatter;
++ (NSNumberFormatter *)cholesterolNumberFormatter;
 + (NSNumberFormatter *)standardNumberFormatter;
 
 // Converters
 + (NSNumber *)convertBGValue:(NSNumber *)value fromUnit:(NSInteger)fromUnit toUnit:(NSInteger)toUnit;
++ (NSNumber *)convertCholesterolValue:(NSNumber *)value fromUnit:(NSInteger)fromUnit toUnit:(NSInteger)toUnit;
 
 // Helpers
 + (NSInteger)userBGUnit;
 + (BOOL)isBGLevelSafe:(double)value;
++ (NSInteger)userChUnit;
++ (BOOL)isCholesterolLevelSafe:(double)value;
++ (BOOL)isBPLevelSafeWithHigh:(uint)high andLow:(uint)low;
 
 @end

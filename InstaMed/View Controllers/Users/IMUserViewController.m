@@ -32,6 +32,8 @@
 @property (nonatomic, strong) NSArray *diseasesArray;
 @property (nonatomic) BOOL trackHyperTension;
 @property (nonatomic) BOOL trackDiabetes;
+@property (nonatomic) BOOL trackCholesterol;
+@property (nonatomic) BOOL trackWeight;
 @end
 
 @implementation IMUserViewController
@@ -186,6 +188,8 @@
     entry.dob = [self.pickedDate timeIntervalSince1970];
     entry.trackingDiabetes = self.trackDiabetes;
     entry.trackingHyperTension = self.trackHyperTension;
+    entry.trackingWeight = self.trackWeight;
+    entry.trackingCholesterol = self.trackCholesterol;
 
     [coreDataStack saveContext];
 }
@@ -210,7 +214,8 @@
     self.entry.dob = [self.pickedDate timeIntervalSince1970];
     self.entry.trackingDiabetes = self.trackDiabetes;
     self.entry.trackingHyperTension = self.trackHyperTension;
-
+    self.entry.trackingCholesterol = self.trackCholesterol;
+    self.entry.trackingWeight = self.trackWeight;
     
     IMCoreDataStack *coreDataStack = [IMCoreDataStack defaultStack];
     [coreDataStack saveContext];

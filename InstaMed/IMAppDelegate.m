@@ -172,8 +172,17 @@
                                                               kMinHealthyBGKey: @4,
                                                               kMaxHealthyBGKey: @7,
                                                               
+                                                              kChTrackingUnitKey: [NSNumber numberWithInt:([countryCode isEqualToString:@"US"]) ? ChTrackingUnitMG : ChTrackingUnitMMO],
+                                                              kMinHealthyChKey: @6,
+                                                              kMaxHealthyChKey: @11,
+                                                              
+                                                              kMinHealthyBPKey: @80,
+                                                              kMaxHealthyBPKey: @120,
+                                                              
+                                                              kTargetWeightKey: @60,
+                                                              
                                                               kUseSmartInputKey: @YES,
-                                                                kShowInlineImages: @YES,
+                                                              kShowInlineImages: @YES,
                                                               kFilterSearchResultsKey: @YES,
                                                               kAutomaticallyGeotagEvents: @YES }];
     

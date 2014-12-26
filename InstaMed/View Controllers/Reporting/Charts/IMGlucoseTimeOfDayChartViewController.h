@@ -9,7 +9,7 @@
 #import "IMChartViewController.h"
 
 #import "IMEvent.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 #import "IMMeal.h"
 
 @interface IMGlucoseTimeOfDayChartViewController : IMChartViewController <SChartDatasource, SChartDelegate>

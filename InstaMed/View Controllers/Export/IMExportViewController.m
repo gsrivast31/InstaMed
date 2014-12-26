@@ -19,7 +19,7 @@
 #import "IMActivity.h"
 #import "IMMeal.h"
 #import "IMNote.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 
 #define kExportTypeDropbox  0
 #define kExportTypeEmail    1
@@ -447,7 +447,7 @@
                         {
                             NSDictionary *monthStats = [[IMEventController sharedInstance] statisticsForEvents:events fromDate:monthData[@"startDate"] toDate:monthData[@"endDate"]];
                             
-                            data = [data stringByAppendingFormat:@"\n\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"", month, [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"readings_avg"]], [valueFormatter stringFromNumber:[monthStats objectForKey:@"total_minutes"]], [valueFormatter stringFromNumber:[monthStats objectForKey:@"total_grams"]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"lowest_reading"]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"highest_reading"]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"readings_deviation"]]];
+                            data = [data stringByAppendingFormat:@"\n\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"", month, [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingsAverageKey]], [valueFormatter stringFromNumber:[monthStats objectForKey:kTotalMinutesKey]], [valueFormatter stringFromNumber:[monthStats objectForKey:kTotalGramsKey]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingLowestKey]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingHighestKey]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingsDeviationKey]]];
                         }
                     }
                 }
@@ -496,9 +496,9 @@
                                     NSString *unit = [[IMEventController sharedInstance] medicineTypeHR:[medicine.type integerValue]];
                                     data = [data stringByAppendingFormat:@"\n\"%@\",%@,%@,%@,\"%@\",%@,%@", date, time, [event humanReadableName], name, value, unit, notes];
                                 }
-                                else if([event isKindOfClass:[IMReading class]])
+                                else if([event isKindOfClass:[IMBGReading class]])
                                 {
-                                    IMReading *reading = (IMReading *)event;
+                                    IMBGReading *reading = (IMBGReading *)event;
                                     
                                     NSString *value = [valueFormatter stringFromNumber:reading.value];
                                     NSString *unit = ([IMHelper userBGUnit] == BGTrackingUnitMG) ? @"mg/dL" : @"mmoI/L";
@@ -569,7 +569,7 @@
                         {
                             NSDictionary *monthStats = [[IMEventController sharedInstance] statisticsForEvents:events fromDate:monthData[@"startDate"] toDate:monthData[@"endDate"]];
                             
-                            [rows addObject:@[month, [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"readings_avg"]], [valueFormatter stringFromNumber:[monthStats objectForKey:@"total_minutes"]], [valueFormatter stringFromNumber:[monthStats objectForKey:@"total_grams"]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"lowest_reading"]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"highest_reading"]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:@"readings_deviation"]]]];
+                            [rows addObject:@[month, [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingsAverageKey]], [valueFormatter stringFromNumber:[monthStats objectForKey:kTotalMinutesKey]], [valueFormatter stringFromNumber:[monthStats objectForKey:kTotalGramsKey]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingLowestKey]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingHighestKey]], [glucoseFormatter stringFromNumber:[monthStats objectForKey:kBGReadingsDeviationKey]]]];
                         }
                     }
                 }
@@ -638,9 +638,9 @@
                                     NSString *unit = [[IMEventController sharedInstance] medicineTypeHR:[medicine.type integerValue]];
                                     [rows addObject:@[[NSString stringWithFormat:@"%@\n%@", date, time], [event humanReadableName], name, [NSString stringWithFormat:@"%@ %@", value, unit], notes]];
                                 }
-                                else if([event isKindOfClass:[IMReading class]])
+                                else if([event isKindOfClass:[IMBGReading class]])
                                 {
-                                    IMReading *reading = (IMReading *)event;
+                                    IMBGReading *reading = (IMBGReading *)event;
                                     
                                     NSString *value = [valueFormatter stringFromNumber:reading.value];
                                     NSString *unit = ([IMHelper userBGUnit] == BGTrackingUnitMG) ? @"mg/dL" : @"mmoI/L";

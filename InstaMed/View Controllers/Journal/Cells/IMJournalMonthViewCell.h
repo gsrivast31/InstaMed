@@ -12,10 +12,22 @@
 @property (nonatomic, strong) UILabel *monthLabel;
 
 // Accessors
-- (void)setDeviationValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+- (void)setBGDeviationValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 - (void)setAverageGlucoseValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 - (void)setLowGlucoseValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 - (void)setHighGlucoseValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+
+- (void)setChDeviationValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+- (void)setAverageCholesterolValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+- (void)setLowCholesterolValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+- (void)setHighCholesterolValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+
+- (void)setLowBPValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+- (void)setHighBPValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+
+- (void)setLowWeightValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+- (void)setHighWeightValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
+
 - (void)setActivityValue:(NSInteger)value;
 - (void)setMealValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 

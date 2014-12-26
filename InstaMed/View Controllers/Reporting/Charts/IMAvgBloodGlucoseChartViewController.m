@@ -33,7 +33,7 @@
     OrderedDictionary *dictionary = [OrderedDictionary dictionary];
     for(IMEvent *event in theData)
     {
-        if([event isKindOfClass:[IMReading class]])
+        if([event isKindOfClass:[IMBGReading class]])
         {
             if([event.timestamp isEarlierThanDate:minDate]) minDate = event.timestamp;
             if([event.timestamp isLaterThanDate:maxDate]) maxDate = event.timestamp;
@@ -71,9 +71,9 @@
                 if(timePeriod == Afternoon) [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"afternoonTotal"] doubleValue] + [meal.grams doubleValue]] forKey:@"afternoonTotal"];
                 if(timePeriod == Evening) [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"eveningTotal"] doubleValue] + [meal.grams doubleValue]] forKey:@"eveningTotal"];
             }
-            else if([event isKindOfClass:[IMReading class]])
+            else if([event isKindOfClass:[IMBGReading class]])
             {
-                IMReading *reading = (IMReading *)event;
+                IMBGReading *reading = (IMBGReading *)event;
                 [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"readingsCount"] integerValue] + 1] forKey:@"readingsCount"];
                 [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"readingsTotal"] doubleValue] + [reading.value doubleValue]] forKey:@"readingsTotal"];
             }
@@ -232,7 +232,7 @@
 {
     SChartMultiYDataPoint *multiPoint = [[SChartMultiYDataPoint alloc] init];
     
-    IMReading *reading = (IMReading *)[[chartData objectForKey:@"data"] objectAtIndex:dataIndex];
+    IMBGReading *reading = (IMBGReading *)[[chartData objectForKey:@"data"] objectAtIndex:dataIndex];
     multiPoint.xValue = reading.timestamp;
     
     if(seriesIndex == 0)

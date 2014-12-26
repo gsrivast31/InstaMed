@@ -38,6 +38,11 @@ enum BGTrackingUnit {
     BGTrackingUnitMMO = 1
 };
 
+enum ChTrackingUnit {
+    ChTrackingUnitMG = 0,
+    ChTrackingUnitMMO = 1
+};
+
 enum {
     Everyday = 1,
     Monday = 2,
@@ -57,20 +62,26 @@ enum BackupFrequency {
 
 typedef enum _EventFilterType {
     MedicineFilterType = 1,
-    ReadingFilterType = 2,
-    MealFilterType = 4,
-    SnackFilterType = 8,
-    ActivityFilterType = 16,
-    NoteFilterType = 32
+    BGReadingFilterType = 2,
+    BPReadingFilterType = 4,
+    CholesterolReadingFilterType = 8,
+    WeightReadingFilterType = 16,
+    MealFilterType = 32,
+    SnackFilterType = 64,
+    ActivityFilterType = 128,
+    NoteFilterType = 256
 } EventFilterType;
 
 NS_ENUM(int16_t, IMEventType) {
     IMMedicineType = 0,
-    IMReadingType = 1,
-    IMFoodType = 2,
-    IMActivityType = 3,
-    IMNoteType = 4,
-    IMNoneType = 5
+    IMBGReadingType = 1,
+    IMBPReadingType = 2,
+    IMCholesterolType = 3,
+    IMWeightType = 4,
+    IMFoodType = 5,
+    IMActivityType = 6,
+    IMNoteType = 7,
+    IMNoneType = 8
 };
 
 // Constants
@@ -100,9 +111,40 @@ static NSString * const kMinHealthyBGKey = @"kMinHealthyBGKey";
 static NSString * const kMaxHealthyBGKey = @"kMaxHealthyBGKey";
 static NSString * const kBGTrackingUnitKey = @"kBGTrackingUnit";
 static NSString * const kTargetBGKey = @"kTargetBGKey";
+
+static NSString * const kMinHealthyChKey = @"kMinHealthyChKey";
+static NSString * const kMaxHealthyChKey = @"kMaxHealthyChKey";
+static NSString * const kChTrackingUnitKey = @"kChTrackingUnit";
+
+static NSString * const kMinHealthyBPKey = @"kMinHealthyBPKey";
+static NSString * const kMaxHealthyBPKey = @"kMaxHealthyBPKey";
+
+static NSString * const kTargetWeightKey = @"kTargetWeightKey";
+
 static NSString * const kCarbohydrateRatioKey = @"kCarbohydrateRatioKey";
 static NSString * const kCorrectiveFactorKey = @"kCorrectiveFactorKey";
 
 static NSString * const kCurrentProfileKey = @"kCurrentProfileKey";
+
+// Data Keys
+static NSString *const kMinDateKey = @"min_date";
+static NSString *const kMaxDateKey = @"max_date";
+static NSString *const kTotalGramsKey = @"total_grams";
+static NSString *const kTotalMinutesKey = @"total_minutes";
+static NSString *const kBGReadingsDeviationKey = @"readings_bg_deviation";
+static NSString *const kBGReadingsAverageKey = @"readings_bg_avg";
+static NSString *const kBGReadingsTotalKey = @"total_bg_readings";
+static NSString *const kBGReadingLowestKey = @"lowest_bg_reading";
+static NSString *const kBGReadingHighestKey = @"highest_bg_reading";
+static NSString *const kChReadingsDeviationKey = @"readings_ch_deviation";
+static NSString *const kChReadingsAverageKey = @"readings_ch_avg";
+static NSString *const kChReadingsTotalKey = @"total_ch_readings";
+static NSString *const kChReadingLowestKey = @"lowest_ch_reading";
+static NSString *const kChReadingHighestKey = @"highest_ch_reading";
+static NSString *const kBPReadingLowestKey = @"lowest_bp_reading";
+static NSString *const kBPReadingHighestKey = @"highest_bp_reading";
+static NSString *const kWtReadingLowestKey = @"lowest_wt_reading";
+static NSString *const kWtReadingHighestKey = @"highest_wt_reading";
+static NSString *const kEventsKey = @"events";
 
 #endif

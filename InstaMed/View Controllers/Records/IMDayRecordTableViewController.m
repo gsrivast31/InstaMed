@@ -11,7 +11,10 @@
 #import "IMDayRecordTableViewCell.h"
 #import "IMCoreDataStack.h"
 #import "IMEvent.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
+#import "IMBPReading.h"
+#import "IMCholesterolReading.h"
+#import "IMWeightReading.h"
 #import "IMActivity.h"
 #import "IMMeal.h"
 #import "IMMedicine.h"
@@ -20,9 +23,14 @@
 #import "IMEntryActivityInputViewController.h"
 #import "IMEntryMealInputViewController.h"
 #import "IMEntryMedicineInputViewController.h"
-#import "IMEntryReadingInputViewController.h"
+#import "IMEntryBGReadingInputViewController.h"
+#import "IMEntryCholesterolInputViewController.h"
+#import "IMEntryBPReadingInputViewController.h"
+#import "IMEntryWeightInputViewController.h"
 #import "IMEntryNoteInputViewController.h"
 #import "IMMediaController.h"
+
+#import "CAGradientLayer+IMGradients.h"
 
 @interface IMDayRecordTableViewController () <NSFetchedResultsControllerDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 {
@@ -202,37 +210,28 @@
     
     // Finally, if we have no data hide our tableview
     if([self hasSavedEvents]) {
-        //self.tableView.alpha = 1.0f;
         self.noEntriesMessageView.alpha = 0.0f;
     } else {
-        //self.tableView.alpha = 0.0f;
         self.noEntriesMessageView.alpha = 1.0f;
     }
 }
 
-- (void)performSearchWithText:(NSString *)searchText
-{
+- (void)performSearchWithText:(NSString *)searchText {
     NSString *regex = [NSString stringWithFormat:@".*?%@.*?", [searchText lowercaseString]];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name MATCHES[cd] %@ OR self.notes MATCHES[cd] %@", regex, regex];
     
-    if(predicate)
-    {
+    if(predicate) {
         NSMutableArray *newResults = [NSMutableArray array];
         NSMutableArray *newHeaders = [NSMutableArray array];
-        if(self.fetchedResultsController && [[self.fetchedResultsController fetchedObjects] count])
-        {
-            for(id<NSFetchedResultsSectionInfo> section in [self.fetchedResultsController sections])
-            {
+        if(self.fetchedResultsController && [[self.fetchedResultsController fetchedObjects] count]) {
+            for(id<NSFetchedResultsSectionInfo> section in [self.fetchedResultsController sections]) {
                 NSArray *matchingObjects = [[section objects] filteredArrayUsingPredicate:predicate];
-                if(matchingObjects && [matchingObjects count])
-                {
+                if(matchingObjects && [matchingObjects count]) {
                     NSMutableArray *objects = [NSMutableArray array];
-                    for(id object in [section objects])
-                    {
+                    for(id object in [section objects]) {
                         NSInteger indexOfObject = [matchingObjects indexOfObject:object];
                         BOOL relevant = indexOfObject != NSNotFound;
-                        if(![[NSUserDefaults standardUserDefaults] boolForKey:kFilterSearchResultsKey] || ([[NSUserDefaults standardUserDefaults] boolForKey:kFilterSearchResultsKey] && relevant))
-                        {
+                        if(![[NSUserDefaults standardUserDefaults] boolForKey:kFilterSearchResultsKey] || ([[NSUserDefaults standardUserDefaults] boolForKey:kFilterSearchResultsKey] && relevant)) {
                             [objects addObject:[NSDictionary dictionaryWithObjectsAndKeys:object, @"object", [NSNumber numberWithBool:relevant], @"relevant", nil]];
                         }
                     }
@@ -246,8 +245,7 @@
             searchResultHeaders = newHeaders;
             
             NSMutableArray *stats = [NSMutableArray array];
-            for(NSArray *results in searchResults)
-            {
+            for(NSArray *results in searchResults) {
                 [stats addObject:[self calculatedStatsForObjects:results]];
             }
             searchResultSectionStats = [NSArray arrayWithArray:stats];
@@ -274,11 +272,11 @@
 }
 
 - (NSDictionary *)calculatedStatsForObjects:(NSArray *)objects {
-    NSInteger activityCount = 0, readingCount = 0, mealCount = 0;
-    double activityTotal = 0, readingTotal = 0, mealTotal = 0;
+    NSInteger activityCount = 0, readingBGCount = 0, mealCount = 0, readingChCount = 0, readingBPCount = 0, readingWeightCount = 0;
+    double activityTotal = 0, readingBGTotal = 0, mealTotal = 0, readingChTotal = 0, readingWeightTotal = 0;
+    double readingBPLowTotal = 0, readingBPHighTotal = 0;
     
-    for(id object in objects)
-    {
+    for(id object in objects) {
         IMEvent *event = nil;
         if([object isKindOfClass:[NSDictionary class]]) {
             event = (IMEvent *)[object valueForKey:@"object"];
@@ -286,23 +284,40 @@
             event = (IMEvent *)object;
         }
         
-        if([event isKindOfClass:[IMReading class]]) {
-            readingCount++;
-            readingTotal += [[(IMReading *)event value] doubleValue];
+        if([event isKindOfClass:[IMBGReading class]]) {
+            readingBGCount++;
+            readingBGTotal += [[(IMBGReading *)event value] doubleValue];
         } else if([event isKindOfClass:[IMActivity class]]) {
             activityCount++;
             activityTotal += [[(IMActivity *)event minutes] doubleValue];
         } else if([event isKindOfClass:[IMMeal class]]) {
             mealCount++;
             mealTotal += [[(IMMeal *)event grams] doubleValue];
+        } else if([event isKindOfClass:[IMCholesterolReading class]]) {
+            readingChCount++;
+            readingChTotal += [[(IMCholesterolReading *)event value] doubleValue];
+        } else if([event isKindOfClass:[IMWeightReading class]]) {
+            readingWeightCount++;
+            readingWeightTotal += [[(IMWeightReading *)event value] doubleValue];
+        } else if([event isKindOfClass:[IMBPReading class]]) {
+            readingBPCount++;
+            readingBPLowTotal += [[(IMBPReading *)event lowValue] doubleValue];
+            readingBPHighTotal += [[(IMBPReading *)event highValue] doubleValue];
         }
     }
     
     // Calculate our reading average
-    if(readingCount) readingTotal /= readingCount;
+    if(readingBGCount) readingBGTotal /= readingBGCount;
+    if(readingChCount) readingChTotal /= readingChCount;
+    if(readingWeightCount) readingWeightTotal /= readingWeightCount;
+    if(readingBPCount) readingBPLowTotal /= readingBPCount;
+    if(readingBPCount) readingBPHighTotal /= readingBPCount;
     
     return @{
-             @"reading": [NSNumber numberWithDouble:readingTotal],
+             @"bg_reading": [NSNumber numberWithDouble:readingBGTotal],
+             @"ch_reading": [NSNumber numberWithDouble:readingChTotal],
+             @"bp_low_reading": [NSNumber numberWithDouble:readingBPLowTotal],
+             @"bp_high_reading": [NSNumber numberWithDouble:readingBPHighTotal],
              @"activity": [NSNumber numberWithDouble:activityTotal],
              @"meal": [NSNumber numberWithDouble:mealTotal]
              };
@@ -315,10 +330,8 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)configureCell:(UITableViewCell *)aCell forTableview:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath
-{
-    if([[aCell class] isEqual:[IMDayRecordTableViewCell class]])
-    {
+- (void)configureCell:(UITableViewCell *)aCell forTableview:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    if([[aCell class] isEqual:[IMDayRecordTableViewCell class]]) {
         indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
         
         IMDayRecordTableViewCell *cell = (IMDayRecordTableViewCell *)aCell;
@@ -328,8 +341,7 @@
         NSManagedObject *object = nil;
         if(searchController.isActive == NO) {
             object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        } else
-        {
+        } else {
             NSArray *section = [searchResults objectAtIndex:indexPath.section];
             NSDictionary *objectData = (NSDictionary *)[section objectAtIndex:indexPath.row];
             object = [objectData valueForKey:@"object"];
@@ -393,8 +405,7 @@
 
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
     [searchController setActive:NO];
 }
@@ -431,7 +442,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     IMDayRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dayRecordCell" forIndexPath:indexPath];
-    
     [self configureCell:cell forTableview:tableView atIndexPath:indexPath];
     return cell;
 }
@@ -530,8 +540,20 @@
             IMEntryMealInputViewController* vc = [[IMEntryMealInputViewController alloc] initWithEvent:event];
             UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
             [self presentViewController:navigationController animated:YES completion:nil];
-        } else if ([event isKindOfClass:[IMReading class]]) {
-            IMEntryReadingInputViewController* vc = [[IMEntryReadingInputViewController alloc] initWithEvent:event];
+        } else if ([event isKindOfClass:[IMBGReading class]]) {
+            IMEntryBGReadingInputViewController* vc = [[IMEntryBGReadingInputViewController alloc] initWithEvent:event];
+            UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:navigationController animated:YES completion:nil];
+        } else if ([event isKindOfClass:[IMCholesterolReading class]]) {
+            IMEntryCholesterolInputViewController* vc = [[IMEntryCholesterolInputViewController alloc] initWithEvent:event];
+            UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:navigationController animated:YES completion:nil];
+        } else if ([event isKindOfClass:[IMBPReading class]]) {
+            IMEntryBPReadingInputViewController* vc = [[IMEntryBPReadingInputViewController alloc] initWithEvent:event];
+            UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:navigationController animated:YES completion:nil];
+        } else if ([event isKindOfClass:[IMWeightReading class]]) {
+            IMEntryWeightInputViewController* vc = [[IMEntryWeightInputViewController alloc] initWithEvent:event];
             UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
             [self presentViewController:navigationController animated:YES completion:nil];
         } else if ([event isKindOfClass:[IMMedicine class]]) {

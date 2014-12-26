@@ -8,7 +8,7 @@
 
 #import "IMChartViewController.h"
 #import "IMEvent.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 
 @interface IMGlucoseDonutChartViewController : IMChartViewController <SChartDatasource, SChartDelegate>
 @end

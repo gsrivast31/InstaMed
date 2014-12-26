@@ -35,6 +35,8 @@ NS_ENUM(int16_t, IMTrackedDisease) {
 @property (nonatomic) int16_t weight;
 @property (nonatomic) BOOL trackingDiabetes;
 @property (nonatomic) BOOL trackingHyperTension;
+@property (nonatomic) BOOL trackingCholesterol;
+@property (nonatomic) BOOL trackingWeight;
 @property (nonatomic, retain) NSSet *diseases;
 @property (nonatomic, retain) NSString * guid;
 @end

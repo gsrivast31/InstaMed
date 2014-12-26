@@ -8,6 +8,18 @@
         <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modifiedTimeStamp" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
+    <entity name="IMBGReading" representedClassName="IMBGReading" parentEntity="IMEvent" syncable="YES">
+        <attribute name="mgValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mmoValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="IMBPReading" representedClassName="IMBPReading" parentEntity="IMEvent" syncable="YES">
+        <attribute name="highValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lowValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="IMCholesterolReading" representedClassName="IMCholesterolReading" parentEntity="IMEvent" syncable="YES">
+        <attribute name="mgValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mmoValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="IMDisease" representedClassName="IMDisease" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IMUser" inverseName="diseases" inverseEntity="IMUser" syncable="YES"/>
@@ -38,10 +50,6 @@
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="IMNote" representedClassName="IMNote" parentEntity="IMEvent" syncable="YES"/>
-    <entity name="IMReading" representedClassName="IMReading" parentEntity="IMEvent" syncable="YES">
-        <attribute name="mgValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="mmoValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-    </entity>
     <entity name="IMReminder" representedClassName="IMReminder" parentEntity="IMBaseObject" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
@@ -82,10 +90,15 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePhoto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="relationship" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trackingCholesterol" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="trackingDiabetes" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="trackingHyperTension" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="trackingWeight" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="diseases" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="IMDisease" inverseName="user" inverseEntity="IMDisease" syncable="YES"/>
+    </entity>
+    <entity name="IMWeightReading" representedClassName="IMWeightReading" parentEntity="IMEvent" syncable="YES">
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
         <element name="IMActivity" positionX="108" positionY="81" width="128" height="58"/>
@@ -96,11 +109,14 @@
         <element name="IMMeal" positionX="117" positionY="144" width="128" height="73"/>
         <element name="IMMedicine" positionX="126" positionY="153" width="128" height="73"/>
         <element name="IMNote" positionX="72" positionY="99" width="128" height="45"/>
-        <element name="IMReading" positionX="81" positionY="108" width="128" height="73"/>
+        <element name="IMBGReading" positionX="81" positionY="108" width="128" height="73"/>
         <element name="IMReminder" positionX="90" positionY="117" width="128" height="193"/>
         <element name="IMReminderRule" positionX="99" positionY="144" width="128" height="103"/>
         <element name="IMReport" positionX="72" positionY="117" width="128" height="118"/>
         <element name="IMTag" positionX="108" positionY="153" width="128" height="88"/>
-        <element name="IMUser" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="IMUser" positionX="-63" positionY="-18" width="128" height="268"/>
+        <element name="IMBPReading" positionX="81" positionY="126" width="128" height="73"/>
+        <element name="IMCholesterolReading" positionX="90" positionY="135" width="128" height="73"/>
+        <element name="IMWeightReading" positionX="99" positionY="144" width="128" height="58"/>
     </elements>
 </model>

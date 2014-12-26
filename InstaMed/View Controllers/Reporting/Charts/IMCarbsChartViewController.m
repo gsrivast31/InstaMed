@@ -13,7 +13,7 @@
 
 #import "IMEvent.h"
 #import "IMMeal.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 
 @interface IMCarbsChartViewController ()
 {
@@ -81,9 +81,9 @@
             if(timePeriod == Afternoon) [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"afternoonTotal"] doubleValue] + [meal.grams doubleValue]] forKey:@"afternoonTotal"];
             if(timePeriod == Evening) [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"eveningTotal"] doubleValue] + [meal.grams doubleValue]] forKey:@"eveningTotal"];
         }
-        else if([event isKindOfClass:[IMReading class]])
+        else if([event isKindOfClass:[IMBGReading class]])
         {
-            IMReading *reading = (IMReading *)event;
+            IMBGReading *reading = (IMBGReading *)event;
             [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"readingsCount"] integerValue] + 1] forKey:@"readingsCount"];
             [data setObject:[NSNumber numberWithDouble:[[data objectForKey:@"readingsTotal"] doubleValue] + [reading.value doubleValue]] forKey:@"readingsTotal"];
         }

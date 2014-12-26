@@ -21,10 +21,10 @@
 @implementation IMRootViewController
 
 - (void)awakeFromNib {
-    //IMJournalViewController *journalViewController = [[IMJournalViewController alloc] init];
+    IMJournalViewController *journalViewController = [[IMJournalViewController alloc] init];
     
-    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    IMJournalTableViewController *journalViewController = [storyBoard instantiateViewControllerWithIdentifier:@"journalTableViewController"];
+    //UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    //IMJournalTableViewController *journalViewController = [storyBoard instantiateViewControllerWithIdentifier:@"journalTableViewController"];
     
     IMNavigationController *navigationController = [[IMNavigationController alloc] initWithRootViewController:journalViewController];
     

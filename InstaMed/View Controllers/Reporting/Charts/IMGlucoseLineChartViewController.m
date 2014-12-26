@@ -31,12 +31,12 @@
     NSMutableArray *formattedData = [NSMutableArray array];
     for(IMEvent *event in theData)
     {
-        if([event isKindOfClass:[IMReading class]])
+        if([event isKindOfClass:[IMBGReading class]])
         {
             if([event.timestamp isEarlierThanDate:minDate]) minDate = event.timestamp;
             if([event.timestamp isLaterThanDate:maxDate]) maxDate = event.timestamp;
             
-            IMReading *reading = (IMReading *)event;
+            IMBGReading *reading = (IMBGReading *)event;
             if(lowestReading > [reading.mmoValue doubleValue])
             {
                 lowestReading = [reading.mmoValue doubleValue];
@@ -50,7 +50,7 @@
     double x = 0;
     for(NSInteger i = formattedData.count-1; i >= 0; i--)
     {
-        IMReading *reading = (IMReading *)[formattedData objectAtIndex:i];
+        IMBGReading *reading = (IMBGReading *)[formattedData objectAtIndex:i];
         [trendline addPoint:CGPointMake(x, [[reading value] doubleValue])];
         x++;
     }
@@ -209,7 +209,7 @@
 {
     SChartMultiYDataPoint *multiPoint = [[SChartMultiYDataPoint alloc] init];
     
-    IMReading *reading = (IMReading *)[[chartData objectForKey:@"data"] objectAtIndex:dataIndex];
+    IMBGReading *reading = (IMBGReading *)[[chartData objectForKey:@"data"] objectAtIndex:dataIndex];
     multiPoint.xValue = reading.timestamp;
     
     if(seriesIndex == 0)
@@ -220,15 +220,15 @@
     }
     else if(seriesIndex == 1)
     {
-        IMReading *reading = nil;
+        IMBGReading *reading = nil;
         if(dataIndex == 0)
         {
-            reading = (IMReading *)[[chartData objectForKey:@"data"] objectAtIndex:0];
+            reading = (IMBGReading *)[[chartData objectForKey:@"data"] objectAtIndex:0];
             multiPoint.yValue = [NSNumber numberWithDouble:[trendline projectedYValueForX:[[chartData objectForKey:@"data"] count]-1]];
         }
         else
         {
-            reading = (IMReading *)[[chartData objectForKey:@"data"] lastObject];
+            reading = (IMBGReading *)[[chartData objectForKey:@"data"] lastObject];
             multiPoint.yValue = [NSNumber numberWithDouble:[trendline projectedYValueForX:0]];
         }
         multiPoint.xValue = reading.timestamp;

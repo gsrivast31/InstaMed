@@ -23,6 +23,8 @@
 @dynamic weight;
 @dynamic trackingDiabetes;
 @dynamic trackingHyperTension;
+@dynamic trackingCholesterol;
+@dynamic trackingWeight;
 @dynamic diseases;
 @dynamic guid;
 
@@ -40,5 +42,6 @@
     CFRelease(uuid);
     return str;
 }
+
 
 @end

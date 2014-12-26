@@ -1,5 +1,5 @@
 //
-//  IMEntryReadingInputViewController.h
+//  IMEntryBGReadingInputViewController.h
 //  InstaMed
 //
 //  Created by GAURAV SRIVASTAVA on 19/12/14.
@@ -8,6 +8,6 @@
 
 #import "IMEntryBaseInputViewController.h"
 
-@interface IMEntryReadingInputViewController : IMEntryBaseInputViewController
+@interface IMEntryBGReadingInputViewController : IMEntryBaseInputViewController
 
 @end

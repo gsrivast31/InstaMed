@@ -10,7 +10,10 @@
 #import "IMEntryActivityInputViewController.h"
 #import "IMEntryMedicineInputViewController.h"
 #import "IMEntryMealInputViewController.h"
-#import "IMEntryReadingInputViewController.h"
+#import "IMEntryBGReadingInputViewController.h"
+#import "IMEntryBPReadingInputViewController.h"
+#import "IMEntryCholesterolInputViewController.h"
+#import "IMEntryWeightInputViewController.h"
 #import "IMEntryNoteInputViewController.h"
 
 #import "IMEntryListTableViewCell.h"
@@ -61,7 +64,10 @@
 - (void)setupItemArray {
     self.itemArray = [[NSMutableArray alloc] initWithCapacity:IMNoneType];
     self.itemArray[IMMedicineType] = @"Medication";
-    self.itemArray[IMReadingType] = @"Reading";
+    self.itemArray[IMBGReadingType] = @"Blood Glucose Reading";
+    self.itemArray[IMBPReadingType] = @"Blood Pressure Reading";
+    self.itemArray[IMCholesterolType] = @"Cholesterol Reading";
+    self.itemArray[IMWeightType] = @"Weight";
     self.itemArray[IMFoodType] = @"Meal";
     self.itemArray[IMActivityType] = @"Activity";
     self.itemArray[IMNoteType] = @"Note";
@@ -94,7 +100,7 @@
     CGFloat navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat screenHeight = screenRect.size.height - navigationBarHeight - statusBarHeight;
     
-    return MAX(90.0f, screenHeight/(CGFloat)[self.itemArray count]);
+    return MAX(60.0f, screenHeight/(CGFloat)[self.itemArray count]);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,8 +121,20 @@
         IMEntryNoteInputViewController* vc = [[IMEntryNoteInputViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:navigationController animated:YES completion:nil];
-    } else if (eventType == IMReadingType) {
-        IMEntryReadingInputViewController* vc = [[IMEntryReadingInputViewController alloc] init];
+    } else if (eventType == IMBGReadingType) {
+        IMEntryBGReadingInputViewController* vc = [[IMEntryBGReadingInputViewController alloc] init];
+        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:navigationController animated:YES completion:nil];
+    } else if (eventType == IMBPReadingType) {
+        IMEntryBPReadingInputViewController* vc = [[IMEntryBPReadingInputViewController alloc] init];
+        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:navigationController animated:YES completion:nil];
+    } else if (eventType == IMCholesterolType) {
+        IMEntryCholesterolInputViewController* vc = [[IMEntryCholesterolInputViewController alloc] init];
+        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:navigationController animated:YES completion:nil];
+    } else if (eventType == IMWeightType) {
+        IMEntryWeightInputViewController* vc = [[IMEntryWeightInputViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:navigationController animated:YES completion:nil];
     }

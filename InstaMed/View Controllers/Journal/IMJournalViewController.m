@@ -16,7 +16,7 @@
 #import "IMEventController.h"
 
 #import "IMEvent.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 #import "IMShortcutButton.h"
 
 #import "IMDayRecordTableViewController.h"
@@ -207,16 +207,6 @@
 
 #pragma mark - UI
 - (void)addEvent:(id)sender{
-    /*if(UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
-        IMAddEntryModalView *modalView = [[IMAddEntryModalView alloc] initWithFrame:self.navigationController.view.bounds];
-        modalView.delegate = self;
-        [self.navigationController.view addSubview:modalView];
-        [modalView present];
-    } else {
-        IMAppDelegate *delegate = (IMAppDelegate*)[[UIApplication sharedApplication] delegate];
-        IMAddEntryiPadView *modalView = [IMAddEntryiPadView presentInView:delegate.viewController.view];
-        modalView.delegate = self;
-    }*/
     UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     IMEntryListTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"entryListTableViewController"];
     [self.navigationController pushViewController:vc animated:YES];
@@ -270,7 +260,7 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row%2 == 0) {
-        return 270.0f;
+        return 494.0f;
     }
     return 20.0f;
 }
@@ -291,6 +281,7 @@
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSNumberFormatter *valueFormatter = [IMHelper standardNumberFormatter];
     NSNumberFormatter *glucoseFormatter = [IMHelper glucoseNumberFormatter];
+    NSNumberFormatter *cholesterolFormatter = [IMHelper cholesterolNumberFormatter];
     
     if(indexPath.row%2 == 0) {
         indexPath = [NSIndexPath indexPathForRow:indexPath.row/2 inSection:indexPath.section];
@@ -300,25 +291,53 @@
         NSString *key = [[readings allKeys] objectAtIndex:indexPath.row];
         NSDictionary *stats = [readings objectForKey:key];
        
-        NSInteger totalGrams = [[stats valueForKey:@"total_grams"] integerValue];
-        NSInteger totalReadings = [[stats valueForKey:@"total_readings"] integerValue];
-        NSInteger totalMinutes = [[stats objectForKey:@"total_minutes"] integerValue];
-        double readingsAvg = [[stats valueForKey:@"readings_avg"] doubleValue];
-        double readingsDeviation = [[stats valueForKey:@"readings_deviation"] doubleValue];
-        double lowGlucose = [[stats valueForKey:@"lowest_reading"] doubleValue];
-        double highGlucose = [[stats valueForKey:@"highest_reading"] doubleValue];
+        NSInteger totalGrams = [[stats valueForKey:kTotalGramsKey] integerValue];
+        NSInteger totalBGReadings = [[stats valueForKey:kBGReadingsTotalKey] integerValue];
+        NSInteger totalChReadings = [[stats valueForKey:kChReadingsTotalKey] integerValue];
+        NSInteger totalMinutes = [[stats objectForKey:kTotalMinutesKey] integerValue];
         
-        if(totalReadings) {
-            [cell setAverageGlucoseValue:[NSNumber numberWithDouble:readingsAvg] withFormatter:glucoseFormatter];
-            [cell setDeviationValue:[NSNumber numberWithDouble:readingsDeviation] withFormatter:glucoseFormatter];
+        double bgReadingsAvg = [[stats valueForKey:kBGReadingsAverageKey] doubleValue];
+        double bgReadingsDeviation = [[stats valueForKey:kBGReadingsDeviationKey] doubleValue];
+        double lowGlucose = [[stats valueForKey:kBGReadingLowestKey] doubleValue];
+        double highGlucose = [[stats valueForKey:kBGReadingHighestKey] doubleValue];
+        
+        double chReadingsAvg = [[stats valueForKey:kChReadingsAverageKey] doubleValue];
+        double chReadingsDeviation = [[stats valueForKey:kChReadingsDeviationKey] doubleValue];
+        double lowCholesterol = [[stats valueForKey:kChReadingLowestKey] doubleValue];
+        double highCholesterol = [[stats valueForKey:kChReadingHighestKey] doubleValue];
+        
+        uint lowBP = [[stats valueForKey:kBPReadingLowestKey] unsignedIntValue];
+        uint highBP = [[stats valueForKey:kBPReadingHighestKey] unsignedIntValue];
+        
+        double lowWeight = [[stats valueForKey:kBPReadingLowestKey] doubleValue];
+        double highWeight = [[stats valueForKey:kBPReadingHighestKey] doubleValue];
+        
+        if(totalBGReadings) {
+            [cell setAverageGlucoseValue:[NSNumber numberWithDouble:bgReadingsAvg] withFormatter:glucoseFormatter];
+            [cell setBGDeviationValue:[NSNumber numberWithDouble:bgReadingsDeviation] withFormatter:glucoseFormatter];
         } else {
             [cell setAverageGlucoseValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
-            [cell setDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
+            [cell setBGDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
         }
+        
+        if(totalChReadings) {
+            [cell setAverageCholesterolValue:[NSNumber numberWithDouble:chReadingsAvg] withFormatter:cholesterolFormatter];
+            [cell setChDeviationValue:[NSNumber numberWithDouble:chReadingsDeviation] withFormatter:cholesterolFormatter];
+        } else {
+            [cell setAverageCholesterolValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
+            [cell setChDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
+        }
+
         [cell setMealValue:[NSNumber numberWithDouble:totalGrams] withFormatter:valueFormatter];
         [cell setActivityValue:totalMinutes];
         [cell setLowGlucoseValue:[NSNumber numberWithDouble:lowGlucose] withFormatter:glucoseFormatter];
         [cell setHighGlucoseValue:[NSNumber numberWithDouble:highGlucose] withFormatter:glucoseFormatter];
+        [cell setLowCholesterolValue:[NSNumber numberWithDouble:lowCholesterol] withFormatter:cholesterolFormatter];
+        [cell setHighCholesterolValue:[NSNumber numberWithDouble:highCholesterol] withFormatter:cholesterolFormatter];
+        [cell setLowBPValue:[NSNumber numberWithUnsignedInt:lowBP] withFormatter:valueFormatter];
+        [cell setHighBPValue:[NSNumber numberWithUnsignedInt:highBP] withFormatter:valueFormatter];
+        [cell setLowWeightValue:[NSNumber numberWithDouble:lowWeight] withFormatter:valueFormatter];
+        [cell setHighWeightValue:[NSNumber numberWithDouble:highWeight] withFormatter:valueFormatter];
         cell.monthLabel.text = key;
         
         return cell;

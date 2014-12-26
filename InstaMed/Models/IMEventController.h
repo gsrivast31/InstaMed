@@ -12,7 +12,7 @@
 #import "IMMedicine.h"
 #import "IMMeal.h"
 #import "IMActivity.h"
-#import "IMReading.h"
+#import "IMBGReading.h"
 #import "IMNote.h"
 
 @class IMAccount;

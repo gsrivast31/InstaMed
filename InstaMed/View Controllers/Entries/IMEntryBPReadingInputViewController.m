@@ -1,13 +1,12 @@
 //
-//  IMEntryReadingInputViewController.m
+//  IMEntryBPReadingInputViewController.m
 //  InstaMed
 //
-//  Created by GAURAV SRIVASTAVA on 19/12/14.
+//  Created by GAURAV SRIVASTAVA on 24/12/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
 //
 
-#import "IMEntryReadingInputViewController.h"
-
+#import "IMEntryBPReadingInputViewController.h"
 #import "IMMediaController.h"
 #import "IMTagController.h"
 
@@ -17,43 +16,34 @@
 #import "UITextView+Extension.h"
 
 #import "IMCoreDataStack.h"
-#import "IMReading.h"
+#import "IMBPReading.h"
 
-@interface IMEntryReadingInputViewController ()
+@interface IMEntryBPReadingInputViewController ()
 {
-    NSString *value;
-    NSString *mgValue;
-    NSString *mmoValue;
+    uint lowValue;
+    uint highValue;
 }
 @end
 
-@implementation IMEntryReadingInputViewController
+@implementation IMEntryBPReadingInputViewController
 
 #pragma mark - Setup
 - (id)init {
     self = [super init];
-    eventFilterType = ReadingFilterType;
-
+    eventFilterType = BPReadingFilterType;
+    
     return self;
 }
 
 - (id)initWithEvent:(IMEvent *)theEvent {
     self = [super initWithEvent:theEvent];
     if(self) {
-        eventFilterType = ReadingFilterType;
-
-        NSNumberFormatter *valueFormatter = [IMHelper glucoseNumberFormatter];
-        IMReading *reading = (IMReading *)[self event];
+        eventFilterType = BPReadingFilterType;
+        
+        IMBPReading *reading = (IMBPReading *)[self event];
         if(reading) {
-            mmoValue = [valueFormatter stringFromNumber:reading.mmoValue];
-            mgValue = [valueFormatter stringFromNumber:reading.mgValue];
-            
-            NSInteger unitSetting = [[NSUserDefaults standardUserDefaults] integerForKey:kBGTrackingUnitKey];
-            if(unitSetting == BGTrackingUnitMG) {
-                value = mgValue;
-            } else {
-                value = mmoValue;
-            }
+            lowValue = [reading.lowValue unsignedIntValue];
+            highValue = [reading.highValue unsignedIntValue];
         }
     }
     
@@ -65,9 +55,9 @@
     [super viewDidLoad];
     
     if (self.event) {
-        self.title = @"Edit Reading";
+        self.title = @"Edit BP Reading";
     } else {
-        self.title = @"Add Reading";
+        self.title = @"Add BP Reading";
     }
     
     self.tableView.dataSource = self;
@@ -84,7 +74,7 @@
 
 #pragma mark - Logic
 - (NSError *)validationError {
-    if(value && [value length]) {
+    if(lowValue > 0 && highValue > lowValue) {
         if([self.date compare:[NSDate date]] != NSOrderedAscending) {
             NSMutableDictionary *errorInfo = [NSMutableDictionary dictionary];
             [errorInfo setValue:NSLocalizedString(@"You cannot enter an event in the future", nil) forKey:NSLocalizedDescriptionKey];
@@ -104,30 +94,15 @@
     
     NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] managedObjectContext];
     if(moc) {
-        // Convert our input into the right units
-        NSNumberFormatter *valueFormatter = [IMHelper glucoseNumberFormatter];
-        NSInteger unitSetting = [[NSUserDefaults standardUserDefaults] integerForKey:kBGTrackingUnitKey];
-        if(unitSetting == BGTrackingUnitMG) {
-            mgValue = value;
-            
-            double convertedValue = [[valueFormatter numberFromString:mgValue] doubleValue] * 0.0555;
-            mmoValue = [NSString stringWithFormat:@"%f", convertedValue];
-        } else {
-            mmoValue = value;
-            
-            double convertedValue = round([[valueFormatter numberFromString:mmoValue] doubleValue] * 18.0182);
-            mgValue = [NSString stringWithFormat:@"%f", convertedValue];
-        }
-        
-        IMReading *reading = (IMReading *)[self event];
+        IMBPReading *reading = (IMBPReading *)[self event];
         if(!reading) {
-            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IMReading" inManagedObjectContext:moc];
-            reading = (IMReading *)[[IMBaseObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:moc];
-            reading.filterType = [NSNumber numberWithInteger:ReadingFilterType];
-            reading.name = NSLocalizedString(@"Blood glucose level", nil);
+            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IMBPReading" inManagedObjectContext:moc];
+            reading = (IMBPReading *)[[IMBaseObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:moc];
+            reading.filterType = [NSNumber numberWithInteger:BPReadingFilterType];
+            reading.name = NSLocalizedString(@"Blood Pressure Reading", nil);
         }
-        reading.mmoValue = [NSNumber numberWithDouble:[[valueFormatter numberFromString:mmoValue] doubleValue]];
-        reading.mgValue = [NSNumber numberWithDouble:[[valueFormatter numberFromString:mgValue] doubleValue]];
+        reading.lowValue = [NSNumber numberWithUnsignedInt:lowValue];
+        reading.highValue = [NSNumber numberWithUnsignedInt:highValue];
         reading.timestamp = self.date;
         
         if(!notes.length) notes = nil;
@@ -169,23 +144,40 @@
 - (void)configureAppearanceForTableViewCell:(IMEventInputViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     [cell resetCell];
     
+    NSNumberFormatter *valueFormatter = [IMHelper standardNumberFormatter];
+    
     if(indexPath.row == 0) {
-        NSString *placeholder = [NSString stringWithFormat:@"%@ (mg/dL)", NSLocalizedString(@"BG level", @"Blood glucose level")];
-        NSInteger units = [[NSUserDefaults standardUserDefaults] integerForKey:kBGTrackingUnitKey];
-        if(units != BGTrackingUnitMG) {
-            placeholder = [NSString stringWithFormat:@"%@ (mmoI/L)", NSLocalizedString(@"BG level", @"Blood glucose level")];
-        }
+        NSString *placeholder = [NSString stringWithFormat:@"%@ (mm Hg)", NSLocalizedString(@"Lower BP reading", @"Lower Blood pressure reading")];
         
-        NSLog(@"%@", value);
         UITextField *textField = (UITextField *)cell.control;
         textField.placeholder = placeholder;
-        textField.text = value;
+        
+        if (lowValue > 0) {
+            textField.text = [valueFormatter stringFromNumber:[NSNumber numberWithUnsignedInt:lowValue]];
+        }
+        
         textField.keyboardType = UIKeyboardTypeDecimalPad;
         textField.delegate = self;
+        textField.tag = 0;
         textField.inputAccessoryView = nil;
         
-        [(UILabel *)[cell label] setText:NSLocalizedString(@"Value", nil)];
+        [(UILabel *)[cell label] setText:NSLocalizedString(@"Low", nil)];
     } else if(indexPath.row == 1) {
+        NSString *placeholder = [NSString stringWithFormat:@"%@ (mm Hg)", NSLocalizedString(@"Higher BP reading", @"HIgher Blood pressure reading")];
+        UITextField *textField = (UITextField *)cell.control;
+        textField.placeholder = placeholder;
+        
+        if (highValue > 0) {
+            textField.text = [valueFormatter stringFromNumber:[NSNumber numberWithUnsignedInt:highValue]];
+        }
+        
+        textField.keyboardType = UIKeyboardTypeDecimalPad;
+        textField.delegate = self;
+        textField.tag = 1;
+        textField.inputAccessoryView = nil;
+        
+        [(UILabel *)[cell label] setText:NSLocalizedString(@"High", nil)];
+    } else if(indexPath.row == 2) {
         UITextField *textField = (UITextField *)cell.control;
         textField.placeholder = NSLocalizedString(@"Date", nil);
         textField.text = [self.dateFormatter stringFromDate:self.date];
@@ -202,19 +194,13 @@
         textField.inputView = datePicker;
         
         [(UILabel *)[cell label] setText:NSLocalizedString(@"Date", nil)];
-    } else if(indexPath.row == 2) {
+    } else if(indexPath.row == 3) {
         IMEventNotesTextView *textView = (IMEventNotesTextView *)cell.control;
         textView.text = notes;
         textView.delegate = self;
         textView.inputAccessoryView = [self keyboardShortcutAccessoryView];
         textView.autocorrectionType = UITextAutocorrectionTypeNo;
         
-        /*
-         IMKeyboardAccessoryView *accessoryView = [[IMKeyboardAccessoryView alloc] initWithBackingView:parentVC.keyboardBackingView];
-         self.autocompleteTagBar.frame = accessoryView.contentView.bounds;
-         [accessoryView.contentView addSubview:self.autocompleteTagBar];
-         textView.inputAccessoryView = accessoryView;
-         */
         [(UILabel *)[cell label] setText:NSLocalizedString(@"Notes", nil)];
         [cell setDrawsBorder:NO];
     }
@@ -225,7 +211,7 @@
 - (void)changeDate:(id)sender {
     self.date = [sender date];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
     
     IMEventInputViewCell *cell = (IMEventInputViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
@@ -241,12 +227,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     IMEventInputViewCell *cell = nil;
-    if(indexPath.row == 2) {
+    if(indexPath.row == 3) {
         cell = (IMEventInputTextViewViewCell *)[aTableView dequeueReusableCellWithIdentifier:@"IMEventInputTextViewViewCell"];
     } else {
         cell = (IMEventInputTextFieldViewCell *)[aTableView dequeueReusableCellWithIdentifier:@"IMEventTextFieldViewCell"];
@@ -290,12 +276,16 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if(textField.tag == 0) {
-        value = textField.text;
+        NSNumberFormatter *valueFormatter = [IMHelper standardNumberFormatter];
+        lowValue = [[valueFormatter numberFromString:textField.text] unsignedIntValue];
+    } else if(textField.tag == 1) {
+        NSNumberFormatter *valueFormatter = [IMHelper standardNumberFormatter];
+        highValue = [[valueFormatter numberFromString:textField.text] unsignedIntValue];
     }
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if(textField.tag == 1) {
+    if(textField.tag == 2) {
         return NO;
     }
     
@@ -303,7 +293,7 @@
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
-    if(textField.tag == 0) {
+    if(textField.tag == 0 || textField.tag == 1) {
         [self.keyboardShortcutAccessoryView setShowingAutocompleteBar:NO];
     }
     

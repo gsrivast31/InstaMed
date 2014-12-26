@@ -22,9 +22,9 @@
     
     for(IMEvent *event in theData)
     {
-        if([event isKindOfClass:[IMReading class]])
+        if([event isKindOfClass:[IMBGReading class]])
         {
-            IMReading *reading = (IMReading *)event;
+            IMBGReading *reading = (IMBGReading *)event;
             if([reading.value doubleValue] >= [healthyRangeMin doubleValue] && [reading.value doubleValue] <= [healthyRangeMax doubleValue])
             {
                 healthyBGValues++;
