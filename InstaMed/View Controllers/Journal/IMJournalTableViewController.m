@@ -151,6 +151,10 @@
         [request setSortDescriptors:@[sortDescriptor]];
         [request setReturnsObjectsAsFaults:NO];
         
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+        [request setPredicate:predicate];
+
         objects = [moc executeFetchRequest:request error:&error];
     }
     

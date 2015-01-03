@@ -19,8 +19,8 @@
 #pragma mark - Information
 
 #define kJBFontInformationTitle [UIFont fontWithName:@"HelveticaNeue" size:20]
-#define kJBFontInformationValue [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:100]
-#define kJBFontInformationUnit [UIFont fontWithName:@"HelveticaNeue" size:60]
+#define kJBFontInformationValue [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:60]
+#define kJBFontInformationUnit [UIFont fontWithName:@"HelveticaNeue" size:40]
 
 #pragma mark - Tooltip
 

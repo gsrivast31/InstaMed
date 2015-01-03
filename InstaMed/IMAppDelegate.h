@@ -13,12 +13,15 @@
 #import "IMUI.h"
 #import "IMBackupController.h"
 
+@class IMUser;
+
 @interface IMAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) UIViewController *viewController;
 @property (strong, nonatomic) IMBackupController *backupController;
+@property (strong, nonatomic) IMUser *currentUser;
 
 // Setup
 + (IMAppDelegate *)sharedAppDelegate;

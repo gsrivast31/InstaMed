@@ -31,7 +31,10 @@
             NSMutableArray *representations = [NSMutableArray array];
             
             @autoreleasepool {
-                NSArray *events = [[IMEventController sharedInstance] fetchEventsWithPredicate:nil sortDescriptors:nil inContext:childMOC];
+                NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+                
+                NSArray *events = [[IMEventController sharedInstance] fetchEventsWithPredicate:predicate sortDescriptors:nil inContext:childMOC];
                 if(events)
                 {
                     for(IMEvent *event in events)

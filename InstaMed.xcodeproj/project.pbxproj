@@ -28,14 +28,10 @@
 		F41268941A44AE41000E52E9 /* IMAnalyticsBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F412686E1A44AE41000E52E9 /* IMAnalyticsBaseNavigationController.m */; };
 		F41268951A44AE41000E52E9 /* IMAnalyticsBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268701A44AE41000E52E9 /* IMAnalyticsBaseTableViewController.m */; };
 		F41268961A44AE41000E52E9 /* IMAnalyticsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268721A44AE41000E52E9 /* IMAnalyticsBaseViewController.m */; };
-		F41268971A44AE41000E52E9 /* IMAnalyticsChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268751A44AE41000E52E9 /* IMAnalyticsChartTableCell.m */; };
+		F41268971A44AE41000E52E9 /* IMAnalyticsDateEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268751A44AE41000E52E9 /* IMAnalyticsDateEntry.m */; };
 		F41268981A44AE41000E52E9 /* IMAnalyticsBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F412687E1A44AE41000E52E9 /* IMAnalyticsBarChartFooterView.m */; };
 		F41268991A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268801A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m */; };
 		F412689A1A44AE41000E52E9 /* IMAnalyticsChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268831A44AE41000E52E9 /* IMAnalyticsChartHeaderView.m */; };
-		F412689B1A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268851A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.m */; };
-		F412689C1A44AE41000E52E9 /* IMAnalyticsBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268871A44AE41000E52E9 /* IMAnalyticsBarChartViewController.m */; };
-		F412689D1A44AE41000E52E9 /* IMAnalyticsChartListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268891A44AE41000E52E9 /* IMAnalyticsChartListViewController.m */; };
-		F412689E1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F412688B1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.m */; };
 		F412689F1A44AE41000E52E9 /* IMAnalyticsChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F412688E1A44AE41000E52E9 /* IMAnalyticsChartInformationView.m */; };
 		F41268A01A44AE41000E52E9 /* IMAnalyticsChartTooltipTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268901A44AE41000E52E9 /* IMAnalyticsChartTooltipTipView.m */; };
 		F41268A11A44AE41000E52E9 /* IMAnalyticsChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268921A44AE41000E52E9 /* IMAnalyticsChartTooltipView.m */; };
@@ -68,6 +64,14 @@
 		F41A761F1A405917006F9547 /* IMReportViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A761E1A405917006F9547 /* IMReportViewCell.m */; };
 		F41A76251A40697F006F9547 /* IMReportAddEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76241A40697F006F9547 /* IMReportAddEditController.m */; };
 		F41A762B1A413C3A006F9547 /* IMReportImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A762A1A413C3A006F9547 /* IMReportImageViewCell.m */; };
+		F435C44C1A503A7500D76913 /* IMAnalyticsDateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C44B1A503A7500D76913 /* IMAnalyticsDateTableViewController.m */; };
+		F435C44F1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C44E1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m */; };
+		F435C4521A5698D500D76913 /* IMAnalyticsBPLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C4511A5698D500D76913 /* IMAnalyticsBPLineViewController.m */; };
+		F435C4551A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C4541A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.m */; };
+		F435C4581A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C4571A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.m */; };
+		F435C45E1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C45D1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m */; };
+		F435C4611A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C4601A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.m */; };
+		F435C4641A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C4631A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m */; };
 		F499BA0C1A3D596E006517BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F499BA0B1A3D596E006517BC /* CoreData.framework */; };
 		F49A294D1A3F0D1E006F9E34 /* IMEventDateTimeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28881A3F0D1E006F9E34 /* IMEventDateTimeViewCell.m */; };
 		F49A294E1A3F0D1E006F9E34 /* IMEventInputCategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A288A1A3F0D1E006F9E34 /* IMEventInputCategoryViewCell.m */; };
@@ -99,20 +103,6 @@
 		F49A29791A3F0D1E006F9E34 /* IMTimeReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28ED1A3F0D1E006F9E34 /* IMTimeReminderViewController.m */; };
 		F49A297A1A3F0D1E006F9E34 /* IMReminderBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28EF1A3F0D1E006F9E34 /* IMReminderBaseViewController.m */; };
 		F49A297B1A3F0D1E006F9E34 /* IMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28F11A3F0D1E006F9E34 /* IMRemindersViewController.m */; };
-		F49A297C1A3F0D1E006F9E34 /* IMChartCrosshairTooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28F61A3F0D1E006F9E34 /* IMChartCrosshairTooltip.m */; };
-		F49A297D1A3F0D1E006F9E34 /* IMChartLineCrosshair.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28F81A3F0D1E006F9E34 /* IMChartLineCrosshair.m */; };
-		F49A297E1A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28FA1A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.m */; };
-		F49A297F1A3F0D1E006F9E34 /* IMCarbsChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28FC1A3F0D1E006F9E34 /* IMCarbsChartViewController.m */; };
-		F49A29801A3F0D1E006F9E34 /* IMChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28FE1A3F0D1E006F9E34 /* IMChartViewController.m */; };
-		F49A29811A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29001A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.m */; };
-		F49A29821A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29021A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.m */; };
-		F49A29831A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29041A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.m */; };
-		F49A29841A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29061A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.m */; };
-		F49A29851A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29081A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.m */; };
-		F49A29861A3F0D1E006F9E34 /* IMReportPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A290A1A3F0D1E006F9E34 /* IMReportPreviewView.m */; };
-		F49A29871A3F0D1E006F9E34 /* IMReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A290C1A3F0D1E006F9E34 /* IMReportsViewController.m */; };
-		F49A29881A3F0D1E006F9E34 /* IMDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A290F1A3F0D1E006F9E34 /* IMDateButton.m */; };
-		F49A29891A3F0D1E006F9E34 /* IMDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29111A3F0D1E006F9E34 /* IMDatePickerController.m */; };
 		F49A298B1A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29171A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m */; };
 		F49A298D1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A291B1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m */; };
 		F49A298E1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A291D1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m */; };
@@ -239,8 +229,8 @@
 		F41268701A44AE41000E52E9 /* IMAnalyticsBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsBaseTableViewController.m; sourceTree = "<group>"; };
 		F41268711A44AE41000E52E9 /* IMAnalyticsBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsBaseViewController.h; sourceTree = "<group>"; };
 		F41268721A44AE41000E52E9 /* IMAnalyticsBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsBaseViewController.m; sourceTree = "<group>"; };
-		F41268741A44AE41000E52E9 /* IMAnalyticsChartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsChartTableCell.h; sourceTree = "<group>"; };
-		F41268751A44AE41000E52E9 /* IMAnalyticsChartTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsChartTableCell.m; sourceTree = "<group>"; };
+		F41268741A44AE41000E52E9 /* IMAnalyticsDateEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsDateEntry.h; sourceTree = "<group>"; };
+		F41268751A44AE41000E52E9 /* IMAnalyticsDateEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsDateEntry.m; sourceTree = "<group>"; };
 		F41268771A44AE41000E52E9 /* IMAnalyticsColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsColorConstants.h; sourceTree = "<group>"; };
 		F41268781A44AE41000E52E9 /* IMAnalyticsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsConstants.h; sourceTree = "<group>"; };
 		F41268791A44AE41000E52E9 /* IMAnalyticsFontConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsFontConstants.h; sourceTree = "<group>"; };
@@ -252,14 +242,6 @@
 		F41268801A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsLineChartFooterView.m; sourceTree = "<group>"; };
 		F41268821A44AE41000E52E9 /* IMAnalyticsChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsChartHeaderView.h; sourceTree = "<group>"; };
 		F41268831A44AE41000E52E9 /* IMAnalyticsChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsChartHeaderView.m; sourceTree = "<group>"; };
-		F41268841A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsAreaChartViewController.h; path = Analytics/IMAnalyticsAreaChartViewController.h; sourceTree = "<group>"; };
-		F41268851A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsAreaChartViewController.m; path = Analytics/IMAnalyticsAreaChartViewController.m; sourceTree = "<group>"; };
-		F41268861A44AE41000E52E9 /* IMAnalyticsBarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsBarChartViewController.h; path = Analytics/IMAnalyticsBarChartViewController.h; sourceTree = "<group>"; };
-		F41268871A44AE41000E52E9 /* IMAnalyticsBarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsBarChartViewController.m; path = Analytics/IMAnalyticsBarChartViewController.m; sourceTree = "<group>"; };
-		F41268881A44AE41000E52E9 /* IMAnalyticsChartListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsChartListViewController.h; path = Analytics/IMAnalyticsChartListViewController.h; sourceTree = "<group>"; };
-		F41268891A44AE41000E52E9 /* IMAnalyticsChartListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsChartListViewController.m; path = Analytics/IMAnalyticsChartListViewController.m; sourceTree = "<group>"; };
-		F412688A1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsLineChartViewController.h; path = Analytics/IMAnalyticsLineChartViewController.h; sourceTree = "<group>"; };
-		F412688B1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsLineChartViewController.m; path = Analytics/IMAnalyticsLineChartViewController.m; sourceTree = "<group>"; };
 		F412688D1A44AE41000E52E9 /* IMAnalyticsChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsChartInformationView.h; sourceTree = "<group>"; };
 		F412688E1A44AE41000E52E9 /* IMAnalyticsChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnalyticsChartInformationView.m; sourceTree = "<group>"; };
 		F412688F1A44AE41000E52E9 /* IMAnalyticsChartTooltipTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnalyticsChartTooltipTipView.h; sourceTree = "<group>"; };
@@ -323,6 +305,22 @@
 		F41A76241A40697F006F9547 /* IMReportAddEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportAddEditController.m; path = Reports/IMReportAddEditController.m; sourceTree = "<group>"; };
 		F41A76291A413C3A006F9547 /* IMReportImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportImageViewCell.h; path = Reports/IMReportImageViewCell.h; sourceTree = "<group>"; };
 		F41A762A1A413C3A006F9547 /* IMReportImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportImageViewCell.m; path = Reports/IMReportImageViewCell.m; sourceTree = "<group>"; };
+		F435C44A1A503A7500D76913 /* IMAnalyticsDateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsDateTableViewController.h; path = Analytics/IMAnalyticsDateTableViewController.h; sourceTree = "<group>"; };
+		F435C44B1A503A7500D76913 /* IMAnalyticsDateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsDateTableViewController.m; path = Analytics/IMAnalyticsDateTableViewController.m; sourceTree = "<group>"; };
+		F435C44D1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsCarbsChartViewController.h; path = Analytics/IMAnalyticsCarbsChartViewController.h; sourceTree = "<group>"; };
+		F435C44E1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsCarbsChartViewController.m; path = Analytics/IMAnalyticsCarbsChartViewController.m; sourceTree = "<group>"; };
+		F435C4501A5698D500D76913 /* IMAnalyticsBPLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsBPLineViewController.h; path = Analytics/IMAnalyticsBPLineViewController.h; sourceTree = "<group>"; };
+		F435C4511A5698D500D76913 /* IMAnalyticsBPLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsBPLineViewController.m; path = Analytics/IMAnalyticsBPLineViewController.m; sourceTree = "<group>"; };
+		F435C4531A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsAvgCholesterolBarViewController.h; path = Analytics/IMAnalyticsAvgCholesterolBarViewController.h; sourceTree = "<group>"; };
+		F435C4541A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsAvgCholesterolBarViewController.m; path = Analytics/IMAnalyticsAvgCholesterolBarViewController.m; sourceTree = "<group>"; };
+		F435C4561A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsAvgGlucoseBarViewController.h; path = Analytics/IMAnalyticsAvgGlucoseBarViewController.h; sourceTree = "<group>"; };
+		F435C4571A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsAvgGlucoseBarViewController.m; path = Analytics/IMAnalyticsAvgGlucoseBarViewController.m; sourceTree = "<group>"; };
+		F435C45C1A56A66900D76913 /* IMAnalyticsWeightLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsWeightLineViewController.h; path = Analytics/IMAnalyticsWeightLineViewController.h; sourceTree = "<group>"; };
+		F435C45D1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsWeightLineViewController.m; path = Analytics/IMAnalyticsWeightLineViewController.m; sourceTree = "<group>"; };
+		F435C45F1A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsGlucoseLineViewController.h; path = Analytics/IMAnalyticsGlucoseLineViewController.h; sourceTree = "<group>"; };
+		F435C4601A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsGlucoseLineViewController.m; path = Analytics/IMAnalyticsGlucoseLineViewController.m; sourceTree = "<group>"; };
+		F435C4621A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsCholesterolLineViewController.h; path = Analytics/IMAnalyticsCholesterolLineViewController.h; sourceTree = "<group>"; };
+		F435C4631A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMAnalyticsCholesterolLineViewController.m; path = Analytics/IMAnalyticsCholesterolLineViewController.m; sourceTree = "<group>"; };
 		F499BA0B1A3D596E006517BC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F49A28871A3F0D1E006F9E34 /* IMEventDateTimeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEventDateTimeViewCell.h; path = "Events/Input View Controllers/Cells/IMEventDateTimeViewCell.h"; sourceTree = "<group>"; };
 		F49A28881A3F0D1E006F9E34 /* IMEventDateTimeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEventDateTimeViewCell.m; path = "Events/Input View Controllers/Cells/IMEventDateTimeViewCell.m"; sourceTree = "<group>"; };
@@ -383,34 +381,6 @@
 		F49A28EF1A3F0D1E006F9E34 /* IMReminderBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReminderBaseViewController.m; sourceTree = "<group>"; };
 		F49A28F01A3F0D1E006F9E34 /* IMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRemindersViewController.h; sourceTree = "<group>"; };
 		F49A28F11A3F0D1E006F9E34 /* IMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRemindersViewController.m; sourceTree = "<group>"; };
-		F49A28F51A3F0D1E006F9E34 /* IMChartCrosshairTooltip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChartCrosshairTooltip.h; sourceTree = "<group>"; };
-		F49A28F61A3F0D1E006F9E34 /* IMChartCrosshairTooltip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChartCrosshairTooltip.m; sourceTree = "<group>"; };
-		F49A28F71A3F0D1E006F9E34 /* IMChartLineCrosshair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChartLineCrosshair.h; sourceTree = "<group>"; };
-		F49A28F81A3F0D1E006F9E34 /* IMChartLineCrosshair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChartLineCrosshair.m; sourceTree = "<group>"; };
-		F49A28F91A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAvgBloodGlucoseChartViewController.h; sourceTree = "<group>"; };
-		F49A28FA1A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAvgBloodGlucoseChartViewController.m; sourceTree = "<group>"; };
-		F49A28FB1A3F0D1E006F9E34 /* IMCarbsChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCarbsChartViewController.h; sourceTree = "<group>"; };
-		F49A28FC1A3F0D1E006F9E34 /* IMCarbsChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCarbsChartViewController.m; sourceTree = "<group>"; };
-		F49A28FD1A3F0D1E006F9E34 /* IMChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChartViewController.h; sourceTree = "<group>"; };
-		F49A28FE1A3F0D1E006F9E34 /* IMChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChartViewController.m; sourceTree = "<group>"; };
-		F49A28FF1A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGlucoseCandlestickChartViewController.h; sourceTree = "<group>"; };
-		F49A29001A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGlucoseCandlestickChartViewController.m; sourceTree = "<group>"; };
-		F49A29011A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGlucoseDonutChartViewController.h; sourceTree = "<group>"; };
-		F49A29021A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGlucoseDonutChartViewController.m; sourceTree = "<group>"; };
-		F49A29031A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGlucoseLineChartViewController.h; sourceTree = "<group>"; };
-		F49A29041A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGlucoseLineChartViewController.m; sourceTree = "<group>"; };
-		F49A29051A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGlucoseTimeOfDayChartViewController.h; sourceTree = "<group>"; };
-		F49A29061A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGlucoseTimeOfDayChartViewController.m; sourceTree = "<group>"; };
-		F49A29071A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMLeastSquareFitCalculator.h; sourceTree = "<group>"; };
-		F49A29081A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMLeastSquareFitCalculator.m; sourceTree = "<group>"; };
-		F49A29091A3F0D1E006F9E34 /* IMReportPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMReportPreviewView.h; sourceTree = "<group>"; };
-		F49A290A1A3F0D1E006F9E34 /* IMReportPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReportPreviewView.m; sourceTree = "<group>"; };
-		F49A290B1A3F0D1E006F9E34 /* IMReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMReportsViewController.h; sourceTree = "<group>"; };
-		F49A290C1A3F0D1E006F9E34 /* IMReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReportsViewController.m; sourceTree = "<group>"; };
-		F49A290E1A3F0D1E006F9E34 /* IMDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDateButton.h; sourceTree = "<group>"; };
-		F49A290F1A3F0D1E006F9E34 /* IMDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDateButton.m; sourceTree = "<group>"; };
-		F49A29101A3F0D1E006F9E34 /* IMDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDatePickerController.h; sourceTree = "<group>"; };
-		F49A29111A3F0D1E006F9E34 /* IMDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDatePickerController.m; sourceTree = "<group>"; };
 		F49A29161A3F0D1E006F9E34 /* IMSettingsDropboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsDropboxViewController.h; sourceTree = "<group>"; };
 		F49A29171A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsDropboxViewController.m; sourceTree = "<group>"; };
 		F49A291A1A3F0D1E006F9E34 /* IMSettingsEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsEntryViewController.h; sourceTree = "<group>"; };
@@ -768,8 +738,8 @@
 		F41268731A44AE41000E52E9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F41268741A44AE41000E52E9 /* IMAnalyticsChartTableCell.h */,
-				F41268751A44AE41000E52E9 /* IMAnalyticsChartTableCell.m */,
+				F41268741A44AE41000E52E9 /* IMAnalyticsDateEntry.h */,
+				F41268751A44AE41000E52E9 /* IMAnalyticsDateEntry.m */,
 			);
 			name = Cells;
 			path = Analytics/Cells;
@@ -884,15 +854,23 @@
 				F41268761A44AE41000E52E9 /* Constants */,
 				F412687C1A44AE41000E52E9 /* Footers */,
 				F41268811A44AE41000E52E9 /* Headers */,
-				F41268841A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.h */,
-				F41268851A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.m */,
-				F41268861A44AE41000E52E9 /* IMAnalyticsBarChartViewController.h */,
-				F41268871A44AE41000E52E9 /* IMAnalyticsBarChartViewController.m */,
-				F41268881A44AE41000E52E9 /* IMAnalyticsChartListViewController.h */,
-				F41268891A44AE41000E52E9 /* IMAnalyticsChartListViewController.m */,
-				F412688A1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.h */,
-				F412688B1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.m */,
 				F412688C1A44AE41000E52E9 /* Misc */,
+				F435C44A1A503A7500D76913 /* IMAnalyticsDateTableViewController.h */,
+				F435C44B1A503A7500D76913 /* IMAnalyticsDateTableViewController.m */,
+				F435C44D1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.h */,
+				F435C44E1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m */,
+				F435C4501A5698D500D76913 /* IMAnalyticsBPLineViewController.h */,
+				F435C4511A5698D500D76913 /* IMAnalyticsBPLineViewController.m */,
+				F435C4531A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.h */,
+				F435C4541A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.m */,
+				F435C4561A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.h */,
+				F435C4571A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.m */,
+				F435C45C1A56A66900D76913 /* IMAnalyticsWeightLineViewController.h */,
+				F435C45D1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m */,
+				F435C45F1A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.h */,
+				F435C4601A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.m */,
+				F435C4621A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.h */,
+				F435C4631A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -949,7 +927,6 @@
 				F49A28CD1A3F0D1E006F9E34 /* Journal */,
 				F49A28D61A3F0D1E006F9E34 /* Menu */,
 				F49A28DC1A3F0D1E006F9E34 /* Reminders */,
-				F49A28F21A3F0D1E006F9E34 /* Reporting */,
 				F49A29121A3F0D1E006F9E34 /* Settings */,
 				F49A29291A3F0D1E006F9E34 /* Tags */,
 				F49A292F1A3F0D1E006F9E34 /* Timeline */,
@@ -1104,65 +1081,6 @@
 				F49A28ED1A3F0D1E006F9E34 /* IMTimeReminderViewController.m */,
 			);
 			path = "Time Based";
-			sourceTree = "<group>";
-		};
-		F49A28F21A3F0D1E006F9E34 /* Reporting */ = {
-			isa = PBXGroup;
-			children = (
-				F49A28F31A3F0D1E006F9E34 /* Charts */,
-				F49A29091A3F0D1E006F9E34 /* IMReportPreviewView.h */,
-				F49A290A1A3F0D1E006F9E34 /* IMReportPreviewView.m */,
-				F49A290B1A3F0D1E006F9E34 /* IMReportsViewController.h */,
-				F49A290C1A3F0D1E006F9E34 /* IMReportsViewController.m */,
-				F49A290D1A3F0D1E006F9E34 /* UI */,
-			);
-			path = Reporting;
-			sourceTree = "<group>";
-		};
-		F49A28F31A3F0D1E006F9E34 /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-				F49A28F41A3F0D1E006F9E34 /* Style */,
-				F49A28F91A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.h */,
-				F49A28FA1A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.m */,
-				F49A28FB1A3F0D1E006F9E34 /* IMCarbsChartViewController.h */,
-				F49A28FC1A3F0D1E006F9E34 /* IMCarbsChartViewController.m */,
-				F49A28FD1A3F0D1E006F9E34 /* IMChartViewController.h */,
-				F49A28FE1A3F0D1E006F9E34 /* IMChartViewController.m */,
-				F49A28FF1A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.h */,
-				F49A29001A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.m */,
-				F49A29011A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.h */,
-				F49A29021A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.m */,
-				F49A29031A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.h */,
-				F49A29041A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.m */,
-				F49A29051A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.h */,
-				F49A29061A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.m */,
-				F49A29071A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.h */,
-				F49A29081A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.m */,
-			);
-			path = Charts;
-			sourceTree = "<group>";
-		};
-		F49A28F41A3F0D1E006F9E34 /* Style */ = {
-			isa = PBXGroup;
-			children = (
-				F49A28F51A3F0D1E006F9E34 /* IMChartCrosshairTooltip.h */,
-				F49A28F61A3F0D1E006F9E34 /* IMChartCrosshairTooltip.m */,
-				F49A28F71A3F0D1E006F9E34 /* IMChartLineCrosshair.h */,
-				F49A28F81A3F0D1E006F9E34 /* IMChartLineCrosshair.m */,
-			);
-			path = Style;
-			sourceTree = "<group>";
-		};
-		F49A290D1A3F0D1E006F9E34 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				F49A290E1A3F0D1E006F9E34 /* IMDateButton.h */,
-				F49A290F1A3F0D1E006F9E34 /* IMDateButton.m */,
-				F49A29101A3F0D1E006F9E34 /* IMDatePickerController.h */,
-				F49A29111A3F0D1E006F9E34 /* IMDatePickerController.m */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		F49A29121A3F0D1E006F9E34 /* Settings */ = {
@@ -1607,10 +1525,8 @@
 			files = (
 				F49A29931A3F0D1E006F9E34 /* IMSettingsViewCell.m in Sources */,
 				F4FDC6381A49921600DA8B41 /* IMPageContentViewController.m in Sources */,
-				F49A29871A3F0D1E006F9E34 /* IMReportsViewController.m in Sources */,
 				F49A2A281A3F0D90006F9E34 /* IMEventController.m in Sources */,
 				F41268D61A46E343000E52E9 /* IMBaseObject.m in Sources */,
-				F49A29881A3F0D1E006F9E34 /* IMDateButton.m in Sources */,
 				F49A29DC1A3F0D82006F9E34 /* IMUIHintView.m in Sources */,
 				F4027A221A495C5C00E00E84 /* IMLoginViewController.m in Sources */,
 				F4F19B751A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m in Sources */,
@@ -1622,6 +1538,7 @@
 				F49A298B1A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m in Sources */,
 				F41268DD1A46E343000E52E9 /* IMBGReading.m in Sources */,
 				F49A29DD1A3F0D82006F9E34 /* IMViewControllerMessageView.m in Sources */,
+				F435C4641A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m in Sources */,
 				F49A29911A3F0D1E006F9E34 /* IMSettingsViewController.m in Sources */,
 				F41268991A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m in Sources */,
 				F49A29E41A3F0D82006F9E34 /* IMRemindersTooltipView.m in Sources */,
@@ -1629,7 +1546,6 @@
 				F49A29D71A3F0D82006F9E34 /* IMGenericTableHeaderView.m in Sources */,
 				F412689F1A44AE41000E52E9 /* IMAnalyticsChartInformationView.m in Sources */,
 				F41A761F1A405917006F9547 /* IMReportViewCell.m in Sources */,
-				F49A29841A3F0D1E006F9E34 /* IMGlucoseTimeOfDayChartViewController.m in Sources */,
 				F49A2A401A3F0D90006F9E34 /* TGRImageViewController.m in Sources */,
 				F49A29521A3F0D1E006F9E34 /* IMEventInputViewCell.m in Sources */,
 				F4F19B8D1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m in Sources */,
@@ -1657,36 +1573,33 @@
 				F49A2A391A3F0D90006F9E34 /* UIImage+Resize.m in Sources */,
 				F41268D71A46E343000E52E9 /* IMDisease.m in Sources */,
 				F49A29D21A3F0D81006F9E34 /* IMAutocompleteBarButton.m in Sources */,
-				F49A29821A3F0D1E006F9E34 /* IMGlucoseDonutChartViewController.m in Sources */,
 				F41268A11A44AE41000E52E9 /* IMAnalyticsChartTooltipView.m in Sources */,
+				F435C4611A56CDE300D76913 /* IMAnalyticsGlucoseLineViewController.m in Sources */,
 				F49A295E1A3F0D1E006F9E34 /* IMKeyboardShortcutAccessoryView.m in Sources */,
 				F41A762B1A413C3A006F9547 /* IMReportImageViewCell.m in Sources */,
+				F435C4581A56A62500D76913 /* IMAnalyticsAvgGlucoseBarViewController.m in Sources */,
 				F49A29941A3F0D1E006F9E34 /* IMTagTableViewCell.m in Sources */,
 				F4F19B721A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m in Sources */,
 				F49A298E1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m in Sources */,
 				F41268AF1A46E266000E52E9 /* IMUserCell.m in Sources */,
 				F49A2A2D1A3F0D90006F9E34 /* IMTagController.m in Sources */,
-				F49A29801A3F0D1E006F9E34 /* IMChartViewController.m in Sources */,
 				F49A2A421A3F0D90006F9E34 /* TGRImageZoomAnimationController.m in Sources */,
 				F41268DE1A46E343000E52E9 /* IMReminder.m in Sources */,
+				F435C44F1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m in Sources */,
 				F49A29E51A3F0D82006F9E34 /* IMTooltipView.m in Sources */,
 				F49A2A261A3F0D90006F9E34 /* IMBackupController.m in Sources */,
 				F412689A1A44AE41000E52E9 /* IMAnalyticsChartHeaderView.m in Sources */,
 				F49A29DE1A3F0D82006F9E34 /* IMNavigationController.m in Sources */,
 				F41268A71A469ADE000E52E9 /* IMEntryBaseInputViewController.m in Sources */,
 				F49A298D1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m in Sources */,
-				F49A29851A3F0D1E006F9E34 /* IMLeastSquareFitCalculator.m in Sources */,
 				F49A29DB1A3F0D82006F9E34 /* IMNavSubtitleHeaderView.m in Sources */,
-				F412689B1A44AE41000E52E9 /* IMAnalyticsAreaChartViewController.m in Sources */,
 				F49A29701A3F0D1E006F9E34 /* IMShortcutButton.m in Sources */,
 				F41A76191A403636006F9547 /* IMReportViewController.m in Sources */,
 				F41268DF1A46E343000E52E9 /* IMReminderRule.m in Sources */,
 				F4F19B811A4B0AFB003BAFC7 /* IMWeightReading.m in Sources */,
 				F41268981A44AE41000E52E9 /* IMAnalyticsBarChartFooterView.m in Sources */,
 				F49A29761A3F0D1E006F9E34 /* IMLocationReminderViewController.m in Sources */,
-				F49A297F1A3F0D1E006F9E34 /* IMCarbsChartViewController.m in Sources */,
 				F49A2A501A3F0D9B006F9E34 /* NSDictionary+Extension.m in Sources */,
-				F49A297D1A3F0D1E006F9E34 /* IMChartLineCrosshair.m in Sources */,
 				F49A299C1A3F0D1E006F9E34 /* IMBaseViewController.m in Sources */,
 				F49A29951A3F0D1E006F9E34 /* IMTagsViewController.m in Sources */,
 				F49A2A531A3F0D9B006F9E34 /* UITextView+Extension.m in Sources */,
@@ -1703,8 +1616,8 @@
 				F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */,
 				F41268A01A44AE41000E52E9 /* IMAnalyticsChartTooltipTipView.m in Sources */,
 				F4F19B8A1A4C60E3003BAFC7 /* IMSettingsWeightViewController.m in Sources */,
-				F41268971A44AE41000E52E9 /* IMAnalyticsChartTableCell.m in Sources */,
-				F49A29831A3F0D1E006F9E34 /* IMGlucoseLineChartViewController.m in Sources */,
+				F41268971A44AE41000E52E9 /* IMAnalyticsDateEntry.m in Sources */,
+				F435C4521A5698D500D76913 /* IMAnalyticsBPLineViewController.m in Sources */,
 				F49A297A1A3F0D1E006F9E34 /* IMReminderBaseViewController.m in Sources */,
 				F49A294E1A3F0D1E006F9E34 /* IMEventInputCategoryViewCell.m in Sources */,
 				F49A295D1A3F0D1E006F9E34 /* IMEventNotesTextView.m in Sources */,
@@ -1714,17 +1627,14 @@
 				F41268D31A46E343000E52E9 /* IMCoreDataStack.m in Sources */,
 				F4104AC61A3AF8B500EF8193 /* IMAppDelegate.m in Sources */,
 				F4F19B7B1A4B0AFA003BAFC7 /* IMCholesterolReading.m in Sources */,
-				F412689E1A44AE41000E52E9 /* IMAnalyticsLineChartViewController.m in Sources */,
 				F41268D91A46E343000E52E9 /* IMImage.m in Sources */,
+				F435C4551A56A60100D76913 /* IMAnalyticsAvgCholesterolBarViewController.m in Sources */,
 				F41A76101A400043006F9547 /* IMReportTableViewCell.m in Sources */,
 				F49A2A2B1A3F0D90006F9E34 /* IMReminderController.m in Sources */,
 				F49A29791A3F0D1E006F9E34 /* IMTimeReminderViewController.m in Sources */,
 				F49A2A4F1A3F0D9B006F9E34 /* NSDate+Extension.m in Sources */,
 				F41268D81A46E343000E52E9 /* IMEvent.m in Sources */,
-				F49A297E1A3F0D1E006F9E34 /* IMAvgBloodGlucoseChartViewController.m in Sources */,
 				F49A29E11A3F0D82006F9E34 /* IMExportTooltipView.m in Sources */,
-				F49A29811A3F0D1E006F9E34 /* IMGlucoseCandlestickChartViewController.m in Sources */,
-				F412689C1A44AE41000E52E9 /* IMAnalyticsBarChartViewController.m in Sources */,
 				F41268E01A46E343000E52E9 /* IMReport.m in Sources */,
 				F49A29D11A3F0D81006F9E34 /* IMAutocompleteBar.m in Sources */,
 				F412685F1A449F74000E52E9 /* IMEntryMealInputViewController.m in Sources */,
@@ -1735,15 +1645,14 @@
 				F41268951A44AE41000E52E9 /* IMAnalyticsBaseTableViewController.m in Sources */,
 				F49A295C1A3F0D1E006F9E34 /* IMEventInputTextField.m in Sources */,
 				F41268E11A46E343000E52E9 /* IMTag.m in Sources */,
+				F435C44C1A503A7500D76913 /* IMAnalyticsDateTableViewController.m in Sources */,
+				F435C45E1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m in Sources */,
 				F41268DB1A46E343000E52E9 /* IMMedicine.m in Sources */,
 				F49A29DF1A3F0D82006F9E34 /* IMTooltipViewController.m in Sources */,
-				F412689D1A44AE41000E52E9 /* IMAnalyticsChartListViewController.m in Sources */,
 				F49A29531A3F0D1E006F9E34 /* IMEventLocationMapView.m in Sources */,
 				F41268D41A46E343000E52E9 /* InstaMed.xcdatamodeld in Sources */,
 				F41268681A44A08E000E52E9 /* IMEntryMedicineInputViewController.m in Sources */,
-				F49A29891A3F0D1E006F9E34 /* IMDatePickerController.m in Sources */,
 				F49A294D1A3F0D1E006F9E34 /* IMEventDateTimeViewCell.m in Sources */,
-				F49A29861A3F0D1E006F9E34 /* IMReportPreviewView.m in Sources */,
 				F49A29711A3F0D1E006F9E34 /* IMSideMenuCell.m in Sources */,
 				F49A2A521A3F0D9B006F9E34 /* UIImage+ImageEffects.m in Sources */,
 				F49A29771A3F0D1E006F9E34 /* IMRuleReminderViewController.m in Sources */,
@@ -1753,7 +1662,6 @@
 				F49A296A1A3F0D1E006F9E34 /* IMPDFDocument.m in Sources */,
 				F4104AC31A3AF8B500EF8193 /* main.m in Sources */,
 				F4F19B7E1A4B0AFA003BAFC7 /* IMBPReading.m in Sources */,
-				F49A297C1A3F0D1E006F9E34 /* IMChartCrosshairTooltip.m in Sources */,
 				F49A298F1A3F0D1E006F9E34 /* IMSettingsLicensesViewController.m in Sources */,
 				F49A29781A3F0D1E006F9E34 /* IMReminderRepeatViewController.m in Sources */,
 				F41268E51A472C7E000E52E9 /* IMJournalTableViewController.m in Sources */,

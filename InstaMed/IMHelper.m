@@ -160,4 +160,28 @@
     }
 }
 
++ (BOOL)includeGlucoseReadings {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kCurrentProfileTrackingDiabetesKey];
+}
+
++ (BOOL)includeCholesterolReadings {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kCurrentProfileTrackingCholesterolKey];
+}
+
++ (BOOL)includeBPReadings {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kCurrentProfileTrackingBPKey];
+}
+
++ (BOOL)includeWeightReadings {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kCurrentProfileTrackingWeightKey];
+}
+
++ (NSInteger)totalReadingsCount {
+    NSInteger count = 0;
+    if ([IMHelper includeGlucoseReadings]) count++;
+    if ([IMHelper includeCholesterolReadings]) count++;
+    if ([IMHelper includeBPReadings]) count++;
+    if ([IMHelper includeWeightReadings]) count++;
+    return  count;
+}
 @end

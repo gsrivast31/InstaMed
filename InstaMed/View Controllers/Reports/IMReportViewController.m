@@ -111,7 +111,9 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"IMReport"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"type == %d", self.reportType];
+    NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+    
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"type == %d && userGuid = %@", self.reportType, currentUserGuid];
     
     return fetchRequest;
 }

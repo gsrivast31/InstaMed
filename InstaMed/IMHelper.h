@@ -29,4 +29,10 @@
 + (BOOL)isCholesterolLevelSafe:(double)value;
 + (BOOL)isBPLevelSafeWithHigh:(uint)high andLow:(uint)low;
 
++ (NSInteger)totalReadingsCount;
++ (BOOL)includeGlucoseReadings;
++ (BOOL)includeCholesterolReadings;
++ (BOOL)includeBPReadings;
++ (BOOL)includeWeightReadings;
+
 @end

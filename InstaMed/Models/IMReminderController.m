@@ -93,6 +93,10 @@
         NSSortDescriptor *sortPredicate = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
         [request setSortDescriptors:@[sortPredicate]];
         
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+        [request setPredicate:predicate];
+
         // Execute the fetch.
         NSError *error = nil;
         NSArray *objects = [moc executeFetchRequest:request error:&error];
@@ -241,6 +245,9 @@
         NSSortDescriptor *sortPredicate = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         [request setSortDescriptors:@[sortPredicate]];
         
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+        [request setPredicate:predicate];
         // Execute the fetch.
         NSError *error = nil;
         NSArray *objects = [moc executeFetchRequest:request error:&error];
@@ -425,7 +432,8 @@
     if(moc)
     {
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"IMReminder"];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"guid = %@", reminderID];
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"guid = %@ && userGuid = %@", reminderID, currentUserGuid];
         [request setPredicate:predicate];
         
         // Execute the fetch.

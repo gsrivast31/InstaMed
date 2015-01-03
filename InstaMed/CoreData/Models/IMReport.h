@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "IMBaseObject.h"
 
 @class IMImage;
 
@@ -22,7 +23,7 @@ NS_ENUM(int16_t, IMReportType) {
     IMReportAll = 7
 };
 
-@interface IMReport : NSManagedObject
+@interface IMReport : IMBaseObject
 
 @property (nonatomic) NSTimeInterval date;
 @property (nonatomic, retain) NSString * doctorName;

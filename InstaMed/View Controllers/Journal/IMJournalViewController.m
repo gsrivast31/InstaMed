@@ -27,6 +27,8 @@
     NSDateFormatter *dateFormatter;
     
     id settingsChangeNotifier;
+    id userChangeNotifier;
+    id entryNotifier;
     
     IMShortcutButton *todayButton, *sevenDayButton, *fourteenDayButton;
     
@@ -55,6 +57,16 @@
             [strongSelf reloadViewData:note];
         }];
         
+        userChangeNotifier = [[NSNotificationCenter defaultCenter] addObserverForName:kCurrentProfileChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf reloadViewData:note];
+        }];
+
+        entryNotifier = [[NSNotificationCenter defaultCenter] addObserverForName:kEntryAddUpdateNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            [strongSelf reloadViewData:note];
+        }];
+
         // Menu items
         UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconAdd"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(addEvent:)];
         [self.navigationItem setRightBarButtonItem:addBarButtonItem animated:NO];
@@ -68,6 +80,8 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:settingsChangeNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:userChangeNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:entryNotifier];
 }
 
 - (void)viewDidLoad {
@@ -150,6 +164,10 @@
         [request setSortDescriptors:@[sortDescriptor]];
         [request setReturnsObjectsAsFaults:NO];
         
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+        [request setPredicate:predicate];
+
         objects = [moc executeFetchRequest:request error:&error];
     }
     
@@ -194,6 +212,8 @@
 
 - (void)refreshView {
     [self.tableView reloadData];
+    [self.tableView setNeedsLayout];
+    [self.tableView setNeedsDisplay];
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
 }
@@ -260,7 +280,20 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row%2 == 0) {
-        return 494.0f;
+        CGFloat height = 158.0f;
+        if ([IMHelper includeWeightReadings]) {
+            height += 56.0f;
+        }
+        if ([IMHelper includeBPReadings]) {
+            height += 56.0f;
+        }
+        if ([IMHelper includeCholesterolReadings]) {
+            height += 112.0f;
+        }
+        if ([IMHelper includeGlucoseReadings]) {
+            height += 112.0f;
+        }
+        return height;
     }
     return 20.0f;
 }
@@ -309,35 +342,45 @@
         uint lowBP = [[stats valueForKey:kBPReadingLowestKey] unsignedIntValue];
         uint highBP = [[stats valueForKey:kBPReadingHighestKey] unsignedIntValue];
         
-        double lowWeight = [[stats valueForKey:kBPReadingLowestKey] doubleValue];
-        double highWeight = [[stats valueForKey:kBPReadingHighestKey] doubleValue];
+        double lowWeight = [[stats valueForKey:kWtReadingLowestKey] doubleValue];
+        double highWeight = [[stats valueForKey:kWtReadingHighestKey] doubleValue];
         
-        if(totalBGReadings) {
-            [cell setAverageGlucoseValue:[NSNumber numberWithDouble:bgReadingsAvg] withFormatter:glucoseFormatter];
-            [cell setBGDeviationValue:[NSNumber numberWithDouble:bgReadingsDeviation] withFormatter:glucoseFormatter];
-        } else {
-            [cell setAverageGlucoseValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
-            [cell setBGDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
-        }
-        
-        if(totalChReadings) {
-            [cell setAverageCholesterolValue:[NSNumber numberWithDouble:chReadingsAvg] withFormatter:cholesterolFormatter];
-            [cell setChDeviationValue:[NSNumber numberWithDouble:chReadingsDeviation] withFormatter:cholesterolFormatter];
-        } else {
-            [cell setAverageCholesterolValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
-            [cell setChDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
+        if ([IMHelper includeGlucoseReadings]) {
+            if(totalBGReadings) {
+                [cell setAverageGlucoseValue:[NSNumber numberWithDouble:bgReadingsAvg] withFormatter:glucoseFormatter];
+                [cell setBGDeviationValue:[NSNumber numberWithDouble:bgReadingsDeviation] withFormatter:glucoseFormatter];
+            } else {
+                [cell setAverageGlucoseValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
+                [cell setBGDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
+            }
+            [cell setLowGlucoseValue:[NSNumber numberWithDouble:lowGlucose] withFormatter:glucoseFormatter];
+            [cell setHighGlucoseValue:[NSNumber numberWithDouble:highGlucose] withFormatter:glucoseFormatter];
         }
 
+        if ([IMHelper includeCholesterolReadings]) {
+            if(totalChReadings) {
+                [cell setAverageCholesterolValue:[NSNumber numberWithDouble:chReadingsAvg] withFormatter:cholesterolFormatter];
+                [cell setChDeviationValue:[NSNumber numberWithDouble:chReadingsDeviation] withFormatter:cholesterolFormatter];
+            } else {
+                [cell setAverageCholesterolValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
+                [cell setChDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
+            }
+            [cell setLowCholesterolValue:[NSNumber numberWithDouble:lowCholesterol] withFormatter:cholesterolFormatter];
+            [cell setHighCholesterolValue:[NSNumber numberWithDouble:highCholesterol] withFormatter:cholesterolFormatter];
+        }
+
+        if ([IMHelper includeBPReadings]) {
+            [cell setLowBPValue:[NSNumber numberWithUnsignedInt:lowBP] withFormatter:valueFormatter];
+            [cell setHighBPValue:[NSNumber numberWithUnsignedInt:highBP] withFormatter:valueFormatter];
+        }
+        
+        if ([IMHelper includeWeightReadings]) {
+            [cell setLowWeightValue:[NSNumber numberWithDouble:lowWeight] withFormatter:valueFormatter];
+            [cell setHighWeightValue:[NSNumber numberWithDouble:highWeight] withFormatter:valueFormatter];
+        }
+        
         [cell setMealValue:[NSNumber numberWithDouble:totalGrams] withFormatter:valueFormatter];
         [cell setActivityValue:totalMinutes];
-        [cell setLowGlucoseValue:[NSNumber numberWithDouble:lowGlucose] withFormatter:glucoseFormatter];
-        [cell setHighGlucoseValue:[NSNumber numberWithDouble:highGlucose] withFormatter:glucoseFormatter];
-        [cell setLowCholesterolValue:[NSNumber numberWithDouble:lowCholesterol] withFormatter:cholesterolFormatter];
-        [cell setHighCholesterolValue:[NSNumber numberWithDouble:highCholesterol] withFormatter:cholesterolFormatter];
-        [cell setLowBPValue:[NSNumber numberWithUnsignedInt:lowBP] withFormatter:valueFormatter];
-        [cell setHighBPValue:[NSNumber numberWithUnsignedInt:highBP] withFormatter:valueFormatter];
-        [cell setLowWeightValue:[NSNumber numberWithDouble:lowWeight] withFormatter:valueFormatter];
-        [cell setHighWeightValue:[NSNumber numberWithDouble:highWeight] withFormatter:valueFormatter];
         cell.monthLabel.text = key;
         
         return cell;

@@ -14,18 +14,18 @@
 
 @interface IMAnalyticsBaseChartViewController : IMAnalyticsBaseViewController
 {
-    NSArray *reports;
-    NSArray *reportData;
-    
-    NSDateFormatter *dateFormatter;
-    NSDate *toDate, *fromDate;
+    NSDictionary *chartData;
+    NSString* fromDateString;
+    NSString* toDateString;
 }
 
 @property (nonatomic, strong, readonly) IMAnalyticsChartTooltipView *tooltipView;
 @property (nonatomic, assign) BOOL tooltipVisible;
 
-
-- (id)initWithFromDate:(NSDate*)aFromDate toDate:(NSDate*)aToDate;
+- (id)initWithData:(NSArray *)data from:(NSDate*)fromDate to:(NSDate*)toDate;
+- (NSDictionary *)parseData:(NSArray *)theData;
+- (BOOL)hasEnoughDataToShowChart;
+- (NSString*)dateString;
 
 // Setters
 - (void)setTooltipVisible:(BOOL)tooltipVisible animated:(BOOL)animated atTouchPoint:(CGPoint)touchPoint;

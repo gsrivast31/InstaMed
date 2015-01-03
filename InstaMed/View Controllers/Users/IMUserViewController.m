@@ -29,7 +29,6 @@
 @property (nonatomic, strong) NSDate *pickedDate;
 @property (nonatomic, strong) NSString *pickedBloodGroup;
 @property (nonatomic, strong) NSArray *bloodGroupArray;
-@property (nonatomic, strong) NSArray *diseasesArray;
 @property (nonatomic) BOOL trackHyperTension;
 @property (nonatomic) BOOL trackDiabetes;
 @property (nonatomic) BOOL trackCholesterol;
@@ -69,10 +68,12 @@
         
         self.trackHyperTension = self.entry.trackingHyperTension;
         self.trackDiabetes = self.entry.trackingDiabetes;
+        self.trackCholesterol = self.entry.trackingCholesterol;
+        self.trackWeight = self.entry.trackingWeight;
         
         self.title = @"Edit User";
     } else {
-        self.trackDiabetes = self.trackHyperTension = false;
+        self.trackDiabetes = self.trackHyperTension = self.trackWeight = self.trackCholesterol = false;
         self.title = @"Add User";
         self.pickedImage = nil;
     }
@@ -92,7 +93,6 @@
     pickerView.delegate = self;
     [self.bloodGroup setInputView:pickerView];
     
-    self.diseasesArray = @[@"Diabetes", @"Blood Pressure"];
     self.trackedDiseasesTable.dataSource = self;
     self.trackedDiseasesTable.delegate = self;
 }
@@ -144,12 +144,31 @@
     self.pickedDate = picker.date;
 }
 
+- (void)updateTrackings {
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey] isEqualToString:self.entry.guid]) {
+        [[NSUserDefaults standardUserDefaults] setBool:self.trackDiabetes forKey:kCurrentProfileTrackingDiabetesKey];
+        [[NSUserDefaults standardUserDefaults] setBool:self.trackCholesterol forKey:kCurrentProfileTrackingCholesterolKey];
+        [[NSUserDefaults standardUserDefaults] setBool:self.trackHyperTension forKey:kCurrentProfileTrackingBPKey];
+        [[NSUserDefaults standardUserDefaults] setBool:self.trackWeight forKey:kCurrentProfileTrackingWeightKey];
+        
+        // Post a notification so that we can determine when linking occurs
+        NSDictionary* info = @{@"name":self.entry.name,@"image":[UIImage imageWithData:self.entry.profilePhoto]};
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCurrentProfileChangedNotification object:nil userInfo:info];
+    }
+}
+
 - (IBAction)saveUser:(id)sender {
     if (self.entry != nil) {
         [self updateUser];
     } else {
         [self insertUser];
     }
+    [self updateTrackings];
+    
+    if (self.entry != nil) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSettingsChangedNotification object:nil];
+    }
+    
     [self dismissSelf];
 }
 
@@ -284,55 +303,79 @@
     self.pickedBloodGroup = [self.bloodGroupArray objectAtIndex:row];
 }
 
+#pragma mark Responders, Events
+
+- (void)toggleBGTracking:(UISwitch *)sender {
+    self.trackDiabetes = !self.trackDiabetes;
+}
+
+- (void)toggleBPTracking:(UISwitch *)sender {
+    self.trackHyperTension = !self.trackHyperTension;
+}
+
+- (void)toggleCholesterolTracking:(UISwitch *)sender {
+    self.trackCholesterol = !self.trackCholesterol;
+}
+
+- (void)toggleWeightTracking:(UISwitch *)sender {
+    self.trackWeight = !self.trackWeight;
+}
+
 #pragma mark UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.diseasesArray count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* CellIdentifier = @"diseaseCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    cell.textLabel.text = [self.diseasesArray objectAtIndex:indexPath.row];
-    
-    if (indexPath.row == IMDiabetes && self.trackDiabetes) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else if (indexPath.row == IMHyperTension && self.trackHyperTension) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    return cell;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-#pragma mark UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if (indexPath.row == IMHyperTension) {
-        self.trackHyperTension = !self.trackHyperTension;
-        if (self.trackHyperTension) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-    } else if (indexPath.row == IMDiabetes) {
-        self.trackDiabetes = !self.trackDiabetes;
-        if (self.trackDiabetes) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-    }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    IMGenericTableViewCell *cell = (IMGenericTableViewCell *)[aTableView dequeueReusableCellWithIdentifier:@"IMSettingCell"];
+    if (cell == nil) {
+        cell = [[IMGenericTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"IMSettingCell"];
+    }
+    
+    if(indexPath.row == 0) {
+        cell.textLabel.text = NSLocalizedString(@"Blood Glucose", @"A settings switch to track Blood Glucose");
+        
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+        [switchControl setOn:self.trackDiabetes];
+        [switchControl addTarget:self action:@selector(toggleBGTracking:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = switchControl;
+    } else if(indexPath.row == 1) {
+        cell.textLabel.text = NSLocalizedString(@"Blood Pressure", @"A settings switch to track Blood Pressure");
+        
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+        [switchControl setOn:self.trackHyperTension];
+        [switchControl addTarget:self action:@selector(toggleBPTracking:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = switchControl;
+    } else if(indexPath.row == 2) {
+        cell.textLabel.text = NSLocalizedString(@"Cholesterol", @"A settings switch to track Cholesterol");
+        
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+        [switchControl setOn:self.trackCholesterol];
+        [switchControl addTarget:self action:@selector(toggleCholesterolTracking:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = switchControl;
+    } else if(indexPath.row == 3) {
+        cell.textLabel.text = NSLocalizedString(@"Weight", @"A settings switch to track weight");
+        
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
+        [switchControl setOn:self.trackWeight];
+        [switchControl addTarget:self action:@selector(toggleWeightTracking:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = switchControl;
+    }
+    
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
 
 @end

@@ -178,6 +178,10 @@
         NSArray *sortDescriptors = @[sortDescriptor];
         [fetchRequest setSortDescriptors:sortDescriptors];
         
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+        [fetchRequest setPredicate:predicate];
+
         NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                     managedObjectContext:moc
                                                                                                       sectionNameKeyPath:nil

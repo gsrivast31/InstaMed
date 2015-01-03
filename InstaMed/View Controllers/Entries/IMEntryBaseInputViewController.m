@@ -107,6 +107,14 @@
     [self updateNavigationBar];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    // Remove any customisation on the navigation bar
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+}
+
 - (void)updateNavigationBar {
     [self.navigationController.navigationBar setTranslucent:NO];
     [self.navigationController.navigationBar setBackgroundImage:[self navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
@@ -201,6 +209,7 @@
                 }
             }
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:kEntryAddUpdateNotification object:nil];
             [self dismissSelf];
         }
     } else {

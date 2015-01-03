@@ -29,16 +29,13 @@
 
 @implementation IMAppDelegate
 
-
 #pragma mark - Setup
-+ (IMAppDelegate *)sharedAppDelegate
-{
++ (IMAppDelegate *)sharedAppDelegate {
     return (IMAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 #pragma mark - UIApplicationDelegate
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialise the Google Analytics API
     [[GAI sharedInstance] trackerWithTrackingId:kGoogleAnalyticsTrackingID];
     
@@ -51,8 +48,7 @@
     [UAAppReviewManager setReviewMessage:NSLocalizedString(@"If you find InstaMed useful you can help support further development by leaving a review on the App Store. It'll only take a minute!", nil)];
     
     // Is this a first run experience?
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:kHasRunBeforeKey])
-    {
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:kHasRunBeforeKey]) {
         // Dump any existing local notifications (handy when the application has been deleted and re-installed,
         // as iOS likes to keep local notifications around for 24 hours)
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -104,33 +100,27 @@
     return YES;
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
+- (void)applicationWillTerminate:(UIApplication *)application {
     [[IMCoreDataStack defaultStack] saveContext];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+- (void)applicationWillEnterForeground:(UIApplication *)application {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"applicationResumed" object:nil];
     
     // Let UAAppReviewManager know our application has entered the foreground
     [UAAppReviewManager showPromptIfNecessary];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     // Delete any expired date-based notifications
     [[IMReminderController sharedInstance] deleteExpiredReminders];
 }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(NSString *)source annotation:(id)annotation
-{
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(NSString *)source annotation:(id)annotation {
     // Is this Dropbox?
-    if([source isEqualToString:@"com.getdropbox.Dropbox"])
-    {
+    if([source isEqualToString:@"com.getdropbox.Dropbox"]) {
         DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
-        if (account)
-        {
+        if (account) {
             DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
             [DBFilesystem setSharedFilesystem:filesystem];
             
@@ -145,8 +135,7 @@
 }
 
 #pragma mark - Logic
-- (void)setupDropbox
-{
+- (void)setupDropbox {
     // Ditch out if we haven't been provided credentials
     if(!kDropboxAppKey || !kDropboxSecret || ![kDropboxAppKey length] || ![kDropboxSecret length]) return;
     
@@ -154,8 +143,7 @@
     [DBAccountManager setSharedManager:accountMgr];
     DBAccount *account = accountMgr.linkedAccount;
     
-    if (account)
-    {
+    if (account) {
         DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
         [DBFilesystem setSharedFilesystem:filesystem];
     }
@@ -180,6 +168,11 @@
                                                               kMaxHealthyBPKey: @120,
                                                               
                                                               kTargetWeightKey: @60,
+                                                              
+                                                              kCurrentProfileTrackingBPKey: @NO,
+                                                              kCurrentProfileTrackingCholesterolKey: @NO,
+                                                              kCurrentProfileTrackingDiabetesKey: @NO,
+                                                              kCurrentProfileTrackingWeightKey: @NO,
                                                               
                                                               kUseSmartInputKey: @YES,
                                                               kShowInlineImages: @YES,

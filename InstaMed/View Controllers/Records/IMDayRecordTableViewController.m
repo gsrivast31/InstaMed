@@ -65,6 +65,36 @@
 
 #pragma mark - Setup
 
+- (NSString*)filterPredicate {
+    NSInteger totalCount = ([IMHelper includeGlucoseReadings] == NO) + ([IMHelper includeBPReadings] == NO) +([IMHelper includeCholesterolReadings] == NO) +([IMHelper includeWeightReadings] == NO);
+    NSString* format = @"";
+    if (totalCount) {
+        if ([IMHelper includeGlucoseReadings] == NO) {
+            format = [format stringByAppendingString:[NSString stringWithFormat:@"filterType != %d", BGReadingFilterType]];
+            if (--totalCount) {
+                format = [format stringByAppendingString:@" && "];
+            }
+        }
+        if ([IMHelper includeCholesterolReadings] == NO) {
+            format = [format stringByAppendingString:[NSString stringWithFormat:@"filterType != %d", CholesterolReadingFilterType]];
+            if (--totalCount) {
+                format = [format stringByAppendingString:@" && "];
+            }
+        }
+        if ([IMHelper includeBPReadings] == NO) {
+            format = [format stringByAppendingString:[NSString stringWithFormat:@"filterType != %d", BPReadingFilterType]];
+            if (--totalCount) {
+                format = [format stringByAppendingString:@" && "];
+            }
+        }
+        if ([IMHelper includeWeightReadings] == NO) {
+            format = [format stringByAppendingString:[NSString stringWithFormat:@"filterType != %d", WeightReadingFilterType]];
+        }
+        format = [format stringByAppendingString:@" && "];
+    }
+    return format;
+}
+
 - (void)setRelativeDays:(NSInteger)days {
     if (self) {
         [self commonInit];
@@ -75,7 +105,11 @@
         } else {
             fromDate = [[NSDate date] dateAtStartOfDay];
         }
-        self.timelinePredicate = [NSPredicate predicateWithFormat:@"timestamp >= %@", fromDate];
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        
+        NSString* predicateFormat = [self filterPredicate];
+        predicateFormat = [predicateFormat stringByAppendingString:@"timestamp >= %@ && userGuid = %@"];
+        self.timelinePredicate = [NSPredicate predicateWithFormat:predicateFormat, fromDate, currentUserGuid];
     }
 }
 
@@ -83,7 +117,11 @@
     if (self) {
         [self commonInit];
         _relativeDays = -1;
-        self.timelinePredicate = [NSPredicate predicateWithFormat:@"timestamp >= %@ && timestamp <= %@", fromDate, toDate];
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSString* predicateFormat = [self filterPredicate];
+        predicateFormat = [predicateFormat stringByAppendingString:@"timestamp >= %@ && timestamp <= %@ && userGuid = %@"];
+
+        self.timelinePredicate = [NSPredicate predicateWithFormat:predicateFormat, fromDate, toDate, currentUserGuid];
     }
 }
 
@@ -93,7 +131,12 @@
         _relativeDays = -1;
         
         self.title = [NSString stringWithFormat:@"#%@", tag];
-        self.timelinePredicate = [NSPredicate predicateWithFormat:@"ANY tags.nameLC = %@", [tag lowercaseString]];
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        
+        NSString* predicateFormat = [self filterPredicate];
+        predicateFormat = [predicateFormat stringByAppendingString:@"ANY tags.nameLC = %@ && userGuid = %@"];
+
+        self.timelinePredicate = [NSPredicate predicateWithFormat:predicateFormat, [tag lowercaseString], currentUserGuid];
     }
 }
 
@@ -218,7 +261,8 @@
 
 - (void)performSearchWithText:(NSString *)searchText {
     NSString *regex = [NSString stringWithFormat:@".*?%@.*?", [searchText lowercaseString]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name MATCHES[cd] %@ OR self.notes MATCHES[cd] %@", regex, regex];
+    NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@ && self.name MATCHES[cd] %@ OR self.notes MATCHES[cd] %@", currentUserGuid, regex, regex];
     
     if(predicate) {
         NSMutableArray *newResults = [NSMutableArray array];

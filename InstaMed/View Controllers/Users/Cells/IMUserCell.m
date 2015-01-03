@@ -11,7 +11,7 @@
 
 @interface IMUserCell()
 {
-    NSString* guid;
+    IMUser* user;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePhoto;
@@ -24,7 +24,7 @@
 
 - (void) configureCellForEntry:(IMUser *)entry {
     
-    guid = entry.guid;
+    user = entry;
     
     if (entry.relationship && ![entry.relationship isEqualToString:@""]) {
         self.username.text = entry.relationship;
@@ -46,7 +46,7 @@
     self.profilePhoto.layer.cornerRadius = CGRectGetWidth(self.profilePhoto.frame) / 2.0f;
     
     NSString* currentProfile = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
-    BOOL isSelected = [currentProfile isEqualToString:guid];
+    BOOL isSelected = [currentProfile isEqualToString:user.guid];
     [self.selectSwitch setOn:isSelected animated:YES];
     if (isSelected) {
         self.selectSwitch.userInteractionEnabled = NO;
@@ -59,15 +59,23 @@
     NSString* currentProfile = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
 
     BOOL selected = self.selectSwitch.on;
-    if ([guid isEqualToString:currentProfile]) {
+    if ([user.guid isEqualToString:currentProfile]) {
         self.selectSwitch.userInteractionEnabled = NO;
     } else {
         self.selectSwitch.userInteractionEnabled = YES;
-        [[NSUserDefaults standardUserDefaults] setValue:guid forKey:kCurrentProfileKey];
+        [[NSUserDefaults standardUserDefaults] setValue:user.guid forKey:kCurrentProfileKey];
+        [[NSUserDefaults standardUserDefaults] setValue:user.name forKey:kCurrentProfileName];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingDiabetes forKey:kCurrentProfileTrackingDiabetesKey];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingCholesterol forKey:kCurrentProfileTrackingCholesterolKey];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingHyperTension forKey:kCurrentProfileTrackingBPKey];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingWeight forKey:kCurrentProfileTrackingWeightKey];
+        
         [self.selectSwitch setOn:!selected animated:YES];
 
         // Post a notification so that we can determine when linking occurs
-        [[NSNotificationCenter defaultCenter] postNotificationName:kCurrentProfileChangedNotification object:nil];
+        NSDictionary* info = @{@"name":user.name,@"image":[UIImage imageWithData:user.profilePhoto]};
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCurrentProfileChangedNotification object:nil userInfo:info];
 
     }
 }

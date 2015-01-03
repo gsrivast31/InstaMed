@@ -100,6 +100,10 @@
         NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
         [request setSortDescriptors:@[nameSortDescriptor]];
         
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userGuid = %@", currentUserGuid];
+        [request setPredicate:predicate];
+
         // Execute the fetch.
         NSError *error = nil;
         NSArray *objects = [moc executeFetchRequest:request error:&error];
@@ -124,7 +128,9 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMTag" inManagedObjectContext:moc];
         [request setEntity:entity];
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nameLC IN %@", strings];
+        NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nameLC IN %@ && userGuid = %@", strings, currentUserGuid];
         [request setPredicate:predicate];
         
         // Execute the fetch.

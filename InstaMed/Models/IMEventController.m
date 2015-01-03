@@ -51,9 +51,11 @@
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMMedicine" inManagedObjectContext:moc];
             [request setEntity:entity];
             
+            NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+
             // Fetch all medication inputs over the past 15 days
             NSDate *timestamp = [[[NSDate date] dateAtStartOfDay] dateBySubtractingDays:15];
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timestamp >= %@", timestamp];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timestamp >= %@ && userGuid = %@", timestamp, currentUserGuid];
             [request setPredicate:predicate];
             
             NSInteger hourInterval = 3;
@@ -186,7 +188,7 @@
 
 - (NSDictionary *)statisticsForEvents:(NSArray *)events fromDate:(NSDate *)minDate toDate:(NSDate *)maxDate {
     NSInteger totalGrams = 0, totalMinutes = 0, totalBGReadings = 0;
-    NSInteger totalChReadings = 0;
+    NSInteger totalChReadings = 0, totalBPReadings = 0, totalWtReadings = 0;
     double lowestBGReading = 99999.9, highestBGReading = 0.0f, readingsBGTotal = 0.0f;
     double lowestChReading = 99999.9, highestChReading = 0.0f, readingsChTotal = 0.0f;
     double lowestWtReading = 99999.9, highestWtReading = 0.0f;
@@ -216,6 +218,8 @@
                 
                 if (lowReadingValue < lowestBPReading) lowestBPReading = lowReadingValue;
                 if (highReadingValue > highestBPReading) highestBPReading = highReadingValue;
+                
+                totalBPReadings ++;
             } else if ([event isKindOfClass:[IMCholesterolReading class]]) {
                 IMCholesterolReading *reading = (IMCholesterolReading*)event;
                 double readingValue = [[reading value] doubleValue];
@@ -231,8 +235,10 @@
                 IMWeightReading *reading = (IMWeightReading*)event;
                 double readingValue = [[reading value] doubleValue];
                 
-                if (lowestWtReading < readingValue) lowestWtReading = readingValue;
-                if (highestWtReading > readingValue) highestWtReading = readingValue;
+                if (lowestWtReading > readingValue) lowestWtReading = readingValue;
+                if (highestWtReading < readingValue) highestWtReading = readingValue;
+                
+                totalWtReadings ++;
             } else if([event isKindOfClass:[IMMeal class]]) {
                 IMMeal *meal = (IMMeal *)event;
                 totalGrams += [[meal grams] integerValue];
@@ -271,6 +277,13 @@
         readingsChDeviation /= totalChReadings;
     }
 
+    if (totalWtReadings <= 0) {
+        lowestWtReading = highestWtReading = 0.0f;
+    }
+    
+    if (totalBPReadings <= 0) {
+        lowestBPReading = highestBPReading = 0.0f;
+    }
     return @{
              kMinDateKey: minDate,
              kMaxDateKey: maxDate,
@@ -314,7 +327,8 @@
             [request setPropertiesToFetch:@[valueDescription]];
             [request setReturnsDistinctResults:YES];
             
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"filterType == %d", filterType];
+            NSString* currentUserGuid = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"filterType == %d && userGuid = %@", filterType, currentUserGuid];
             [request setPredicate:predicate];
             
             // Execute the fetch.

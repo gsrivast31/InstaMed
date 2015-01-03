@@ -91,8 +91,9 @@ static NSString * const kErrorDomain = @"com.memoir.instamed";
 static NSString * const kRemindersUpdatedNotification = @"com.memoir.reminders.updated";
 static NSString * const kSettingsChangedNotification = @"com.memoir.settings.change";
 static NSString * const kDropboxLinkNotification = @"com.memoir.dropbox.linked";
-static NSString * const kCurrentProfileChangedNotification = @"com.memoir.currentprofile.change";
 static NSString * const kExportReportNotification = @"com.memoir.export.report";
+static NSString * const kCurrentProfileChangedNotification = @"com.memoir.currentprofile.change";
+static NSString * const kEntryAddUpdateNotification = @"com.memoir.entry.addedit";
 
 // NSUserDefault keys
 static NSString * const kHasRunBeforeKey = @"kHasRunBefore";
@@ -125,6 +126,12 @@ static NSString * const kCarbohydrateRatioKey = @"kCarbohydrateRatioKey";
 static NSString * const kCorrectiveFactorKey = @"kCorrectiveFactorKey";
 
 static NSString * const kCurrentProfileKey = @"kCurrentProfileKey";
+static NSString * const kCurrentProfileName = @"kCurrentProfileName";
+
+static NSString * const kCurrentProfileTrackingDiabetesKey = @"kCurrentProfileTrackingDiabetesKey";
+static NSString * const kCurrentProfileTrackingCholesterolKey = @"kCurrentProfileTrackingCholesterolKey";
+static NSString * const kCurrentProfileTrackingBPKey = @"kCurrentProfileTrackingBPKey";
+static NSString * const kCurrentProfileTrackingWeightKey = @"kCurrentProfileTrackingWeightKey";
 
 // Data Keys
 static NSString *const kMinDateKey = @"min_date";

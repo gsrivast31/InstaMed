@@ -20,8 +20,7 @@
 #import "IMReportTableViewController.h"
 #import "IMDayRecordTableViewController.h"
 
-#import "IMAnalyticsBaseNavigationController.h"
-#import "IMAnalyticsChartListViewController.h"
+#import "IMAnalyticsDateTableViewController.h"
 
 #import "IMSideMenuCell.h"
 
@@ -29,9 +28,15 @@
 {
     id reminderUpdateNotifier;
 }
+
+@property (nonatomic, strong) UIImageView* imageView;
+@property (nonatomic, strong) UILabel* label;
 @end
 
 @implementation IMSideMenuViewController
+
+@synthesize label;
+@synthesize imageView;
 
 #pragma mark - Setup
 - (id)init {
@@ -45,7 +50,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 44.0f)];
+    self.tableView.tableHeaderView = ({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 205.0f)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        imageView.image = [UIImage imageNamed:@"icn_male"];
+        imageView.layer.masksToBounds = YES;
+        imageView.layer.cornerRadius = 50.0;
+        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        imageView.layer.borderWidth = 3.0f;
+        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        imageView.layer.shouldRasterize = YES;
+        imageView.clipsToBounds = YES;
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
+        label.text = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileName];
+        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+        [label sizeToFit];
+        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        
+        UILabel* changeUserLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 178, 0, 18)];
+        changeUserLabel.text = @"Change User";
+        changeUserLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        changeUserLabel.backgroundColor = [UIColor clearColor];
+        changeUserLabel.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+        changeUserLabel.userInteractionEnabled = YES;
+        [changeUserLabel sizeToFit];
+        changeUserLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        
+        UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeUser:)];
+        [changeUserLabel addGestureRecognizer:tapGesture];
+        
+        [view addSubview:imageView];
+        [view addSubview:label];
+        [view addSubview:changeUserLabel];
+        view;
+    });
+    
     self.tableView.opaque = NO;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0f alpha:0.08f];
@@ -58,6 +101,8 @@
             [self.tableView reloadData];
         });
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshName:) name:kCurrentProfileChangedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,6 +114,26 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:reminderUpdateNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCurrentProfileChangedNotification object:nil];
+}
+
+- (void)changeUser:(UIGestureRecognizer*)recognizer {
+    IMAppDelegate *appDelegate = (IMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UINavigationController *navigationController = (UINavigationController *)[(REFrostedViewController *)appDelegate.viewController contentViewController];;
+    [(REFrostedViewController *)appDelegate.viewController hideMenuViewController];
+
+    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    IMUsersListViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"userListController"];
+    [navigationController pushViewController:vc animated:NO];
+}
+
+- (void)refreshName:(NSNotification*)notification {
+    NSDictionary* info = notification.userInfo;
+    NSString* name = [info valueForKey:@"name"];
+    UIImage* image = [info valueForKey:@"image"];
+
+    label.text = name;
+    imageView.image = image;
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -115,38 +180,40 @@
     cell.detailTextLabel.text = nil;
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
-            cell.textLabel.text = NSLocalizedString(@"Profiles", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"icn_male"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"icn_male"];
-        } else if(indexPath.row == 1) {
             cell.textLabel.text = NSLocalizedString(@"Journal", nil);
             cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
             cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
-        } else if(indexPath.row == 2) {
-            cell.textLabel.text = NSLocalizedString(@"Tags", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconTags"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconTagsHighlighted"];
-        } else if(indexPath.row == 3) {
-            cell.textLabel.text = NSLocalizedString(@"Reminders", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconReminders"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconRemindersHighlighted"];
-        } else if(indexPath.row == 4) {
-            cell.textLabel.text = NSLocalizedString(@"Export", @"Menu item to take users to the export screen");
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconExport"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconExportHighlighted"];
-        } else if(indexPath.row == 5) {
-            cell.textLabel.text = NSLocalizedString(@"Settings", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconSettings"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconSettingsHighlighted"];
-        } else if(indexPath.row == 6) {
+        } else if(indexPath.row == 1) {
             cell.textLabel.text = NSLocalizedString(@"Reports", nil);
             cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
             cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
-        } else if(indexPath.row == 7) {
+        } else if(indexPath.row == 2) {
+            cell.textLabel.text = NSLocalizedString(@"Reminders", nil);
+            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconReminders"];
+            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconRemindersHighlighted"];
+        } else if(indexPath.row == 3) {
             cell.textLabel.text = NSLocalizedString(@"Analytics", nil);
             cell.accessoryIcon.image = [UIImage imageNamed:@"JournalIconDeviation"];
             cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"JournalIconDeviation"];
+        } else if(indexPath.row == 4) {
+            cell.textLabel.text = NSLocalizedString(@"Tags", nil);
+            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconTags"];
+            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconTagsHighlighted"];
+        } else if(indexPath.row == 5) {
+            cell.textLabel.text = NSLocalizedString(@"Profiles", nil);
+            cell.accessoryIcon.image = [UIImage imageNamed:@"icn_male"];
+            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"icn_male"];
+        } else if(indexPath.row == 6) {
+            cell.textLabel.text = NSLocalizedString(@"Export", @"Menu item to take users to the export screen");
+            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconExport"];
+            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconExportHighlighted"];
+        } else if(indexPath.row == 7) {
+            cell.textLabel.text = NSLocalizedString(@"Settings", nil);
+            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconSettings"];
+            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconSettingsHighlighted"];
+        } else {
         }
+            
     } else if(indexPath.section == 1) {
         IMReminder *reminder = [[[IMReminderController sharedInstance] ungroupedReminders] objectAtIndex:indexPath.row];
         if(reminder) {
@@ -219,42 +286,42 @@
 
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
+            [navigationController popToRootViewControllerAnimated:animateViewControllerChange];
+        } else if(indexPath.row == 1) {
+            UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"reportTableViewController"];
+            [navigationController pushViewController:vc animated:animateViewControllerChange];
+        } else if(indexPath.row == 2) {
+            if(![[navigationController topViewController] isKindOfClass:[IMRemindersViewController class]]) {
+                IMRemindersViewController *vc = [[IMRemindersViewController alloc] init];
+                [navigationController pushViewController:vc animated:animateViewControllerChange];
+            }
+        } else if(indexPath.row == 3) {
+            //Analytics
+            UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"analyticDateTableController"];
+            [navigationController pushViewController:vc animated:animateViewControllerChange];
+        } else if(indexPath.row == 4) {
+            if(![[navigationController topViewController] isKindOfClass:[IMTagsViewController class]]) {
+                IMTagsViewController *vc = [[IMTagsViewController alloc] init];
+                [navigationController pushViewController:vc animated:animateViewControllerChange];
+            }
+        } else if(indexPath.row == 5) {
             if(![[navigationController topViewController] isKindOfClass:[IMUsersListViewController class]]) {
                 UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                 IMUsersListViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"userListController"];
                 [navigationController pushViewController:vc animated:animateViewControllerChange];
             }
-        } else if(indexPath.row == 1) {
-            [navigationController popToRootViewControllerAnimated:animateViewControllerChange];
-        } else if(indexPath.row == 2) {
-            if(![[navigationController topViewController] isKindOfClass:[IMTagsViewController class]]) {
-                IMTagsViewController *vc = [[IMTagsViewController alloc] init];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
-        } else if(indexPath.row == 3) {
-            if(![[navigationController topViewController] isKindOfClass:[IMRemindersViewController class]]) {
-                IMRemindersViewController *vc = [[IMRemindersViewController alloc] init];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
-        } else if(indexPath.row == 4) {
+        } else if(indexPath.row == 6) {
             if(![[navigationController topViewController] isKindOfClass:[IMExportViewController class]]) {
                 IMExportViewController *vc = [[IMExportViewController alloc] init];
                 [navigationController pushViewController:vc animated:animateViewControllerChange];
             }
-        } else if(indexPath.row == 5) {
+        } else if(indexPath.row == 7) {
             if(![[navigationController topViewController] isKindOfClass:[IMSettingsViewController class]]) {
                 IMSettingsViewController *vc = [[IMSettingsViewController alloc] init];
                 [navigationController pushViewController:vc animated:animateViewControllerChange];
             }
-        } else if(indexPath.row == 6) {
-            UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"reportTableViewController"];
-            [navigationController pushViewController:vc animated:animateViewControllerChange];
-
-        } else if(indexPath.row == 7) {
-            //Analytics
-            IMAnalyticsChartListViewController* chartController = [[IMAnalyticsChartListViewController alloc] init];
-            [navigationController pushViewController:chartController animated:YES];
         }
     } else if(indexPath.section == 1) {
         IMReminder *reminder = [[[IMReminderController sharedInstance] ungroupedReminders] objectAtIndex:indexPath.row];

@@ -7,6 +7,7 @@
 //
 
 #import "IMAnalyticsBaseViewController.h"
+#import "IMAnalyticsBaseNavigationController.h"
 #import "IMAnalyticsConstants.h"
 
 @interface IMAnalyticsBaseViewController ()
@@ -17,14 +18,18 @@
 
 #pragma mark - View Lifecycle
 
-- (void)loadView
-{
-    [super loadView];
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        self.edgesForExtendedLayout = UIRectEdgeTop;
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kJBImageIconJawboneLogo]];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconCancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(dismissSelf)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconListMenu"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(toggleMenu)];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    IMAnalyticsBaseNavigationController *navigationController = (IMAnalyticsBaseNavigationController *)self.navigationController;
+    [navigationController.menu setNeedsLayout];
 }
 
 #pragma mark - Orientation

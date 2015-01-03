@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *relationTextField;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *diabetesSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *hyperTensionSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *cholesterolSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *weightSwitch;
 
 @end
 
@@ -28,6 +32,11 @@
     self.errorLabel.hidden = YES;
     self.nameTextField.delegate = self;
     self.relationTextField.delegate = self;
+    
+    [self.diabetesSwitch setOn:NO];
+    [self.hyperTensionSwitch setOn:NO];
+    [self.cholesterolSwitch setOn:NO];
+    [self.weightSwitch setOn:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +59,10 @@
     
     entry.name = name;
     entry.relationship = relation;
+    entry.trackingDiabetes = [self.diabetesSwitch isOn];
+    entry.trackingHyperTension = [self.hyperTensionSwitch isOn];
+    entry.trackingCholesterol = [self.cholesterolSwitch isOn];
+    entry.trackingWeight = [self.weightSwitch isOn];
     
     [coreDataStack saveContext];
     
@@ -62,6 +75,11 @@
     if (users != nil && [users count] > 0) {
         IMUser* user = [users objectAtIndex:0];
         [[NSUserDefaults standardUserDefaults] setValue:user.guid forKey:kCurrentProfileKey];
+        [[NSUserDefaults standardUserDefaults] setValue:user.name forKey:kCurrentProfileName];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingDiabetes forKey:kCurrentProfileTrackingDiabetesKey];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingHyperTension forKey:kCurrentProfileTrackingBPKey];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingCholesterol forKey:kCurrentProfileTrackingCholesterolKey];
+        [[NSUserDefaults standardUserDefaults] setBool:user.trackingWeight forKey:kCurrentProfileTrackingWeightKey];
     }
 
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

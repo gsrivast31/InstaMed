@@ -48,7 +48,7 @@
     }
     
     self.icon.alpha = 0.5f;
-    self.icon.layer.cornerRadius = CGRectGetWidth(self.icon.frame) / 2.0f;
+    //self.icon.layer.cornerRadius = CGRectGetWidth(self.icon.frame) / 2.0f;
 }
 
 @end

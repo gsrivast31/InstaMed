@@ -67,6 +67,8 @@
     UILabel *highWeightLabel;
 
     UIView *cellBottomBorder;
+    
+    NSMutableArray* horizontalBorders;
 }
 @end
 
@@ -78,6 +80,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if(self) {
+        horizontalBorders = [[NSMutableArray alloc] init];
         UIView *cellTopBorder = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.5f)];
         cellTopBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         cellTopBorder.backgroundColor = [UIColor colorWithRed:204.0f/255.0f green:205.0f/255.0f blue:205.0f/255.0f alpha:1.0f];
@@ -108,64 +111,77 @@
         
         CGFloat y = 46.0f;
         
-        // Glucose
-        [self addBloodGlucoseRow:y];
+        // Activity
+        [self addActivityRow:y];
         UIView *horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
         horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
         [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
         y += 56.0f;
         
-        // Glucose Deviation
-        [self addGlucoseDeviationRow:y];
+        // Meal
+        [self addMealRow:y];
+        
         horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
         horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
         [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
         y += 56.0f;
 
+        // Glucose
+        [self addBloodGlucoseRow:y];
+        horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
+        horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
+        [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
+        y += 56.0f;
+        
+        // Glucose Deviation
+        [self addGlucoseDeviationRow:y];
+        
+        horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
+        horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
+        [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
+        y += 56.0f;
+        
         // Cholesterol
         [self addCholesterolRow:y];
         horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
         horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
         [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
         y += 56.0f;
-
+        
         // Cholesterol Deviation
         [self addCholesterolDeviationRow:y];
         horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
         horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
         [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
         y += 56.0f;
-
-        // Blood Pressure
+        
         [self addBloodPressureRow:y];
         horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
         horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
         [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
         y += 56.0f;
 
-        // Weight
         [self addWeightRow:y];
         horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
         horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
         [self.contentView addSubview:horizontalBorder];
+        [horizontalBorders addObject:horizontalBorder];
         y += 56.0f;
-        
-        // Activity
-        [self addActivityRow:y];
-        horizontalBorder = [[UIView alloc] initWithFrame:CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f)];
-        horizontalBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        horizontalBorder.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15];
-        [self.contentView addSubview:horizontalBorder];
-        y += 56.0f;
-        
-        // Meal
-        [self addMealRow:y];
     }
     
     return self;
@@ -173,6 +189,138 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    CGFloat y = 102.0f;
+    NSInteger totalReadings = [IMHelper totalReadingsCount];
+    
+    UIView* horizontalBorder = [horizontalBorders objectAtIndex:1];
+    if (totalReadings) {
+        horizontalBorder.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+        horizontalBorder.hidden = NO;
+        y += 56.0f;
+    } else {
+        horizontalBorder.hidden = YES;
+    }
+    // Glucose
+    if ([IMHelper includeGlucoseReadings]) {
+        glucoseImageView.frame = CGRectMake(20.0f, y + 10.0f, glucoseImageView.frame.size.width, glucoseImageView.frame.size.height);
+        glucoseLabel.frame = CGRectMake(72.0f, y + 9.0f, 100.0f, 16.0f);
+        glucoseDetailLabel.frame = CGRectMake(72.0f, y + 29.0f, self.bounds.size.width-72.0f, 16.0f);
+        highGlucoseImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 7.0f, 15.0f, 15.0f);
+        highGlucoseDetailLabel.frame = CGRectMake(self.bounds.size.width - 67.0f, y + 7.0f, 67.0f, 16.0f);
+        lowGlucoseImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 26.0f, 15.0f, 15.0f);
+        lowGlucoseDetailLabel.frame = CGRectMake(self.bounds.size.width - 67.0f, y + 26.0f, 67.0f, 16.0f);
+        
+        UIView* horizontalBorder1 = [horizontalBorders objectAtIndex:2];
+        horizontalBorder1.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+        y += 56.0f;
+        
+        glucoseImageView.hidden = glucoseLabel.hidden = glucoseDetailLabel.hidden = highGlucoseImageView.hidden = highGlucoseDetailLabel.hidden = lowGlucoseImageView.hidden = lowGlucoseDetailLabel.hidden = horizontalBorder1.hidden = NO;
+        
+        // Glucose Deviation
+        bgDeviationImageView.frame = CGRectMake(20.0f, y + 10.0f, bgDeviationImageView.frame.size.width, bgDeviationImageView.frame.size.height);
+        bgDeviationLabel.frame = CGRectMake(72.0f, y + 9.0f, 100.0f, 16.0f);
+        bgDeviationDetailLabel.frame = CGRectMake(72.0f, y + 29.0f, self.bounds.size.width-72.0f, 16.0f);
+        
+        bgDeviationImageView.hidden = bgDeviationLabel.hidden = bgDeviationDetailLabel.hidden = NO;
+        UIView* horizontalBorder2 = [horizontalBorders objectAtIndex:3];
+        if (--totalReadings) {
+            horizontalBorder2.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+            horizontalBorder2.hidden = NO;
+            y += 56.0f;
+        } else {
+            horizontalBorder2.hidden = YES;
+        }
+    } else {
+        UIView* horizontalBorder1 = [horizontalBorders objectAtIndex:2];
+        UIView* horizontalBorder2 = [horizontalBorders objectAtIndex:3];
+        glucoseImageView.hidden = glucoseLabel.hidden = glucoseDetailLabel.hidden = highGlucoseImageView.hidden = highGlucoseDetailLabel.hidden = lowGlucoseImageView.hidden = lowGlucoseDetailLabel.hidden = horizontalBorder1.hidden = bgDeviationImageView.hidden = bgDeviationLabel.hidden = bgDeviationDetailLabel.hidden = horizontalBorder2.hidden = YES ;
+    }
+    
+    // Cholesterol
+    if ([IMHelper includeCholesterolReadings]) {
+        cholesterolImageView.frame = CGRectMake(20.0f, y + 10.0f, cholesterolImageView.frame.size.width, cholesterolImageView.frame.size.height);
+        cholesterolLabel.frame = CGRectMake(72.0f, y + 9.0f, 100.0f, 16.0f);
+        cholesterolDetailLabel.frame = CGRectMake(72.0f, y + 29.0f, self.bounds.size.width-72.0f, 16.0f);
+        highCholesterolImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 7.0f, 15.0f, 15.0f);
+        highCholesterolDetailLabel.frame = CGRectMake(self.bounds.size.width - 67.0f, y + 7.0f, 67.0f, 16.0f);
+        lowCholesterolImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 29.0f, 15.0f, 15.0f);
+        lowCholesterolDetailLabel.frame = CGRectMake(self.bounds.size.width - 67.0f, y + 29.0f, 67.0f, 16.0f);
+
+        UIView* horizontalBorder1 = [horizontalBorders objectAtIndex:4];
+        horizontalBorder1.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+        y += 56.0f;
+        
+        cholesterolImageView.hidden = cholesterolLabel.hidden = cholesterolDetailLabel.hidden = highCholesterolImageView.hidden = highCholesterolDetailLabel.hidden = lowCholesterolImageView.hidden = lowCholesterolDetailLabel.hidden = horizontalBorder1.hidden = NO;
+        
+        // Cholesterol Deviation
+        chDeviationImageView.frame = CGRectMake(20.0f, y + 10.0f, chDeviationImageView.frame.size.width, chDeviationImageView.frame.size.height);
+        chDeviationLabel.frame = CGRectMake(72.0f, y + 9.0f, 100.0f, 16.0f);
+        chDeviationDetailLabel.frame = CGRectMake(72.0f, y + 29.0f, self.bounds.size.width-72.0f, 16.0f);
+
+        chDeviationImageView.hidden = chDeviationLabel.hidden = chDeviationDetailLabel.hidden = NO;
+        UIView* horizontalBorder2 = [horizontalBorders objectAtIndex:5];
+
+        if (--totalReadings) {
+            horizontalBorder2.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+            horizontalBorder2.hidden = NO;
+            y += 56.0f;
+        } else {
+            horizontalBorder2.hidden = YES;
+        }
+    } else {
+        UIView* horizontalBorder1 = [horizontalBorders objectAtIndex:4];
+        UIView* horizontalBorder2 = [horizontalBorders objectAtIndex:5];
+        cholesterolImageView.hidden = cholesterolLabel.hidden = cholesterolDetailLabel.hidden = highCholesterolImageView.hidden = highCholesterolDetailLabel.hidden = lowCholesterolImageView.hidden = lowCholesterolDetailLabel.hidden = horizontalBorder1.hidden = chDeviationImageView.hidden = chDeviationLabel.hidden = chDeviationDetailLabel.hidden = horizontalBorder2.hidden = YES;
+    }
+    
+    if ([IMHelper includeBPReadings]) {
+        bpImageView.frame = CGRectMake(20.0f, y + 10.0f, bpImageView.frame.size.width, bpImageView.frame.size.height);
+        highBPImageView.frame = CGRectMake(72.0f, y + 7.0f, 15.0f, 15.0f);
+        highBPDetailLabel.frame = CGRectMake(92.0f, y + 7.0f, 25.0f, 16.0f);
+        lowBPImageView.frame = CGRectMake(72.0f, y + 29.0f, 15.0f, 15.0f);
+        lowBPDetailLabel.frame = CGRectMake(92.0f, y + 29.0f, 25.0f, 16.0f);
+        highBPLabel.frame = CGRectMake(122.0f, y + 7.0f, self.bounds.size.width-92.0f, 16.0f);
+        lowBPLabel.frame = CGRectMake(122.0f, y + 29.0f, self.bounds.size.width-92.0f, 16.0f);
+        
+        bpImageView.hidden = highBPImageView.hidden = highBPDetailLabel.hidden = lowBPImageView.hidden = lowBPDetailLabel.hidden = highBPLabel.hidden = lowBPLabel.hidden = NO;
+        UIView* horizontalBorder = [horizontalBorders objectAtIndex:6];
+        if (--totalReadings) {
+            horizontalBorder.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+            horizontalBorder.hidden = NO;
+            y += 56.0f;
+        } else {
+            horizontalBorder.hidden = YES;
+        }
+        
+    } else {
+        UIView* horizontalBorder = [horizontalBorders objectAtIndex:6];
+        bpImageView.hidden = highBPImageView.hidden = highBPDetailLabel.hidden = lowBPImageView.hidden = lowBPDetailLabel.hidden = highBPLabel.hidden = lowBPLabel.hidden = horizontalBorder.hidden = YES;
+    }
+
+    if ([IMHelper includeWeightReadings]) {
+        weightImageView.frame = CGRectMake(20.0f, y + 10.0f, weightImageView.frame.size.width, weightImageView.frame.size.height);
+        highWeightImageView.frame = CGRectMake(72.0f, y + 7.0f, 15.0f, 15.0f);
+        highWeightDetailLabel.frame = CGRectMake(92.0f, y + 7.0f, 25.0f, 16.0f);
+        lowWeightImageView.frame = CGRectMake(72.0f, y + 29.0f, 15.0f, 15.0f);
+        lowWeightDetailLabel.frame = CGRectMake(92.0f, y + 29.0f, 25.0f, 16.0f);
+        highWeightLabel.frame = CGRectMake(122.0f, y + 7.0f, self.bounds.size.width-92.0f, 16.0f);
+        lowWeightLabel.frame = CGRectMake(122.0f, y + 29.0f, self.bounds.size.width-92.0f, 16.0f);
+
+        weightImageView.hidden = highWeightImageView.hidden = highWeightDetailLabel.hidden = lowWeightImageView.hidden = lowWeightDetailLabel.hidden = highWeightLabel.hidden = lowWeightLabel.hidden = NO;
+
+        UIView* horizontalBorder = [horizontalBorders objectAtIndex:7];
+        if (--totalReadings) {
+            horizontalBorder.frame = CGRectMake(72.0f, y + 52.0f, self.frame.size.width-72.0f, 0.5f);
+            horizontalBorder.hidden = NO;
+            y += 56.0f;
+        } else {
+            horizontalBorder.hidden = YES;
+        }
+    } else {
+        UIView* horizontalBorder = [horizontalBorders objectAtIndex:6];
+        weightImageView.hidden = highWeightImageView.hidden = highWeightDetailLabel.hidden = lowWeightImageView.hidden = lowWeightDetailLabel.hidden = highWeightLabel.hidden = lowWeightLabel.hidden = horizontalBorder.hidden = YES;
+    }
     
     cellBottomBorder.frame = CGRectMake(0.0f, self.bounds.size.height-0.5f, self.frame.size.width, 0.5f);
 }
@@ -201,10 +349,10 @@
     [self.contentView addSubview:glucoseDetailLabel];
     
     highGlucoseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"JournalIconBloodHigh"]];
-    highGlucoseImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, 53.0f, 15.0f, 15.0f);
+    highGlucoseImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 7.0f, 15.0f, 15.0f);
     [self.contentView addSubview:highGlucoseImageView];
     
-    highGlucoseDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, 53.0f, 67.0f, 16.0f)];
+    highGlucoseDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, y + 7.0f, 67.0f, 16.0f)];
     highGlucoseDetailLabel.backgroundColor = [UIColor whiteColor];
     highGlucoseDetailLabel.text = @"0";
     highGlucoseDetailLabel.font = [IMFont standardRegularFontWithSize:13.0f];
@@ -214,10 +362,10 @@
     [self.contentView addSubview:highGlucoseDetailLabel];
     
     lowGlucoseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"JournalIconBloodLow"]];
-    lowGlucoseImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, 75.0f, 15.0f, 15.0f);
+    lowGlucoseImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 26.0f, 15.0f, 15.0f);
     [self.contentView addSubview:lowGlucoseImageView];
     
-    lowGlucoseDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, 75.0f, 67.0f, 16.0f)];
+    lowGlucoseDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, y + 26.0f, 67.0f, 16.0f)];
     lowGlucoseDetailLabel.backgroundColor = [UIColor whiteColor];
     lowGlucoseDetailLabel.text = @"0";
     lowGlucoseDetailLabel.font = [IMFont standardRegularFontWithSize:13.0f];
@@ -251,10 +399,10 @@
     [self.contentView addSubview:cholesterolDetailLabel];
     
     highCholesterolImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"JournalIconBloodHigh"]];
-    highCholesterolImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, 53.0f, 15.0f, 15.0f);
+    highCholesterolImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 7.0f, 15.0f, 15.0f);
     [self.contentView addSubview:highCholesterolImageView];
     
-    highCholesterolDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, 53.0f, 67.0f, 16.0f)];
+    highCholesterolDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, y + 7.0f, 67.0f, 16.0f)];
     highCholesterolDetailLabel.backgroundColor = [UIColor whiteColor];
     highCholesterolDetailLabel.text = @"0";
     highCholesterolDetailLabel.font = [IMFont standardRegularFontWithSize:13.0f];
@@ -264,10 +412,10 @@
     [self.contentView addSubview:highCholesterolDetailLabel];
     
     lowCholesterolImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"JournalIconBloodLow"]];
-    lowCholesterolImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, 75.0f, 15.0f, 15.0f);
+    lowCholesterolImageView.frame = CGRectMake(self.bounds.size.width - 87.0f, y + 29.0f, 15.0f, 15.0f);
     [self.contentView addSubview:lowCholesterolImageView];
     
-    lowCholesterolDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, 75.0f, 67.0f, 16.0f)];
+    lowCholesterolDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width - 67.0f, y + 29.0f, 67.0f, 16.0f)];
     lowCholesterolDetailLabel.backgroundColor = [UIColor whiteColor];
     lowCholesterolDetailLabel.text = @"0";
     lowCholesterolDetailLabel.font = [IMFont standardRegularFontWithSize:13.0f];
@@ -579,47 +727,19 @@
 }
 
 - (void)setLowBPValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
-    if([value doubleValue] > 0) {
-        lowBPDetailLabel.text = [valueFormatter stringFromNumber:value];
-        lowBPDetailLabel.hidden = NO;
-        lowBPImageView.hidden = NO;
-    } else {
-        lowBPDetailLabel.hidden = YES;
-        lowBPImageView.hidden = YES;
-    }
+    lowBPDetailLabel.text = [valueFormatter stringFromNumber:value];
 }
 
 - (void)setHighBPValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
-    if([value doubleValue] > 0) {
-        highBPDetailLabel.text = [valueFormatter stringFromNumber:value];
-        highBPDetailLabel.hidden = NO;
-        highBPImageView.hidden = NO;
-    } else {
-        highBPDetailLabel.hidden = YES;
-        highBPImageView.hidden = YES;
-    }
+    highBPDetailLabel.text = [valueFormatter stringFromNumber:value];
 }
 
 - (void)setLowWeightValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
-    if([value doubleValue] > 0) {
-        lowWeightDetailLabel.text = [valueFormatter stringFromNumber:value];
-        lowWeightDetailLabel.hidden = NO;
-        lowWeightImageView.hidden = NO;
-    } else {
-        lowWeightDetailLabel.hidden = YES;
-        lowWeightImageView.hidden = YES;
-    }
+    lowWeightDetailLabel.text = [valueFormatter stringFromNumber:value];
 }
 
 - (void)setHighWeightValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
-    if([value doubleValue] > 0) {
-        highGlucoseDetailLabel.text = [valueFormatter stringFromNumber:value];
-        highGlucoseDetailLabel.hidden = NO;
-        highGlucoseImageView.hidden = NO;
-    } else {
-        highGlucoseDetailLabel.hidden = YES;
-        highGlucoseImageView.hidden = YES;
-    }
+    highWeightDetailLabel.text = [valueFormatter stringFromNumber:value];
 }
 
 - (void)setActivityValue:(NSInteger)value {

@@ -35,6 +35,12 @@
     self.guid = [self generateUniqueID];
 }
 
+- (void)prepareForDeletion {
+    [super prepareForDeletion];
+    //TODO : Delete all related events/reminders/reports.
+
+}
+
 #pragma mark - Helpers
 - (NSString *)generateUniqueID {
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);

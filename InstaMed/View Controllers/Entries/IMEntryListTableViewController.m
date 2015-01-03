@@ -18,6 +18,8 @@
 
 #import "IMEntryListTableViewCell.h"
 
+#import "IMHelper.h"
+
 @interface IMEntryListTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray* itemArray;
@@ -62,15 +64,18 @@
      
 #pragma mark Helpers
 - (void)setupItemArray {
-    self.itemArray = [[NSMutableArray alloc] initWithCapacity:IMNoneType];
-    self.itemArray[IMMedicineType] = @"Medication";
-    self.itemArray[IMBGReadingType] = @"Blood Glucose Reading";
-    self.itemArray[IMBPReadingType] = @"Blood Pressure Reading";
-    self.itemArray[IMCholesterolType] = @"Cholesterol Reading";
-    self.itemArray[IMWeightType] = @"Weight";
-    self.itemArray[IMFoodType] = @"Meal";
-    self.itemArray[IMActivityType] = @"Activity";
-    self.itemArray[IMNoteType] = @"Note";
+    self.itemArray = [[NSMutableArray alloc] init];
+    
+    [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMMedicineType], @"eventName": @"Medication"}];
+    [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMActivityType], @"eventName": @"Activity"}];
+    [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMFoodType], @"eventName": @"Meal"}];
+
+    if ([IMHelper includeGlucoseReadings])  [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMBGReadingType], @"eventName": @"Blood Glucose Reading"}];
+    if ([IMHelper includeBPReadings])  [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMBPReadingType], @"eventName": @"Blood Pressure Reading"}];
+    if ([IMHelper includeCholesterolReadings])  [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMCholesterolType], @"eventName": @"Cholesterol Reading"}];
+    if ([IMHelper includeWeightReadings])  [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMWeightType], @"eventName": @"Weight"}];
+    
+    [self.itemArray addObject:@{@"eventType":[NSNumber numberWithShort:IMNoteType], @"eventName": @"Note"}];
 }
 
 #pragma mark - Table view data source
@@ -86,9 +91,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* cellIdentifier = @"entryTypeCell";
     IMEntryListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    NSNumber* eventNumber = [[self.itemArray objectAtIndex:indexPath.row] objectForKey:@"eventType"];
+    NSString* eventName = [[self.itemArray objectAtIndex:indexPath.row] objectForKey:@"eventName"];
     
-    [cell configureCellForEventType:(enum IMEventType)indexPath.row eventName:[self.itemArray objectAtIndex:indexPath.row]];
+    [cell configureCellForEventType:(enum IMEventType)[eventNumber shortValue] eventName:eventName];
     cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+
     return cell;
 }
 
@@ -104,21 +113,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    enum IMEventType eventType = (enum IMEventType)indexPath.row;
+    NSNumber* eventNumber = [[self.itemArray objectAtIndex:indexPath.row] objectForKey:@"eventType"];
+    enum IMEventType eventType = (enum IMEventType)[eventNumber shortValue];
+    
     if (eventType == IMMedicineType) {
         IMEntryMedicineInputViewController* vc = [[IMEntryMedicineInputViewController alloc] init];
-        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self presentViewController:navigationController animated:YES completion:nil];
-    } else if (eventType == IMFoodType) {
-        IMEntryMealInputViewController* vc = [[IMEntryMealInputViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:navigationController animated:YES completion:nil];
     } else if (eventType == IMActivityType) {
         IMEntryActivityInputViewController* vc = [[IMEntryActivityInputViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:navigationController animated:YES completion:nil];
-    } else if (eventType == IMNoteType) {
-        IMEntryNoteInputViewController* vc = [[IMEntryNoteInputViewController alloc] init];
+    } else if (eventType == IMFoodType) {
+        IMEntryMealInputViewController* vc = [[IMEntryMealInputViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:navigationController animated:YES completion:nil];
     } else if (eventType == IMBGReadingType) {
@@ -135,6 +142,10 @@
         [self presentViewController:navigationController animated:YES completion:nil];
     } else if (eventType == IMWeightType) {
         IMEntryWeightInputViewController* vc = [[IMEntryWeightInputViewController alloc] init];
+        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:navigationController animated:YES completion:nil];
+    } else if (eventType == IMNoteType) {
+        IMEntryNoteInputViewController* vc = [[IMEntryNoteInputViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:navigationController animated:YES completion:nil];
     }

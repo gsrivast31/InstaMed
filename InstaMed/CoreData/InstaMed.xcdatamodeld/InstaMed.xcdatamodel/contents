@@ -7,6 +7,7 @@
         <attribute name="createdTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modifiedTimeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="userGuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="IMBGReading" representedClassName="IMBGReading" parentEntity="IMEvent" syncable="YES">
         <attribute name="mgValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -68,7 +69,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="predicate" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="IMReport" representedClassName="IMReport" syncable="YES">
+    <entity name="IMReport" representedClassName="IMReport" parentEntity="IMBaseObject" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="doctorName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -102,21 +103,21 @@
     </entity>
     <elements>
         <element name="IMActivity" positionX="108" positionY="81" width="128" height="58"/>
-        <element name="IMBaseObject" positionX="90" positionY="63" width="128" height="88"/>
+        <element name="IMBaseObject" positionX="90" positionY="63" width="128" height="103"/>
+        <element name="IMBGReading" positionX="81" positionY="108" width="128" height="73"/>
+        <element name="IMBPReading" positionX="81" positionY="126" width="128" height="73"/>
+        <element name="IMCholesterolReading" positionX="90" positionY="135" width="128" height="73"/>
         <element name="IMDisease" positionX="207" positionY="-27" width="128" height="73"/>
         <element name="IMEvent" positionX="99" positionY="72" width="128" height="208"/>
         <element name="IMImage" positionX="81" positionY="126" width="128" height="73"/>
         <element name="IMMeal" positionX="117" positionY="144" width="128" height="73"/>
         <element name="IMMedicine" positionX="126" positionY="153" width="128" height="73"/>
-        <element name="IMNote" positionX="72" positionY="99" width="128" height="45"/>
-        <element name="IMBGReading" positionX="81" positionY="108" width="128" height="73"/>
+        <element name="IMNote" positionX="72" positionY="99" width="128" height="43"/>
         <element name="IMReminder" positionX="90" positionY="117" width="128" height="193"/>
         <element name="IMReminderRule" positionX="99" positionY="144" width="128" height="103"/>
         <element name="IMReport" positionX="72" positionY="117" width="128" height="118"/>
         <element name="IMTag" positionX="108" positionY="153" width="128" height="88"/>
         <element name="IMUser" positionX="-63" positionY="-18" width="128" height="268"/>
-        <element name="IMBPReading" positionX="81" positionY="126" width="128" height="73"/>
-        <element name="IMCholesterolReading" positionX="90" positionY="135" width="128" height="73"/>
         <element name="IMWeightReading" positionX="99" positionY="144" width="128" height="58"/>
     </elements>
 </model>

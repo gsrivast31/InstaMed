@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSDate * createdTimestamp;
 @property (nonatomic, retain) NSString * guid;
 @property (nonatomic, retain) NSDate * modifiedTimeStamp;
+@property (nonatomic, retain) NSString * userGuid;
+
 
 // Archiving/Unarchiving
 - (NSDictionary *)dictionaryRepresentation;
