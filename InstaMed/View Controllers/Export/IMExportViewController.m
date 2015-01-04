@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
 //
 
-#import <Dropbox/Dropbox.h>
 #import "MBProgressHUD.h"
 
 #import "IMExportViewController.h"
@@ -24,9 +23,8 @@
 #import "IMCholesterolReading.h"
 #import "IMWeightReading.h"
 
-#define kExportTypeDropbox  0
-#define kExportTypeEmail    1
-#define kExportTypeAirPrint 2
+#define kExportTypeEmail    0
+#define kExportTypeAirPrint 1
 
 @interface IMExportViewController ()
 {
@@ -139,7 +137,7 @@
     
     if((exportPDF || exportCSV) && (exportActivity || exportBP || exportCholesterol || exportMeal || exportGlucose || exportWeight)) {
         if(reportData && totalMonthsSelected) {
-            UIActionSheet *actionSheet = nil;
+            /*UIActionSheet *actionSheet = nil;
             if ([UIPrintInteractionController isPrintingAvailable]) {
                 actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                           delegate:self
@@ -153,7 +151,31 @@
                                             destructiveButtonTitle:nil
                                                  otherButtonTitles:NSLocalizedString(@"Dropbox", nil), NSLocalizedString(@"Email", nil), nil];
             }
-            [actionSheet showInView:self.view];
+            [actionSheet showInView:self.view];*/
+            NSString *date = [longDateFormatter stringFromDate:[NSDate date]];
+            NSString* message = [NSString stringWithFormat:NSLocalizedString(@"InstaMed Export - %@", nil), date];
+            
+            NSMutableArray* objectsToShare = [[NSMutableArray alloc] init];
+            [objectsToShare addObject:message];
+            if(exportCSV) {
+                NSData *csvData = [self generateCSVData];
+                [objectsToShare addObject:csvData];
+            }
+            if(exportPDF) {
+                NSData *pdfData = [self generatePDFData];
+                [objectsToShare addObject:pdfData];
+            }
+            
+            NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
+                                            UIActivityTypePostToWeibo, UIActivityTypeAssignToContact,
+                                            UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
+                                            UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
+            UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+            controller.excludedActivityTypes = excludedActivities;
+            
+            [self presentViewController:controller animated:YES completion:nil];
+
+            
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Uh oh!", nil)
                                                                 message:NSLocalizedString(@"You must select at least one month to export", nil)
@@ -190,77 +212,7 @@
         NSData *csvData = [self generateCSVData];
         NSData *pdfData = [self generatePDFData];
         
-        if(type == kExportTypeDropbox) {
-            DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
-            if(!account) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                    [[DBAccountManager sharedManager] linkFromController:self];
-                });
-            } else {
-                if([[DBFilesystem sharedFilesystem] completedFirstSync]) {
-                    NSError *error = nil;
-                    
-                    // Generate our report data
-                    if(exportCSV) {
-                        // Save our CSV
-                        DBPath *newPath = [[DBPath root] childPath:[NSString stringWithFormat:@"exports/%@ Export.csv", date]];
-                        DBFile *file = [[DBFilesystem sharedFilesystem] openFile:newPath error:nil];
-                        if(!file) {
-                            file = [[DBFilesystem sharedFilesystem] createFile:newPath error:&error];
-                        }
-                        
-                        if(file && !error) {
-                            [file writeData:csvData error:&error];
-                            [file close];
-                        }
-                    }
-                    
-                    // Save our PDF
-                    if(exportPDF) {
-                        DBPath *newPath = [[DBPath root] childPath:[NSString stringWithFormat:@"exports/%@ Export.pdf", date]];
-                        DBFile *file = [[DBFilesystem sharedFilesystem] openFile:newPath error:nil];
-                        if(!file) {
-                            file = [[DBFilesystem sharedFilesystem] createFile:newPath error:&error];
-                        }
-                        
-                        if(file && !error) {
-                            [file writeData:pdfData error:&error];
-                            [file close];
-                        }
-                    }
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                        
-                        if(error) {
-                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Uh oh!", nil)
-                                                                                message:[NSString stringWithFormat:NSLocalizedString(@"It wasn't possible to export your files to Dropbox. The following error occurred: %@", nil), [error localizedDescription]]
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:NSLocalizedString(@"Okay", nil)
-                                                                      otherButtonTitles:nil];
-                            [alertView show];
-                        } else {
-                            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Export successful", nil)
-                                                                                message:[NSString stringWithFormat:NSLocalizedString(@"Your files have been exported successfully", nil)]
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:NSLocalizedString(@"Okay", nil)
-                                                                      otherButtonTitles:nil];
-                            [alertView show];
-                        }
-                    });
-                } else {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Uh oh!", nil)
-                                                                            message:NSLocalizedString(@"Dropbox needs to finish syncing before it's possible to export files. Try again in a few minutes.", nil)
-                                                                           delegate:nil
-                                                                  cancelButtonTitle:NSLocalizedString(@"Okay", nil)
-                                                                  otherButtonTitles:nil];
-                        [alertView show];
-                    });
-                }
-            }
-        } else if(type == kExportTypeEmail) {
+        if(type == kExportTypeEmail) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
