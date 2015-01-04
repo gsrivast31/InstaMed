@@ -9,7 +9,6 @@
 #import "IMAppDelegate.h"
 
 #import <Dropbox/Dropbox.h>
-#import <ShinobiCharts/ShinobiChart.h>
 #import <UAAppReviewManager/UAAppReviewManager.h>
 #import "GAI.h"
 
@@ -240,9 +239,6 @@
                    };
     [[UISegmentedControl appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UISegmentedControl appearance] setTintColor:[UIColor colorWithRed:22.0f/255.0f green:211.0f/255.0f blue:160.0f/255.0f alpha:1.0f]];
-    
-    // Charts
-    [ShinobiCharts setTheme:[SChartiOS7Theme new]];
 }
 
 #pragma mark - Location services
