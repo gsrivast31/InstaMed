@@ -61,15 +61,13 @@
 
 #pragma mark - UITableViewDataSource methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0) {
         return 6;
-    } else if (section == 1) {
-        return 1;
-    } else if(section == 2) {
+    } else if(section == 1) {
         return 3;
     }
     return 0;
@@ -79,8 +77,6 @@
     if(section == 0) {
         return NSLocalizedString(@"General", @"General settings section title");
     } else if(section == 1) {
-        return NSLocalizedString(@"Backup & Sync", @"Backup & sync settings section title");
-    } else if(section == 2) {
         return NSLocalizedString(@"Other", @"Settings section for miscellaneous information");
     }
     
@@ -128,12 +124,6 @@
         }
     } else if(indexPath.section == 1) {
         if(indexPath.row == 0) {
-            cell.imageView.image = [UIImage imageNamed:@"dropboxSmallIcon"];
-            cell.textLabel.text = NSLocalizedString(@"Dropbox settings", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-    } else if(indexPath.section == 2) {
-        if(indexPath.row == 0) {
             cell.textLabel.text = NSLocalizedString(@"Need help? Contact support!", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else if(indexPath.row == 1) {
@@ -173,11 +163,6 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else if(indexPath.section == 1) {
-        if(indexPath.row == 0) {
-            IMSettingsDropboxViewController *vc = [[IMSettingsDropboxViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-    } else if(indexPath.section == 2) {
         [aTableView deselectRowAtIndexPath:indexPath animated:YES];
         
         if(indexPath.row == 0) {
