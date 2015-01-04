@@ -16,7 +16,7 @@
 #ifndef InstaMed_UACommon_h
 #define InstaMed_UACommon_h
 
-#define kDefaultBarTintColor [UIColor whiteColor];
+#define kDefaultBarTintColor [UIColor colorWithRed:54.0f/255.0f green:215.0f/255.0f blue:183.0f/255.0f alpha:1];//[UIColor whiteColor];
 #define kDefaultTintColor [UIColor colorWithRed:0.0f green:192.0f/255.0f blue:180.0f/255.0f alpha:1.0f];
 
 // Macros

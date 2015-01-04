@@ -100,8 +100,8 @@
 #pragma mark - Navigation
  
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;
-     IMReportViewController* reportViewController = (IMReportViewController*)navigationController.topViewController;
+//     UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;
+     IMReportViewController* reportViewController = (IMReportViewController*)segue.destinationViewController;
 
      NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
      [reportViewController setReportType:indexPath.row];

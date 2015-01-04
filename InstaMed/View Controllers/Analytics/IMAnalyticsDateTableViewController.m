@@ -12,15 +12,14 @@
 
 #import "IMAnalyticsDateEntry.h"
 
-#import "RSDFDatePickerView.h"
+#import "CAGradientLayer+IMGradients.h"
 
 #define kDatePickerTag 100
 
 static NSString *kEntryCellID = @"entryCell";
 static NSString *kDatePickerCellID = @"datePickerCell";
 
-@interface IMAnalyticsDateTableViewController () <RSDFDatePickerViewDataSource, RSDFDatePickerViewDelegate>
-{
+@interface IMAnalyticsDateTableViewController (){
     NSArray* reportData;
 }
 
@@ -53,8 +52,12 @@ static NSString *kDatePickerCellID = @"datePickerCell";
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1]];
     [self.navigationController.navigationBar setShadowImage:[UIImage imageNamed:@"trans"]];
     [self.navigationController.navigationBar setTintColor: [UIColor whiteColor]];
-
     [self.navigationController.navigationBar setTranslucent:NO];
+
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
+    [self.tableView.layer insertSublayer:backgroundLayer atIndex:0];
 
     [self createDateFormatter];
     [self createEntryData];
@@ -137,6 +140,8 @@ static NSString *kDatePickerCellID = @"datePickerCell";
         IMAnalyticsDateEntry* entry = self.entries[indexPath.row];
         cell = [self createEntryCell:entry];
     }
+    cell.backgroundColor = [UIColor clearColor];
+    
     return cell;
 }
 
