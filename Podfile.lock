@@ -20,55 +20,42 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - DayFlow (0.0.2)
-  - Dropbox-Sync-API-SDK (2.0.3)
+  - EAIntroView (2.6.4)
   - FXBlurView (1.5.6)
-  - GoogleAnalytics-iOS-SDK (3.0.9)
   - JBChartView (2.8.10)
   - MBProgressHUD (0.9)
   - MSPageViewController (1.0.1)
   - Reachability (3.1.1)
   - REFrostedViewController (2.4.7)
   - REMenu (1.10)
-  - RSDayFlow (0.7.3)
   - SSKeychain (1.2.2)
   - TPKeyboardAvoiding (1.2.4)
   - UAAppReviewManager (0.2.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - DayFlow (from `git://github.com/evadne/DayFlow.git`)
-  - Dropbox-Sync-API-SDK (~> 2.0.3)
+  - EAIntroView (~> 2.6.0)
   - FXBlurView (~> 1.5.3)
-  - GoogleAnalytics-iOS-SDK (~> 3.0.3)
   - JBChartView (~> 2.8.9)
   - MBProgressHUD (~> 0.8)
   - MSPageViewController (~> 1.0.0)
   - Reachability (~> 3.1.1)
   - REFrostedViewController (~> 2.4.2)
   - REMenu (~> 1.10)
-  - RSDayFlow
   - SSKeychain (~> 1.2.1)
   - TPKeyboardAvoiding (~> 1.2.2)
   - UAAppReviewManager (~> 0.2.1)
 
-EXTERNAL SOURCES:
-  DayFlow:
-    :git: git://github.com/evadne/DayFlow.git
-
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  DayFlow: e002714d76b9a9b20ee8e05224db22491563ccdc
-  Dropbox-Sync-API-SDK: 1befdcc7250e5956809620710d9e7a45af400dcd
+  EAIntroView: 8f66dc6b79f2d52db26af8fc5476a05ffc549d4c
   FXBlurView: 980bb3a2646234366be3de1bc087ddfc31ac77c5
-  GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
   JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MSPageViewController: 14496f16df16db1129caabaffa136a51f11961d2
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   REFrostedViewController: 08870a24788191339608b80b2bd4fce549858f0d
   REMenu: e3988747d83f9e8f49f244bd3f1fb8b0900e8741
-  RSDayFlow: 06e3efb0115c1409c455e548570c5ec76d9c575b
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   TPKeyboardAvoiding: 925e1e1912597d1a4956697eec3bd9656552153c
   UAAppReviewManager: f23428de9c9cd242c2ffd899e218ba3620bd0683

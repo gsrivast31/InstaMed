@@ -18,6 +18,7 @@
 #import "IMReminderController.h"
 #import "IMLocationController.h"
 #import "IMEventController.h"
+#import "IMIntroViewController.h"
 
 @interface IMAppDelegate ()
 
@@ -63,7 +64,6 @@
     [IMReminderController sharedInstance];
     
     // Setup our backup controller
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.tintColor = kDefaultTintColor;
     
     // Delay launch on non-essential classes
@@ -81,7 +81,7 @@
     if (currentProfile && ![currentProfile isEqualToString:@""]) {
         [navController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"rootController"] animated:NO];
     } else {
-        [navController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"pageController"] animated:NO];
+        [navController pushViewController:[[IMIntroViewController alloc] init] animated:NO];
     }
     
     [self.window setRootViewController:navController];

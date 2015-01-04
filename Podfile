@@ -15,7 +15,7 @@ pod 'UAAppReviewManager', '~> 0.2.1'
 pod 'Reachability', '~> 3.1.1'
 pod 'FXBlurView', '~> 1.5.3'
 pod 'JBChartView', '~> 2.8.9'
-pod 'MSPageViewController', '~> 1.0.0'
+pod 'EAIntroView', '~> 2.6.0'
 end
 
 target 'InstaMedTests' do
