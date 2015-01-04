@@ -190,7 +190,8 @@
     
     UIColor *defaultBarTintColor = kDefaultBarTintColor;
     [[UINavigationBar appearance] setBarTintColor:defaultBarTintColor];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.0f green:192.0f/255.0f blue:180.0f/255.0f alpha:1.0f]];
+    UIColor *defaultTintColor = kDefaultTintColor;
+    [[UINavigationBar appearance] setTintColor:defaultTintColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[IMFont standardDemiBoldFontWithSize:17.0f]}];
     
     // UISwitch
