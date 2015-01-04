@@ -163,111 +163,59 @@
 
 #pragma mark - UITableViewDataSource methods
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if(section == 0) {
-        return NSLocalizedString(@"Menu", @"The section header for generic menu items");
-    } else if(section == 1) {
-        return NSLocalizedString(@"Reminders", nil);
-    }
-    
-    return @"";
+    return NSLocalizedString(@"Menu", @"The section header for generic menu items");
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if([[[IMReminderController sharedInstance] reminders] count]) return 2;
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
-        return 8;
-    } else if(section == 1) {
-        return [[[IMReminderController sharedInstance] ungroupedReminders] count];
-    }
-    
-    return 0;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifier = @"IMSideMenuCell";
-    if(indexPath.section == 1) cellIdentifier = @"IMSideMenuReminderCell";
+    static NSString *cellIdentifier = @"IMSideMenuCell";
     
     IMSideMenuCell *cell = (IMSideMenuCell *)[aTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        if(indexPath.section == 1) {
-            cell = [[IMSideMenuCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"IMSideMenuReminderCell"];
-        } else {
-            cell = [[IMSideMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IMSideMenuCell"];
-        }
+        cell = [[IMSideMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IMSideMenuCell"];
     }
     
     cell.tintColor = nil;
     cell.detailTextLabel.text = nil;
-    if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            cell.textLabel.text = NSLocalizedString(@"Journal", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
-        } else if(indexPath.row == 1) {
-            cell.textLabel.text = NSLocalizedString(@"Reports", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
-        } else if(indexPath.row == 2) {
-            cell.textLabel.text = NSLocalizedString(@"Reminders", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconReminders"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconRemindersHighlighted"];
-        } else if(indexPath.row == 3) {
-            cell.textLabel.text = NSLocalizedString(@"Analytics", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"JournalIconDeviation"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"JournalIconDeviation"];
-        } else if(indexPath.row == 4) {
-            cell.textLabel.text = NSLocalizedString(@"Tags", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconTags"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconTagsHighlighted"];
-        } else if(indexPath.row == 5) {
-            cell.textLabel.text = NSLocalizedString(@"Profiles", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"icn_male"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"icn_male"];
-        } else if(indexPath.row == 6) {
-            cell.textLabel.text = NSLocalizedString(@"Export", @"Menu item to take users to the export screen");
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconExport"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconExportHighlighted"];
-        } else if(indexPath.row == 7) {
-            cell.textLabel.text = NSLocalizedString(@"Settings", nil);
-            cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconSettings"];
-            cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconSettingsHighlighted"];
-        } else {
-        }
-            
-    } else if(indexPath.section == 1) {
-        IMReminder *reminder = [[[IMReminderController sharedInstance] ungroupedReminders] objectAtIndex:indexPath.row];
-        if(reminder) {
-            cell.textLabel.text = reminder.message;
-            cell.detailTextLabel.text = [[IMReminderController sharedInstance] detailForReminder:reminder];
-            cell.tintColor = [UIColor colorWithRed:71.0f/255.0f green:179.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
-            
-            switch([reminder.type integerValue]) {
-                case kReminderTypeDate:
-                    cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconTimeReminder"];
-                    cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconTimeReminderHighlighted"];
-                    break;
-                case kReminderTypeRepeating:
-                    cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconDateReminder"];
-                    cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconDateReminderHighlighted"];
-                    break;
-                case kReminderTypeLocation:
-                    cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconLocationReminder"];
-                    cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconLocationReminderHighlighted"];
-                    break;
-                case kReminderTypeRule:
-                    cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconRuleReminder"];
-                    cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconRuleReminderHighlighted"];
-                    break;
-                default:
-                    cell.accessoryIcon.image = nil;
-                    break;
-            }
-        }
+    if(indexPath.row == 0) {
+        cell.textLabel.text = NSLocalizedString(@"Journal", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
+    } else if(indexPath.row == 1) {
+        cell.textLabel.text = NSLocalizedString(@"Reports", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
+    } else if(indexPath.row == 2) {
+        cell.textLabel.text = NSLocalizedString(@"Reminders", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconReminders"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconRemindersHighlighted"];
+    } else if(indexPath.row == 3) {
+        cell.textLabel.text = NSLocalizedString(@"Analytics", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"JournalIconDeviation"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"JournalIconDeviation"];
+    } else if(indexPath.row == 4) {
+        cell.textLabel.text = NSLocalizedString(@"Tags", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconTags"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconTagsHighlighted"];
+    } else if(indexPath.row == 5) {
+        cell.textLabel.text = NSLocalizedString(@"Profiles", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"icn_male"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"icn_male"];
+    } else if(indexPath.row == 6) {
+        cell.textLabel.text = NSLocalizedString(@"Export", @"Menu item to take users to the export screen");
+        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconExport"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconExportHighlighted"];
+    } else if(indexPath.row == 7) {
+        cell.textLabel.text = NSLocalizedString(@"Settings", nil);
+        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconSettings"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconSettingsHighlighted"];
     }
     
     return cell;
@@ -275,28 +223,15 @@
 
 #pragma mark - UITableViewDelegate methods
 - (UIView *)tableView:(UITableView *)aTableView viewForHeaderInSection:(NSInteger)section {
-    if(section == 0) return nil;
-    
-    CGFloat height = [self tableView:aTableView heightForHeaderInSection:section];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, height-23.0f, aTableView.frame.size.width, height)];
-    view.backgroundColor = [UIColor clearColor];
-    
-    return view;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if(section == 0) return 0.0f;
-    
-    return 18.0f;
+    return 0.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section != 2) {
-        return 55.0f;
-    }
-    
-    return 50.0f;
+    return 55.0f;
 }
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -309,55 +244,42 @@
     navigationController = (UINavigationController *)[(REFrostedViewController *)appDelegate.viewController contentViewController];
     [(REFrostedViewController *)appDelegate.viewController hideMenuViewController];
 
-    if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            [navigationController popToRootViewControllerAnimated:animateViewControllerChange];
-        } else if(indexPath.row == 1) {
-            UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"reportTableViewController"];
+    if(indexPath.row == 0) {
+        [navigationController popToRootViewControllerAnimated:animateViewControllerChange];
+    } else if(indexPath.row == 1) {
+        UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"reportTableViewController"];
+        [navigationController pushViewController:vc animated:animateViewControllerChange];
+    } else if(indexPath.row == 2) {
+        if(![[navigationController topViewController] isKindOfClass:[IMRemindersViewController class]]) {
+            IMRemindersViewController *vc = [[IMRemindersViewController alloc] init];
             [navigationController pushViewController:vc animated:animateViewControllerChange];
-        } else if(indexPath.row == 2) {
-            if(![[navigationController topViewController] isKindOfClass:[IMRemindersViewController class]]) {
-                IMRemindersViewController *vc = [[IMRemindersViewController alloc] init];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
-        } else if(indexPath.row == 3) {
-            //Analytics
-            UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"analyticDateTableController"];
-            [navigationController pushViewController:vc animated:animateViewControllerChange];
-        } else if(indexPath.row == 4) {
-            if(![[navigationController topViewController] isKindOfClass:[IMTagsViewController class]]) {
-                IMTagsViewController *vc = [[IMTagsViewController alloc] init];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
-        } else if(indexPath.row == 5) {
-            if(![[navigationController topViewController] isKindOfClass:[IMUsersListViewController class]]) {
-                UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-                IMUsersListViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"userListController"];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
-        } else if(indexPath.row == 6) {
-            if(![[navigationController topViewController] isKindOfClass:[IMExportViewController class]]) {
-                IMExportViewController *vc = [[IMExportViewController alloc] init];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
-        } else if(indexPath.row == 7) {
-            if(![[navigationController topViewController] isKindOfClass:[IMSettingsViewController class]]) {
-                IMSettingsViewController *vc = [[IMSettingsViewController alloc] init];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
         }
-    } else if(indexPath.section == 1) {
-        IMReminder *reminder = [[[IMReminderController sharedInstance] ungroupedReminders] objectAtIndex:indexPath.row];
-        if(reminder) {
-            if([reminder.type integerValue] == kReminderTypeDate || [reminder.type integerValue] == kReminderTypeRepeating) {
-                IMTimeReminderViewController *vc = [[IMTimeReminderViewController alloc] initWithReminder:reminder];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            } else {
-                IMLocationReminderViewController *vc = [[IMLocationReminderViewController alloc] initWithReminder:reminder];
-                [navigationController pushViewController:vc animated:animateViewControllerChange];
-            }
+    } else if(indexPath.row == 3) {
+        //Analytics
+        UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        IMReportTableViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"analyticDateTableController"];
+        [navigationController pushViewController:vc animated:animateViewControllerChange];
+    } else if(indexPath.row == 4) {
+        if(![[navigationController topViewController] isKindOfClass:[IMTagsViewController class]]) {
+            IMTagsViewController *vc = [[IMTagsViewController alloc] init];
+            [navigationController pushViewController:vc animated:animateViewControllerChange];
+        }
+    } else if(indexPath.row == 5) {
+        if(![[navigationController topViewController] isKindOfClass:[IMUsersListViewController class]]) {
+            UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            IMUsersListViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"userListController"];
+            [navigationController pushViewController:vc animated:animateViewControllerChange];
+        }
+    } else if(indexPath.row == 6) {
+        if(![[navigationController topViewController] isKindOfClass:[IMExportViewController class]]) {
+            IMExportViewController *vc = [[IMExportViewController alloc] init];
+            [navigationController pushViewController:vc animated:animateViewControllerChange];
+        }
+    } else if(indexPath.row == 7) {
+        if(![[navigationController topViewController] isKindOfClass:[IMSettingsViewController class]]) {
+            IMSettingsViewController *vc = [[IMSettingsViewController alloc] init];
+            [navigationController pushViewController:vc animated:animateViewControllerChange];
         }
     }
 }

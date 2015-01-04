@@ -8,7 +8,6 @@
 
 #import "IMRootViewController.h"
 
-#import "IMJournalTableViewController.h"
 #import "IMJournalViewController.h"
 
 #import "IMSideMenuViewController.h"

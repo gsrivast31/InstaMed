@@ -55,8 +55,6 @@
 		F41268E01A46E343000E52E9 /* IMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268CE1A46E343000E52E9 /* IMReport.m */; };
 		F41268E11A46E343000E52E9 /* IMTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268D01A46E343000E52E9 /* IMTag.m */; };
 		F41268E21A46E343000E52E9 /* IMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268D21A46E343000E52E9 /* IMUser.m */; };
-		F41268E51A472C7E000E52E9 /* IMJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268E41A472C7E000E52E9 /* IMJournalTableViewController.m */; };
-		F41268E81A472CC6000E52E9 /* IMJournalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268E71A472CC6000E52E9 /* IMJournalTableViewCell.m */; };
 		F41268EB1A47FAFD000E52E9 /* IMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */; };
 		F41A76101A400043006F9547 /* IMReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A760F1A400043006F9547 /* IMReportTableViewCell.m */; };
 		F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76121A40005E006F9547 /* IMReportTableViewController.m */; };
@@ -287,10 +285,6 @@
 		F41268D01A46E343000E52E9 /* IMTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTag.m; sourceTree = "<group>"; };
 		F41268D11A46E343000E52E9 /* IMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUser.h; sourceTree = "<group>"; };
 		F41268D21A46E343000E52E9 /* IMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUser.m; sourceTree = "<group>"; };
-		F41268E31A472C7E000E52E9 /* IMJournalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMJournalTableViewController.h; sourceTree = "<group>"; };
-		F41268E41A472C7E000E52E9 /* IMJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMJournalTableViewController.m; sourceTree = "<group>"; };
-		F41268E61A472CC6000E52E9 /* IMJournalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMJournalTableViewCell.h; sourceTree = "<group>"; };
-		F41268E71A472CC6000E52E9 /* IMJournalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMJournalTableViewCell.m; sourceTree = "<group>"; };
 		F41268E91A47FAFD000E52E9 /* IMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRootViewController.h; sourceTree = "<group>"; };
 		F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRootViewController.m; sourceTree = "<group>"; };
 		F41A760E1A400043006F9547 /* IMReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportTableViewCell.h; path = Reports/IMReportTableViewCell.h; sourceTree = "<group>"; };
@@ -982,8 +976,6 @@
 				F49A28D11A3F0D1E006F9E34 /* IMJournalViewController.h */,
 				F49A28D21A3F0D1E006F9E34 /* IMJournalViewController.m */,
 				F49A28D31A3F0D1E006F9E34 /* UI */,
-				F41268E31A472C7E000E52E9 /* IMJournalTableViewController.h */,
-				F41268E41A472C7E000E52E9 /* IMJournalTableViewController.m */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -993,8 +985,6 @@
 			children = (
 				F49A28CF1A3F0D1E006F9E34 /* IMJournalMonthViewCell.h */,
 				F49A28D01A3F0D1E006F9E34 /* IMJournalMonthViewCell.m */,
-				F41268E61A472CC6000E52E9 /* IMJournalTableViewCell.h */,
-				F41268E71A472CC6000E52E9 /* IMJournalTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1562,7 +1552,6 @@
 				F4F19B781A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m in Sources */,
 				F4FDC6351A49918500DA8B41 /* IMPageViewController.m in Sources */,
 				F41268651A44A061000E52E9 /* IMEntryNoteInputViewController.m in Sources */,
-				F41268E81A472CC6000E52E9 /* IMJournalTableViewCell.m in Sources */,
 				F49A294F1A3F0D1E006F9E34 /* IMEventInputLabelViewCell.m in Sources */,
 				F4F19B841A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m in Sources */,
 				F49A2A431A3F0D90006F9E34 /* UIImage+AspectFit.m in Sources */,
@@ -1664,7 +1653,6 @@
 				F4F19B7E1A4B0AFA003BAFC7 /* IMBPReading.m in Sources */,
 				F49A298F1A3F0D1E006F9E34 /* IMSettingsLicensesViewController.m in Sources */,
 				F49A29781A3F0D1E006F9E34 /* IMReminderRepeatViewController.m in Sources */,
-				F41268E51A472C7E000E52E9 /* IMJournalTableViewController.m in Sources */,
 				F49A29D81A3F0D82006F9E34 /* IMGenericTableViewCell.m in Sources */,
 				F412685C1A443E55000E52E9 /* IMEntryActivityInputViewController.m in Sources */,
 				F49A2A291A3F0D90006F9E34 /* IMLocationController.m in Sources */,

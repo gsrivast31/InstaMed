@@ -15,7 +15,6 @@
 #import "IMHelper.h"
 #import "IMAppDelegate.h"
 #import "IMJournalViewController.h"
-#import "IMJournalTableViewController.h"
 #import "IMSideMenuViewController.h"
 
 #import "IMReminderController.h"
