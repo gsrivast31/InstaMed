@@ -31,20 +31,21 @@
     [super viewDidLoad];
     
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Hello world";
-    page1.desc = @"Sample Text";
+    page1.title = @"Journal";
+    page1.desc = @"InstaMed is a new kind of diabetic journal that lets you track your blood glucose, medication, food and personal activities.\n\nTo learn more swipe your finger to the left.";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
     page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"This is page 2";
-    page2.desc = @"Sample Text";
+    page2.title = @"Export";
+    page2.desc = @"InstaMed is capable of exporting your data in CSV or PDF format.\n\nPerfect for importing into other software or for printing to show your health care provider!";
     page2.bgImage = [UIImage imageNamed:@"bg2"];
     page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
     
     EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"This is page 3";
-    page3.desc = @"Sample Text";
+    page3.title = @"Reminders";
+    page3.desc = @"Reminders are a great way to keep on top of things.\n\nAlong with one-time and repeat reminders you can also setup location-based reminders to alert you when you leave or arrive at a particular location.";
+    
     page3.bgImage = [UIImage imageNamed:@"bg4"];
     page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
     

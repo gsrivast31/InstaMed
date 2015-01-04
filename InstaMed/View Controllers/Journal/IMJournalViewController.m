@@ -10,7 +10,6 @@
 
 #import "IMJournalViewController.h"
 #import "IMJournalMonthViewCell.h"
-#import "IMIntroductionTooltipView.h"
 
 #import "IMEntryListTableViewController.h"
 #import "IMEventController.h"
@@ -135,10 +134,6 @@
     
     self.tableView.tableHeaderView = headerView;
 
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:kHasSeenStarterTooltip]) {
-        [self showTips];
-    }
-    
     [self reloadViewData:nil];
 }
 
@@ -252,16 +247,6 @@
     
     vc.title = [sender titleForState:UIControlStateNormal];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)showTips {
-    IMAppDelegate *appDelegate = (IMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    UIViewController *targetVC = appDelegate.viewController;
-    
-    IMTooltipViewController *modalView = [[IMTooltipViewController alloc] initWithParentVC:targetVC andDelegate:self];
-    IMIntroductionTooltipView *tooltipView = [[IMIntroductionTooltipView alloc] initWithFrame:CGRectZero];
-    [modalView setContentView:tooltipView];
-    [modalView present];
 }
 
 #pragma mark - UITableViewDelegate functions
@@ -401,15 +386,6 @@
     }
     
     return nil;
-}
-
-#pragma mark - IMTooltipViewControllerDelegate methods
-- (void)willDisplayModalView:(IMTooltipViewController *)aModalController {
-}
-
-- (void)didDismissModalView:(IMTooltipViewController *)aModalController {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasSeenStarterTooltip];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Helpers

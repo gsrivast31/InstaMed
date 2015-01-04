@@ -11,7 +11,6 @@
 #import "IMExportViewController.h"
 #import "IMAppDelegate.h"
 #import "IMEventController.h"
-#import "IMExportTooltipView.h"
 
 #import "IMEvent.h"
 #import "IMMedicine.h"
@@ -93,10 +92,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:kHasSeenExportTooltip]) {
-        [self showTips];
-    }
 }
 
 - (void)reloadViewData:(NSNotification *)note {
@@ -265,16 +260,6 @@
             });
         }
     });
-}
-
-- (void)showTips {
-    IMAppDelegate *appDelegate = (IMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    UIViewController *targetVC = appDelegate.viewController;
-    
-    IMTooltipViewController *modalView = [[IMTooltipViewController alloc] initWithParentVC:targetVC andDelegate:self];
-    IMExportTooltipView *tooltipView = [[IMExportTooltipView alloc] initWithFrame:CGRectZero];
-    [modalView setContentView:tooltipView];
-    [modalView present];
 }
 
 #pragma mark - Logic
@@ -886,16 +871,6 @@
             // STUB
         }];
     }
-}
-
-#pragma mark - IMTooltipViewControllerDelegate methods
-- (void)willDisplayModalView:(IMTooltipViewController *)aModalController {
-    // STUB
-}
-
-- (void)didDismissModalView:(IMTooltipViewController *)aModalController {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kHasSeenExportTooltip];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - UIPrintInteractionControllerDelegate methods

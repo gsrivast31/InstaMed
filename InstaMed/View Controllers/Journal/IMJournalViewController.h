@@ -11,7 +11,7 @@
 
 #import "IMBaseViewController.h"
 
-@interface IMJournalViewController : IMBaseTableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, IMTooltipViewControllerDelegate >
+@interface IMJournalViewController : IMBaseTableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate >
 
 // Logic
 - (OrderedDictionary *)fetchReadingData;

@@ -128,11 +128,6 @@
 		F49A29DC1A3F0D82006F9E34 /* IMUIHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29BA1A3F0D81006F9E34 /* IMUIHintView.m */; };
 		F49A29DD1A3F0D82006F9E34 /* IMViewControllerMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29BC1A3F0D81006F9E34 /* IMViewControllerMessageView.m */; };
 		F49A29DE1A3F0D82006F9E34 /* IMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29BF1A3F0D81006F9E34 /* IMNavigationController.m */; };
-		F49A29DF1A3F0D82006F9E34 /* IMTooltipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29C31A3F0D81006F9E34 /* IMTooltipViewController.m */; };
-		F49A29E11A3F0D82006F9E34 /* IMExportTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29C71A3F0D81006F9E34 /* IMExportTooltipView.m */; };
-		F49A29E31A3F0D82006F9E34 /* IMIntroductionTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29CB1A3F0D81006F9E34 /* IMIntroductionTooltipView.m */; };
-		F49A29E41A3F0D82006F9E34 /* IMRemindersTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29CD1A3F0D81006F9E34 /* IMRemindersTooltipView.m */; };
-		F49A29E51A3F0D82006F9E34 /* IMTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29CF1A3F0D81006F9E34 /* IMTooltipView.m */; };
 		F49A2A281A3F0D90006F9E34 /* IMEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29EF1A3F0D90006F9E34 /* IMEventController.m */; };
 		F49A2A291A3F0D90006F9E34 /* IMLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29F11A3F0D90006F9E34 /* IMLocationController.m */; };
 		F49A2A2A1A3F0D90006F9E34 /* IMMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29F31A3F0D90006F9E34 /* IMMediaController.m */; };
@@ -425,16 +420,6 @@
 		F49A29BC1A3F0D81006F9E34 /* IMViewControllerMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMViewControllerMessageView.m; sourceTree = "<group>"; };
 		F49A29BE1A3F0D81006F9E34 /* IMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNavigationController.h; sourceTree = "<group>"; };
 		F49A29BF1A3F0D81006F9E34 /* IMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNavigationController.m; sourceTree = "<group>"; };
-		F49A29C21A3F0D81006F9E34 /* IMTooltipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTooltipViewController.h; sourceTree = "<group>"; };
-		F49A29C31A3F0D81006F9E34 /* IMTooltipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTooltipViewController.m; sourceTree = "<group>"; };
-		F49A29C61A3F0D81006F9E34 /* IMExportTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMExportTooltipView.h; sourceTree = "<group>"; };
-		F49A29C71A3F0D81006F9E34 /* IMExportTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMExportTooltipView.m; sourceTree = "<group>"; };
-		F49A29CA1A3F0D81006F9E34 /* IMIntroductionTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntroductionTooltipView.h; sourceTree = "<group>"; };
-		F49A29CB1A3F0D81006F9E34 /* IMIntroductionTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMIntroductionTooltipView.m; sourceTree = "<group>"; };
-		F49A29CC1A3F0D81006F9E34 /* IMRemindersTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRemindersTooltipView.h; sourceTree = "<group>"; };
-		F49A29CD1A3F0D81006F9E34 /* IMRemindersTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRemindersTooltipView.m; sourceTree = "<group>"; };
-		F49A29CE1A3F0D81006F9E34 /* IMTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTooltipView.h; sourceTree = "<group>"; };
-		F49A29CF1A3F0D81006F9E34 /* IMTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTooltipView.m; sourceTree = "<group>"; };
 		F49A29D01A3F0D81006F9E34 /* IMUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUI.h; sourceTree = "<group>"; };
 		F49A29EE1A3F0D90006F9E34 /* IMEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEventController.h; sourceTree = "<group>"; };
 		F49A29EF1A3F0D90006F9E34 /* IMEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEventController.m; sourceTree = "<group>"; };
@@ -1139,7 +1124,6 @@
 				F49A29AD1A3F0D81006F9E34 /* Generic */,
 				F49A29B21A3F0D81006F9E34 /* Misc */,
 				F49A29BD1A3F0D81006F9E34 /* Navigation */,
-				F49A29C01A3F0D81006F9E34 /* Tooltips */,
 				F49A29D01A3F0D81006F9E34 /* IMUI.h */,
 			);
 			path = UI;
@@ -1215,31 +1199,6 @@
 				F49A29BF1A3F0D81006F9E34 /* IMNavigationController.m */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		F49A29C01A3F0D81006F9E34 /* Tooltips */ = {
-			isa = PBXGroup;
-			children = (
-				F49A29C11A3F0D81006F9E34 /* Modal view */,
-				F49A29C61A3F0D81006F9E34 /* IMExportTooltipView.h */,
-				F49A29C71A3F0D81006F9E34 /* IMExportTooltipView.m */,
-				F49A29CA1A3F0D81006F9E34 /* IMIntroductionTooltipView.h */,
-				F49A29CB1A3F0D81006F9E34 /* IMIntroductionTooltipView.m */,
-				F49A29CC1A3F0D81006F9E34 /* IMRemindersTooltipView.h */,
-				F49A29CD1A3F0D81006F9E34 /* IMRemindersTooltipView.m */,
-				F49A29CE1A3F0D81006F9E34 /* IMTooltipView.h */,
-				F49A29CF1A3F0D81006F9E34 /* IMTooltipView.m */,
-			);
-			path = Tooltips;
-			sourceTree = "<group>";
-		};
-		F49A29C11A3F0D81006F9E34 /* Modal view */ = {
-			isa = PBXGroup;
-			children = (
-				F49A29C21A3F0D81006F9E34 /* IMTooltipViewController.h */,
-				F49A29C31A3F0D81006F9E34 /* IMTooltipViewController.m */,
-			);
-			path = "Modal view";
 			sourceTree = "<group>";
 		};
 		F49A29E61A3F0D8F006F9E34 /* Models */ = {
@@ -1497,7 +1456,6 @@
 				F435C4641A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m in Sources */,
 				F49A29911A3F0D1E006F9E34 /* IMSettingsViewController.m in Sources */,
 				F41268991A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m in Sources */,
-				F49A29E41A3F0D82006F9E34 /* IMRemindersTooltipView.m in Sources */,
 				F49A2A511A3F0D9B006F9E34 /* NSString+Extension.m in Sources */,
 				F49A29D71A3F0D82006F9E34 /* IMGenericTableHeaderView.m in Sources */,
 				F412689F1A44AE41000E52E9 /* IMAnalyticsChartInformationView.m in Sources */,
@@ -1540,7 +1498,6 @@
 				F49A2A421A3F0D90006F9E34 /* TGRImageZoomAnimationController.m in Sources */,
 				F41268DE1A46E343000E52E9 /* IMReminder.m in Sources */,
 				F435C44F1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m in Sources */,
-				F49A29E51A3F0D82006F9E34 /* IMTooltipView.m in Sources */,
 				F412689A1A44AE41000E52E9 /* IMAnalyticsChartHeaderView.m in Sources */,
 				F49A29DE1A3F0D82006F9E34 /* IMNavigationController.m in Sources */,
 				F41268A71A469ADE000E52E9 /* IMEntryBaseInputViewController.m in Sources */,
@@ -1588,13 +1545,11 @@
 				F49A29791A3F0D1E006F9E34 /* IMTimeReminderViewController.m in Sources */,
 				F49A2A4F1A3F0D9B006F9E34 /* NSDate+Extension.m in Sources */,
 				F41268D81A46E343000E52E9 /* IMEvent.m in Sources */,
-				F49A29E11A3F0D82006F9E34 /* IMExportTooltipView.m in Sources */,
 				F41268E01A46E343000E52E9 /* IMReport.m in Sources */,
 				F49A29D11A3F0D81006F9E34 /* IMAutocompleteBar.m in Sources */,
 				F412685F1A449F74000E52E9 /* IMEntryMealInputViewController.m in Sources */,
 				F41268961A44AE41000E52E9 /* IMAnalyticsBaseViewController.m in Sources */,
 				F435C46A1A5979BD00D76913 /* IMIntroViewController.m in Sources */,
-				F49A29E31A3F0D82006F9E34 /* IMIntroductionTooltipView.m in Sources */,
 				F41268E21A46E343000E52E9 /* IMUser.m in Sources */,
 				F41268941A44AE41000E52E9 /* IMAnalyticsBaseNavigationController.m in Sources */,
 				F41268951A44AE41000E52E9 /* IMAnalyticsBaseTableViewController.m in Sources */,
@@ -1603,7 +1558,6 @@
 				F435C44C1A503A7500D76913 /* IMAnalyticsDateTableViewController.m in Sources */,
 				F435C45E1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m in Sources */,
 				F41268DB1A46E343000E52E9 /* IMMedicine.m in Sources */,
-				F49A29DF1A3F0D82006F9E34 /* IMTooltipViewController.m in Sources */,
 				F49A29531A3F0D1E006F9E34 /* IMEventLocationMapView.m in Sources */,
 				F41268D41A46E343000E52E9 /* InstaMed.xcdatamodeld in Sources */,
 				F41268681A44A08E000E52E9 /* IMEntryMedicineInputViewController.m in Sources */,

@@ -17,8 +17,6 @@
 // Views
 #import "IMBaseViewController.h"
 #import "IMViewControllerMessageView.h"
-#import "IMTooltipViewController.h"
-#import "IMTooltipView.h"
 #import "IMUIHintView.h"
 #import "IMBadgeView.h"
 

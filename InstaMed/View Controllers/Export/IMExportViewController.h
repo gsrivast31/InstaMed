@@ -12,7 +12,7 @@
 #import "OrderedDictionary.h"
 #import "IMPDFDocument.h"
 
-@interface IMExportViewController : IMBaseTableViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIPrintInteractionControllerDelegate, IMPDFDocumentDelegate, IMTooltipViewControllerDelegate>
+@interface IMExportViewController : IMBaseTableViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIPrintInteractionControllerDelegate, IMPDFDocumentDelegate>
 
 - (void)refreshView;
 

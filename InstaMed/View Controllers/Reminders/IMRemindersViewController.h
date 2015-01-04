@@ -13,7 +13,7 @@
 #import "IMLocationReminderViewController.h"
 #import "IMRuleReminderViewController.h"
 
-@interface IMRemindersViewController : IMBaseTableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, IMTooltipViewControllerDelegate>
+@interface IMRemindersViewController : IMBaseTableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 // UI
 - (void)addReminder:(id)sender;
