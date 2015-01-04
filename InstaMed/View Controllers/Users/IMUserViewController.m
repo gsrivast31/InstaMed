@@ -12,6 +12,8 @@
 #import "IMUser.h"
 #import "IMDisease.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMUserViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *profilePhoto;
@@ -95,6 +97,13 @@
     
     self.trackedDiseasesTable.dataSource = self;
     self.trackedDiseasesTable.delegate = self;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconCancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconSave"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(saveUser:)];
+    
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {

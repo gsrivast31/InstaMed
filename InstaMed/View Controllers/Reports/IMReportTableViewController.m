@@ -11,6 +11,8 @@
 #import "IMReportViewController.h"
 #import "IMReport.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMReportTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray* itemArray;
@@ -25,7 +27,8 @@
     self.title = @"Reports";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0f alpha:0.08f];
-    self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
     [self setupItemArray];
     
     if(!self.navigationItem.leftBarButtonItem) {
@@ -39,6 +42,11 @@
         UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         [self.navigationItem setLeftBarButtonItem:backBarButtonItem];
     }
+    
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
+    [self.tableView.layer insertSublayer:backgroundLayer atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,7 +92,8 @@
     IMReportTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     [cell configureCellForEntry:[self.itemArray objectAtIndex:indexPath.row] forIndex:indexPath.row];
-    cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+//    cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

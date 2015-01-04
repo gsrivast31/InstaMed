@@ -167,4 +167,17 @@
     return gradientLayer;
 }
 
++ (CAGradientLayer *)sideGradientLayer {
+    UIColor *topColor = [UIColor colorWithRed:208.0f/255.0f green:237.0f/255.0f blue:245.0f/255.0f alpha:1];
+    UIColor *bottomColor = [UIColor colorWithRed:225.0f/255.0f green:229.0f/255.0f blue:240.0f/255.0f alpha:1];
+    
+    NSArray *gradientColors = [NSArray arrayWithObjects:(id)topColor.CGColor, (id)bottomColor.CGColor, nil];
+    NSArray *gradientLocations = [NSArray arrayWithObjects:[NSNumber numberWithInt:0.0],[NSNumber numberWithInt:1.0], nil];
+    
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = gradientColors;
+    gradientLayer.locations = gradientLocations;
+    
+    return gradientLayer;
+}
 @end

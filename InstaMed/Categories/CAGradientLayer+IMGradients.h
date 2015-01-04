@@ -22,4 +22,5 @@
 + (CAGradientLayer *)purpleGradientLayer;
 + (CAGradientLayer *)greenGradientLayer;
 
++ (CAGradientLayer *)sideGradientLayer;
 @end

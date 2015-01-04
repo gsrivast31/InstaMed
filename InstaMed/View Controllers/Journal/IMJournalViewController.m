@@ -20,6 +20,7 @@
 #import "IMShortcutButton.h"
 
 #import "IMDayRecordTableViewController.h"
+#import "CAGradientLayer+IMGradients.h"
 
 @interface IMJournalViewController ()
 {
@@ -93,7 +94,13 @@
     
     // Setup our table header view
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)];
-    headerView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    //headerView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    headerView.backgroundColor = [UIColor clearColor];
+
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = headerView.frame;
+    [headerView.layer insertSublayer:backgroundLayer atIndex:0];
+
     headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     todayButton = [[IMShortcutButton alloc] initWithFrame:CGRectZero];

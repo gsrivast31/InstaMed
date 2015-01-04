@@ -158,7 +158,6 @@
 		F49A2A521A3F0D9B006F9E34 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A4C1A3F0D9B006F9E34 /* UIImage+ImageEffects.m */; };
 		F49A2A531A3F0D9B006F9E34 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A4E1A3F0D9B006F9E34 /* UITextView+Extension.m */; };
 		F49A2A581A3F16F4006F9E34 /* IMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A2A571A3F16F4006F9E34 /* IMHelper.m */; };
-		F49A2A5A1A3F2499006F9E34 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */; };
 		F4F19B721A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B711A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m */; };
 		F4F19B751A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B741A4AFD82003BAFC7 /* IMEntryWeightInputViewController.m */; };
 		F4F19B781A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F19B771A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m */; };
@@ -516,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F499BA0C1A3D596E006517BC /* CoreData.framework in Frameworks */,
-				F49A2A5A1A3F2499006F9E34 /* ShinobiCharts.framework in Frameworks */,
 				A24476876DA94410001238DE /* libPods-InstaMed.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1792,6 +1790,7 @@
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1810,6 +1809,7 @@
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

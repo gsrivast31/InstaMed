@@ -11,6 +11,8 @@
 #import "IMCoreDataStack.h"
 #import "IMReportViewCell.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMReportViewController () <NSFetchedResultsControllerDelegate>
 
 @property(nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
@@ -21,10 +23,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
     [self.fetchedResultsController performFetch:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exportCard:) name:kExportReportNotification object:nil] ;
+    
+    if(!self.navigationItem.leftBarButtonItem) {
+        UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [backButton setImage:[[UIImage imageNamed:@"NavBarIconBack.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [backButton setTitle:self.navigationItem.backBarButtonItem.title forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(dismissSelf:) forControlEvents:UIControlEventTouchUpInside];
+        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -10.0f, 0, 0)];
+        [backButton setAdjustsImageWhenHighlighted:NO];
+        
+        UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        [self.navigationItem setLeftBarButtonItem:backBarButtonItem];
+    }
+
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
+    [self.tableView.layer insertSublayer:backgroundLayer atIndex:0];
 }
 
 - (void)dealloc {
@@ -33,6 +52,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dismissSelf:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)exportCard:(NSNotification*)notification {
@@ -67,7 +90,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* CellIdentifier = @"reportViewCell";
     IMReportViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    //cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    cell.backgroundColor = [UIColor clearColor];
     IMReport *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell configureCellForEntry:entry];
     

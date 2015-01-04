@@ -51,6 +51,8 @@ static NSString *kDatePickerCellID = @"datePickerCell";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconSave"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(proceed:)];
 
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0 green:179/255.0 blue:134/255.0 alpha:1]];
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageNamed:@"trans"]];
+    [self.navigationController.navigationBar setTintColor: [UIColor whiteColor]];
 
     [self.navigationController.navigationBar setTranslucent:NO];
 
@@ -64,6 +66,8 @@ static NSString *kDatePickerCellID = @"datePickerCell";
     // Remove any customisation on the navigation bar
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
+    [self.navigationController.navigationBar setBarTintColor:nil];
+    [self.navigationController.navigationBar setTintColor:nil];
 }
 
 - (void)didReceiveMemoryWarning {

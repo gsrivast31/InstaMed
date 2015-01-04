@@ -12,6 +12,8 @@
 #import "IMCoreDataStack.h"
 #import "IMUser.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMUsersListViewController () <NSFetchedResultsControllerDelegate>
 
 @property(nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
@@ -38,6 +40,11 @@
     [self.fetchedResultsController performFetch:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kCurrentProfileChangedNotification object:nil];
+    
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
+    [self.tableView.layer insertSublayer:backgroundLayer atIndex:0];
 }
 
 - (void)reloadData {
@@ -73,7 +80,7 @@
     
     IMUser *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell configureCellForEntry:entry];
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

@@ -16,6 +16,8 @@
 #import "TGRImageViewController.h"
 #import "TGRImageZoomAnimationController.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMReportAddEditController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -51,6 +53,13 @@
     self.reportImages = [[NSMutableArray alloc] initWithArray:[self.entry.images allObjects]];
     self.imagesCollectionView.delegate = self;
     self.imagesCollectionView.dataSource = self;
+    
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconCancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"NavBarIconSave"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(saveReport:)];
 }
 
 - (void)didReceiveMemoryWarning {

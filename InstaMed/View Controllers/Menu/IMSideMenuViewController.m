@@ -25,6 +25,8 @@
 #import "IMSideMenuCell.h"
 #import "IMUser.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMSideMenuViewController ()
 {
     id reminderUpdateNotifier;

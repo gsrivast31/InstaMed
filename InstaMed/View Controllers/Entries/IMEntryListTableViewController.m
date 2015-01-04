@@ -20,6 +20,8 @@
 
 #import "IMHelper.h"
 
+#import "CAGradientLayer+IMGradients.h"
+
 @interface IMEntryListTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray* itemArray;
@@ -35,7 +37,8 @@
     self.title = @"Select Type";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0f alpha:0.08f];
-    self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     if(!self.navigationItem.leftBarButtonItem) {
         UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
@@ -50,6 +53,12 @@
     }
     
     [self setupItemArray];
+    
+    CAGradientLayer *backgroundLayer = [CAGradientLayer sideGradientLayer];
+    backgroundLayer.frame = self.view.frame;
+    [self.view.layer insertSublayer:backgroundLayer atIndex:0];
+    [self.tableView.layer insertSublayer:backgroundLayer atIndex:0];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,7 +105,8 @@
     NSString* eventName = [[self.itemArray objectAtIndex:indexPath.row] objectForKey:@"eventName"];
     
     [cell configureCellForEventType:(enum IMEventType)[eventNumber shortValue] eventName:eventName];
-    cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    //cell.backgroundColor = [UIColor colorWithRed:240.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    cell.backgroundColor = [UIColor clearColor];
 
     return cell;
 }
