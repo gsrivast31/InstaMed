@@ -47,7 +47,7 @@
     if (self) {
         __weak typeof(self) weakSelf = self;
         
-        self.title = NSLocalizedString(@"Journal", @"The title for the applications index screen - which is a physical journal");
+        self.title = NSLocalizedString(@"InstaMed", @"The title for the applications index screen - which is a physical journal");
         
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MMMM yyyy"];

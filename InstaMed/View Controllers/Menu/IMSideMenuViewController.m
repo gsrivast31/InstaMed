@@ -187,7 +187,7 @@
     cell.tintColor = nil;
     cell.detailTextLabel.text = nil;
     if(indexPath.row == 0) {
-        cell.textLabel.text = NSLocalizedString(@"Journal", nil);
+        cell.textLabel.text = NSLocalizedString(@"Home", nil);
         cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
         cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
     } else if(indexPath.row == 1) {
