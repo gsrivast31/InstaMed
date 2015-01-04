@@ -23,6 +23,7 @@
 #import "IMAnalyticsDateTableViewController.h"
 
 #import "IMSideMenuCell.h"
+#import "IMUser.h"
 
 @interface IMSideMenuViewController ()
 {
@@ -103,6 +104,7 @@
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshName:) name:kCurrentProfileChangedNotification object:nil];
+    [self setDefaultProfile];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -125,6 +127,29 @@
     UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     IMUsersListViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"userListController"];
     [navigationController pushViewController:vc animated:NO];
+}
+
+- (void)setDefaultProfile {
+    NSManagedObjectContext *moc = [[IMCoreDataStack defaultStack] newPrivateContext];
+    if(moc) {
+        [moc performBlockAndWait:^{
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMUser" inManagedObjectContext:moc];
+            [request setEntity:entity];
+            [request setResultType:NSManagedObjectResultType];
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"guid == %@", [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileKey]];
+            [request setPredicate:predicate];
+            
+            // Execute the fetch.
+            NSError *error = nil;
+            NSArray *objects = [moc executeFetchRequest:request error:&error];
+            if (objects != nil && [objects count] > 0) {
+                IMUser* user = [objects objectAtIndex:0];
+                imageView.image = [UIImage imageWithData:user.profilePhoto];
+            }
+        }];
+     }
 }
 
 - (void)refreshName:(NSNotification*)notification {
