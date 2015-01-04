@@ -529,6 +529,10 @@
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 20.0f;
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return ![[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[IMTimelineHeaderViewCell class]];
     return YES;

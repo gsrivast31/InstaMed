@@ -214,6 +214,8 @@
         NSString *photoPath = [data valueForKey:@"photoPath"];
         if(photoPath) {
             height += kInlinePhotoHeight + kInlinePhotoInset;
+        } else {
+            height += 10.0f;
         }
     }
     
