@@ -101,7 +101,6 @@
 		F49A29791A3F0D1E006F9E34 /* IMTimeReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28ED1A3F0D1E006F9E34 /* IMTimeReminderViewController.m */; };
 		F49A297A1A3F0D1E006F9E34 /* IMReminderBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28EF1A3F0D1E006F9E34 /* IMReminderBaseViewController.m */; };
 		F49A297B1A3F0D1E006F9E34 /* IMRemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A28F11A3F0D1E006F9E34 /* IMRemindersViewController.m */; };
-		F49A298B1A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29171A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m */; };
 		F49A298D1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A291B1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m */; };
 		F49A298E1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A291D1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m */; };
 		F49A298F1A3F0D1E006F9E34 /* IMSettingsLicensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A291F1A3F0D1E006F9E34 /* IMSettingsLicensesViewController.m */; };
@@ -132,7 +131,6 @@
 		F49A29E31A3F0D82006F9E34 /* IMIntroductionTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29CB1A3F0D81006F9E34 /* IMIntroductionTooltipView.m */; };
 		F49A29E41A3F0D82006F9E34 /* IMRemindersTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29CD1A3F0D81006F9E34 /* IMRemindersTooltipView.m */; };
 		F49A29E51A3F0D82006F9E34 /* IMTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29CF1A3F0D81006F9E34 /* IMTooltipView.m */; };
-		F49A2A261A3F0D90006F9E34 /* IMBackupController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29EB1A3F0D90006F9E34 /* IMBackupController.m */; };
 		F49A2A281A3F0D90006F9E34 /* IMEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29EF1A3F0D90006F9E34 /* IMEventController.m */; };
 		F49A2A291A3F0D90006F9E34 /* IMLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29F11A3F0D90006F9E34 /* IMLocationController.m */; };
 		F49A2A2A1A3F0D90006F9E34 /* IMMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A29F31A3F0D90006F9E34 /* IMMediaController.m */; };
@@ -374,8 +372,6 @@
 		F49A28EF1A3F0D1E006F9E34 /* IMReminderBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReminderBaseViewController.m; sourceTree = "<group>"; };
 		F49A28F01A3F0D1E006F9E34 /* IMRemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRemindersViewController.h; sourceTree = "<group>"; };
 		F49A28F11A3F0D1E006F9E34 /* IMRemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRemindersViewController.m; sourceTree = "<group>"; };
-		F49A29161A3F0D1E006F9E34 /* IMSettingsDropboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsDropboxViewController.h; sourceTree = "<group>"; };
-		F49A29171A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsDropboxViewController.m; sourceTree = "<group>"; };
 		F49A291A1A3F0D1E006F9E34 /* IMSettingsEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsEntryViewController.h; sourceTree = "<group>"; };
 		F49A291B1A3F0D1E006F9E34 /* IMSettingsEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsEntryViewController.m; sourceTree = "<group>"; };
 		F49A291C1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSettingsGlucoseViewController.h; sourceTree = "<group>"; };
@@ -437,8 +433,6 @@
 		F49A29CE1A3F0D81006F9E34 /* IMTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTooltipView.h; sourceTree = "<group>"; };
 		F49A29CF1A3F0D81006F9E34 /* IMTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTooltipView.m; sourceTree = "<group>"; };
 		F49A29D01A3F0D81006F9E34 /* IMUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUI.h; sourceTree = "<group>"; };
-		F49A29EA1A3F0D90006F9E34 /* IMBackupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBackupController.h; sourceTree = "<group>"; };
-		F49A29EB1A3F0D90006F9E34 /* IMBackupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBackupController.m; sourceTree = "<group>"; };
 		F49A29EE1A3F0D90006F9E34 /* IMEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEventController.h; sourceTree = "<group>"; };
 		F49A29EF1A3F0D90006F9E34 /* IMEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEventController.m; sourceTree = "<group>"; };
 		F49A29F01A3F0D90006F9E34 /* IMLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMLocationController.h; sourceTree = "<group>"; };
@@ -479,7 +473,6 @@
 		F49A2A4D1A3F0D9B006F9E34 /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
 		F49A2A4E1A3F0D9B006F9E34 /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
 		F49A2A541A3F16F4006F9E34 /* IMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCommon.h; sourceTree = "<group>"; };
-		F49A2A551A3F16F4006F9E34 /* IMCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCredentials.h; sourceTree = "<group>"; };
 		F49A2A561A3F16F4006F9E34 /* IMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHelper.h; sourceTree = "<group>"; };
 		F49A2A571A3F16F4006F9E34 /* IMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHelper.m; sourceTree = "<group>"; };
 		F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
@@ -578,7 +571,6 @@
 				F49A28641A3F0D1E006F9E34 /* View Controllers */,
 				F4104AE91A3BF5DF00EF8193 /* CoreData */,
 				F49A2A541A3F16F4006F9E34 /* IMCommon.h */,
-				F49A2A551A3F16F4006F9E34 /* IMCredentials.h */,
 				F49A2A561A3F16F4006F9E34 /* IMHelper.h */,
 				F49A2A571A3F16F4006F9E34 /* IMHelper.m */,
 				F4104AC41A3AF8B500EF8193 /* IMAppDelegate.h */,
@@ -1074,7 +1066,6 @@
 		F49A29121A3F0D1E006F9E34 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F49A29131A3F0D1E006F9E34 /* Services */,
 				F4F19B851A4C5CD1003BAFC7 /* IMSettingsBPViewController.h */,
 				F4F19B861A4C5CD1003BAFC7 /* IMSettingsBPViewController.m */,
 				F4F19B821A4C4614003BAFC7 /* IMSettingsCholesterolViewController.h */,
@@ -1094,15 +1085,6 @@
 				F49A29241A3F0D1E006F9E34 /* UI */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		F49A29131A3F0D1E006F9E34 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				F49A29161A3F0D1E006F9E34 /* IMSettingsDropboxViewController.h */,
-				F49A29171A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		F49A29241A3F0D1E006F9E34 /* UI */ = {
@@ -1265,9 +1247,6 @@
 		F49A29E61A3F0D8F006F9E34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F49A29E71A3F0D90006F9E34 /* Services */,
-				F49A29EA1A3F0D90006F9E34 /* IMBackupController.h */,
-				F49A29EB1A3F0D90006F9E34 /* IMBackupController.m */,
 				F49A29EE1A3F0D90006F9E34 /* IMEventController.h */,
 				F49A29EF1A3F0D90006F9E34 /* IMEventController.m */,
 				F49A29F01A3F0D90006F9E34 /* IMLocationController.h */,
@@ -1280,13 +1259,6 @@
 				F49A29F91A3F0D90006F9E34 /* IMTagController.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		F49A29E71A3F0D90006F9E34 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		F49A29FA1A3F0D90006F9E34 /* Vendor */ = {
@@ -1523,7 +1495,6 @@
 				F49A29D91A3F0D82006F9E34 /* IMBadgeView.m in Sources */,
 				F41268D51A46E343000E52E9 /* IMActivity.m in Sources */,
 				F49A295F1A3F0D1E006F9E34 /* IMKeyboardShortcutButton.m in Sources */,
-				F49A298B1A3F0D1E006F9E34 /* IMSettingsDropboxViewController.m in Sources */,
 				F41268DD1A46E343000E52E9 /* IMBGReading.m in Sources */,
 				F49A29DD1A3F0D82006F9E34 /* IMViewControllerMessageView.m in Sources */,
 				F435C4641A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m in Sources */,
@@ -1574,7 +1545,6 @@
 				F41268DE1A46E343000E52E9 /* IMReminder.m in Sources */,
 				F435C44F1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m in Sources */,
 				F49A29E51A3F0D82006F9E34 /* IMTooltipView.m in Sources */,
-				F49A2A261A3F0D90006F9E34 /* IMBackupController.m in Sources */,
 				F412689A1A44AE41000E52E9 /* IMAnalyticsChartHeaderView.m in Sources */,
 				F49A29DE1A3F0D82006F9E34 /* IMNavigationController.m in Sources */,
 				F41268A71A469ADE000E52E9 /* IMEntryBaseInputViewController.m in Sources */,

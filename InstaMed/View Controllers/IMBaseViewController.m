@@ -61,10 +61,6 @@
 {
     [super viewWillAppear:animated];
     
-    if(!self.screenName)
-    {
-        self.screenName = self.title;
-    }
     isVisible = YES;
     
     if(!self.navigationItem.leftBarButtonItem && [self.navigationController.viewControllers count] > 1)

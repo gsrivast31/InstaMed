@@ -11,7 +11,6 @@
 #import "IMUI.h"
 #import "IMBaseObject.h"
 #import "IMCoreDataStack.h"
-#import "IMCredentials.h"
 
 #ifndef InstaMed_UACommon_h
 #define InstaMed_UACommon_h
@@ -90,7 +89,6 @@ static NSString * const kErrorDomain = @"com.memoir.instamed";
 // Notifications
 static NSString * const kRemindersUpdatedNotification = @"com.memoir.reminders.updated";
 static NSString * const kSettingsChangedNotification = @"com.memoir.settings.change";
-static NSString * const kDropboxLinkNotification = @"com.memoir.dropbox.linked";
 static NSString * const kExportReportNotification = @"com.memoir.export.report";
 static NSString * const kCurrentProfileChangedNotification = @"com.memoir.currentprofile.change";
 static NSString * const kEntryAddUpdateNotification = @"com.memoir.entry.addedit";

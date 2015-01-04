@@ -104,7 +104,7 @@ static NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = kJBColorLineChartControllerBackground;
+    self.view.backgroundColor = kIMColorLineChartControllerBackground;
     self.title = @"Blood Glucose Levels";
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -117,19 +117,19 @@ static NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
     self.lineChartView.headerPadding = kIMLineChartViewControllerChartHeaderPadding;
-    self.lineChartView.backgroundColor = kJBColorLineChartBackground;
+    self.lineChartView.backgroundColor = kIMColorLineChartBackground;
     
     CGFloat y = ceil(self.view.bounds.size.height * 0.5) - ceil(kIMLineChartViewControllerChartHeaderHeight * 0.5);
     IMAnalyticsChartHeaderView *headerView = [[IMAnalyticsChartHeaderView alloc] initWithFrame:CGRectMake(kIMLineChartViewControllerChartPadding, y, self.view.bounds.size.width - (kIMLineChartViewControllerChartPadding * 2), kIMLineChartViewControllerChartHeaderHeight)];
     headerView.titleLabel.text = [self dateString];
-    headerView.titleLabel.textColor = kJBColorLineChartHeader;
+    headerView.titleLabel.textColor = kIMColorLineChartHeader;
     headerView.titleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
     headerView.titleLabel.shadowOffset = CGSizeMake(0, 1);
     headerView.subtitleLabel.text = @"";
-    headerView.subtitleLabel.textColor = kJBColorLineChartHeader;
+    headerView.subtitleLabel.textColor = kIMColorLineChartHeader;
     headerView.subtitleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
     headerView.subtitleLabel.shadowOffset = CGSizeMake(0, 1);
-    headerView.separatorColor = kJBColorLineChartHeaderSeparatorColor;
+    headerView.separatorColor = kIMColorLineChartHeaderSeparatorColor;
     self.lineChartView.headerView = headerView;
     
     IMAnalyticsLineChartFooterView *footerView = [[IMAnalyticsLineChartFooterView alloc] initWithFrame:CGRectMake(kIMLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kIMLineChartViewControllerChartFooterHeight * 0.5), self.view.bounds.size.width - (kIMLineChartViewControllerChartPadding * 2), kIMLineChartViewControllerChartFooterHeight)];
@@ -149,9 +149,9 @@ static NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
     
     self.informationView = [[IMAnalyticsChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.lineChartView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.lineChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
     [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
-    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
+    [self.informationView setTitleTextColor:kIMColorLineChartHeader];
     [self.informationView setTextShadowColor:nil];
-    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
+    [self.informationView setSeparatorColor:kIMColorLineChartHeaderSeparatorColor];
     [self.view addSubview:self.informationView];
     
     [self.lineChartView reloadData];
@@ -289,11 +289,11 @@ static NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForLineAtLineIndex:(NSUInteger)lineIndex {
-    return kJBColorLineChartDefaultDashedSelectedLineColor;
+    return kIMColorLineChartDefaultDashedSelectedLineColor;
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex {
-    return kJBColorLineChartDefaultDashedSelectedLineColor;
+    return kIMColorLineChartDefaultDashedSelectedLineColor;
 }
 
 - (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex {

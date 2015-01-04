@@ -6,13 +6,12 @@
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
 //
 
-#import "GAI.h"
 #import "TPKeyboardAvoidingTableView.h"
 
 #import "IMUI.h"
 #import "IMHelper.h"
 
-@interface IMBaseViewController : GAITrackedViewController <UIGestureRecognizerDelegate>
+@interface IMBaseViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     BOOL isVisible;
     BOOL isFirstLoad;

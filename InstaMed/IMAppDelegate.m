@@ -8,9 +8,7 @@
 
 #import "IMAppDelegate.h"
 
-#import <Dropbox/Dropbox.h>
 #import <UAAppReviewManager/UAAppReviewManager.h>
-#import "GAI.h"
 
 #import "IMHelper.h"
 #import "IMAppDelegate.h"
@@ -34,8 +32,6 @@
 
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Initialise the Google Analytics API
-    [[GAI sharedInstance] trackerWithTrackingId:kGoogleAnalyticsTrackingID];
     
     // Initialise Appirater
     [UAAppReviewManager setAppID:@"634983291"];
@@ -65,20 +61,14 @@
     }
     
     [IMReminderController sharedInstance];
-    [self setBackupController:[[IMBackupController alloc] init]];
     
     // Setup our backup controller
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.tintColor = kDefaultTintColor;
     
     // Delay launch on non-essential classes
-    __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [strongSelf setupDropbox];
-            
             // Call various singletons
             [IMLocationController sharedInstance];
         });
@@ -120,38 +110,10 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(NSString *)source annotation:(id)annotation {
-    // Is this Dropbox?
-    if([source isEqualToString:@"com.getdropbox.Dropbox"]) {
-        DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
-        if (account) {
-            DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
-            [DBFilesystem setSharedFilesystem:filesystem];
-            
-            // Post a notification so that we can determine when linking occurs
-            [[NSNotificationCenter defaultCenter] postNotificationName:kDropboxLinkNotification object:account];
-        }
-        
-        return YES;
-    }
-    
     return NO;
 }
 
 #pragma mark - Logic
-- (void)setupDropbox {
-    // Ditch out if we haven't been provided credentials
-    if(!kDropboxAppKey || !kDropboxSecret || ![kDropboxAppKey length] || ![kDropboxSecret length]) return;
-    
-    DBAccountManager *accountMgr = [[DBAccountManager alloc] initWithAppKey:kDropboxAppKey secret:kDropboxSecret];
-    [DBAccountManager setSharedManager:accountMgr];
-    DBAccount *account = accountMgr.linkedAccount;
-    
-    if (account) {
-        DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
-        [DBFilesystem setSharedFilesystem:filesystem];
-    }
-}
-
 - (void)setupDefaultConfigurationValues
 {
     // Try to determine the users blood sugar unit based on their locale

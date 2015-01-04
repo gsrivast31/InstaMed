@@ -10,10 +10,10 @@
 #import "IMAnalyticsConstants.h"
 
 // Numerics
-CGFloat const kJBBarChartFooterPolygonViewDefaultPadding = 4.0f;
+CGFloat const kIMBarChartFooterPolygonViewDefaultPadding = 4.0f;
 
 // Colors
-static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
+static UIColor *kIMBarChartFooterViewDefaultBackgroundColor = nil;
 
 @interface IMAnalyticsBarChartFooterView ()
 
@@ -30,7 +30,7 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
 {
 	if (self == [IMAnalyticsBarChartFooterView class])
 	{
-		kJBBarChartFooterViewDefaultBackgroundColor = kJBColorBarChartControllerBackground;
+		kIMBarChartFooterViewDefaultBackgroundColor = kIMColorBarChartControllerBackground;
 	}
 }
 
@@ -39,9 +39,9 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.backgroundColor = kJBBarChartFooterViewDefaultBackgroundColor;
+        self.backgroundColor = kIMBarChartFooterViewDefaultBackgroundColor;
         
-        _padding = kJBBarChartFooterPolygonViewDefaultPadding;
+        _padding = kIMBarChartFooterPolygonViewDefaultPadding;
         
         _leftLabel = [[UILabel alloc] init];
         _leftLabel.adjustsFontSizeToFitWidth = YES;

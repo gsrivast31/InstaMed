@@ -32,13 +32,13 @@ CGFloat const kJBChartTooltipViewDefaultHeight = 25.0f;
     self = [super initWithFrame:CGRectMake(0, 0, kJBChartTooltipViewDefaultWidth, kJBChartTooltipViewDefaultHeight)];
     if (self)
     {
-        self.backgroundColor = kJBColorTooltipColor;
+        self.backgroundColor = kIMColorTooltipColor;
         self.layer.cornerRadius = kJBChartTooltipViewCornerRadius;
         
         _textLabel = [[UILabel alloc] init];
         _textLabel.font = kJBFontTooltipText;
         _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.textColor = kJBColorTooltipTextColor;
+        _textLabel.textColor = kIMColorTooltipTextColor;
         _textLabel.adjustsFontSizeToFitWidth = YES;
         _textLabel.numberOfLines = 1;
         _textLabel.textAlignment = NSTextAlignmentCenter;

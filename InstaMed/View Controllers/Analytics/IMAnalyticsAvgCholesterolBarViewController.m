@@ -107,7 +107,7 @@ static NSString * const kIMBarChartViewControllerNavButtonViewKey = @"view";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = kJBColorBarChartControllerBackground;
+    self.view.backgroundColor = kIMColorBarChartControllerBackground;
     self.title = @"Average Cholesterol";
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -122,14 +122,14 @@ static NSString * const kIMBarChartViewControllerNavButtonViewKey = @"view";
     self.barChartView.headerPadding = kIMBarChartViewControllerChartHeaderPadding;
     self.barChartView.minimumValue = 0.0f;
     self.barChartView.inverted = NO;
-    self.barChartView.backgroundColor = kJBColorBarChartBackground;
+    self.barChartView.backgroundColor = kIMColorBarChartBackground;
     
     CGFloat y = ceil(self.view.bounds.size.height * 0.5) - ceil(kIMBarChartViewControllerChartHeaderHeight * 0.5);
     
     IMAnalyticsChartHeaderView *headerView = [[IMAnalyticsChartHeaderView alloc] initWithFrame:CGRectMake(kIMBarChartViewControllerChartPadding, y, self.view.bounds.size.width - (kIMBarChartViewControllerChartPadding * 2), kIMBarChartViewControllerChartHeaderHeight)];
     headerView.titleLabel.text = [self dateString];
     headerView.subtitleLabel.text = @"";
-    headerView.separatorColor = kJBColorBarChartHeaderSeparatorColor;
+    headerView.separatorColor = kIMColorBarChartHeaderSeparatorColor;
     self.barChartView.headerView = headerView;
     
     IMAnalyticsBarChartFooterView *footerView = [[IMAnalyticsBarChartFooterView alloc] initWithFrame:CGRectMake(kIMBarChartViewControllerChartPadding, y, self.view.bounds.size.width - (kIMBarChartViewControllerChartPadding * 2), kIMBarChartViewControllerChartFooterHeight)];
@@ -198,7 +198,7 @@ static NSString * const kIMBarChartViewControllerNavButtonViewKey = @"view";
 }
 
 - (UIColor *)barChartView:(JBChartView *)barChartView colorForBarViewAtIndex:(NSUInteger)index {
-    return (index % 2 == 0) ? kJBColorBarChartBarBlue : kJBColorBarChartBarGreen;
+    return (index % 2 == 0) ? kIMColorBarChartBarBlue : kIMColorBarChartBarGreen;
 }
 
 - (UIColor *)barSelectionColorForBarChartView:(JBChartView *)barChartView {

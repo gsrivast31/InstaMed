@@ -10,44 +10,44 @@
 
 #pragma mark - Navigation
 
-#define kJBColorNavigationBarTint UIColorFromHex(0xFFFFFF)
-#define kJBColorNavigationTint UIColorFromHex(0x000000)
+#define kIMColorNavigationBarTint UIColorFromHex(0xFFFFFF)
+#define kIMColorNavigationTint UIColorFromHex(0x000000)
 
 #pragma mark - Bar Chart
 
-#define kJBColorBarChartControllerBackground UIColorFromHex(0x313131)
-#define kJBColorBarChartBackground UIColorFromHex(0x3c3c3c)
-#define kJBColorBarChartBarBlue UIColorFromHex(0x08bcef)
-#define kJBColorBarChartBarGreen UIColorFromHex(0x34b234)
-#define kJBColorBarChartHeaderSeparatorColor UIColorFromHex(0x686868)
+#define kIMColorBarChartControllerBackground UIColorFromHex(0x313131)
+#define kIMColorBarChartBackground UIColorFromHex(0x3c3c3c)
+#define kIMColorBarChartBarBlue UIColorFromHex(0x08bcef)
+#define kIMColorBarChartBarGreen UIColorFromHex(0x34b234)
+#define kIMColorBarChartHeaderSeparatorColor UIColorFromHex(0x686868)
 
 #pragma mark - Line Chart
 
-#define kJBColorLineChartControllerBackground UIColorFromHex(0xb7e3e4)
-#define kJBColorLineChartBackground UIColorFromHex(0xb7e3e4)
-#define kJBColorLineChartHeader UIColorFromHex(0x1c474e)
-#define kJBColorLineChartHeaderSeparatorColor UIColorFromHex(0x8eb6b7)
-#define kJBColorLineChartDefaultSolidLineColor [UIColor colorWithWhite:1.0 alpha:0.5]
-#define kJBColorLineChartDefaultSolidSelectedLineColor [UIColor colorWithWhite:1.0 alpha:1.0]
-#define kJBColorLineChartDefaultDashedLineColor [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-#define kJBColorLineChartDefaultDashedSelectedLineColor [UIColor colorWithWhite:1.0 alpha:1.0]
+#define kIMColorLineChartControllerBackground UIColorFromHex(0xb7e3e4)
+#define kIMColorLineChartBackground UIColorFromHex(0xb7e3e4)
+#define kIMColorLineChartHeader UIColorFromHex(0x1c474e)
+#define kIMColorLineChartHeaderSeparatorColor UIColorFromHex(0x8eb6b7)
+#define kIMColorLineChartDefaultSolidLineColor [UIColor colorWithWhite:1.0 alpha:0.5]
+#define kIMColorLineChartDefaultSolidSelectedLineColor [UIColor colorWithWhite:1.0 alpha:1.0]
+#define kIMColorLineChartDefaultDashedLineColor [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+#define kIMColorLineChartDefaultDashedSelectedLineColor [UIColor colorWithWhite:1.0 alpha:1.0]
 
 #define mark - Area Chart
 
-#define kJBColorAreaChartControllerBackground UIColorFromHex(0xb7e3e4)
-#define kJBColorAreaChartBackground UIColorFromHex(0xb7e3e4)
-#define kJBColorAreaChartHeader UIColorFromHex(0x1c474e)
-#define kJBColorAreaChartHeaderSeparatorColor UIColorFromHex(0x8eb6b7)
-#define kJBColorAreaChartDefaultSunLineColor [UIColor clearColor]
-#define kJBColorAreaChartDefaultSunAreaColor [UIColorFromHex(0xfcfb3a) colorWithAlphaComponent:0.5]
-#define kJBColorAreaChartDefaultSunSelectedLineColor [UIColor clearColor]
-#define kJBColorAreaChartDefaultSunSelectedAreaColor UIColorFromHex(0xfcfb3a)
-#define kJBColorAreaChartDefaultMoonLineColor [UIColor clearColor]
-#define kJBColorAreaChartDefaultMoonAreaColor [[UIColor blackColor] colorWithAlphaComponent:0.5]
-#define kJBColorAreaChartDefaultMoonSelectedLineColor [UIColor clearColor]
-#define kJBColorAreaChartDefaultMoonSelectedAreaColor [UIColor blackColor]
+#define kIMColorAreaChartControllerBackground UIColorFromHex(0xb7e3e4)
+#define kIMColorAreaChartBackground UIColorFromHex(0xb7e3e4)
+#define kIMColorAreaChartHeader UIColorFromHex(0x1c474e)
+#define kIMColorAreaChartHeaderSeparatorColor UIColorFromHex(0x8eb6b7)
+#define kIMColorAreaChartDefaultSunLineColor [UIColor clearColor]
+#define kIMColorAreaChartDefaultSunAreaColor [UIColorFromHex(0xfcfb3a) colorWithAlphaComponent:0.5]
+#define kIMColorAreaChartDefaultSunSelectedLineColor [UIColor clearColor]
+#define kIMColorAreaChartDefaultSunSelectedAreaColor UIColorFromHex(0xfcfb3a)
+#define kIMColorAreaChartDefaultMoonLineColor [UIColor clearColor]
+#define kIMColorAreaChartDefaultMoonAreaColor [[UIColor blackColor] colorWithAlphaComponent:0.5]
+#define kIMColorAreaChartDefaultMoonSelectedLineColor [UIColor clearColor]
+#define kIMColorAreaChartDefaultMoonSelectedAreaColor [UIColor blackColor]
 
 #pragma mark - Tooltips
 
-#define kJBColorTooltipColor [UIColor colorWithWhite:1.0 alpha:0.9]
-#define kJBColorTooltipTextColor UIColorFromHex(0x313131)
+#define kIMColorTooltipColor [UIColor colorWithWhite:1.0 alpha:0.9]
+#define kIMColorTooltipTextColor UIColorFromHex(0x313131)

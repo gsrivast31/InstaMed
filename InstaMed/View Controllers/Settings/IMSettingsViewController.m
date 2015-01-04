@@ -16,7 +16,6 @@
 #import "IMSettingsBPViewController.h"
 #import "IMSettingsWeightViewController.h"
 #import "IMSettingsTimelineViewController.h"
-#import "IMSettingsDropboxViewController.h"
 #import "IMSettingsLicensesViewController.h"
 
 #import "IMSettingsViewCell.h"
