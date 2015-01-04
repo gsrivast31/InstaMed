@@ -11,7 +11,6 @@
 @interface IMSettingsEntryViewController ()
 
 // UI
-- (void)toggleSmartInput:(UISwitch *)sender;
 - (void)toggleAutoGeotagging:(UISwitch *)sender;
 
 @end
@@ -34,10 +33,6 @@
 }
 
 #pragma mark - UI
-- (void)toggleSmartInput:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:kUseSmartInputKey];
-}
-
 - (void)toggleAutoGeotagging:(UISwitch *)sender {
     [[NSUserDefaults standardUserDefaults] setBool:[sender isOn] forKey:kAutomaticallyGeotagEvents];
 }
@@ -48,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -62,14 +57,6 @@
     }
     
     if(indexPath.row == 0) {
-        cell.textLabel.text = NSLocalizedString(@"Smart input", @"A settings switch to control the Smart Input feature");
-        
-        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
-        [switchControl addTarget:self action:@selector(toggleSmartInput:) forControlEvents:UIControlEventTouchUpInside];
-        cell.accessoryView = switchControl;
-        
-        [switchControl setOn:[[NSUserDefaults standardUserDefaults] boolForKey:kUseSmartInputKey]];
-    } else if(indexPath.row == 1) {
         cell.textLabel.text = NSLocalizedString(@"Auto-geotag events", @"A setting asking whether or not to automatically geotag events");
         
         UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
