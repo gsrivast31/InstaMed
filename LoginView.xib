@@ -64,9 +64,6 @@
                             <exclude reference="gbf-v1-UQ3"/>
                         </mask>
                     </variation>
-                    <connections>
-                        <action selector="saveUser:" destination="iN0-l3-epB" eventType="touchUpInside" id="r1u-rU-8Yh"/>
-                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name (E.g. John Smith)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEa-iW-2go">
                     <rect key="frame" x="10" y="83" width="580" height="35"/>
@@ -195,6 +192,7 @@
             </variation>
             <connections>
                 <outlet property="cholesterolSwitch" destination="74g-7A-5yX" id="pqY-Rm-GQw"/>
+                <outlet property="createProfileButton" destination="YeE-io-Wbb" id="IVp-wO-uVg"/>
                 <outlet property="diabetesSwitch" destination="r2m-yD-E4J" id="gju-8n-CQz"/>
                 <outlet property="errorLabel" destination="AOb-1K-Jms" id="6Vg-iv-65y"/>
                 <outlet property="hyperTensionSwitch" destination="Yp2-1m-p1p" id="jyW-x0-r6C"/>
