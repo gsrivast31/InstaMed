@@ -19,9 +19,6 @@
 - (void)showSideMenu:(id)sender;
 - (void)refreshView;
 
-// UI
-- (void)showTips;
-
 // Helpers
 - (NSString *)keyForIndexPath:(NSIndexPath *)aIndexPath;
 

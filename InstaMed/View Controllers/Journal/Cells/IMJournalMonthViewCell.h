@@ -22,9 +22,11 @@
 - (void)setLowCholesterolValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 - (void)setHighCholesterolValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 
+- (void)setBPState:(BOOL)state;
 - (void)setLowBPValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 - (void)setHighBPValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 
+- (void)setWeightState:(BOOL)state;
 - (void)setLowWeightValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 - (void)setHighWeightValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter;
 

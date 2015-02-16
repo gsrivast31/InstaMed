@@ -64,14 +64,14 @@
         self.recordTitleLabel.text = [meal name];
         self.recordValueLabel.text = [valueFormatter stringFromNumber:[meal grams]];
         self.recordValueLabel.textColor = [UIColor colorWithRed:163.0f/255.0f green:174.0f/255.0f blue:170.0f/255.0f alpha:1.0f];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryMealBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryMealBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Food_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Food_filled"];
     } else if([object isKindOfClass:[IMBGReading class]]) {
         IMBGReading *reading = (IMBGReading *)object;
         self.recordTitleLabel.text = NSLocalizedString(@"Blood glucose level", nil);
         self.recordValueLabel.text = [glucoseFormatter stringFromNumber:[reading value]];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryBloodBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Diabetes_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Diabetes_filled"];
         
         if(![IMHelper isBGLevelSafe:[[reading value] doubleValue]]) {
             self.recordValueLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
@@ -84,8 +84,8 @@
         NSString* lowBPValue = [valueFormatter stringFromNumber:[reading lowValue]];
         NSString* highBPValue = [valueFormatter stringFromNumber:[reading highValue]];
         self.recordValueLabel.text = [NSString stringWithFormat:@"%@ - %@", highBPValue, lowBPValue];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryBloodBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"BP_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"BP_filled"];
         
         if(![IMHelper isBPLevelSafeWithHigh:[[reading lowValue] unsignedIntValue] andLow:[[reading highValue] unsignedIntValue] ]) {
             self.recordValueLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
@@ -96,8 +96,8 @@
         IMCholesterolReading *reading = (IMCholesterolReading *)object;
         self.recordTitleLabel.text = NSLocalizedString(@"Cholesterol level", nil);
         self.recordValueLabel.text = [cholesterolFormatter stringFromNumber:[reading value]];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryBloodBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Cholesterol_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Cholesterol_filled"];
         
         if(![IMHelper isCholesterolLevelSafe:[[reading value] doubleValue]]) {
             self.recordValueLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
@@ -108,8 +108,8 @@
         IMWeightReading *reading = (IMWeightReading *)object;
         self.recordTitleLabel.text = NSLocalizedString(@"Weight", nil);
         self.recordValueLabel.text = [valueFormatter stringFromNumber:[reading value]];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryBloodBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Weight_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Weight_filled"];
         
         if(![IMHelper isBGLevelSafe:[[reading value] doubleValue]]) {
             self.recordValueLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
@@ -120,20 +120,20 @@
         IMMedicine *medicine = (IMMedicine *)object;
         self.recordValueLabel.text = [valueFormatter stringFromNumber:[medicine amount]];
         self.recordValueLabel.textColor = [UIColor colorWithRed:163.0f/255.0f green:174.0f/255.0f blue:170.0f/255.0f alpha:1.0f];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryMedicineBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryMedicineBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Pill_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Pill_filled"];
         self.recordTitleLabel.text = [NSString stringWithFormat:@"%@ (%@)", [medicine name], [[IMEventController sharedInstance] medicineTypeHR:[[medicine type] integerValue]]];
     } else if([object isKindOfClass:[IMActivity class]]) {
         IMActivity *activity = (IMActivity *)object;
         self.recordTitleLabel.text = [activity name];
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryActivityBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryActivityBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Activity_filled"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Activity_filled"];
         self.recordValueLabel.text = [IMHelper formatMinutes:[[activity minutes] doubleValue]];
         self.recordValueLabel.textColor = [UIColor colorWithRed:163.0f/255.0f green:174.0f/255.0f blue:170.0f/255.0f alpha:1.0f];
     } else if([object isKindOfClass:[IMNote class]]) {
         IMNote *note = (IMNote *)object;
-        self.recordImageView.image = [UIImage imageNamed:@"AddEntryNoteBubble"];
-        self.recordImageView.highlightedImage = [UIImage imageNamed:@"AddEntryNoteBubble"];
+        self.recordImageView.image = [UIImage imageNamed:@"Note"];
+        self.recordImageView.highlightedImage = [UIImage imageNamed:@"Note"];
         self.recordTitleLabel.text = [note name];
     }
     

@@ -188,36 +188,36 @@
     cell.detailTextLabel.text = nil;
     if(indexPath.row == 0) {
         cell.textLabel.text = NSLocalizedString(@"Home", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"home"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"home"];
     } else if(indexPath.row == 1) {
         cell.textLabel.text = NSLocalizedString(@"Reports", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconJournal"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconJournalHighlighted"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"report"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"report"];
     } else if(indexPath.row == 2) {
         cell.textLabel.text = NSLocalizedString(@"Reminders", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconReminders"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconRemindersHighlighted"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"reminder"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"reminder"];
     } else if(indexPath.row == 3) {
         cell.textLabel.text = NSLocalizedString(@"Analytics", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"JournalIconDeviation"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"JournalIconDeviation"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"analytics"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"analytics"];
     } else if(indexPath.row == 4) {
         cell.textLabel.text = NSLocalizedString(@"Tags", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconTags"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconTagsHighlighted"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"tags"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"tags"];
     } else if(indexPath.row == 5) {
         cell.textLabel.text = NSLocalizedString(@"Profiles", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"icn_male"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"icn_male"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"profile"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"profile"];
     } else if(indexPath.row == 6) {
         cell.textLabel.text = NSLocalizedString(@"Export", @"Menu item to take users to the export screen");
-        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconExport"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconExportHighlighted"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"export"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"export"];
     } else if(indexPath.row == 7) {
         cell.textLabel.text = NSLocalizedString(@"Settings", nil);
-        cell.accessoryIcon.image = [UIImage imageNamed:@"ListMenuIconSettings"];
-        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"ListMenuIconSettingsHighlighted"];
+        cell.accessoryIcon.image = [UIImage imageNamed:@"settings"];
+        cell.accessoryIcon.highlightedImage = [UIImage imageNamed:@"settings"];
     }
     
     return cell;

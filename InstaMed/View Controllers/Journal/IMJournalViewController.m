@@ -104,9 +104,9 @@
     
     todayButton = [[IMShortcutButton alloc] initWithFrame:CGRectZero];
     [todayButton setTitle:[NSLocalizedString(@"Today", nil) uppercaseString] forState:UIControlStateNormal];
-    [todayButton setImage:[UIImage imageNamed:@"JournalShortcutToday"] forState:UIControlStateNormal];
-    [todayButton setImage:[UIImage imageNamed:@"JournalShortcutTodaySelected"] forState:UIControlStateHighlighted];
-    [todayButton setImage:[UIImage imageNamed:@"JournalShortcutTodaySelected"] forState:(UIControlStateHighlighted|UIControlStateSelected)];
+    [todayButton setImage:[UIImage imageNamed:@"today"] forState:UIControlStateNormal];
+    [todayButton setImage:[UIImage imageNamed:@"today"] forState:UIControlStateHighlighted];
+    [todayButton setImage:[UIImage imageNamed:@"today"] forState:(UIControlStateHighlighted|UIControlStateSelected)];
     [todayButton setExclusiveTouch:YES];
     [todayButton setTag:0];
     [todayButton addTarget:self action:@selector(showRelativeTimeline:) forControlEvents:UIControlEventTouchUpInside];
@@ -114,9 +114,9 @@
     
     sevenDayButton = [[IMShortcutButton alloc] initWithFrame:CGRectZero];
     [sevenDayButton setTitle:[NSLocalizedString(@"Past 7 Days", nil) uppercaseString] forState:UIControlStateNormal];
-    [sevenDayButton setImage:[UIImage imageNamed:@"JournalShortcut7Days"] forState:UIControlStateNormal];
-    [sevenDayButton setImage:[UIImage imageNamed:@"JournalShortcut7DaysSelected"] forState:UIControlStateHighlighted];
-    [sevenDayButton setImage:[UIImage imageNamed:@"JournalShortcut7DaysSelected"] forState:(UIControlStateHighlighted|UIControlStateSelected)];
+    [sevenDayButton setImage:[UIImage imageNamed:@"last7days"] forState:UIControlStateNormal];
+    [sevenDayButton setImage:[UIImage imageNamed:@"last7days"] forState:UIControlStateHighlighted];
+    [sevenDayButton setImage:[UIImage imageNamed:@"last7days"] forState:(UIControlStateHighlighted|UIControlStateSelected)];
     [sevenDayButton setExclusiveTouch:YES];
     [sevenDayButton setTag:7];
     [sevenDayButton addTarget:self action:@selector(showRelativeTimeline:) forControlEvents:UIControlEventTouchUpInside];
@@ -124,9 +124,9 @@
     
     fourteenDayButton = [[IMShortcutButton alloc] initWithFrame:CGRectZero];
     [fourteenDayButton setTitle:[NSLocalizedString(@"Past 14 days", nil) uppercaseString] forState:UIControlStateNormal];
-    [fourteenDayButton setImage:[UIImage imageNamed:@"JournalShortcut14Days"] forState:UIControlStateNormal];
-    [fourteenDayButton setImage:[UIImage imageNamed:@"JournalShortcut14DaysSelected"] forState:UIControlStateHighlighted];
-    [fourteenDayButton setImage:[UIImage imageNamed:@"JournalShortcut14DaysSelected"] forState:(UIControlStateHighlighted|UIControlStateSelected)];
+    [fourteenDayButton setImage:[UIImage imageNamed:@"last14days"] forState:UIControlStateNormal];
+    [fourteenDayButton setImage:[UIImage imageNamed:@"last14days"] forState:UIControlStateHighlighted];
+    [fourteenDayButton setImage:[UIImage imageNamed:@"last14days"] forState:(UIControlStateHighlighted|UIControlStateSelected)];
     [fourteenDayButton setExclusiveTouch:YES];
     [fourteenDayButton setTag:14];
     [fourteenDayButton addTarget:self action:@selector(showRelativeTimeline:) forControlEvents:UIControlEventTouchUpInside];
@@ -280,10 +280,10 @@
             height += 56.0f;
         }
         if ([IMHelper includeCholesterolReadings]) {
-            height += 112.0f;
+            height += 56.0f;
         }
         if ([IMHelper includeGlucoseReadings]) {
-            height += 112.0f;
+            height += 56.0f;
         }
         return height;
     }
@@ -322,12 +322,12 @@
         NSInteger totalMinutes = [[stats objectForKey:kTotalMinutesKey] integerValue];
         
         double bgReadingsAvg = [[stats valueForKey:kBGReadingsAverageKey] doubleValue];
-        double bgReadingsDeviation = [[stats valueForKey:kBGReadingsDeviationKey] doubleValue];
+        //double bgReadingsDeviation = [[stats valueForKey:kBGReadingsDeviationKey] doubleValue];
         double lowGlucose = [[stats valueForKey:kBGReadingLowestKey] doubleValue];
         double highGlucose = [[stats valueForKey:kBGReadingHighestKey] doubleValue];
         
         double chReadingsAvg = [[stats valueForKey:kChReadingsAverageKey] doubleValue];
-        double chReadingsDeviation = [[stats valueForKey:kChReadingsDeviationKey] doubleValue];
+        //double chReadingsDeviation = [[stats valueForKey:kChReadingsDeviationKey] doubleValue];
         double lowCholesterol = [[stats valueForKey:kChReadingLowestKey] doubleValue];
         double highCholesterol = [[stats valueForKey:kChReadingHighestKey] doubleValue];
         
@@ -340,10 +340,10 @@
         if ([IMHelper includeGlucoseReadings]) {
             if(totalBGReadings) {
                 [cell setAverageGlucoseValue:[NSNumber numberWithDouble:bgReadingsAvg] withFormatter:glucoseFormatter];
-                [cell setBGDeviationValue:[NSNumber numberWithDouble:bgReadingsDeviation] withFormatter:glucoseFormatter];
+                //[cell setBGDeviationValue:[NSNumber numberWithDouble:bgReadingsDeviation] withFormatter:glucoseFormatter];
             } else {
                 [cell setAverageGlucoseValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
-                [cell setBGDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
+                //[cell setBGDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:glucoseFormatter];
             }
             [cell setLowGlucoseValue:[NSNumber numberWithDouble:lowGlucose] withFormatter:glucoseFormatter];
             [cell setHighGlucoseValue:[NSNumber numberWithDouble:highGlucose] withFormatter:glucoseFormatter];
@@ -352,10 +352,10 @@
         if ([IMHelper includeCholesterolReadings]) {
             if(totalChReadings) {
                 [cell setAverageCholesterolValue:[NSNumber numberWithDouble:chReadingsAvg] withFormatter:cholesterolFormatter];
-                [cell setChDeviationValue:[NSNumber numberWithDouble:chReadingsDeviation] withFormatter:cholesterolFormatter];
+                //[cell setChDeviationValue:[NSNumber numberWithDouble:chReadingsDeviation] withFormatter:cholesterolFormatter];
             } else {
                 [cell setAverageCholesterolValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
-                [cell setChDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
+                //[cell setChDeviationValue:[NSNumber numberWithDouble:0.0] withFormatter:cholesterolFormatter];
             }
             [cell setLowCholesterolValue:[NSNumber numberWithDouble:lowCholesterol] withFormatter:cholesterolFormatter];
             [cell setHighCholesterolValue:[NSNumber numberWithDouble:highCholesterol] withFormatter:cholesterolFormatter];
@@ -364,11 +364,13 @@
         if ([IMHelper includeBPReadings]) {
             [cell setLowBPValue:[NSNumber numberWithUnsignedInt:lowBP] withFormatter:valueFormatter];
             [cell setHighBPValue:[NSNumber numberWithUnsignedInt:highBP] withFormatter:valueFormatter];
+            [cell setBPState:(lowBP || highBP)];
         }
         
         if ([IMHelper includeWeightReadings]) {
             [cell setLowWeightValue:[NSNumber numberWithDouble:lowWeight] withFormatter:valueFormatter];
             [cell setHighWeightValue:[NSNumber numberWithDouble:highWeight] withFormatter:valueFormatter];
+            [cell setWeightState:(lowWeight > 0 || highWeight > 0)];
         }
         
         [cell setMealValue:[NSNumber numberWithDouble:totalGrams] withFormatter:valueFormatter];

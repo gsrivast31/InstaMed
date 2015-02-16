@@ -158,7 +158,11 @@
     searchController.dimsBackgroundDuringPresentation = NO;
     searchController.delegate = self;
     searchController.searchBar.delegate = self;
-    
+    searchController.searchBar.barTintColor = [UIColor whiteColor];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil]
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:0/255.0 green:213/255.0 blue:161/255.0 alpha:1], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+
+
     self.definesPresentationContext = YES;
     
     NSError *error = nil;
@@ -563,6 +567,8 @@
                                                           cancelButtonTitle:NSLocalizedString(@"Okay", nil)
                                                           otherButtonTitles:nil];
                 [alertView show];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kEntryAddUpdateNotification object:nil];
             }
         }
     }

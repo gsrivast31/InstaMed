@@ -175,7 +175,7 @@ static NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
 #pragma mark - JBLineChartViewDataSource
 
 - (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView {
-    return 2;
+    return [[chartData objectForKey:@"data"] count] > 0 ? 2 : 0;
 }
 
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex {

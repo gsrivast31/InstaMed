@@ -19,21 +19,21 @@
 - (void) configureCellForEventType:(enum IMEventType)eventType eventName:(NSString*)name{
     UIImage* image = nil;
     if (eventType == IMMedicineType) {
-        image = [UIImage imageNamed:@"AddEntryMedicineBubble"];
+        image = [UIImage imageNamed:@"Pill_filled"];
     } else if (eventType == IMBGReadingType) {
-        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        image = [UIImage imageNamed:@"Diabetes_filled"];
     } else if (eventType == IMBPReadingType) {
-        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        image = [UIImage imageNamed:@"BP_filled"];
     } else if (eventType == IMCholesterolType) {
-        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        image = [UIImage imageNamed:@"Cholesterol_filled"];
     } else if (eventType == IMWeightType) {
-        image = [UIImage imageNamed:@"AddEntryBloodBubble"];
+        image = [UIImage imageNamed:@"Weight_filled"];
     } else if (eventType == IMFoodType) {
-        image = [UIImage imageNamed:@"AddEntryMealBubble"];
+        image = [UIImage imageNamed:@"Food_filled"];
     } else if (eventType == IMActivityType) {
-        image = [UIImage imageNamed:@"AddEntryActivityBubble"];
+        image = [UIImage imageNamed:@"Activity_filled"];
     } else if (eventType == IMNoteType) {
-        image = [UIImage imageNamed:@"AddEntryNoteBubble"];
+        image = [UIImage imageNamed:@"Note"];
     }
     self.entryNameLabel.text = name;
     self.entryImageView.image = image;

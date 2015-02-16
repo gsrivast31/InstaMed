@@ -314,6 +314,7 @@
     if(!error) {
         [self discardChanges];
         [self dismissSelf];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kEntryAddUpdateNotification object:nil];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Uh oh!", nil)
                                                             message:[NSString stringWithFormat:NSLocalizedString(@"There was an error while trying to delete this event: %@", nil), [error localizedDescription]]

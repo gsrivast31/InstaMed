@@ -19,7 +19,6 @@
 // UI
 - (void)performExport:(id)sender;
 - (OrderedDictionary *)fetchEvents;
-- (void)showTips;
 
 // Export
 - (NSData *)generateCSVData;
