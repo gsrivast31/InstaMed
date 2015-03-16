@@ -35,7 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Initialise Appirater
-    [UAAppReviewManager setAppID:@"634983291"];
+    [UAAppReviewManager setAppID:@"958303692"];
     [UAAppReviewManager setDaysUntilPrompt:2];
     [UAAppReviewManager setUsesUntilPrompt:5];
     [UAAppReviewManager setSignificantEventsUntilPrompt:-1];
