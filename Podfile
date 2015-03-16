@@ -2,7 +2,7 @@ platform :ios, '7.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'InstaMed' do
+target 'HealthMemoir' do
 
 pod 'TPKeyboardAvoiding', '~> 1.2.2'
 pod 'REFrostedViewController', '~> 2.4.2'
@@ -20,7 +20,7 @@ pod 'RETableViewManager', '~> 1.5.14'
 
 end
 
-target 'InstaMedTests' do
+target 'HealthMemoirTests' do
 
 end
 

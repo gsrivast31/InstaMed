@@ -1,6 +1,6 @@
 //
-//  InstaMedTests.m
-//  InstaMedTests
+//  HealthMemoirTests.m
+//  HealthMemoirTests
 //
 //  Created by GAURAV SRIVASTAVA on 12/12/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface InstaMedTests : XCTestCase
+@interface HealthMemoir : XCTestCase
 
 @end
 
-@implementation InstaMedTests
+@implementation HealthMemoir
 
 - (void)setUp {
     [super setUp];
