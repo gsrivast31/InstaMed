@@ -63,7 +63,7 @@
 }
 
 - (UIImage *)navigationBarBackgroundImage {
-    return [UIImage imageNamed:@"ReadingNavBarBG"];
+    return [UIImage imageNamed:@"WeightNavBarBG"];
 }
 
 - (UIColor *)tintColor {

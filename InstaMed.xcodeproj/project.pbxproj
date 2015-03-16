@@ -1008,9 +1008,9 @@
 			isa = PBXGroup;
 			children = (
 				F49A28CE1A3F0D1E006F9E34 /* Cells */,
+				F49A28D31A3F0D1E006F9E34 /* UI */,
 				F49A28D11A3F0D1E006F9E34 /* IMJournalViewController.h */,
 				F49A28D21A3F0D1E006F9E34 /* IMJournalViewController.m */,
-				F49A28D31A3F0D1E006F9E34 /* UI */,
 			);
 			path = Journal;
 			sourceTree = "<group>";

@@ -548,7 +548,7 @@
 - (void)setAverageGlucoseValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
     if([value doubleValue] > 0) {
         glucoseImageView.image = [UIImage imageNamed:@"Diabetes"];
-        glucoseLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
+        glucoseLabel.textColor = [UIColor colorWithRed:206.0f/255.0f green:0.0f/255.0f blue:14.0f/255.0f alpha:1.0f];
         glucoseLabel.text = [valueFormatter stringFromNumber:value];
         glucoseDetailLabel.textColor = [UIColor colorWithRed:157.0f/255.0f green:163.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
     } else {
@@ -601,12 +601,11 @@
 - (void)setAverageCholesterolValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
     if([value doubleValue] > 0) {
         cholesterolImageView.image = [UIImage imageNamed:@"Cholesterol"];
-        cholesterolLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:79.0f/255.0f blue:96.0f/255.0f alpha:1.0f];
+        cholesterolLabel.textColor = [UIColor colorWithRed:206.0f/255.0f green:0.0f/255.0f blue:14.0f/255.0f alpha:1.0f];
         cholesterolLabel.text = [valueFormatter stringFromNumber:value];
         cholesterolDetailLabel.textColor = [UIColor colorWithRed:157.0f/255.0f green:163.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
     } else {
         cholesterolImageView.image = [UIImage imageNamed:@"Cholesterol_inactive"];
-        cholesterolLabel.textColor = [UIColor colorWithRed:157.0f/255.0f green:163.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         cholesterolLabel.text = [valueFormatter stringFromNumber:[NSNumber numberWithDouble:0.0]];
         cholesterolLabel.textColor = [UIColor colorWithRed:223.0f/255.0f green:225.0f/255.0f blue:224.0f/255.0f alpha:1.0f];
         cholesterolDetailLabel.textColor = [UIColor colorWithRed:223.0f/255.0f green:225.0f/255.0f blue:224.0f/255.0f alpha:1.0f];
@@ -675,9 +674,9 @@
 
 - (void)setWeightState:(BOOL)state {
     if (state) {
-        bpImageView.image = [UIImage imageNamed:@"Weight"];
+        weightImageView.image = [UIImage imageNamed:@"Weight"];
     } else {
-        bpImageView.image = [UIImage imageNamed:@"Weight_inactive"];
+        weightImageView.image = [UIImage imageNamed:@"Weight_inactive"];
     }
 }
 
@@ -712,7 +711,7 @@
 - (void)setActivityValue:(NSInteger)value {
     if(value > 0) {
         activityImageView.image = [UIImage imageNamed:@"Activity"];
-        activityLabel.textColor = [UIColor colorWithRed:113.0f/255.0f green:185.0f/255.0f blue:240.0f/255.0f alpha:1.0f];
+        activityLabel.textColor = [UIColor colorWithRed:45.0f/255.0f green:206.0f/255.0f blue:118.0f/255.0f alpha:1.0f];
         activityDetailLabel.textColor = [UIColor colorWithRed:157.0f/255.0f green:163.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         activityLabel.text = [IMHelper formatMinutes:value];
     } else {
@@ -727,7 +726,7 @@
 - (void)setMealValue:(NSNumber *)value withFormatter:(NSNumberFormatter *)valueFormatter {
     if([value doubleValue] > 0) {
         mealImageView.image = [UIImage imageNamed:@"Food"];
-        mealLabel.textColor = [UIColor colorWithRed:254.0f/255.0f green:196.0f/255.0f blue:89.0f/255.0f alpha:1.0f];
+        mealLabel.textColor = [UIColor colorWithRed:245.0f/255.0f green:202.0f/255.0f blue:49.0f/255.0f alpha:1.0f];
         mealDetailLabel.textColor = [UIColor colorWithRed:157.0f/255.0f green:163.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         mealLabel.text = [valueFormatter stringFromNumber:value];
     } else {

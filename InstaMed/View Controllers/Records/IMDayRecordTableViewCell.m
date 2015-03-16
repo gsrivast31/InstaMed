@@ -135,6 +135,7 @@
         self.recordImageView.image = [UIImage imageNamed:@"Note"];
         self.recordImageView.highlightedImage = [UIImage imageNamed:@"Note"];
         self.recordTitleLabel.text = [note name];
+        self.recordValueLabel.text = @"";
     }
     
     NSDateFormatter *formatter = [IMHelper hhmmTimeFormatter];
