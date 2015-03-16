@@ -1,6 +1,6 @@
 //
 //  IMEventLocationMapView.h
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 03/08/2014.
 //  Copyright (c) 2014 UglyApps. All rights reserved.

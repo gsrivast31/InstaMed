@@ -1,6 +1,6 @@
 //
 //  IMIntroViewController.m
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 04/01/15.
 //  Copyright (c) 2015 GAURAV SRIVASTAVA. All rights reserved.
@@ -32,13 +32,13 @@
     
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"Journal";
-    page1.desc = @"InstaMed is a new kind of diabetic journal that lets you track your blood glucose, medication, food and personal activities.\n\nTo learn more swipe your finger to the left.";
+    page1.desc = @"HealthMemoir is a new kind of diabetic journal that lets you track your blood glucose, medication, food and personal activities.\n\nTo learn more swipe your finger to the left.";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
     page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
     
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"Export";
-    page2.desc = @"InstaMed is capable of exporting your data in CSV or PDF format.\n\nPerfect for importing into other software or for printing to show your health care provider!";
+    page2.desc = @"HealthMemoir is capable of exporting your data in CSV or PDF format.\n\nPerfect for importing into other software or for printing to show your health care provider!";
     page2.bgImage = [UIImage imageNamed:@"bg2"];
     page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
     
@@ -116,6 +116,7 @@
     entry.trackingHyperTension = [loginView.hyperTensionSwitch isOn];
     entry.trackingCholesterol = [loginView.cholesterolSwitch isOn];
     entry.trackingWeight = [loginView.weightSwitch isOn];
+    entry.profilePhoto = UIImageJPEGRepresentation([UIImage imageNamed:@"icn_male"], 0.75);
     
     [coreDataStack saveContext];
     

@@ -1,6 +1,6 @@
 //
 //  IMAppDelegate.m
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 12/12/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
@@ -40,7 +40,7 @@
     [UAAppReviewManager setUsesUntilPrompt:5];
     [UAAppReviewManager setSignificantEventsUntilPrompt:-1];
     [UAAppReviewManager setDaysBeforeReminding:3];
-    [UAAppReviewManager setReviewMessage:NSLocalizedString(@"If you find InstaMed useful you can help support further development by leaving a review on the App Store. It'll only take a minute!", nil)];
+    [UAAppReviewManager setReviewMessage:NSLocalizedString(@"If you find HealthMemoir useful you can help support further development by leaving a review on the App Store. It'll only take a minute!", nil)];
     
     // Is this a first run experience?
     if(![[NSUserDefaults standardUserDefaults] boolForKey:kHasRunBeforeKey]) {

@@ -1,6 +1,6 @@
 //
 //  IMReminderController.h
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 03/03/2014.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.

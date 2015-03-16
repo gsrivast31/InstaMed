@@ -1,6 +1,6 @@
 //
 //  IMEventPhotoImageView.m
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 04/08/2014.
 //  Copyright (c) 2014 UglyApps. All rights reserved.

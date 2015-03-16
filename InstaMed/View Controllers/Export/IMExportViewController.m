@@ -1,6 +1,6 @@
 //
 //  IMExportViewController.m
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 01/04/2014.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
@@ -148,7 +148,7 @@
             }
             [actionSheet showInView:self.view];*/
             NSString *date = [longDateFormatter stringFromDate:[NSDate date]];
-            NSString* message = [NSString stringWithFormat:NSLocalizedString(@"InstaMed Export - %@", nil), date];
+            NSString* message = [NSString stringWithFormat:NSLocalizedString(@"HealthMemoir Export - %@", nil), date];
             
             NSMutableArray* objectsToShare = [[NSMutableArray alloc] init];
             [objectsToShare addObject:message];
@@ -211,10 +211,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
-                NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Here's your InstaMed data export, generated on %@.", nil), date];
+                NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Here's your HealthMemoir data export, generated on %@.", nil), date];
                 MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
                 controller.mailComposeDelegate = self;
-                [controller setSubject:[NSString stringWithFormat:NSLocalizedString(@"InstaMed Export - %@", nil), date]];
+                [controller setSubject:[NSString stringWithFormat:NSLocalizedString(@"HealthMemoir Export - %@", nil), date]];
                 [controller setMessageBody:message isHTML:NO];
                 if(exportCSV) {
                     [controller addAttachmentData:csvData mimeType:@"text/csv" fileName:[NSString stringWithFormat:@"%@ Export.csv", date]];
@@ -237,7 +237,7 @@
             
             UIPrintInfo *printInfo = [UIPrintInfo printInfo];
             printInfo.outputType = UIPrintInfoOutputGeneral;
-            printInfo.jobName = @"InstaMed Export";
+            printInfo.jobName = @"HealthMemoir Export";
             printInfo.duplex = UIPrintInfoDuplexLongEdge;
             printController.printInfo = printInfo;
             printController.showsPageRange = YES;
@@ -481,7 +481,7 @@
                         alignment:NSTextAlignmentRight
                     lineBreakMode:NSLineBreakByClipping];
             
-            [pdfDocument drawText:NSLocalizedString(@"InstaMed", nil) atPosition:pdfDocument.contentFrame.origin withFont:[IMFont standardBoldFontWithSize:20.0f]];
+            [pdfDocument drawText:NSLocalizedString(@"HealthMemoir", nil) atPosition:pdfDocument.contentFrame.origin withFont:[IMFont standardBoldFontWithSize:20.0f]];
             
             [pdfDocument drawText:NSLocalizedString(@"Your Record", nil) atPosition:CGPointMake(pdfDocument.contentFrame.origin.x, pdfDocument.currentY + 30.0f) withFont:[IMFont standardDemiBoldFontWithSize:16.0f]];
             

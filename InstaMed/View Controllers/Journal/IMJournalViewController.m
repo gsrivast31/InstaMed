@@ -1,6 +1,6 @@
 //
 //  IMJournalViewController.m
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by GAURAV SRIVASTAVA on 30/12/2014.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
@@ -46,7 +46,7 @@
     if (self) {
         __weak typeof(self) weakSelf = self;
         
-        self.title = NSLocalizedString(@"InstaMed", @"The title for the applications index screen - which is a physical journal");
+        self.title = NSLocalizedString(@APP_NAME, @"The title for the applications index screen - which is a physical journal");
         
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"MMMM yyyy"];

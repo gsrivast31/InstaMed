@@ -1,6 +1,6 @@
 //
 //  IMReportImageCell.h
-//  InstaMed
+//  HealthMemoir
 //
 //  Created by Ranjeet on 3/16/15.
 //  Copyright (c) 2015 GAURAV SRIVASTAVA. All rights reserved.

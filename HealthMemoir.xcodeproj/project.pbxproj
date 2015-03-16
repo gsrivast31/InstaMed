@@ -207,7 +207,7 @@
 		3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaMed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B3341494593136D1072CB5 /* Pods-InstaMed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.debug.xcconfig"; sourceTree = "<group>"; };
 		B7DC54FB41B2417BB2AA62A7 /* Pods-InstaMed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.release.xcconfig"; sourceTree = "<group>"; };
-		F4104ABD1A3AF8B400EF8193 /* InstaMed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaMed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4104ABD1A3AF8B400EF8193 /* HealthMemoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthMemoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4104AC11A3AF8B400EF8193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4104AC21A3AF8B500EF8193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4104AC41A3AF8B500EF8193 /* IMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMAppDelegate.h; sourceTree = "<group>"; };
@@ -215,10 +215,10 @@
 		F4104ACE1A3AF8B500EF8193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4104AD01A3AF8B500EF8193 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F4104AD31A3AF8B500EF8193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F4104AD91A3AF8B500EF8193 /* InstaMedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaMedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4104AD91A3AF8B500EF8193 /* HealthMemoirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthMemoirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4104ADE1A3AF8B500EF8193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4104ADF1A3AF8B500EF8193 /* InstaMedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaMedTests.m; sourceTree = "<group>"; };
-		F4104AED1A3BF68000EF8193 /* InstaMed_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstaMed_Prefix.pch; sourceTree = "<group>"; };
+		F4104AED1A3BF68000EF8193 /* HealthMemoir_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthMemoir_Prefix.pch; sourceTree = "<group>"; };
 		F41268451A42D435000E52E9 /* IMDayRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMDayRecordTableViewCell.h; path = Records/IMDayRecordTableViewCell.h; sourceTree = "<group>"; };
 		F41268461A42D435000E52E9 /* IMDayRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMDayRecordTableViewCell.m; path = Records/IMDayRecordTableViewCell.m; sourceTree = "<group>"; };
 		F41268491A42D463000E52E9 /* IMDayRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMDayRecordTableViewController.h; path = Records/IMDayRecordTableViewController.h; sourceTree = "<group>"; };
@@ -599,8 +599,8 @@
 		F4104ABE1A3AF8B400EF8193 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4104ABD1A3AF8B400EF8193 /* InstaMed.app */,
-				F4104AD91A3AF8B500EF8193 /* InstaMedTests.xctest */,
+				F4104ABD1A3AF8B400EF8193 /* HealthMemoir.app */,
+				F4104AD91A3AF8B500EF8193 /* HealthMemoirTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -624,7 +624,7 @@
 				F4104AD21A3AF8B500EF8193 /* LaunchScreen.xib */,
 				F435C46B1A59829500D76913 /* LoginView.xib */,
 				F4104AC01A3AF8B400EF8193 /* Supporting Files */,
-				F4104AED1A3BF68000EF8193 /* InstaMed_Prefix.pch */,
+				F4104AED1A3BF68000EF8193 /* HealthMemoir_Prefix.pch */,
 				F41268E91A47FAFD000E52E9 /* IMRootViewController.h */,
 				F41268EA1A47FAFD000E52E9 /* IMRootViewController.m */,
 				F435C4681A5979BD00D76913 /* IMIntroViewController.h */,
@@ -1362,9 +1362,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F4104ABC1A3AF8B400EF8193 /* InstaMed */ = {
+		F4104ABC1A3AF8B400EF8193 /* HealthMemoir */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4104AE31A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "InstaMed" */;
+			buildConfigurationList = F4104AE31A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "HealthMemoir" */;
 			buildPhases = (
 				14DDD61558E950197C59BBF2 /* Check Pods Manifest.lock */,
 				F4104AB91A3AF8B400EF8193 /* Sources */,
@@ -1376,14 +1376,14 @@
 			);
 			dependencies = (
 			);
-			name = InstaMed;
+			name = HealthMemoir;
 			productName = InstaMed;
-			productReference = F4104ABD1A3AF8B400EF8193 /* InstaMed.app */;
+			productReference = F4104ABD1A3AF8B400EF8193 /* HealthMemoir.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F4104AD81A3AF8B500EF8193 /* InstaMedTests */ = {
+		F4104AD81A3AF8B500EF8193 /* HealthMemoirTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4104AE61A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "InstaMedTests" */;
+			buildConfigurationList = F4104AE61A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "HealthMemoirTests" */;
 			buildPhases = (
 				F4104AD51A3AF8B500EF8193 /* Sources */,
 				F4104AD61A3AF8B500EF8193 /* Frameworks */,
@@ -1394,9 +1394,9 @@
 			dependencies = (
 				F4104ADB1A3AF8B500EF8193 /* PBXTargetDependency */,
 			);
-			name = InstaMedTests;
+			name = HealthMemoirTests;
 			productName = InstaMedTests;
-			productReference = F4104AD91A3AF8B500EF8193 /* InstaMedTests.xctest */;
+			productReference = F4104AD91A3AF8B500EF8193 /* HealthMemoirTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1417,7 +1417,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F4104AB81A3AF8B400EF8193 /* Build configuration list for PBXProject "InstaMed" */;
+			buildConfigurationList = F4104AB81A3AF8B400EF8193 /* Build configuration list for PBXProject "HealthMemoir" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1430,8 +1430,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4104ABC1A3AF8B400EF8193 /* InstaMed */,
-				F4104AD81A3AF8B500EF8193 /* InstaMedTests */,
+				F4104ABC1A3AF8B400EF8193 /* HealthMemoir */,
+				F4104AD81A3AF8B500EF8193 /* HealthMemoirTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1668,7 +1668,7 @@
 /* Begin PBXTargetDependency section */
 		F4104ADB1A3AF8B500EF8193 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F4104ABC1A3AF8B400EF8193 /* InstaMed */;
+			target = F4104ABC1A3AF8B400EF8193 /* HealthMemoir */;
 			targetProxy = F4104ADA1A3AF8B500EF8193 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1779,12 +1779,12 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = InstaMed/InstaMed_Prefix.pch;
+				GCC_PREFIX_HEADER = InstaMed/HealthMemoir_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoir;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1799,12 +1799,12 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = InstaMed/InstaMed_Prefix.pch;
+				GCC_PREFIX_HEADER = InstaMed/HealthMemoir_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoir;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1823,7 +1823,7 @@
 				);
 				INFOPLIST_FILE = InstaMedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoirTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaMed.app/InstaMed";
 			};
 			name = Debug;
@@ -1838,7 +1838,7 @@
 				);
 				INFOPLIST_FILE = InstaMedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoirTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaMed.app/InstaMed";
 			};
 			name = Release;
@@ -1846,7 +1846,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F4104AB81A3AF8B400EF8193 /* Build configuration list for PBXProject "InstaMed" */ = {
+		F4104AB81A3AF8B400EF8193 /* Build configuration list for PBXProject "HealthMemoir" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4104AE11A3AF8B500EF8193 /* Debug */,
@@ -1855,7 +1855,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4104AE31A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "InstaMed" */ = {
+		F4104AE31A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "HealthMemoir" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4104AE41A3AF8B500EF8193 /* Debug */,
@@ -1864,7 +1864,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4104AE61A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "InstaMedTests" */ = {
+		F4104AE61A3AF8B500EF8193 /* Build configuration list for PBXNativeTarget "HealthMemoirTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4104AE71A3AF8B500EF8193 /* Debug */,
