@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DB2008D1AB6C162000C2459 /* IMUserAddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2008C1AB6C162000C2459 /* IMUserAddEditViewController.m */; };
+		2DB200901AB6F80E000C2459 /* IMReportAddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2008F1AB6F80E000C2459 /* IMReportAddEditViewController.m */; };
+		2DB200941AB6FAB1000C2459 /* KRLCollectionViewGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB200931AB6FAB1000C2459 /* KRLCollectionViewGridLayout.m */; };
+		2DB200A31AB6FAF2000C2459 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB200981AB6FAF2000C2459 /* JTSAnimatedGIFUtility.m */; };
+		2DB200A41AB6FAF2000C2459 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2009A1AB6FAF2000C2459 /* JTSImageInfo.m */; };
+		2DB200A51AB6FAF2000C2459 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2009C1AB6FAF2000C2459 /* JTSImageViewController.m */; };
+		2DB200A61AB6FAF2000C2459 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2009E1AB6FAF2000C2459 /* JTSSimpleImageDownloader.m */; };
+		2DB200A71AB6FAF2000C2459 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB200A01AB6FAF2000C2459 /* UIApplication+JTSImageViewController.m */; };
+		2DB200A81AB6FAF2000C2459 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB200A21AB6FAF2000C2459 /* UIImage+JTSImageEffects.m */; };
+		2DB200AB1AB6FB38000C2459 /* IMReportImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB200AA1AB6FB38000C2459 /* IMReportImageCell.m */; };
 		A24476876DA94410001238DE /* libPods-InstaMed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */; };
 		F4104AC31A3AF8B500EF8193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4104AC21A3AF8B500EF8193 /* main.m */; };
 		F4104AC61A3AF8B500EF8193 /* IMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4104AC51A3AF8B500EF8193 /* IMAppDelegate.m */; };
@@ -37,7 +47,6 @@
 		F41268A71A469ADE000E52E9 /* IMEntryBaseInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268A61A469ADE000E52E9 /* IMEntryBaseInputViewController.m */; };
 		F41268AF1A46E266000E52E9 /* IMUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268AA1A46E266000E52E9 /* IMUserCell.m */; };
 		F41268B01A46E266000E52E9 /* IMUsersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268AC1A46E266000E52E9 /* IMUsersListViewController.m */; };
-		F41268B11A46E266000E52E9 /* IMUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268AE1A46E266000E52E9 /* IMUserViewController.m */; };
 		F41268D31A46E343000E52E9 /* IMCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268B31A46E342000E52E9 /* IMCoreDataStack.m */; };
 		F41268D41A46E343000E52E9 /* InstaMed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41268B41A46E342000E52E9 /* InstaMed.xcdatamodeld */; };
 		F41268D51A46E343000E52E9 /* IMActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268B81A46E343000E52E9 /* IMActivity.m */; };
@@ -59,7 +68,6 @@
 		F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76121A40005E006F9547 /* IMReportTableViewController.m */; };
 		F41A76191A403636006F9547 /* IMReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76181A403636006F9547 /* IMReportViewController.m */; };
 		F41A761F1A405917006F9547 /* IMReportViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A761E1A405917006F9547 /* IMReportViewCell.m */; };
-		F41A76251A40697F006F9547 /* IMReportAddEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A76241A40697F006F9547 /* IMReportAddEditController.m */; };
 		F41A762B1A413C3A006F9547 /* IMReportImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41A762A1A413C3A006F9547 /* IMReportImageViewCell.m */; };
 		F435C44C1A503A7500D76913 /* IMAnalyticsDateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C44B1A503A7500D76913 /* IMAnalyticsDateTableViewController.m */; };
 		F435C44F1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F435C44E1A51E2C900D76913 /* IMAnalyticsCarbsChartViewController.m */; };
@@ -176,6 +184,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DB2008B1AB6C162000C2459 /* IMUserAddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserAddEditViewController.h; path = "View Controllers/Users/IMUserAddEditViewController.h"; sourceTree = "<group>"; };
+		2DB2008C1AB6C162000C2459 /* IMUserAddEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMUserAddEditViewController.m; path = "View Controllers/Users/IMUserAddEditViewController.m"; sourceTree = "<group>"; };
+		2DB2008E1AB6F80E000C2459 /* IMReportAddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportAddEditViewController.h; path = Reports/IMReportAddEditViewController.h; sourceTree = "<group>"; };
+		2DB2008F1AB6F80E000C2459 /* IMReportAddEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportAddEditViewController.m; path = Reports/IMReportAddEditViewController.m; sourceTree = "<group>"; };
+		2DB200921AB6FAB1000C2459 /* KRLCollectionViewGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRLCollectionViewGridLayout.h; sourceTree = "<group>"; };
+		2DB200931AB6FAB1000C2459 /* KRLCollectionViewGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRLCollectionViewGridLayout.m; sourceTree = "<group>"; };
+		2DB200971AB6FAF2000C2459 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		2DB200981AB6FAF2000C2459 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		2DB200991AB6FAF2000C2459 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		2DB2009A1AB6FAF2000C2459 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		2DB2009B1AB6FAF2000C2459 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		2DB2009C1AB6FAF2000C2459 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		2DB2009D1AB6FAF2000C2459 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		2DB2009E1AB6FAF2000C2459 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		2DB2009F1AB6FAF2000C2459 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		2DB200A01AB6FAF2000C2459 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		2DB200A11AB6FAF2000C2459 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		2DB200A21AB6FAF2000C2459 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		2DB200A91AB6FB38000C2459 /* IMReportImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportImageCell.h; path = Reports/IMReportImageCell.h; sourceTree = "<group>"; };
+		2DB200AA1AB6FB38000C2459 /* IMReportImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportImageCell.m; path = Reports/IMReportImageCell.m; sourceTree = "<group>"; };
 		3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaMed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B3341494593136D1072CB5 /* Pods-InstaMed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.debug.xcconfig"; sourceTree = "<group>"; };
 		B7DC54FB41B2417BB2AA62A7 /* Pods-InstaMed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,8 +270,6 @@
 		F41268AA1A46E266000E52E9 /* IMUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUserCell.m; sourceTree = "<group>"; };
 		F41268AB1A46E266000E52E9 /* IMUsersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUsersListViewController.h; path = "View Controllers/Users/IMUsersListViewController.h"; sourceTree = "<group>"; };
 		F41268AC1A46E266000E52E9 /* IMUsersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMUsersListViewController.m; path = "View Controllers/Users/IMUsersListViewController.m"; sourceTree = "<group>"; };
-		F41268AD1A46E266000E52E9 /* IMUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserViewController.h; path = "View Controllers/Users/IMUserViewController.h"; sourceTree = "<group>"; };
-		F41268AE1A46E266000E52E9 /* IMUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMUserViewController.m; path = "View Controllers/Users/IMUserViewController.m"; sourceTree = "<group>"; };
 		F41268B21A46E342000E52E9 /* IMCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMCoreDataStack.h; path = CoreData/IMCoreDataStack.h; sourceTree = "<group>"; };
 		F41268B31A46E342000E52E9 /* IMCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMCoreDataStack.m; path = CoreData/IMCoreDataStack.m; sourceTree = "<group>"; };
 		F41268B51A46E343000E52E9 /* InstaMed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaMed.xcdatamodel; sourceTree = "<group>"; };
@@ -285,8 +311,6 @@
 		F41A76181A403636006F9547 /* IMReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportViewController.m; path = Reports/IMReportViewController.m; sourceTree = "<group>"; };
 		F41A761D1A405917006F9547 /* IMReportViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportViewCell.h; path = Reports/IMReportViewCell.h; sourceTree = "<group>"; };
 		F41A761E1A405917006F9547 /* IMReportViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportViewCell.m; path = Reports/IMReportViewCell.m; sourceTree = "<group>"; };
-		F41A76231A40697F006F9547 /* IMReportAddEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportAddEditController.h; path = Reports/IMReportAddEditController.h; sourceTree = "<group>"; };
-		F41A76241A40697F006F9547 /* IMReportAddEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportAddEditController.m; path = Reports/IMReportAddEditController.m; sourceTree = "<group>"; };
 		F41A76291A413C3A006F9547 /* IMReportImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMReportImageViewCell.h; path = Reports/IMReportImageViewCell.h; sourceTree = "<group>"; };
 		F41A762A1A413C3A006F9547 /* IMReportImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMReportImageViewCell.m; path = Reports/IMReportImageViewCell.m; sourceTree = "<group>"; };
 		F435C44A1A503A7500D76913 /* IMAnalyticsDateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMAnalyticsDateTableViewController.h; path = Analytics/IMAnalyticsDateTableViewController.h; sourceTree = "<group>"; };
@@ -506,6 +530,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DB200911AB6FAB1000C2459 /* KRLCollectionViewGridLayout */ = {
+			isa = PBXGroup;
+			children = (
+				2DB200921AB6FAB1000C2459 /* KRLCollectionViewGridLayout.h */,
+				2DB200931AB6FAB1000C2459 /* KRLCollectionViewGridLayout.m */,
+			);
+			path = KRLCollectionViewGridLayout;
+			sourceTree = "<group>";
+		};
+		2DB200951AB6FAF2000C2459 /* JTSImageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DB200961AB6FAF2000C2459 /* Source */,
+			);
+			path = JTSImageViewController;
+			sourceTree = "<group>";
+		};
+		2DB200961AB6FAF2000C2459 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2DB200971AB6FAF2000C2459 /* JTSAnimatedGIFUtility.h */,
+				2DB200981AB6FAF2000C2459 /* JTSAnimatedGIFUtility.m */,
+				2DB200991AB6FAF2000C2459 /* JTSImageInfo.h */,
+				2DB2009A1AB6FAF2000C2459 /* JTSImageInfo.m */,
+				2DB2009B1AB6FAF2000C2459 /* JTSImageViewController.h */,
+				2DB2009C1AB6FAF2000C2459 /* JTSImageViewController.m */,
+				2DB2009D1AB6FAF2000C2459 /* JTSSimpleImageDownloader.h */,
+				2DB2009E1AB6FAF2000C2459 /* JTSSimpleImageDownloader.m */,
+				2DB2009F1AB6FAF2000C2459 /* UIApplication+JTSImageViewController.h */,
+				2DB200A01AB6FAF2000C2459 /* UIApplication+JTSImageViewController.m */,
+				2DB200A11AB6FAF2000C2459 /* UIImage+JTSImageEffects.h */,
+				2DB200A21AB6FAF2000C2459 /* UIImage+JTSImageEffects.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		734D86943D92F088B15A7F1C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,8 +910,8 @@
 				F41A76121A40005E006F9547 /* IMReportTableViewController.m */,
 				F41A76171A403636006F9547 /* IMReportViewController.h */,
 				F41A76181A403636006F9547 /* IMReportViewController.m */,
-				F41A76231A40697F006F9547 /* IMReportAddEditController.h */,
-				F41A76241A40697F006F9547 /* IMReportAddEditController.m */,
+				2DB2008E1AB6F80E000C2459 /* IMReportAddEditViewController.h */,
+				2DB2008F1AB6F80E000C2459 /* IMReportAddEditViewController.m */,
 			);
 			name = Reports;
 			sourceTree = "<group>";
@@ -865,6 +925,8 @@
 				F41A761E1A405917006F9547 /* IMReportViewCell.m */,
 				F41A76291A413C3A006F9547 /* IMReportImageViewCell.h */,
 				F41A762A1A413C3A006F9547 /* IMReportImageViewCell.m */,
+				2DB200A91AB6FB38000C2459 /* IMReportImageCell.h */,
+				2DB200AA1AB6FB38000C2459 /* IMReportImageCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -875,8 +937,8 @@
 				F41268A81A46E266000E52E9 /* Cells */,
 				F41268AB1A46E266000E52E9 /* IMUsersListViewController.h */,
 				F41268AC1A46E266000E52E9 /* IMUsersListViewController.m */,
-				F41268AD1A46E266000E52E9 /* IMUserViewController.h */,
-				F41268AE1A46E266000E52E9 /* IMUserViewController.m */,
+				2DB2008B1AB6C162000C2459 /* IMUserAddEditViewController.h */,
+				2DB2008C1AB6C162000C2459 /* IMUserAddEditViewController.m */,
 			);
 			name = Users;
 			path = ..;
@@ -1221,6 +1283,8 @@
 		F49A29FA1A3F0D90006F9E34 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				2DB200951AB6FAF2000C2459 /* JTSImageViewController */,
+				2DB200911AB6FAB1000C2459 /* KRLCollectionViewGridLayout */,
 				F49A2A011A3F0D90006F9E34 /* Licensing */,
 				F49A2A0A1A3F0D90006F9E34 /* OrderedDictionary */,
 				F49A2A0D1A3F0D90006F9E34 /* UIImage+Resize */,
@@ -1449,10 +1513,12 @@
 				F41268B01A46E266000E52E9 /* IMUsersListViewController.m in Sources */,
 				F49A296F1A3F0D1E006F9E34 /* IMJournalViewController.m in Sources */,
 				F49A29D91A3F0D82006F9E34 /* IMBadgeView.m in Sources */,
+				2DB200A81AB6FAF2000C2459 /* UIImage+JTSImageEffects.m in Sources */,
 				F41268D51A46E343000E52E9 /* IMActivity.m in Sources */,
 				F49A295F1A3F0D1E006F9E34 /* IMKeyboardShortcutButton.m in Sources */,
 				F41268DD1A46E343000E52E9 /* IMBGReading.m in Sources */,
 				F49A29DD1A3F0D82006F9E34 /* IMViewControllerMessageView.m in Sources */,
+				2DB200A41AB6FAF2000C2459 /* JTSImageInfo.m in Sources */,
 				F435C4641A56CDF800D76913 /* IMAnalyticsCholesterolLineViewController.m in Sources */,
 				F49A29911A3F0D1E006F9E34 /* IMSettingsViewController.m in Sources */,
 				F41268991A44AE41000E52E9 /* IMAnalyticsLineChartFooterView.m in Sources */,
@@ -1463,6 +1529,7 @@
 				F49A2A401A3F0D90006F9E34 /* TGRImageViewController.m in Sources */,
 				F49A29521A3F0D1E006F9E34 /* IMEventInputViewCell.m in Sources */,
 				F4F19B8D1A4D57E4003BAFC7 /* CAGradientLayer+IMGradients.m in Sources */,
+				2DB200A61AB6FAF2000C2459 /* JTSSimpleImageDownloader.m in Sources */,
 				F49A29501A3F0D1E006F9E34 /* IMEventInputTextFieldViewCell.m in Sources */,
 				F49A29D31A3F0D81006F9E34 /* IMCategoryInputView.m in Sources */,
 				F412684B1A42D463000E52E9 /* IMDayRecordTableViewController.m in Sources */,
@@ -1476,10 +1543,12 @@
 				F4F19B781A4AFDA8003BAFC7 /* IMEntryCholesterolInputViewController.m in Sources */,
 				F41268651A44A061000E52E9 /* IMEntryNoteInputViewController.m in Sources */,
 				F49A294F1A3F0D1E006F9E34 /* IMEventInputLabelViewCell.m in Sources */,
+				2DB2008D1AB6C162000C2459 /* IMUserAddEditViewController.m in Sources */,
 				F4F19B841A4C4614003BAFC7 /* IMSettingsCholesterolViewController.m in Sources */,
 				F49A2A431A3F0D90006F9E34 /* UIImage+AspectFit.m in Sources */,
 				F4F19B871A4C5CD1003BAFC7 /* IMSettingsBPViewController.m in Sources */,
 				F41268931A44AE41000E52E9 /* IMAnalyticsBaseChartViewController.m in Sources */,
+				2DB200A31AB6FAF2000C2459 /* JTSAnimatedGIFUtility.m in Sources */,
 				F49A29751A3F0D1E006F9E34 /* IMLocationReminderMapViewController.m in Sources */,
 				F49A29D41A3F0D81006F9E34 /* IMCategorySelectorButton.m in Sources */,
 				F49A2A391A3F0D90006F9E34 /* UIImage+Resize.m in Sources */,
@@ -1494,6 +1563,7 @@
 				F4F19B721A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m in Sources */,
 				F49A298E1A3F0D1E006F9E34 /* IMSettingsGlucoseViewController.m in Sources */,
 				F41268AF1A46E266000E52E9 /* IMUserCell.m in Sources */,
+				2DB200901AB6F80E000C2459 /* IMReportAddEditViewController.m in Sources */,
 				F49A2A2D1A3F0D90006F9E34 /* IMTagController.m in Sources */,
 				F49A2A421A3F0D90006F9E34 /* TGRImageZoomAnimationController.m in Sources */,
 				F41268DE1A46E343000E52E9 /* IMReminder.m in Sources */,
@@ -1508,21 +1578,22 @@
 				F41268DF1A46E343000E52E9 /* IMReminderRule.m in Sources */,
 				F4F19B811A4B0AFB003BAFC7 /* IMWeightReading.m in Sources */,
 				F41268981A44AE41000E52E9 /* IMAnalyticsBarChartFooterView.m in Sources */,
+				2DB200941AB6FAB1000C2459 /* KRLCollectionViewGridLayout.m in Sources */,
 				F435C46F1A59AB8400D76913 /* IMLoginView.m in Sources */,
 				F49A29761A3F0D1E006F9E34 /* IMLocationReminderViewController.m in Sources */,
 				F49A2A501A3F0D9B006F9E34 /* NSDictionary+Extension.m in Sources */,
 				F49A299C1A3F0D1E006F9E34 /* IMBaseViewController.m in Sources */,
 				F49A29951A3F0D1E006F9E34 /* IMTagsViewController.m in Sources */,
 				F49A2A531A3F0D9B006F9E34 /* UITextView+Extension.m in Sources */,
-				F41A76251A40697F006F9547 /* IMReportAddEditController.m in Sources */,
 				F49A29D51A3F0D82006F9E34 /* IMInputLabel.m in Sources */,
 				F49A2A381A3F0D90006F9E34 /* OrderedDictionary.m in Sources */,
-				F41268B11A46E266000E52E9 /* IMUserViewController.m in Sources */,
+				2DB200AB1AB6FB38000C2459 /* IMReportImageCell.m in Sources */,
 				F41268561A440B58000E52E9 /* IMEntryListTableViewCell.m in Sources */,
 				F49A29631A3F0D1E006F9E34 /* IMEventMapViewController.m in Sources */,
 				F49A299B1A3F0D1E006F9E34 /* IMTagHighlightTextStorage.m in Sources */,
 				F41268EB1A47FAFD000E52E9 /* IMRootViewController.m in Sources */,
 				F49A29D61A3F0D82006F9E34 /* IMSlider.m in Sources */,
+				2DB200A51AB6FAF2000C2459 /* JTSImageViewController.m in Sources */,
 				F49A2A581A3F16F4006F9E34 /* IMHelper.m in Sources */,
 				F41A76131A40005E006F9547 /* IMReportTableViewController.m in Sources */,
 				F41268A01A44AE41000E52E9 /* IMAnalyticsChartTooltipTipView.m in Sources */,
@@ -1556,6 +1627,7 @@
 				F49A295C1A3F0D1E006F9E34 /* IMEventInputTextField.m in Sources */,
 				F41268E11A46E343000E52E9 /* IMTag.m in Sources */,
 				F435C44C1A503A7500D76913 /* IMAnalyticsDateTableViewController.m in Sources */,
+				2DB200A71AB6FAF2000C2459 /* UIApplication+JTSImageViewController.m in Sources */,
 				F435C45E1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m in Sources */,
 				F41268DB1A46E343000E52E9 /* IMMedicine.m in Sources */,
 				F49A29531A3F0D1E006F9E34 /* IMEventLocationMapView.m in Sources */,

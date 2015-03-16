@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
   - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -24,10 +24,14 @@ PODS:
   - FXBlurView (1.5.6)
   - JBChartView (2.8.10)
   - MBProgressHUD (0.9)
-  - MSPageViewController (1.0.1)
   - Reachability (3.1.1)
+  - REFormattedNumberField (1.1.5)
   - REFrostedViewController (2.4.7)
   - REMenu (1.10)
+  - RETableViewManager (1.5.14):
+    - REFormattedNumberField (~> 1.1.5)
+    - REValidation (~> 0.1.4)
+  - REValidation (0.1.4)
   - SSKeychain (1.2.2)
   - TPKeyboardAvoiding (1.2.4)
   - UAAppReviewManager (0.2.6)
@@ -38,10 +42,10 @@ DEPENDENCIES:
   - FXBlurView (~> 1.5.3)
   - JBChartView (~> 2.8.9)
   - MBProgressHUD (~> 0.8)
-  - MSPageViewController (~> 1.0.0)
   - Reachability (~> 3.1.1)
   - REFrostedViewController (~> 2.4.2)
   - REMenu (~> 1.10)
+  - RETableViewManager (~> 1.5.14)
   - SSKeychain (~> 1.2.1)
   - TPKeyboardAvoiding (~> 1.2.2)
   - UAAppReviewManager (~> 0.2.1)
@@ -52,12 +56,14 @@ SPEC CHECKSUMS:
   FXBlurView: 980bb3a2646234366be3de1bc087ddfc31ac77c5
   JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
-  MSPageViewController: 14496f16df16db1129caabaffa136a51f11961d2
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  REFormattedNumberField: 86318c549b60130a6d7a05abebb142f08f671319
   REFrostedViewController: 08870a24788191339608b80b2bd4fce549858f0d
   REMenu: e3988747d83f9e8f49f244bd3f1fb8b0900e8741
+  RETableViewManager: 62cab967dd2d24545283cf4751e94c222268533a
+  REValidation: a0033a582415848854e875dfcbe69c107de19f81
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   TPKeyboardAvoiding: 925e1e1912597d1a4956697eec3bd9656552153c
   UAAppReviewManager: f23428de9c9cd242c2ffd899e218ba3620bd0683
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

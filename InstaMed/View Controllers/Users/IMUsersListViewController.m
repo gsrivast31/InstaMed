@@ -7,7 +7,7 @@
 //
 
 #import "IMUsersListViewController.h"
-#import "IMUserViewController.h"
+#import "IMUserAddEditViewController.h"
 #import "IMUserCell.h"
 #import "IMCoreDataStack.h"
 #import "IMUser.h"
@@ -63,6 +63,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kCurrentProfileChangedNotification object:nil];
 }
 
+- (IBAction)addUser:(id)sender {
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:[[IMUserAddEditViewController alloc] init]] animated:YES completion:nil];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -107,14 +111,10 @@
     [coreDataStack saveContext];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"edit"]) {
-        UITableViewCell *cell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        UINavigationController *navigationController = segue.destinationViewController;
-        IMUserViewController *entryViewController = (IMUserViewController *)navigationController.topViewController;
-        entryViewController.entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    IMUserAddEditViewController* vc = [[IMUserAddEditViewController alloc] init];
+    vc.entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:vc] animated:YES completion:nil];
 }
 
 #pragma mark NSFetchedResultsControllerDelegate

@@ -167,6 +167,7 @@
                    NSFontAttributeName: [IMFont standardDemiBoldFontWithSize:13.0f],
                    NSForegroundColorAttributeName: [UIColor colorWithRed:22.0f/255.0f green:211.0f/255.0f blue:160.0f/255.0f alpha:1.0f]
                    };
+    
     [[UISegmentedControl appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UISegmentedControl appearance] setTintColor:[UIColor colorWithRed:22.0f/255.0f green:211.0f/255.0f blue:160.0f/255.0f alpha:1.0f]];
 }

@@ -13,7 +13,7 @@
 @implementation IMUser
 
 @dynamic bloodgroup;
-@dynamic dob;
+@dynamic age;
 @dynamic email;
 @dynamic gender;
 @dynamic height;

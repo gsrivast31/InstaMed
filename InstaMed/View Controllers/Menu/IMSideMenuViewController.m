@@ -33,12 +33,12 @@
 }
 
 @property (nonatomic, strong) UIImageView* imageView;
-@property (nonatomic, strong) UILabel* label;
+@property (nonatomic, strong) UILabel* nameLabel;
 @end
 
 @implementation IMSideMenuViewController
 
-@synthesize label;
+@synthesize nameLabel;
 @synthesize imageView;
 
 #pragma mark - Setup
@@ -66,13 +66,13 @@
         imageView.layer.shouldRasterize = YES;
         imageView.clipsToBounds = YES;
         
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileName];
-        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        label.backgroundColor = [UIColor clearColor];
-        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-        [label sizeToFit];
-        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
+        nameLabel.text = [[NSUserDefaults standardUserDefaults] valueForKey:kCurrentProfileName];
+        nameLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        nameLabel.backgroundColor = [UIColor clearColor];
+        nameLabel.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+        nameLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        [nameLabel sizeToFit];
         
         UILabel* changeUserLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 178, 0, 18)];
         changeUserLabel.text = @"Change User";
@@ -87,7 +87,7 @@
         [changeUserLabel addGestureRecognizer:tapGesture];
         
         [view addSubview:imageView];
-        [view addSubview:label];
+        [view addSubview:nameLabel];
         [view addSubview:changeUserLabel];
         view;
     });
@@ -159,7 +159,8 @@
     NSString* name = [info valueForKey:@"name"];
     UIImage* image = [info valueForKey:@"image"];
 
-    label.text = name;
+    nameLabel.text = name;
+    //[nameLabel sizeToFit];
     imageView.image = image;
 }
 

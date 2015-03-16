@@ -25,7 +25,7 @@ NS_ENUM(int16_t, IMTrackedDisease) {
 @interface IMUser : NSManagedObject
 
 @property (nonatomic, retain) NSString * bloodgroup;
-@property (nonatomic) NSTimeInterval dob;
+@property (nonatomic) int16_t age;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic) int16_t gender;
 @property (nonatomic) int16_t height;

@@ -7,7 +7,7 @@
 //
 
 #import "IMReportViewController.h"
-#import "IMReportAddEditController.h"
+#import "IMReportAddEditViewController.h"
 #import "IMCoreDataStack.h"
 #import "IMReportViewCell.h"
 
@@ -120,7 +120,7 @@
     UITableViewCell *cell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     UINavigationController *navigationController = segue.destinationViewController;
-    IMReportAddEditController *entryViewController = (IMReportAddEditController *)navigationController.topViewController;
+    IMReportAddEditViewController *entryViewController = (IMReportAddEditViewController *)navigationController.topViewController;
     entryViewController.reportType = self.reportType;
 
     if ([segue.identifier isEqualToString:@"edit"]) {
