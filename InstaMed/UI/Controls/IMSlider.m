@@ -1,6 +1,6 @@
 //
 //  IMSlider.m
-//  HealthMemoir
+//  InstaMed
 //
 //  Based heavily on the mneuwert's ValueTrackingSlider
 //  https://github.com/mneuwert/iOS-Custom-Controls/tree/master/ValueTrackingSlider

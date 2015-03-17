@@ -1,13 +1,13 @@
 //
 //  IMUI.h
-//  HealthMemoir
+//  InstaMed
 //
 //  Created by GAURAV SRIVASTAVA on 15/12/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
 //
 
-#ifndef HealthMemoir_IMUI_h
-#define HealthMemoir_IMUI_h
+#ifndef InstaMed_IMUI_h
+#define InstaMed_IMUI_h
 
 // Misc
 #import "IMFont.h"

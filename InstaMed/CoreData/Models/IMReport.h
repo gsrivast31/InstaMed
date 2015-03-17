@@ -1,6 +1,6 @@
 //
 //  IMReport.h
-//  HealthMemoir
+//  InstaMed
 //
 //  Created by GAURAV SRIVASTAVA on 17/12/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.

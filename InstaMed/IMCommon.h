@@ -1,6 +1,6 @@
 //
 //  IMCommon.h
-//  HealthMemoir
+//  InstaMed
 //
 //  Created by GAURAV SRIVASTAVA on 12/12/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
@@ -12,8 +12,8 @@
 #import "IMBaseObject.h"
 #import "IMCoreDataStack.h"
 
-#ifndef HealthMemoir_UACommon_h
-#define HealthMemoir_UACommon_h
+#ifndef InstaMed_UACommon_h
+#define InstaMed_UACommon_h
 
 #define kDefaultBarTintColor [UIColor colorWithRed:0/255.0 green:213/255.0 blue:161/255.0 alpha:1];
 #define kDefaultTintColor [UIColor whiteColor];
@@ -84,7 +84,7 @@ NS_ENUM(int16_t, IMEventType) {
 };
 
 // Constants
-static NSString * const kErrorDomain = @"com.memoir.HealthMemoir";
+static NSString * const kErrorDomain = @"com.memoir.instamed";
 
 // Notifications
 static NSString * const kRemindersUpdatedNotification = @"com.memoir.reminders.updated";

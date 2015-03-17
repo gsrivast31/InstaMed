@@ -1,13 +1,13 @@
 //
-//  HealthMemoir_Prefix.pch
-//  HealthMemoir
+//  InstaMed_Prefix.pch
+//  InstaMed
 //
 //  Created by GAURAV SRIVASTAVA on 21/11/14.
 //  Copyright (c) 2014 GAURAV SRIVASTAVA. All rights reserved.
 //
 
-#ifndef HealthMemoir_HealthMemoir_Prefix_pch
-#define HealthMemoir_HealthMemoir_Prefix_pch
+#ifndef InstaMed_InstaMed_Prefix_pch
+#define InstaMed_InstaMed_Prefix_pch
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
@@ -16,7 +16,7 @@
 #import "IMCommon.h"
 #endif
 
-#define APP_NAME "HealthMemoir"
+#define APP_NAME "InstaMed"
 
 #define VERSION_MAJOR 1
 #define VERSION_MINOR 0
