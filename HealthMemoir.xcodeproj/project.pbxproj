@@ -48,7 +48,7 @@
 		F41268AF1A46E266000E52E9 /* IMUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268AA1A46E266000E52E9 /* IMUserCell.m */; };
 		F41268B01A46E266000E52E9 /* IMUsersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268AC1A46E266000E52E9 /* IMUsersListViewController.m */; };
 		F41268D31A46E343000E52E9 /* IMCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268B31A46E342000E52E9 /* IMCoreDataStack.m */; };
-		F41268D41A46E343000E52E9 /* HealthMemoir.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41268B41A46E342000E52E9 /* HealthMemoir.xcdatamodeld */; };
+		F41268D41A46E343000E52E9 /* InstaMed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41268B41A46E342000E52E9 /* InstaMed.xcdatamodeld */; };
 		F41268D51A46E343000E52E9 /* IMActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268B81A46E343000E52E9 /* IMActivity.m */; };
 		F41268D61A46E343000E52E9 /* IMBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268BA1A46E343000E52E9 /* IMBaseObject.m */; };
 		F41268D71A46E343000E52E9 /* IMDisease.m in Sources */ = {isa = PBXBuildFile; fileRef = F41268BC1A46E343000E52E9 /* IMDisease.m */; };
@@ -272,7 +272,7 @@
 		F41268AC1A46E266000E52E9 /* IMUsersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMUsersListViewController.m; path = "View Controllers/Users/IMUsersListViewController.m"; sourceTree = "<group>"; };
 		F41268B21A46E342000E52E9 /* IMCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMCoreDataStack.h; path = CoreData/IMCoreDataStack.h; sourceTree = "<group>"; };
 		F41268B31A46E342000E52E9 /* IMCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMCoreDataStack.m; path = CoreData/IMCoreDataStack.m; sourceTree = "<group>"; };
-		F41268B51A46E343000E52E9 /* HealthMemoir.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthMemoir.xcdatamodel; sourceTree = "<group>"; };
+		F41268B51A46E343000E52E9 /* InstaMed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaMed.xcdatamodel; sourceTree = "<group>"; };
 		F41268B71A46E343000E52E9 /* IMActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMActivity.h; sourceTree = "<group>"; };
 		F41268B81A46E343000E52E9 /* IMActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMActivity.m; sourceTree = "<group>"; };
 		F41268B91A46E343000E52E9 /* IMBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseObject.h; sourceTree = "<group>"; };
@@ -487,6 +487,7 @@
 		F49A2A541A3F16F4006F9E34 /* IMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCommon.h; sourceTree = "<group>"; };
 		F49A2A561A3F16F4006F9E34 /* IMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMHelper.h; sourceTree = "<group>"; };
 		F49A2A571A3F16F4006F9E34 /* IMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMHelper.m; sourceTree = "<group>"; };
+		F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
 		F4F19B701A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryBPReadingInputViewController.h; path = Entries/IMEntryBPReadingInputViewController.h; sourceTree = "<group>"; };
 		F4F19B711A4AFD2A003BAFC7 /* IMEntryBPReadingInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMEntryBPReadingInputViewController.m; path = Entries/IMEntryBPReadingInputViewController.m; sourceTree = "<group>"; };
 		F4F19B731A4AFD82003BAFC7 /* IMEntryWeightInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMEntryWeightInputViewController.h; path = Entries/IMEntryWeightInputViewController.h; sourceTree = "<group>"; };
@@ -577,6 +578,7 @@
 		A9A49D286396C10B47ABA8CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F49A2A591A3F2498006F9E34 /* ShinobiCharts.framework */,
 				F499BA0B1A3D596E006517BC /* CoreData.framework */,
 				3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */,
 			);
@@ -586,8 +588,8 @@
 		F4104AB41A3AF8B400EF8193 = {
 			isa = PBXGroup;
 			children = (
-				F4104ABF1A3AF8B400EF8193 /* HealthMemoir */,
-				F4104ADC1A3AF8B500EF8193 /* HealthMemoirTests */,
+				F4104ABF1A3AF8B400EF8193 /* InstaMed */,
+				F4104ADC1A3AF8B500EF8193 /* InstaMedTests */,
 				F4104ABE1A3AF8B400EF8193 /* Products */,
 				734D86943D92F088B15A7F1C /* Pods */,
 				A9A49D286396C10B47ABA8CE /* Frameworks */,
@@ -603,7 +605,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F4104ABF1A3AF8B400EF8193 /* HealthMemoir */ = {
+		F4104ABF1A3AF8B400EF8193 /* InstaMed */ = {
 			isa = PBXGroup;
 			children = (
 				F49A2A441A3F0D9B006F9E34 /* Categories */,
@@ -630,7 +632,6 @@
 				F435C46D1A59AB8300D76913 /* IMLoginView.h */,
 				F435C46E1A59AB8400D76913 /* IMLoginView.m */,
 			);
-			name = HealthMemoir;
 			path = InstaMed;
 			sourceTree = "<group>";
 		};
@@ -643,13 +644,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F4104ADC1A3AF8B500EF8193 /* HealthMemoirTests */ = {
+		F4104ADC1A3AF8B500EF8193 /* InstaMedTests */ = {
 			isa = PBXGroup;
 			children = (
 				F4104ADF1A3AF8B500EF8193 /* InstaMedTests.m */,
 				F4104ADD1A3AF8B500EF8193 /* Supporting Files */,
 			);
-			name = HealthMemoirTests;
 			path = InstaMedTests;
 			sourceTree = "<group>";
 		};
@@ -666,7 +666,7 @@
 			children = (
 				F41268B21A46E342000E52E9 /* IMCoreDataStack.h */,
 				F41268B31A46E342000E52E9 /* IMCoreDataStack.m */,
-				F41268B41A46E342000E52E9 /* HealthMemoir.xcdatamodeld */,
+				F41268B41A46E342000E52E9 /* InstaMed.xcdatamodeld */,
 				F41268B61A46E343000E52E9 /* Models */,
 			);
 			name = CoreData;
@@ -1631,7 +1631,7 @@
 				F435C45E1A56A66900D76913 /* IMAnalyticsWeightLineViewController.m in Sources */,
 				F41268DB1A46E343000E52E9 /* IMMedicine.m in Sources */,
 				F49A29531A3F0D1E006F9E34 /* IMEventLocationMapView.m in Sources */,
-				F41268D41A46E343000E52E9 /* HealthMemoir.xcdatamodeld in Sources */,
+				F41268D41A46E343000E52E9 /* InstaMed.xcdatamodeld in Sources */,
 				F41268681A44A08E000E52E9 /* IMEntryMedicineInputViewController.m in Sources */,
 				F49A294D1A3F0D1E006F9E34 /* IMEventDateTimeViewCell.m in Sources */,
 				F49A29711A3F0D1E006F9E34 /* IMSideMenuCell.m in Sources */,
@@ -1779,12 +1779,12 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = HealthMemoir/HealthMemoir_Prefix.pch;
+				GCC_PREFIX_HEADER = InstaMed/HealthMemoir_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoir;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1799,12 +1799,12 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = HealthMemoir/HealthMemoir_Prefix.pch;
+				GCC_PREFIX_HEADER = InstaMed/HealthMemoir_Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoir;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1821,9 +1821,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = HealthMemoirTests/Info.plist;
+				INFOPLIST_FILE = InstaMedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoirTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaMed.app/InstaMed";
 			};
 			name = Debug;
@@ -1836,9 +1836,9 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = HealthMemoirTests/Info.plist;
+				INFOPLIST_FILE = InstaMedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoirTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaMed.app/InstaMed";
 			};
 			name = Release;
@@ -1876,14 +1876,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F41268B41A46E342000E52E9 /* HealthMemoir.xcdatamodeld */ = {
+		F41268B41A46E342000E52E9 /* InstaMed.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F41268B51A46E343000E52E9 /* HealthMemoir.xcdatamodel */,
+				F41268B51A46E343000E52E9 /* InstaMed.xcdatamodel */,
 			);
-			currentVersion = F41268B51A46E343000E52E9 /* HealthMemoir.xcdatamodel */;
-			name = HealthMemoir.xcdatamodeld;
-			path = CoreData/HealthMemoir.xcdatamodeld;
+			currentVersion = F41268B51A46E343000E52E9 /* InstaMed.xcdatamodel */;
+			name = InstaMed.xcdatamodeld;
+			path = CoreData/InstaMed.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
