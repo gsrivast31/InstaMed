@@ -207,7 +207,7 @@
 		3B1B2D113720A55D7BA90E9C /* libPods-InstaMed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaMed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B3341494593136D1072CB5 /* Pods-InstaMed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.debug.xcconfig"; sourceTree = "<group>"; };
 		B7DC54FB41B2417BB2AA62A7 /* Pods-InstaMed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMed.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaMed/Pods-InstaMed.release.xcconfig"; sourceTree = "<group>"; };
-		F4104ABD1A3AF8B400EF8193 /* InstaMed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaMed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4104ABD1A3AF8B400EF8193 /* HealthMemoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthMemoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4104AC11A3AF8B400EF8193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4104AC21A3AF8B500EF8193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4104AC41A3AF8B500EF8193 /* IMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMAppDelegate.h; sourceTree = "<group>"; };
@@ -599,7 +599,7 @@
 		F4104ABE1A3AF8B400EF8193 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4104ABD1A3AF8B400EF8193 /* InstaMed.app */,
+				F4104ABD1A3AF8B400EF8193 /* HealthMemoir.app */,
 				F4104AD91A3AF8B500EF8193 /* InstaMedTests.xctest */,
 			);
 			name = Products;
@@ -1378,7 +1378,7 @@
 			);
 			name = InstaMed;
 			productName = InstaMed;
-			productReference = F4104ABD1A3AF8B400EF8193 /* InstaMed.app */;
+			productReference = F4104ABD1A3AF8B400EF8193 /* HealthMemoir.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F4104AD81A3AF8B500EF8193 /* InstaMedTests */ = {
@@ -1784,7 +1784,7 @@
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoir;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1804,7 +1804,7 @@
 				INFOPLIST_FILE = InstaMed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HealthMemoir;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
