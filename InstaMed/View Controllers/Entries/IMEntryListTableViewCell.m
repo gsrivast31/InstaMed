@@ -33,7 +33,7 @@
     } else if (eventType == IMActivityType) {
         image = [UIImage imageNamed:@"Activity_filled"];
     } else if (eventType == IMNoteType) {
-        image = [UIImage imageNamed:@"Note"];
+        image = [UIImage imageNamed:@"note"];
     }
     self.entryNameLabel.text = name;
     self.entryImageView.image = image;
