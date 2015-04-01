@@ -167,20 +167,20 @@
     
     switch(adjustedSection) {
         case kReminderTypeDate:
-            cell.imageView.image = [UIImage imageNamed:@"ListMenuIconTimeReminder"];
-            cell.imageView.highlightedImage = [UIImage imageNamed:@"ListMenuIconTimeReminderHighlighted"];
+            cell.imageView.image = [UIImage imageNamed:@"reminder"];
+            cell.imageView.highlightedImage = [UIImage imageNamed:@"reminder"];
             break;
         case kReminderTypeRepeating:
-            cell.imageView.image = [UIImage imageNamed:@"ListMenuIconDateReminder"];
-            cell.imageView.highlightedImage = [UIImage imageNamed:@"ListMenuIconDateReminderHighlighted"];
+            cell.imageView.image = [UIImage imageNamed:@"reminder"];
+            cell.imageView.highlightedImage = [UIImage imageNamed:@"reminder"];
             break;
         case kReminderTypeLocation:
-            cell.imageView.image = [UIImage imageNamed:@"ListMenuIconLocationReminder"];
-            cell.imageView.highlightedImage = [UIImage imageNamed:@"ListMenuIconLocationReminderHighlighted"];
+            cell.imageView.image = [UIImage imageNamed:@"reminder"];
+            cell.imageView.highlightedImage = [UIImage imageNamed:@"reminder"];
             break;
         case kReminderTypeRule:
-            cell.imageView.image = [UIImage imageNamed:@"ListMenuIconRuleReminder"];
-            cell.imageView.highlightedImage = [UIImage imageNamed:@"ListMenuIconRuleReminderHighlighted"];
+            cell.imageView.image = [UIImage imageNamed:@"reminder"];
+            cell.imageView.highlightedImage = [UIImage imageNamed:@"reminder"];
             break;
         default:
             cell.imageView.image = nil;

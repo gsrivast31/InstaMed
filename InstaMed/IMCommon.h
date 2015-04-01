@@ -12,8 +12,8 @@
 #import "IMBaseObject.h"
 #import "IMCoreDataStack.h"
 
-#ifndef InstaMed_UACommon_h
-#define InstaMed_UACommon_h
+#ifndef InstaMed_IMCommon_h
+#define InstaMed_IMCommon_h
 
 #define kDefaultBarTintColor [UIColor colorWithRed:0/255.0 green:213/255.0 blue:161/255.0 alpha:1];
 #define kDefaultTintColor [UIColor whiteColor];
@@ -85,6 +85,10 @@ NS_ENUM(int16_t, IMEventType) {
 
 // Constants
 static NSString * const kErrorDomain = @"com.memoir.instamed";
+
+static NSString* const APP_ID = @"958303692";
+static NSString* const APP_NAME = @"HealthMemoir";
+static NSString* const APP_URL = @"https://itunes.apple.com/app/id/id958303692";
 
 // Notifications
 static NSString * const kRemindersUpdatedNotification = @"com.memoir.reminders.updated";

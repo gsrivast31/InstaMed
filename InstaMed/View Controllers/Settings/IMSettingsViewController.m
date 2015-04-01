@@ -126,7 +126,8 @@
             cell.textLabel.text = NSLocalizedString(@"Need help? Contact support!", nil);
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else if(indexPath.row == 1) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ 😊", NSLocalizedString(@"Rate InstaMed in the App Store", nil)];
+            NSString* text = [NSString stringWithFormat:@"Rate %@ in the App Store", APP_NAME];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ 😊", NSLocalizedString(text , nil)];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else if(indexPath.row == 2) {
             cell.textLabel.text = NSLocalizedString(@"Licenses", @"An option to view third-party software licenses used throughout the application");
@@ -169,9 +170,9 @@
                 MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
                 [mailController setMailComposeDelegate:self];
                 [mailController setModalPresentationStyle:UIModalPresentationFormSheet];
-                [mailController setSubject:@"InstaMed Support"];
+                [mailController setSubject:[NSString stringWithFormat:@"%@ Support", APP_NAME]];
                 [mailController setToRecipients:@[@"gaurav.sri87@gmail.com"]];
-                [mailController setMessageBody:[NSString stringWithFormat:@"%@\n\n", NSLocalizedString(@"I need help with InstaMed! Here's the problem:", @"A default message shown to users when contacting support for help")] isHTML:NO];
+                [mailController setMessageBody:[NSString stringWithFormat:@"%@\n\n", NSLocalizedString(@"Here's my feedback:", @"A default message shown to users when contacting support for help")] isHTML:NO];
                 if(mailController) {
                     [self presentViewController:mailController animated:YES completion:nil];
                 }

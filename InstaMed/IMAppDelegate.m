@@ -35,13 +35,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Initialise Appirater
-    [UAAppReviewManager setAppID:@"958303692"];
+    [UAAppReviewManager setAppID:APP_ID];
     [UAAppReviewManager setDaysUntilPrompt:2];
     [UAAppReviewManager setUsesUntilPrompt:5];
     [UAAppReviewManager setSignificantEventsUntilPrompt:-1];
     [UAAppReviewManager setDaysBeforeReminding:3];
-    [UAAppReviewManager setReviewMessage:NSLocalizedString(@"If you find InstaMed useful you can help support further development by leaving a review on the App Store. It'll only take a minute!", nil)];
-    
+    [UAAppReviewManager setReviewMessage:[NSString stringWithFormat:NSLocalizedString(@"If you find %@ useful you can help support further development by leaving a review on the App Store. It'll only take a minute!", nil), APP_NAME]];
     // Is this a first run experience?
     if(![[NSUserDefaults standardUserDefaults] boolForKey:kHasRunBeforeKey]) {
         // Dump any existing local notifications (handy when the application has been deleted and re-installed,

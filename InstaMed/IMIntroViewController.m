@@ -31,26 +31,43 @@
     [super viewDidLoad];
     
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Journal";
-    page1.desc = @"InstaMed is a new kind of diabetic journal that lets you track your blood glucose, medication, food and personal activities.\n\nTo learn more swipe your finger to the left.";
+    page1.title = @"";
+    page1.desc = @"Keep track of blood glucose, hypertension, medicines, cholesterol, weight, food and personal activities.";
     page1.bgImage = [UIImage imageNamed:@"bg1"];
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner1_small"]];
     
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"Export";
-    page2.desc = @"InstaMed is capable of exporting your data in CSV or PDF format.\n\nPerfect for importing into other software or for printing to show your health care provider!";
-    page2.bgImage = [UIImage imageNamed:@"bg2"];
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
+    page2.title = @"";
+    page2.desc = @"View your recorded data in a nicely arranged timeline.";
+    page2.bgImage = [UIImage imageNamed:@"bg1"];
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner2_small"]];
     
     EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"Reminders";
-    page3.desc = @"Reminders are a great way to keep on top of things.\n\nAlong with one-time and repeat reminders you can also setup location-based reminders to alert you when you leave or arrive at a particular location.";
-    
-    page3.bgImage = [UIImage imageNamed:@"bg4"];
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title"]];
-    
-    EAIntroPage *page4 = [EAIntroPage pageWithCustomViewFromNibNamed:@"LoginView"];
-    [self setDefaultState:(IMLoginView *)page4.customView];
+    page3.title = @"";
+    page3.desc = @"Store all your  physical records including physician reports, drug prescriptions, lab results, hospital papers etc.";
+    page3.bgImage = [UIImage imageNamed:@"bg1"];
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner3_small"]];
+
+    EAIntroPage *page4 = [EAIntroPage page];
+    page4.title = @"";
+    page4.desc = @"Manage separate records for yourself and your family members. Set their preferences and track the thing they want to track(Diabetes, Blood Pressure, Weight, Cholesterol).";
+    page4.bgImage = [UIImage imageNamed:@"bg1"];
+    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner4_small"]];
+
+    EAIntroPage *page5 = [EAIntroPage page];
+    page5.title = @"";
+    page5.desc = @"Analytics : See how you perform over a period; how much you deviate and what has been your average record.";
+    page5.bgImage = [UIImage imageNamed:@"bg1"];
+    page5.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner5_small"]];
+
+    EAIntroPage *page6 = [EAIntroPage page];
+    page6.title = @"";
+    page6.desc = @"More : Set reminders, add tags to records for easy management, export them to pdf or csv etc.";
+    page6.bgImage = [UIImage imageNamed:@"bg1"];
+    page6.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner7_small"]];
+
+    EAIntroPage *page7 = [EAIntroPage pageWithCustomViewFromNibNamed:@"LoginView"];
+    [self setDefaultState:(IMLoginView *)page7.customView];
     
     intro = [[EAIntroView alloc] initWithFrame:self.view.bounds];
     intro.skipButton.hidden = YES;
@@ -58,18 +75,18 @@
     [intro setSwipeToExit:FALSE];
     [intro setTapToNext:TRUE];
 
-    page4.onPageDidAppear = ^{
+    page7.onPageDidAppear = ^{
         [UIView animateWithDuration:0.1f animations:^{
             intro.pageControl.alpha = 0.0f;
         }];
     };
-    page4.onPageDidDisappear = ^{
+    page7.onPageDidDisappear = ^{
         [UIView animateWithDuration:0.1f animations:^{
             intro.pageControl.alpha = 1.0f;
         }];
     };
     
-    [intro setPages:@[page1,page2,page3,page4]];
+    [intro setPages:@[page1,page2,page3,page4,page5,page6,page7]];
     [intro setDelegate:self];
     
     [intro showInView:self.view animateDuration:0.3];

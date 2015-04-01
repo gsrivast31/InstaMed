@@ -163,6 +163,7 @@
         {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
+        cell.tintColor = kDefaultBarTintColor;
     }
     
     return cell;

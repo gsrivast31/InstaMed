@@ -34,7 +34,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoPath" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sectionIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sectionIdentifier" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IMTag" inverseName="events" inverseEntity="IMTag" syncable="YES"/>
     </entity>
@@ -108,7 +108,7 @@
         <element name="IMBPReading" positionX="81" positionY="126" width="128" height="73"/>
         <element name="IMCholesterolReading" positionX="90" positionY="135" width="128" height="73"/>
         <element name="IMDisease" positionX="207" positionY="-27" width="128" height="73"/>
-        <element name="IMEvent" positionX="99" positionY="72" width="128" height="208"/>
+        <element name="IMEvent" positionX="99" positionY="72" width="128" height="210"/>
         <element name="IMImage" positionX="81" positionY="126" width="128" height="73"/>
         <element name="IMMeal" positionX="117" positionY="144" width="128" height="73"/>
         <element name="IMMedicine" positionX="126" positionY="153" width="128" height="73"/>
